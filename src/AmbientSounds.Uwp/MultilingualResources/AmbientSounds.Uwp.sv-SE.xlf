@@ -1242,10 +1242,6 @@
           <source>Enable countdown timer</source>
           <target state="translated">Aktivera nedräkningstimer</target>
         </trans-unit>
-        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
-          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
-          <target state="translated">Ljud av hög kvalitet, premiumvideor och utvalda meditationer. Tillgång till allt framtida innehåll. Lås upp allt med Ambie+ och hitta din nästa favoritmiljö.</target>
-        </trans-unit>
         <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
           <source>Same benefits, lower monthly cost</source>
           <target state="translated">Samma fördelar, lägre månadskostnad</target>
@@ -1393,6 +1389,18 @@
         <trans-unit id="SelectMoreSoundsPlaceholder" translate="yes" xml:space="preserve">
           <source>Mix and match up to 5 sounds</source>
           <target state="translated">Mixa och matcha upp till 5 ljud</target>
+        </trans-unit>
+        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
+          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Play more than 3 sounds. Unlock it all with Ambie+, and find your next favourite ambience.</source>
+          <target state="translated">Ljud av hög kvalitet, premiumvideor och utvalda meditationer. Tillgång till allt framtida innehåll. Spela upp fler än 3 ljud. Lås upp allt med Ambie+ och hitta din nästa favoritmiljö.</target>
+        </trans-unit>
+        <trans-unit id="MoreSoundsTipDescription" translate="yes" xml:space="preserve">
+          <source>Get Ambie+ to play up to 5 sounds</source>
+          <target state="translated">Få Ambie+ att spela upp till 5 ljud</target>
+        </trans-unit>
+        <trans-unit id="MoreSoundsTipTitle" translate="yes" xml:space="preserve">
+          <source>Mix and match more sounds</source>
+          <target state="translated">Mixa och matcha fler ljud</target>
         </trans-unit>
       </group>
     </body>

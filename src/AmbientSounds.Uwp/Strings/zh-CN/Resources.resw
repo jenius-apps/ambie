@@ -939,9 +939,6 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>启用倒数计时器</value>
   </data>
-  <data name="PremiumMessage" xml:space="preserve">
-    <value>高品质的声音、优质的视频和精心策划的冥想。访问所有未来内容。用 Ambie+ 解锁一切，找到你下一个最喜欢的氛围。</value>
-  </data>
   <data name="AnnualPlanCaption" xml:space="preserve">
     <value>相同的权益，更低的每月费用</value>
   </data>
@@ -1052,5 +1049,14 @@
   </data>
   <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
     <value>混合和匹配多达 5 种声音</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>高品质的声音、优质视频和精心策划的冥想。访问所有未来内容。播放 3 种以上的声音。使用 Ambie+ 解锁这一切，并找到您下一个最喜欢的氛围。</value>
+  </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>让 Ambie+ 播放多达 5 种声音</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>混合和匹配更多声音</value>
   </data>
 </root>

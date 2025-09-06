@@ -401,10 +401,10 @@
             Subtitle="{x:Bind strings:Resources.MissingShareSoundsMessage}" />
 
         <winui:TeachingTip
-            Title="{x:Bind strings:Resources.FreeTrialTipTitle}"
-            IsOpen="{x:Bind ViewModel.IsFreeTrialMessageVisible, Mode=OneWay}"
+            Title="{x:Bind ViewModel.PremiumTeachingTipTitle, Mode=OneWay}"
+            IsOpen="{x:Bind ViewModel.IsPremiumTeachingTipVisible, Mode=OneWay}"
             PreferredPlacement="Top"
-            Subtitle="{x:Bind strings:Resources.FreeTrialTipDescription}"
+            Subtitle="{x:Bind ViewModel.PremiumTeachingTipMessage, Mode=OneWay}"
             Target="{x:Bind PremiumButton}">
             <winui:TeachingTip.IconSource>
                 <winui:FontIconSource FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphGiftbox}" />

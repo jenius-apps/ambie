@@ -939,9 +939,6 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Povolit odpočítávání</value>
   </data>
-  <data name="PremiumMessage" xml:space="preserve">
-    <value>Vysoce kvalitní zvuky, prémiová videa a vybrané meditace. Přístup k veškerému budoucímu obsahu. Odemkněte vše s Ambie+ a najděte si své další oblíbené prostředí.</value>
-  </data>
   <data name="AnnualPlanCaption" xml:space="preserve">
     <value>Stejné výhody, nižší měsíční náklady</value>
   </data>
@@ -1052,5 +1049,14 @@
   </data>
   <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
     <value>Mixujte a spojte až 5 zvuků</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Vysoce kvalitní zvuky, prémiová videa a vybrané meditace. Přístup k veškerému budoucímu obsahu. Přehrajte více než 3 zvuky. Odemkněte vše s Ambie+ a najděte si své další oblíbené prostředí.</value>
+  </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Pořiďte si Ambie+ pro přehrávání až 5 zvuků</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>Kombinujte více zvuků</value>
   </data>
 </root>

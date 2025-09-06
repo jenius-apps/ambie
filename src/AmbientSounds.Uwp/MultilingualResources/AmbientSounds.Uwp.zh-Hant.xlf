@@ -1242,10 +1242,6 @@
           <source>Enable countdown timer</source>
           <target state="translated">啟用倒數計時器</target>
         </trans-unit>
-        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
-          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
-          <target state="translated">高品質的聲音、優質的視頻和精心策劃的冥想。訪問所有未來內容。用Ambie+ 解鎖一切，找到你下一個最喜歡的氛圍。</target>
-        </trans-unit>
         <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
           <source>Same benefits, lower monthly cost</source>
           <target state="translated">相同的權益，更低的每月費用</target>
@@ -1393,6 +1389,18 @@
         <trans-unit id="SelectMoreSoundsPlaceholder" translate="yes" xml:space="preserve">
           <source>Mix and match up to 5 sounds</source>
           <target state="translated">混合搭配多達 5 種聲音</target>
+        </trans-unit>
+        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
+          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Play more than 3 sounds. Unlock it all with Ambie+, and find your next favourite ambience.</source>
+          <target state="translated">高品質的聲音、優質視頻和精心策劃的冥想。訪問所有未來的內容。播放 3 種以上的聲音。使用 Ambie+ 解鎖這一切，並找到您下一個最喜歡的氛圍。</target>
+        </trans-unit>
+        <trans-unit id="MoreSoundsTipDescription" translate="yes" xml:space="preserve">
+          <source>Get Ambie+ to play up to 5 sounds</source>
+          <target state="translated">讓 Ambie+ 播放多達 5 種聲音</target>
+        </trans-unit>
+        <trans-unit id="MoreSoundsTipTitle" translate="yes" xml:space="preserve">
+          <source>Mix and match more sounds</source>
+          <target state="translated">混合搭配更多聲音</target>
         </trans-unit>
       </group>
     </body>

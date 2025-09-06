@@ -1250,10 +1250,6 @@
           <source>Enable countdown timer</source>
           <target state="translated">Visszaszámláló engedélyezése</target>
         </trans-unit>
-        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
-          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
-          <target state="translated">Kiváló minőségű hangok, prémium videók és válogatott meditációk. Hozzáférés minden jövőbeli tartalomhoz. Oldja fel mindezt az Ambie+ segítségével, és találja meg a következő kedvenc környezetét.</target>
-        </trans-unit>
         <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
           <source>Same benefits, lower monthly cost</source>
           <target state="translated">Ugyanazok az előnyök, alacsonyabb havi költség</target>
@@ -1401,6 +1397,18 @@
         <trans-unit id="SelectMoreSoundsPlaceholder" translate="yes" xml:space="preserve">
           <source>Mix and match up to 5 sounds</source>
           <target state="translated">Keverjen és illesszen össze akár 5 hangot</target>
+        </trans-unit>
+        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
+          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Play more than 3 sounds. Unlock it all with Ambie+, and find your next favourite ambience.</source>
+          <target state="translated">Kiváló minőségű hangok, prémium videók és válogatott meditációk. Hozzáférés az összes jövőbeli tartalomhoz. Játsszon le több mint 3 hangot. Oldd fel mindezt az Ambie+ segítségével, és találd meg a következő kedvenc környezetedet.</target>
+        </trans-unit>
+        <trans-unit id="MoreSoundsTipDescription" translate="yes" xml:space="preserve">
+          <source>Get Ambie+ to play up to 5 sounds</source>
+          <target state="translated">Szerezze be az Ambie+-t akár 5 hang lejátszásához</target>
+        </trans-unit>
+        <trans-unit id="MoreSoundsTipTitle" translate="yes" xml:space="preserve">
+          <source>Mix and match more sounds</source>
+          <target state="translated">Keverjen és illesszen össze több hangot</target>
         </trans-unit>
       </group>
     </body>

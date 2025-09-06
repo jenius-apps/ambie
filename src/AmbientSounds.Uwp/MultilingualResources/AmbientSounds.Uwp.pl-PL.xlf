@@ -1244,10 +1244,6 @@
           <source>Enable countdown timer</source>
           <target state="translated">Włącz minutnik</target>
         </trans-unit>
-        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
-          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
-          <target state="translated">Wysokiej jakości dźwięki, filmy premium i wyselekcjonowane medytacje. Dostęp do całej przyszłej zawartości. Odblokuj to wszystko dzięki Ambie+ i znajdź swoją kolejną ulubioną atmosferę.</target>
-        </trans-unit>
         <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
           <source>Same benefits, lower monthly cost</source>
           <target state="translated">Te same korzyści, niższy koszt miesięczny</target>
@@ -1395,6 +1391,18 @@
         <trans-unit id="SelectMoreSoundsPlaceholder" translate="yes" xml:space="preserve">
           <source>Mix and match up to 5 sounds</source>
           <target state="translated">Mieszaj i dopasowuj do 5 dźwięków</target>
+        </trans-unit>
+        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
+          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Play more than 3 sounds. Unlock it all with Ambie+, and find your next favourite ambience.</source>
+          <target state="translated">Wysokiej jakości dźwięki, filmy premium i wyselekcjonowane medytacje. Dostęp do całej przyszłej zawartości. Odtwarzaj więcej niż 3 dźwięki. Odblokuj to wszystko dzięki Ambie+ i znajdź swoją kolejną ulubioną atmosferę.</target>
+        </trans-unit>
+        <trans-unit id="MoreSoundsTipDescription" translate="yes" xml:space="preserve">
+          <source>Get Ambie+ to play up to 5 sounds</source>
+          <target state="translated">Pobierz Ambie+, aby odtwarzać do 5 dźwięków</target>
+        </trans-unit>
+        <trans-unit id="MoreSoundsTipTitle" translate="yes" xml:space="preserve">
+          <source>Mix and match more sounds</source>
+          <target state="translated">Miksuj i dopasowuj więcej dźwięków</target>
         </trans-unit>
       </group>
     </body>

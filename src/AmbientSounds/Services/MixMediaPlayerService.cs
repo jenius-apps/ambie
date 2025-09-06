@@ -13,6 +13,8 @@ public class MixMediaPlayerService : IMixMediaPlayerService
 {
     private const double DefaultFadeInDurationMs = 1000;
     private const double DefaultFadeOutDurationMs = 300;
+    private const int MaxFreeSoundCount = 3;
+    private const int MaxPremiumSoundCount = 5;
 
     private readonly Dictionary<string, IMediaPlayer> _activePlayers = [];
     private readonly Dictionary<string, string> _soundNames = [];
@@ -29,6 +31,9 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     private double _globalVolume;
     private MediaPlaybackState _playbackState = MediaPlaybackState.Paused;
     private string[] _lastAddedSoundIds = [];
+
+    /// <inheritdoc/>
+    public event EventHandler? MaxFreeSoundsHit;
 
     /// <inheritdoc/>
     public event EventHandler<SoundPlayedArgs>? SoundAdded;
@@ -296,12 +301,17 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         }
 
         string? soundIdRemoved = null;
-        if (_activePlayers.Count >= await GetMaxActiveAsync())
+        if (await GetMaxActiveAsync() is int maxcount && _activePlayers.Count >= maxcount)
         {
             // remove sound
             var oldestTime = _activeSoundDateTimes.Min(static x => x.Value);
             soundIdRemoved = _activeSoundDateTimes.FirstOrDefault(x => x.Value == oldestTime).Key;
             RemoveSound(soundIdRemoved, raiseSoundRemoved: false);
+
+            if (maxcount == MaxFreeSoundCount)
+            {
+                MaxFreeSoundsHit?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         bool sourceSetSuccessfully = false;
@@ -546,6 +556,6 @@ public class MixMediaPlayerService : IMixMediaPlayerService
 
     private async Task<int> GetMaxActiveAsync()
     {
-        return await _iapService.CanShowPremiumButtonsAsync() ? 3 : 5;
+        return await _iapService.CanShowPremiumButtonsAsync() ? MaxFreeSoundCount : MaxPremiumSoundCount;
     }
 }

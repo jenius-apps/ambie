@@ -936,9 +936,6 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Activați cronometrul cu numărătoare inversă</value>
   </data>
-  <data name="PremiumMessage" xml:space="preserve">
-    <value>Sunete de înaltă calitate, videoclipuri premium și meditații organizate. Acces la tot conținutul viitor. Deblochează totul cu Ambie+ și găsește-ți următoarea ambianță preferată.</value>
-  </data>
   <data name="AnnualPlanCaption" xml:space="preserve">
     <value>Aceleași beneficii, cost lunar mai mic</value>
   </data>
@@ -1049,5 +1046,14 @@
   </data>
   <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
     <value>Amestecați și potriviți până la 5 sunete</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Sunete de înaltă calitate, videoclipuri premium și meditații organizate. Acces la tot conținutul viitor. Redați mai mult de 3 sunete. Deblochează totul cu Ambie+ și găsește-ți următoarea ambianță preferată.</value>
+  </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Obțineți Ambie+ pentru a reda până la 5 sunete</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>Amestecați și potriviți mai multe sunete</value>
   </data>
 </root>

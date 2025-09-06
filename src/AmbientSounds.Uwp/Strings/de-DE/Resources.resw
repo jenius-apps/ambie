@@ -933,9 +933,6 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Countdown-Timer aktivieren</value>
   </data>
-  <data name="PremiumMessage" xml:space="preserve">
-    <value>Hochwertige Sounds, Premium-Videos und kuratierte Meditationen. Zugriff auf alle zukünftigen Inhalte. Schalten Sie mit Ambie+ alles frei und finden Sie Ihr nächstes Lieblingsambiente.</value>
-  </data>
   <data name="AnnualPlanCaption" xml:space="preserve">
     <value>Gleiche Vorteile, niedrigere monatliche Kosten</value>
   </data>
@@ -1043,5 +1040,14 @@
   </data>
   <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
     <value>Mischen und kombinieren Sie bis zu 5 Sounds</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Hochwertige Sounds, Premium-Videos und kuratierte Meditationen. Zugriff auf alle zukünftigen Inhalte. Spielen Sie mehr als 3 Sounds ab. Schalten Sie mit Ambie+ alles frei und finden Sie Ihr nächstes Lieblingsambiente.</value>
+  </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Holen Sie sich Ambie+, um bis zu 5 Sounds zu spielen</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>Mixe und kombiniere mehr Sounds</value>
   </data>
 </root>

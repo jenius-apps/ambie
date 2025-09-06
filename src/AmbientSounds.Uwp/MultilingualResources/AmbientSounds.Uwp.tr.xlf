@@ -1253,10 +1253,6 @@
           <source>Enable countdown timer</source>
           <target state="translated">Geri sayım sayacını etkinleştir</target>
         </trans-unit>
-        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
-          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
-          <target state="translated">Yüksek kaliteli sesler, birinci sınıf videolar ve küratörlüğünde meditasyonlar. Gelecekteki tüm içeriğe erişim. Ambie+ ile her şeyin kilidini açın ve yeni favori ambiyansınızı bulun.</target>
-        </trans-unit>
         <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
           <source>Same benefits, lower monthly cost</source>
           <target state="translated">Aynı avantajlar, daha düşük aylık maliyet</target>
@@ -1404,6 +1400,18 @@
         <trans-unit id="SelectMoreSoundsPlaceholder" translate="yes" xml:space="preserve">
           <source>Mix and match up to 5 sounds</source>
           <target state="translated">5 sese kadar karıştırın ve eşleştirin</target>
+        </trans-unit>
+        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
+          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Play more than 3 sounds. Unlock it all with Ambie+, and find your next favourite ambience.</source>
+          <target state="translated">Yüksek kaliteli sesler, birinci sınıf videolar ve küratörlüğünde meditasyonlar. Gelecekteki tüm içeriğe erişim. 3'ten fazla ses çalın. Ambie+ ile her şeyin kilidini açın ve yeni favori ambiyansınızı bulun.</target>
+        </trans-unit>
+        <trans-unit id="MoreSoundsTipDescription" translate="yes" xml:space="preserve">
+          <source>Get Ambie+ to play up to 5 sounds</source>
+          <target state="translated">Ambie+'ın 5 adede kadar ses çalmasını sağlayın</target>
+        </trans-unit>
+        <trans-unit id="MoreSoundsTipTitle" translate="yes" xml:space="preserve">
+          <source>Mix and match more sounds</source>
+          <target state="translated">Daha fazla sesi karıştırın ve eşleştirin</target>
         </trans-unit>
       </group>
     </body>

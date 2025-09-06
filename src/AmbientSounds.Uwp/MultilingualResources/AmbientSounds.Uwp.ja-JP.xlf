@@ -1239,10 +1239,6 @@
           <source>Enable countdown timer</source>
           <target state="translated">カウントダウンタイマーを有効にする</target>
         </trans-unit>
-        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
-          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
-          <target state="translated">高品質のサウンド、プレミアムビデオ、厳選された瞑想。今後のすべてのコンテンツへのアクセス。Ambie+ですべてをアンロックし、次のお気に入りの雰囲気を見つけてください。</target>
-        </trans-unit>
         <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
           <source>Same benefits, lower monthly cost</source>
           <target state="translated">同じメリット、月額費用の削減</target>
@@ -1390,6 +1386,18 @@
         <trans-unit id="SelectMoreSoundsPlaceholder" translate="yes" xml:space="preserve">
           <source>Mix and match up to 5 sounds</source>
           <target state="translated">最大5つのサウンドをミックス&amp;マッチ</target>
+        </trans-unit>
+        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
+          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Play more than 3 sounds. Unlock it all with Ambie+, and find your next favourite ambience.</source>
+          <target state="translated">高品質のサウンド、プレミアムビデオ、厳選された瞑想。将来のすべてのコンテンツへのアクセス。3つ以上のサウンドを再生します。Ambie+ですべてをアンロックし、次のお気に入りの雰囲気を見つけてください。</target>
+        </trans-unit>
+        <trans-unit id="MoreSoundsTipDescription" translate="yes" xml:space="preserve">
+          <source>Get Ambie+ to play up to 5 sounds</source>
+          <target state="translated">Ambie+を入手して最大5つのサウンドを再生</target>
+        </trans-unit>
+        <trans-unit id="MoreSoundsTipTitle" translate="yes" xml:space="preserve">
+          <source>Mix and match more sounds</source>
+          <target state="translated">より多くのサウンドをミックス&amp;マッチ</target>
         </trans-unit>
       </group>
     </body>

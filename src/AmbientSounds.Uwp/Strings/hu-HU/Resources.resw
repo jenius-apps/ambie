@@ -927,9 +927,6 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Visszaszámláló engedélyezése</value>
   </data>
-  <data name="PremiumMessage" xml:space="preserve">
-    <value>Kiváló minőségű hangok, prémium videók és válogatott meditációk. Hozzáférés minden jövőbeli tartalomhoz. Oldja fel mindezt az Ambie+ segítségével, és találja meg a következő kedvenc környezetét.</value>
-  </data>
   <data name="AnnualPlanCaption" xml:space="preserve">
     <value>Ugyanazok az előnyök, alacsonyabb havi költség</value>
   </data>
@@ -1040,5 +1037,14 @@
   </data>
   <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
     <value>Keverjen és illesszen össze akár 5 hangot</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Kiváló minőségű hangok, prémium videók és válogatott meditációk. Hozzáférés az összes jövőbeli tartalomhoz. Játsszon le több mint 3 hangot. Oldd fel mindezt az Ambie+ segítségével, és találd meg a következő kedvenc környezetedet.</value>
+  </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Szerezze be az Ambie+-t akár 5 hang lejátszásához</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>Keverjen és illesszen össze több hangot</value>
   </data>
 </root>

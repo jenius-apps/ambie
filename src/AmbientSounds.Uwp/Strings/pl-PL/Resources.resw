@@ -936,9 +936,6 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Włącz minutnik</value>
   </data>
-  <data name="PremiumMessage" xml:space="preserve">
-    <value>Wysokiej jakości dźwięki, filmy premium i wyselekcjonowane medytacje. Dostęp do całej przyszłej zawartości. Odblokuj to wszystko dzięki Ambie+ i znajdź swoją kolejną ulubioną atmosferę.</value>
-  </data>
   <data name="AnnualPlanCaption" xml:space="preserve">
     <value>Te same korzyści, niższy koszt miesięczny</value>
   </data>
@@ -1049,5 +1046,14 @@
   </data>
   <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
     <value>Mieszaj i dopasowuj do 5 dźwięków</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Wysokiej jakości dźwięki, filmy premium i wyselekcjonowane medytacje. Dostęp do całej przyszłej zawartości. Odtwarzaj więcej niż 3 dźwięki. Odblokuj to wszystko dzięki Ambie+ i znajdź swoją kolejną ulubioną atmosferę.</value>
+  </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Pobierz Ambie+, aby odtwarzać do 5 dźwięków</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>Miksuj i dopasowuj więcej dźwięków</value>
   </data>
 </root>

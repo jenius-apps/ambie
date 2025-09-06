@@ -44,6 +44,15 @@ public interface IMixMediaPlayerService
     event EventHandler<TimeSpan>? FeaturedSoundPositionChanged;
 
     /// <summary>
+    /// Raised when the user attempts to add a sound
+    /// while already at the max sound count for free tier.
+    /// </summary>
+    /// <remarks>
+    /// This event is primarily used for telemetry purposes.
+    /// </remarks>
+    event EventHandler? MaxFreeSoundsHit;
+
+    /// <summary>
     /// The total duration of the current featured sound.
     /// </summary>
     TimeSpan FeaturedSoundDuration { get; }
