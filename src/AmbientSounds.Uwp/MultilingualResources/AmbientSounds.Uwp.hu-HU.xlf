@@ -1402,6 +1402,14 @@
           <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Play more than 3 sounds. Unlock it all with Ambie+, and find your next favourite ambience.</source>
           <target state="translated">Kiváló minőségű hangok, prémium videók és válogatott meditációk. Hozzáférés az összes jövőbeli tartalomhoz. Játsszon le több mint 3 hangot. Oldd fel mindezt az Ambie+ segítségével, és találd meg a következő kedvenc környezetedet.</target>
         </trans-unit>
+        <trans-unit id="MoreSoundsTipDescription" translate="yes" xml:space="preserve">
+          <source>Get Ambie+ to play up to 5 sounds</source>
+          <target state="new">Get Ambie+ to play up to 5 sounds</target>
+        </trans-unit>
+        <trans-unit id="MoreSoundsTipTitle" translate="yes" xml:space="preserve">
+          <source>Mix and match more sounds</source>
+          <target state="new">Mix and match more sounds</target>
+        </trans-unit>
       </group>
     </body>
   </file>

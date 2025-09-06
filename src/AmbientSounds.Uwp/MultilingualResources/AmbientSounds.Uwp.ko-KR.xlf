@@ -1395,6 +1395,14 @@
           <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Play more than 3 sounds. Unlock it all with Ambie+, and find your next favourite ambience.</source>
           <target state="translated">고품질 사운드, 프리미엄 비디오, 엄선된 명상. 향후 모든 콘텐츠에 대한 액세스. 3개 이상의 사운드를 재생합니다. Ambie+로 모든 것을 잠금 해제하고 다음으로 좋아하는 분위기를 찾으십시오.</target>
         </trans-unit>
+        <trans-unit id="MoreSoundsTipDescription" translate="yes" xml:space="preserve">
+          <source>Get Ambie+ to play up to 5 sounds</source>
+          <target state="new">Get Ambie+ to play up to 5 sounds</target>
+        </trans-unit>
+        <trans-unit id="MoreSoundsTipTitle" translate="yes" xml:space="preserve">
+          <source>Mix and match more sounds</source>
+          <target state="new">Mix and match more sounds</target>
+        </trans-unit>
       </group>
     </body>
   </file>

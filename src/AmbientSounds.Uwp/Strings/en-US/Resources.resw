@@ -1038,6 +1038,12 @@
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Free trial available</value>
   </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Get Ambie+ to play up to 5 sounds</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>Mix and match more sounds</value>
+  </data>
   <data name="OpenLastChannelText" xml:space="preserve">
     <value>Open last channel</value>
   </data>

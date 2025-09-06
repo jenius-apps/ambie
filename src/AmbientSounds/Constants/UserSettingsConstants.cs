@@ -172,6 +172,11 @@ public static class UserSettingsConstants
     public const string HasViewedFreeTrialTipKey = "HasViewedFreeTrialTip";
 
     /// <summary>
+    /// Remembers if the user has seen the more sounds tip.
+    /// </summary>
+    public const string HasViewedMoreSoundsTipKey = "HasViewedMoreSoundsTip";
+
+    /// <summary>
     /// Remembers the timer mode for the channel page.
     /// </summary>
     public const string ChannelTimerModeKey = nameof(ChannelTimerModeKey);

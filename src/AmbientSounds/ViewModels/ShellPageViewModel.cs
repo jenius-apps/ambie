@@ -38,6 +38,7 @@ public partial class ShellPageViewModel : ObservableObject
     private readonly ISearchService _searchService;
     private readonly IAppStoreUpdater _appStoreUpdater;
     private readonly ISystemInfoProvider _systemInfoProvider;
+    private readonly ILocalizer _localizer;
 
     public ShellPageViewModel(
         IUserSettings userSettings,
@@ -75,6 +76,7 @@ public partial class ShellPageViewModel : ObservableObject
         _searchService = searchService;
         _appStoreUpdater = appStoreUpdater;
         _systemInfoProvider = systemInfoProvider;
+        _localizer = localizer;
 
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Home"), "\uE10F", ContentPageType.Home.ToString(), tooltipSubtitle: localizer.GetString("HomeSubtitle")));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Catalogue"), "\uEC4F", ContentPageType.Catalogue.ToString(), tooltipSubtitle: localizer.GetString("CatalogueSubtitle")));
@@ -111,7 +113,13 @@ public partial class ShellPageViewModel : ObservableObject
     private bool _isRatingMessageVisible;
 
     [ObservableProperty]
-    private bool _isFreeTrialMessageVisible;
+    private string _premiumTeachingTipTitle;
+
+    [ObservableProperty]
+    private string _premiumTeachingTipMessage;
+
+    [ObservableProperty]
+    private bool _isPremiumTeachingTipVisible;
 
     [ObservableProperty]
     private bool _premiumButtonVisible;
@@ -167,10 +175,10 @@ public partial class ShellPageViewModel : ObservableObject
     {
         _telemetry.TrackEvent(TelemetryConstants.ShellPagePremiumClicked, new Dictionary<string, string>
         {
-            { "viaFreeTrialTip", IsFreeTrialMessageVisible.ToString().ToLower()  }
+            { "viaPremiumTeachingTip", IsPremiumTeachingTipVisible.ToString().ToLower()  }
         });
 
-        IsFreeTrialMessageVisible = false;
+        IsPremiumTeachingTipVisible = false;
         await _dialogService.OpenPremiumAsync();
     }
 
@@ -216,6 +224,7 @@ public partial class ShellPageViewModel : ObservableObject
         _iapService.ProductPurchased -= OnProductPurchased;
         _navigator.ContentPageChanged -= OnContentPageChanged;
         _shareService.ShareFailed -= OnShareFailed;
+        _mixMediaPlayerService.MaxFreeSoundsHit -= OnMaxFreeSoundsHit;
     }
 
     private void OnShareFailed(object sender, EventArgs e)
@@ -260,16 +269,30 @@ public partial class ShellPageViewModel : ObservableObject
             ? TelemetryConstants.LaunchUserFreeTier
             : TelemetryConstants.LaunchUserPremiumTier);
 
+        bool isRatingsTipNotScheduled = _ratingTimer.Interval != RatingsTimerInterval;
+        bool isNotFirstRun = !_systemInfoProvider.IsFirstRun();
+        bool isNotFirstDayOfUse = _systemInfoProvider.FirstUseDate().AddDays(1) < DateTime.Now;
+        bool hasViewedFreeTrialTip = _userSettings.Get<bool>(UserSettingsConstants.HasViewedFreeTrialTipKey);
+
         if (PremiumButtonVisible
-            && _ratingTimer.Interval != RatingsTimerInterval // to avoid multiple tips, we check if the ratings tip is scheduled
-            && !_systemInfoProvider.IsFirstRun()
-            && !_userSettings.Get<bool>(UserSettingsConstants.HasViewedFreeTrialTipKey)
-            && _systemInfoProvider.FirstUseDate().AddDays(1) < DateTime.Now)
+            && isRatingsTipNotScheduled
+            && isNotFirstRun
+            && isNotFirstDayOfUse
+            && !hasViewedFreeTrialTip)
         {
             await Task.Delay(1000);
-            IsFreeTrialMessageVisible = true;
-            _telemetry.TrackEvent(TelemetryConstants.FreeTrialTipShown);
+            ShowFreeTrialTeachingTip();
             _userSettings.Set(UserSettingsConstants.HasViewedFreeTrialTipKey, true);
+        }
+
+        if (PremiumButtonVisible
+            && isRatingsTipNotScheduled
+            && isNotFirstRun
+            && isNotFirstDayOfUse
+            && hasViewedFreeTrialTip
+            && !_userSettings.Get<bool>(UserSettingsConstants.HasViewedMoreSoundsTipKey))
+        {
+            _mixMediaPlayerService.MaxFreeSoundsHit += OnMaxFreeSoundsHit;
         }
     }
 
@@ -365,6 +388,33 @@ public partial class ShellPageViewModel : ObservableObject
         {
             { "query", query }
         });
+    }
+
+    private void OnMaxFreeSoundsHit(object sender, EventArgs e)
+    {
+        _mixMediaPlayerService.MaxFreeSoundsHit -= OnMaxFreeSoundsHit;
+
+        _dispatcherQueue.TryEnqueue(() =>
+        {
+            ShowMoreSoundsTeachingTip();
+            _userSettings.Set(UserSettingsConstants.HasViewedMoreSoundsTipKey, true);
+        });
+    }
+
+    private void ShowMoreSoundsTeachingTip()
+    {
+        PremiumTeachingTipTitle = _localizer.GetString("MoreSoundsTipTitle");
+        PremiumTeachingTipMessage = _localizer.GetString("MoreSoundsTipDescription");
+        IsPremiumTeachingTipVisible = true;
+        _telemetry.TrackEvent(TelemetryConstants.MoreSoundsTipShown);
+    }
+
+    private void ShowFreeTrialTeachingTip()
+    {
+        PremiumTeachingTipTitle = _localizer.GetString("FreeTrialTipTitle");
+        PremiumTeachingTipMessage = _localizer.GetString("FreeTrialTipDescription");
+        IsPremiumTeachingTipVisible = true;
+        _telemetry.TrackEvent(TelemetryConstants.FreeTrialTipShown);
     }
 }
 

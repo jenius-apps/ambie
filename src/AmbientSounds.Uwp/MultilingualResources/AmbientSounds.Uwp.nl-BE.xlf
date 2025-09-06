@@ -1400,6 +1400,14 @@
           <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Play more than 3 sounds. Unlock it all with Ambie+, and find your next favourite ambience.</source>
           <target state="translated">Geluiden van hoge kwaliteit, premium video's en gecureerde meditaties. Toegang tot alle toekomstige inhoud. Speel meer dan 3 geluiden af. Ontgrendel het allemaal met Ambie+ en vind je volgende favoriete sfeer.</target>
         </trans-unit>
+        <trans-unit id="MoreSoundsTipDescription" translate="yes" xml:space="preserve">
+          <source>Get Ambie+ to play up to 5 sounds</source>
+          <target state="new">Get Ambie+ to play up to 5 sounds</target>
+        </trans-unit>
+        <trans-unit id="MoreSoundsTipTitle" translate="yes" xml:space="preserve">
+          <source>Mix and match more sounds</source>
+          <target state="new">Mix and match more sounds</target>
+        </trans-unit>
       </group>
     </body>
   </file>
