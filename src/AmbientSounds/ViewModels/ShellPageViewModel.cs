@@ -39,6 +39,7 @@ public partial class ShellPageViewModel : ObservableObject
     private readonly IAppStoreUpdater _appStoreUpdater;
     private readonly ISystemInfoProvider _systemInfoProvider;
     private readonly ILocalizer _localizer;
+    private readonly IExperimentationService _experimentationService;
 
     public ShellPageViewModel(
         IUserSettings userSettings,
@@ -77,6 +78,7 @@ public partial class ShellPageViewModel : ObservableObject
         _appStoreUpdater = appStoreUpdater;
         _systemInfoProvider = systemInfoProvider;
         _localizer = localizer;
+        _experimentationService = experimentationService;
 
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Home"), "\uE10F", ContentPageType.Home.ToString(), tooltipSubtitle: localizer.GetString("HomeSubtitle")));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Catalogue"), "\uEC4F", ContentPageType.Catalogue.ToString(), tooltipSubtitle: localizer.GetString("CatalogueSubtitle")));
@@ -286,6 +288,7 @@ public partial class ShellPageViewModel : ObservableObject
         }
 
         if (PremiumButtonVisible
+            && _experimentationService.IsEnabled(ExperimentConstants.MoreSoundsTeachingTip)
             && isRatingsTipNotScheduled
             && isNotFirstRun
             && isNotFirstDayOfUse
