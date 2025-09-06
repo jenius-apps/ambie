@@ -1249,10 +1249,6 @@
           <source>Enable countdown timer</source>
           <target state="translated">Abilita il timer per il conto alla rovescia</target>
         </trans-unit>
-        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
-          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
-          <target state="translated">Suoni di alta qualità, video premium e meditazioni curate. Accesso a tutti i contenuti futuri. Sblocca tutto con Ambie+ e trova il tuo prossimo ambiente preferito.</target>
-        </trans-unit>
         <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
           <source>Same benefits, lower monthly cost</source>
           <target state="translated">Stessi vantaggi, costi mensili inferiori</target>
@@ -1400,6 +1396,10 @@
         <trans-unit id="SelectMoreSoundsPlaceholder" translate="yes" xml:space="preserve">
           <source>Mix and match up to 5 sounds</source>
           <target state="translated">Mescola e abbina fino a 5 suoni</target>
+        </trans-unit>
+        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
+          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Play more than 3 sounds. Unlock it all with Ambie+, and find your next favourite ambience.</source>
+          <target state="translated">Suoni di alta qualità, video premium e meditazioni curate. Accesso a tutti i contenuti futuri. Riproduci più di 3 suoni. Sblocca tutto con Ambie+ e trova il tuo prossimo ambiente preferito.</target>
         </trans-unit>
       </group>
     </body>

@@ -927,9 +927,6 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Omogućite mjerač vremena</value>
   </data>
-  <data name="PremiumMessage" xml:space="preserve">
-    <value>Zvukovi visoke kvalitete, vrhunski videozapisi i odabrane meditacije. Pristup svim budućim sadržajima. Otključajte sve uz Ambie+ i pronađite svoj sljedeći omiljeni ambijent.</value>
-  </data>
   <data name="AnnualPlanCaption" xml:space="preserve">
     <value>Iste prednosti, niži mjesečni troškovi</value>
   </data>
@@ -1040,5 +1037,8 @@
   </data>
   <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
     <value>Miješajte i spajajte do 5 zvukova</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Zvukovi visoke kvalitete, vrhunski videozapisi i odabrane meditacije. Pristup svim budućim sadržajima. Reproducirajte više od 3 zvuka. Otključajte sve uz Ambie+ i pronađite svoj sljedeći omiljeni ambijent.</value>
   </data>
 </root>

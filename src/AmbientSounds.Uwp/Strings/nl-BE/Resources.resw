@@ -912,9 +912,6 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Afteltimer inschakelen</value>
   </data>
-  <data name="PremiumMessage" xml:space="preserve">
-    <value>Geluiden van hoge kwaliteit, premium video's en gecureerde meditaties. Toegang tot alle toekomstige inhoud. Ontgrendel het allemaal met Ambie+ en vind je volgende favoriete sfeer.</value>
-  </data>
   <data name="AnnualPlanCaption" xml:space="preserve">
     <value>Dezelfde voordelen, lagere maandelijkse kosten</value>
   </data>
@@ -1019,5 +1016,8 @@
   </data>
   <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
     <value>Mix en match tot 5 geluiden</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Geluiden van hoge kwaliteit, premium video's en gecureerde meditaties. Toegang tot alle toekomstige inhoud. Speel meer dan 3 geluiden af. Ontgrendel het allemaal met Ambie+ en vind je volgende favoriete sfeer.</value>
   </data>
 </root>

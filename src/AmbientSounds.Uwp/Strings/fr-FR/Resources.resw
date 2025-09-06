@@ -936,9 +936,6 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Activer le compte à rebours</value>
   </data>
-  <data name="PremiumMessage" xml:space="preserve">
-    <value>Des sons de haute qualité, des vidéos premium et des méditations organisées. Accès à tous les contenus futurs. Débloquez tout cela avec Ambie+ et trouvez votre prochaine ambiance préférée.</value>
-  </data>
   <data name="AnnualPlanCaption" xml:space="preserve">
     <value>Mêmes avantages, coût mensuel inférieur</value>
   </data>
@@ -1049,5 +1046,8 @@
   </data>
   <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
     <value>Mélangez et associez jusqu’à 5 sons</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Des sons de haute qualité, des vidéos premium et des méditations organisées. Accès à tous les contenus futurs. Jouez plus de 3 sons. Débloquez tout cela avec Ambie+ et trouvez votre prochaine ambiance préférée.</value>
   </data>
 </root>

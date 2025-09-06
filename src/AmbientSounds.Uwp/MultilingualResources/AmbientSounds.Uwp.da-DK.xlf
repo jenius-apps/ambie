@@ -1248,10 +1248,6 @@
           <source>Enable countdown timer</source>
           <target state="translated">Aktiver nedtællingstimer</target>
         </trans-unit>
-        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
-          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
-          <target state="translated">Lyde i høj kvalitet, førsteklasses videoer og kuraterede meditationer. Adgang til alt fremtidigt indhold. Lås op for det hele med Ambie+, og find din næste yndlingsstemning.</target>
-        </trans-unit>
         <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
           <source>Same benefits, lower monthly cost</source>
           <target state="translated">Samme fordele, lavere månedlige omkostninger</target>
@@ -1399,6 +1395,10 @@
         <trans-unit id="SelectMoreSoundsPlaceholder" translate="yes" xml:space="preserve">
           <source>Mix and match up to 5 sounds</source>
           <target state="translated">Mix og match op til 5 lyde</target>
+        </trans-unit>
+        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
+          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Play more than 3 sounds. Unlock it all with Ambie+, and find your next favourite ambience.</source>
+          <target state="translated">Lyde i høj kvalitet, førsteklasses videoer og kuraterede meditationer. Adgang til alt fremtidigt indhold. Afspil mere end 3 lyde. Lås op for det hele med Ambie+, og find din næste yndlingsstemning.</target>
         </trans-unit>
       </group>
     </body>

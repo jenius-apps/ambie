@@ -1242,10 +1242,6 @@
           <source>Enable countdown timer</source>
           <target state="translated">הפעל טיימר ספירה לאחור</target>
         </trans-unit>
-        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
-          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
-          <target state="translated">צלילים באיכות גבוהה, סרטוני פרימיום ומדיטציות נבחרות. גישה לכל התוכן העתידי. פתחו את הכל עם Ambie+ ומצאו את האווירה האהובה הבאה עליכם.</target>
-        </trans-unit>
         <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
           <source>Same benefits, lower monthly cost</source>
           <target state="translated">אותם יתרונות, עלות חודשית נמוכה יותר</target>
@@ -1393,6 +1389,10 @@
         <trans-unit id="SelectMoreSoundsPlaceholder" translate="yes" xml:space="preserve">
           <source>Mix and match up to 5 sounds</source>
           <target state="translated">ערבב והתאם עד 5 צלילים</target>
+        </trans-unit>
+        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
+          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Play more than 3 sounds. Unlock it all with Ambie+, and find your next favourite ambience.</source>
+          <target state="translated">צלילים באיכות גבוהה, סרטוני פרימיום ומדיטציות שנאספו. גישה לכל התוכן העתידי. השמע יותר מ-3 צלילים. פתחו את הכל עם Ambie+, ומצאו את האווירה האהובה הבאה עליכם.</target>
         </trans-unit>
       </group>
     </body>

@@ -939,9 +939,6 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>カウントダウンタイマーを有効にする</value>
   </data>
-  <data name="PremiumMessage" xml:space="preserve">
-    <value>高品質のサウンド、プレミアムビデオ、厳選された瞑想。今後のすべてのコンテンツへのアクセス。Ambie+ですべてをアンロックし、次のお気に入りの雰囲気を見つけてください。</value>
-  </data>
   <data name="AnnualPlanCaption" xml:space="preserve">
     <value>同じメリット、月額費用の削減</value>
   </data>
@@ -1052,5 +1049,8 @@
   </data>
   <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
     <value>最大5つのサウンドをミックス&amp;マッチ</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>高品質のサウンド、プレミアムビデオ、厳選された瞑想。将来のすべてのコンテンツへのアクセス。3つ以上のサウンドを再生します。Ambie+ですべてをアンロックし、次のお気に入りの雰囲気を見つけてください。</value>
   </data>
 </root>

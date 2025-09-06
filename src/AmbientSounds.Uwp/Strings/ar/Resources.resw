@@ -939,9 +939,6 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>تمكين مؤقت العد التنازلي</value>
   </data>
-  <data name="PremiumMessage" xml:space="preserve">
-    <value>أصوات عالية الجودة ومقاطع فيديو متميزة وتأملات منسقة. الوصول إلى جميع المحتويات المستقبلية. افتح كل شيء مع Ambie+ ، وابحث عن أجواءك المفضلة التالية.</value>
-  </data>
   <data name="AnnualPlanCaption" xml:space="preserve">
     <value>نفس المزايا ، تكلفة شهرية أقل</value>
   </data>
@@ -1052,5 +1049,8 @@
   </data>
   <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
     <value>امزج وطابق ما يصل إلى 5 أصوات</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>أصوات عالية الجودة ومقاطع فيديو متميزة وتأملات منسقة. الوصول إلى جميع المحتويات المستقبلية. قم بتشغيل أكثر من 3 أصوات. افتح كل شيء مع Ambie+ ، وابحث عن أجواءك المفضلة التالية.</value>
   </data>
 </root>

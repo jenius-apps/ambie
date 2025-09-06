@@ -939,9 +939,6 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Активирайте таймера за обратно броене</value>
   </data>
-  <data name="PremiumMessage" xml:space="preserve">
-    <value>Висококачествени звуци, първокласни видеоклипове и подбрани медитации. Достъп до цялото бъдещо съдържание. Отключете всичко с Ambie+ и намерете следващата си любима атмосфера.</value>
-  </data>
   <data name="AnnualPlanCaption" xml:space="preserve">
     <value>Същите предимства, по-ниски месечни разходи</value>
   </data>
@@ -1052,5 +1049,8 @@
   </data>
   <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
     <value>Смесване и съчетаване на до 5 звука</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Висококачествени звуци, първокласни видеоклипове и подбрани медитации. Достъп до цялото бъдещо съдържание. Възпроизвеждане на повече от 3 звука. Отключете всичко с Ambie+ и намерете следващата си любима атмосфера.</value>
   </data>
 </root>
