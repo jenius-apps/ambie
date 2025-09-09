@@ -16,8 +16,8 @@ public class ExperimentConstants
     public static IReadOnlyList<string> AllKeys { get; } =
     [
         // add experiment constants here
-        MoreSoundsTeachingTip,
+        //MoreSoundsTeachingTip,
     ];
 
-    public const string MoreSoundsTeachingTip = nameof(MoreSoundsTeachingTip);
+    //public const string MoreSoundsTeachingTip = nameof(MoreSoundsTeachingTip);
 }
