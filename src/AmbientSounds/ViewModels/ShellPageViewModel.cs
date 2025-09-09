@@ -288,7 +288,6 @@ public partial class ShellPageViewModel : ObservableObject
         }
 
         if (PremiumButtonVisible
-            && _experimentationService.IsEnabled(ExperimentConstants.MoreSoundsTeachingTip)
             && isRatingsTipNotScheduled
             && isNotFirstRun
             && isNotFirstDayOfUse
