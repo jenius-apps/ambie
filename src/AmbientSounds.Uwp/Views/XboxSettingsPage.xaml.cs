@@ -26,7 +26,7 @@ public sealed partial class XboxSettingsPage : Page
     protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
         _systemNavigationManager.BackRequested += OnBackRequested;
-        await ViewModel.InitializeAsync();
+        await ViewModel.InitializeAsync(null);
         var telemetry = App.Services.GetRequiredService<ITelemetry>();
         telemetry.TrackPageView(nameof(XboxSettingsPage));
     }

@@ -16,7 +16,7 @@ public sealed partial class SettingsPage : Page
 
     protected override void OnNavigatedTo(NavigationEventArgs e)
     {
-        SettingsControlInstance.Initialize();
+        SettingsControlInstance.Initialize(e.Parameter as string);
         var telemetry = App.Services.GetRequiredService<ITelemetry>();
         telemetry.TrackPageView(nameof(SettingsPage));
     }

@@ -29,7 +29,7 @@ public interface IDialogService
     /// ambie plus.
     /// </summary>
     /// <param name="launchPromoCodeDirectly">If true, dialog will launch into the promo code page directly.</param>
-    Task OpenPremiumAsync(bool launchPromoCodeDirectly = false);
+    Task OpenPremiumAsync(bool launchPromoCodeDirectly = false, string? prefilledCode = null);
 
     /// <summary>
     /// Opens dialog regarding missing sounds.
