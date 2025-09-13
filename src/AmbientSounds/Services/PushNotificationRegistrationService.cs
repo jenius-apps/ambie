@@ -1,7 +1,9 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using JeniusApps.Common.PushNotifications;
 using JeniusApps.Common.Settings;
 using JeniusApps.Common.Tools;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -28,6 +30,13 @@ public sealed class PushNotificationRegistrationService : IPushNotificationRegis
     {
         if (!_userSettings.Get<bool>(UserSettingsConstants.Notifications) ||
             _userSettings.Get<string>(UserSettingsConstants.LocalUserIdKey) is not { Length: > 0 } id)
+        {
+            return false;
+        }
+
+        if (_userSettings.Get<string>(UserSettingsConstants.LastKnownPremiumState) is string state
+            && Enum.TryParse(state, out PremiumState lastKnownState)
+            && lastKnownState is PremiumState.Unknown)
         {
             return false;
         }

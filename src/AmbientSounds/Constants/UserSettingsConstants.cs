@@ -212,6 +212,12 @@ public static class UserSettingsConstants
     public const string ChannelSwitcherHidden = nameof(ChannelSwitcherHidden);
 
     /// <summary>
+    /// Representing last known premium state.
+    /// Options: premium, free, or null.
+    /// </summary>
+    public const string LastKnownPremiumState = nameof(LastKnownPremiumState);
+
+    /// <summary>
     ///  Settings defaults.
     /// </summary>
     public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -253,5 +259,6 @@ public static class UserSettingsConstants
         { LastUsedRepetitionsKey, 0 },
         { ChannelSwitcherHidden, false },
         { ShowMixInRelaxPageKey, true },
+        { LastKnownPremiumState, PremiumState.Unknown.ToString() },
     };
 }

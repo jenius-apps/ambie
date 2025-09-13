@@ -40,6 +40,7 @@ public partial class ShellPageViewModel : ObservableObject
     private readonly ISystemInfoProvider _systemInfoProvider;
     private readonly ILocalizer _localizer;
     private readonly IExperimentationService _experimentationService;
+    private readonly IPushNotificationRegistrationService _pushService;
 
     public ShellPageViewModel(
         IUserSettings userSettings,
@@ -58,7 +59,8 @@ public partial class ShellPageViewModel : ObservableObject
         IAssetLocalizer assetLocalizer,
         ISearchService searchService,
         IAppStoreUpdater appStoreUpdater,
-        IExperimentationService experimentationService)
+        IExperimentationService experimentationService,
+        IPushNotificationRegistrationService pushService)
     {
         IsWin11 = systemInfoProvider.IsWin11();
 
@@ -79,6 +81,7 @@ public partial class ShellPageViewModel : ObservableObject
         _systemInfoProvider = systemInfoProvider;
         _localizer = localizer;
         _experimentationService = experimentationService;
+        _pushService = pushService;
 
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Home"), "\uE10F", ContentPageType.Home.ToString(), tooltipSubtitle: localizer.GetString("HomeSubtitle")));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Catalogue"), "\uEC4F", ContentPageType.Catalogue.ToString(), tooltipSubtitle: localizer.GetString("CatalogueSubtitle")));
@@ -265,7 +268,7 @@ public partial class ShellPageViewModel : ObservableObject
 
     private async Task LoadPremiumContentAsync()
     {
-        PremiumButtonVisible = await _iapService.CanShowPremiumButtonsAsync();
+        await UpdatePremiumButtonAsync();
 
         _telemetry.TrackEvent(PremiumButtonVisible
             ? TelemetryConstants.LaunchUserFreeTier
@@ -316,9 +319,35 @@ public partial class ShellPageViewModel : ObservableObject
         }
     }
 
-    private async void OnProductPurchased(object sender, string iapId)
+    private async Task UpdatePremiumButtonAsync()
     {
         PremiumButtonVisible = await _iapService.CanShowPremiumButtonsAsync();
+        _ = UpdateLastKnownPremiumStateAsync();
+    }
+
+    private async Task UpdateLastKnownPremiumStateAsync()
+    {
+        // Update last known premium state
+        if (_userSettings.Get<string>(UserSettingsConstants.LastKnownPremiumState) is string state
+            && Enum.TryParse(state, out PremiumState lastKnownState))
+        {
+            if (lastKnownState is PremiumState.Unknown
+                || (lastKnownState is PremiumState.Free && !PremiumButtonVisible)
+                || (lastKnownState is PremiumState.Premium && PremiumButtonVisible))
+            {
+                _userSettings.Set(UserSettingsConstants.LastKnownPremiumState, PremiumButtonVisible
+                    ? PremiumState.Free.ToString()
+                    : PremiumState.Premium.ToString());
+
+                // Re-register push notification since the state has changed.
+                _ = await _pushService.TryRegisterPushNotificationsAsync().ConfigureAwait(false);
+            }
+        }
+    }
+
+    private async void OnProductPurchased(object sender, string iapId)
+    {
+        await UpdatePremiumButtonAsync();
     }
 
     [RelayCommand]
