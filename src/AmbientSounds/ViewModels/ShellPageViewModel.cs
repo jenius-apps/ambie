@@ -20,10 +20,9 @@ namespace AmbientSounds.ViewModels;
 /// <summary>
 /// ViewModel for the shell page.
 /// </summary>
-public partial class ShellPageViewModel : ObservableObject
+public partial class ShellPageViewModel : BaseShellPageViewModel
 {
     private const int RatingsTimerInterval = 1800000; // 30 minutes
-    private readonly IUserSettings _userSettings;
     private readonly ITimerService _ratingTimer;
     private readonly ITelemetry _telemetry;
     private readonly INavigator _navigator;
@@ -40,7 +39,6 @@ public partial class ShellPageViewModel : ObservableObject
     private readonly ISystemInfoProvider _systemInfoProvider;
     private readonly ILocalizer _localizer;
     private readonly IExperimentationService _experimentationService;
-    private readonly IPushNotificationRegistrationService _pushService;
 
     public ShellPageViewModel(
         IUserSettings userSettings,
@@ -61,10 +59,10 @@ public partial class ShellPageViewModel : ObservableObject
         IAppStoreUpdater appStoreUpdater,
         IExperimentationService experimentationService,
         IPushNotificationRegistrationService pushService)
+        : base(userSettings, pushService)
     {
         IsWin11 = systemInfoProvider.IsWin11();
 
-        _userSettings = userSettings;
         _ratingTimer = timer;
         _telemetry = telemetry;
         _navigator = navigator;
@@ -81,7 +79,6 @@ public partial class ShellPageViewModel : ObservableObject
         _systemInfoProvider = systemInfoProvider;
         _localizer = localizer;
         _experimentationService = experimentationService;
-        _pushService = pushService;
 
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Home"), "\uE10F", ContentPageType.Home.ToString(), tooltipSubtitle: localizer.GetString("HomeSubtitle")));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Catalogue"), "\uEC4F", ContentPageType.Catalogue.ToString(), tooltipSubtitle: localizer.GetString("CatalogueSubtitle")));
@@ -322,27 +319,10 @@ public partial class ShellPageViewModel : ObservableObject
     private async Task UpdatePremiumButtonAsync()
     {
         PremiumButtonVisible = await _iapService.CanShowPremiumButtonsAsync();
-        _ = UpdateLastKnownPremiumStateAsync();
-    }
 
-    private async Task UpdateLastKnownPremiumStateAsync()
-    {
-        // Update last known premium state
-        if (_userSettings.Get<string>(UserSettingsConstants.LastKnownPremiumState) is string state
-            && Enum.TryParse(state, out PremiumState lastKnownState))
-        {
-            if (lastKnownState is PremiumState.Unknown
-                || (lastKnownState is PremiumState.Free && !PremiumButtonVisible)
-                || (lastKnownState is PremiumState.Premium && PremiumButtonVisible))
-            {
-                _userSettings.Set(UserSettingsConstants.LastKnownPremiumState, PremiumButtonVisible
-                    ? PremiumState.Free.ToString()
-                    : PremiumState.Premium.ToString());
-
-                // Re-register push notification since the state has changed.
-                _ = await _pushService.TryRegisterPushNotificationsAsync().ConfigureAwait(false);
-            }
-        }
+        // This is the first time the desktop shell learns of the user's premium state.
+        // Update this state in settings.
+        _ = UpdateLastKnownPremiumStateAsync(PremiumButtonVisible);
     }
 
     private async void OnProductPurchased(object sender, string iapId)

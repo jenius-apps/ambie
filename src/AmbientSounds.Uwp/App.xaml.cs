@@ -304,8 +304,6 @@ sealed partial class App : Application
                 bgServices.TogglePushNotificationRenewalTask(true);
             }
         }
-
-        _ = Services.GetRequiredService<IPushNotificationRegistrationService>().TryRegisterPushNotificationsAsync();
     }
 
     private async void HandleProtocolLaunch(IProtocolActivatedEventArgs protocolArgs)

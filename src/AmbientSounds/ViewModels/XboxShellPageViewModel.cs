@@ -4,6 +4,7 @@ using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.Settings;
 using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels;
 
-public partial class XboxShellPageViewModel : ObservableObject
+public partial class XboxShellPageViewModel : BaseShellPageViewModel
 {
     private readonly IIapService _iapService;
     private readonly ITelemetry _telemetry;
@@ -30,7 +31,10 @@ public partial class XboxShellPageViewModel : ObservableObject
         IDialogService dialogService,
         IXboxSlideshowService xboxSlideshowService,
         IDispatcherQueue dispatcherQueue,
-        IVideoService videoService)
+        IVideoService videoService,
+        IUserSettings userSettings,
+        IPushNotificationRegistrationService pushNotificationRegistrationService)
+        : base(userSettings, pushNotificationRegistrationService)
     {
         // For xbox, there's no such thing as a custom global volume.
         // We let the user adjust their TV volume for that.
@@ -115,6 +119,10 @@ public partial class XboxShellPageViewModel : ObservableObject
             VideoUpsellVisible = false;
             return;
         }
+
+        // This is the first time the Xbox shell learns of the user's premium state.
+        // Update this state in settings.
+        _ = UpdateLastKnownPremiumStateAsync(canPremiumButtonsBeDisplayed);
 
         var (_, AssociatedVideoIds) = await _xboxSlideshowService.GetSlideshowDataAsync(_mixMediaPlayerService);
         VideoUpsellVisible = AssociatedVideoIds.Count > 0;
