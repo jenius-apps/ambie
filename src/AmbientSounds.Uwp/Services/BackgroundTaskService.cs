@@ -20,9 +20,16 @@ public class BackgroundTaskService : IBackgroundTaskService
     /// <inheritdoc/>
     public async Task<bool> RequestPermissionAsync()
     {
-        var result = await BackgroundExecutionManager.RequestAccessAsync();
-        return result is BackgroundAccessStatus.AlwaysAllowed
-            or BackgroundAccessStatus.AllowedSubjectToSystemPolicy;
+        try
+        {
+            var result = await BackgroundExecutionManager.RequestAccessAsync();
+            return result is BackgroundAccessStatus.AlwaysAllowed
+                or BackgroundAccessStatus.AllowedSubjectToSystemPolicy;
+        }
+        catch
+        {
+            return false;
+        }
     }
 
     /// <inheritdoc/>
