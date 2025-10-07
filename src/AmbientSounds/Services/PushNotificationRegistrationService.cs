@@ -1,7 +1,10 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using JeniusApps.Common.PushNotifications;
 using JeniusApps.Common.Settings;
 using JeniusApps.Common.Tools;
+using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -32,6 +35,21 @@ public sealed class PushNotificationRegistrationService : IPushNotificationRegis
             return false;
         }
 
+        PremiumState lastKnownState = _userSettings.Get<string>(UserSettingsConstants.LastKnownPremiumState) is string state
+            && Enum.TryParse(state, out PremiumState premiumState)
+            ? premiumState
+            : PremiumState.Unknown;
+
+        if (lastKnownState is PremiumState.Unknown)
+        {
+            return false;
+        }
+
+        Dictionary<string, string> deviceData = new()
+        {
+            { nameof(PremiumState), lastKnownState.ToString() }
+        };
+
         try
         {
 #if DEBUG
@@ -42,7 +60,8 @@ public sealed class PushNotificationRegistrationService : IPushNotificationRegis
             return await _pushNotificationService.RegisterAsync(
                 id,
                 _culture,
-                cancellationToken);
+                cancellationToken,
+                deviceData: deviceData);
 #endif
         }
         catch { }

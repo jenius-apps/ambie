@@ -263,10 +263,16 @@ public partial class SettingsViewModel : ObservableObject
         set => SetNotifications(value);
     }
 
-    public async Task InitializeAsync()
+    public async Task InitializeAsync(string? navigationArguments)
     {
         ManageSubscriptionVisible = await _iapService.IsSubscriptionOwnedAsync();
         PromoCodeVisible = await _iapService.CanShowPremiumButtonsAsync();
+
+        if (PromoCodeVisible
+            && LaunchConstants.TryGetPromoCode(navigationArguments, out string? promoCode))
+        {
+            _ = EnterPromoCodeCommand.ExecuteAsync(promoCode);
+        }
     }
 
     private TEnum GetEnum<TEnum>(string settingsKey, TEnum defaultValue) where TEnum : struct
@@ -406,9 +412,9 @@ public partial class SettingsViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private async Task EnterPromoCodeAsync()
+    private async Task EnterPromoCodeAsync(string? prefilledCode = null)
     {
-        await _dialogService.OpenPremiumAsync(launchPromoCodeDirectly: true);
+        await _dialogService.OpenPremiumAsync(launchPromoCodeDirectly: true, prefilledCode);
         PromoCodeVisible = await _iapService.CanShowPremiumButtonsAsync();
     }
 

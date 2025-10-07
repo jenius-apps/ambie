@@ -17,23 +17,21 @@ public sealed partial class PremiumDialog : ContentDialog
     {
         this.InitializeComponent();
         ViewModel = App.Services.GetRequiredService<PremiumControlViewModel>();
-
-        // Pausing for now while tariffs are paused. Will return if tariffs continue.
-        //if (new GeographicRegion().CodeTwoLetter.Equals("us", System.StringComparison.OrdinalIgnoreCase))
-        //{
-        //    TariffText.Visibility = Visibility.Visible;
-        //}
     }
     
     public PremiumControlViewModel ViewModel { get; }
 
     public bool LaunchPromoCodeDirectly { get; set; }
 
+    public string? PrefilledCode { get; set; }
+
     private async void OnOpened(ContentDialog sender, ContentDialogOpenedEventArgs args)
     {
         try
         {
-            await ViewModel.InitializeAsync(LaunchPromoCodeDirectly);
+            await ViewModel.InitializeAsync(
+                LaunchPromoCodeDirectly,
+                PrefilledCode);
         }
         catch { }
     }

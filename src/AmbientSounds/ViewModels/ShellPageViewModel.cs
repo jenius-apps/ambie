@@ -20,10 +20,9 @@ namespace AmbientSounds.ViewModels;
 /// <summary>
 /// ViewModel for the shell page.
 /// </summary>
-public partial class ShellPageViewModel : ObservableObject
+public partial class ShellPageViewModel : BaseShellPageViewModel
 {
     private const int RatingsTimerInterval = 1800000; // 30 minutes
-    private readonly IUserSettings _userSettings;
     private readonly ITimerService _ratingTimer;
     private readonly ITelemetry _telemetry;
     private readonly INavigator _navigator;
@@ -58,11 +57,12 @@ public partial class ShellPageViewModel : ObservableObject
         IAssetLocalizer assetLocalizer,
         ISearchService searchService,
         IAppStoreUpdater appStoreUpdater,
-        IExperimentationService experimentationService)
+        IExperimentationService experimentationService,
+        IPushNotificationRegistrationService pushService)
+        : base(userSettings, pushService)
     {
         IsWin11 = systemInfoProvider.IsWin11();
 
-        _userSettings = userSettings;
         _ratingTimer = timer;
         _telemetry = telemetry;
         _navigator = navigator;
@@ -265,7 +265,7 @@ public partial class ShellPageViewModel : ObservableObject
 
     private async Task LoadPremiumContentAsync()
     {
-        PremiumButtonVisible = await _iapService.CanShowPremiumButtonsAsync();
+        await UpdatePremiumButtonAsync();
 
         _telemetry.TrackEvent(PremiumButtonVisible
             ? TelemetryConstants.LaunchUserFreeTier
@@ -316,9 +316,18 @@ public partial class ShellPageViewModel : ObservableObject
         }
     }
 
-    private async void OnProductPurchased(object sender, string iapId)
+    private async Task UpdatePremiumButtonAsync()
     {
         PremiumButtonVisible = await _iapService.CanShowPremiumButtonsAsync();
+
+        // This is the first time the desktop shell learns of the user's premium state.
+        // Update this state in settings.
+        _ = UpdateLastKnownPremiumStateAsync(PremiumButtonVisible);
+    }
+
+    private async void OnProductPurchased(object sender, string iapId)
+    {
+        await UpdatePremiumButtonAsync();
     }
 
     [RelayCommand]

@@ -91,9 +91,11 @@ public partial class PremiumControlViewModel : ObservableObject
 
     public bool AnnualButtonVisible => !ThanksTextVisible && AnnualSubExperimentEnabled;
 
-    public async Task InitializeAsync(bool launchPromoCodesDirectly)
+    public async Task InitializeAsync(
+        bool launchPromoCodesDirectly,
+        string? prefilledCode = null)
     {
-        PromoCodeInput = string.Empty;
+        PromoCodeInput = prefilledCode ?? string.Empty;
         PromoCodeBackButtonVisible = !launchPromoCodesDirectly;
         PromoCodePageVisible = launchPromoCodesDirectly;
 
