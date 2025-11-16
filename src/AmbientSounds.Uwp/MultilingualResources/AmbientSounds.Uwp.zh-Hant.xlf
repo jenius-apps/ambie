@@ -479,18 +479,6 @@
           <target state="translated">感謝您訂閱！</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Thank you message shown after user purchases a subscription.</note>
         </trans-unit>
-        <trans-unit id="SubscriptionText1" translate="yes" xml:space="preserve">
-          <source>Access premium, high quality sounds</source>
-          <target state="translated">享用高級優質音效</target>
-        </trans-unit>
-        <trans-unit id="SubscriptionText2" translate="yes" xml:space="preserve">
-          <source>Download video screensavers</source>
-          <target state="translated">下載螢幕保護影片</target>
-        </trans-unit>
-        <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
-          <source>Support development</source>
-          <target state="translated">支持開發</target>
-        </trans-unit>
         <trans-unit id="HelloAgain" translate="yes" xml:space="preserve">
           <source>Hello again 👋🏽</source>
           <target state="translated">嗨！又見面了！👋🏽</target>
@@ -1136,10 +1124,6 @@
           <source>Download sounds</source>
           <target state="translated">下載聲音</target>
         </trans-unit>
-        <trans-unit id="DisplayMode" translate="yes" xml:space="preserve">
-          <source>Dispaly mode</source>
-          <target state="translated">虛幻模式</target>
-        </trans-unit>
         <trans-unit id="DisplayModeDarkScreen" translate="yes" xml:space="preserve">
           <source>Dark screen</source>
           <target state="translated">暗屏</target>
@@ -1257,6 +1241,166 @@
         <trans-unit id="SettingsEnableCountdownHeader" translate="yes" xml:space="preserve">
           <source>Enable countdown timer</source>
           <target state="translated">啟用倒數計時器</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
+          <source>Same benefits, lower monthly cost</source>
+          <target state="translated">相同的權益，更低的每月費用</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanTitle" translate="yes" xml:space="preserve">
+          <source>Get annual plan - {0}</source>
+          <target state="translated">獲取年度計劃 - {0}</target>
+        </trans-unit>
+        <trans-unit id="EnterCodePlaceholder" translate="yes" xml:space="preserve">
+          <source>Enter code</source>
+          <target state="translated">輸入代碼</target>
+        </trans-unit>
+        <trans-unit id="EnterPromoCodeText" translate="yes" xml:space="preserve">
+          <source>Enter promo code</source>
+          <target state="translated">輸入促銷代碼</target>
+        </trans-unit>
+        <trans-unit id="PromoCodeMessage" translate="yes" xml:space="preserve">
+          <source>Use a code to unlock discounts for Ambie+</source>
+          <target state="translated">使用代碼解鎖 Ambie+ 的折扣</target>
+        </trans-unit>
+        <trans-unit id="SubmitText" translate="yes" xml:space="preserve">
+          <source>Submit</source>
+          <target state="translated">提交</target>
+        </trans-unit>
+        <trans-unit id="StatsLongestStreak" translate="yes" xml:space="preserve">
+          <source>Longest streak</source>
+          <target state="translated">最長連勝</target>
+        </trans-unit>
+        <trans-unit id="StatsMonthlyHours" translate="yes" xml:space="preserve">
+          <source>Hours this month</source>
+          <target state="translated">本月上班時間</target>
+        </trans-unit>
+        <trans-unit id="StatsTotalFocusHours" translate="yes" xml:space="preserve">
+          <source>Focus hours</source>
+          <target state="translated">專注時間</target>
+        </trans-unit>
+        <trans-unit id="StatsTotalHours" translate="yes" xml:space="preserve">
+          <source>Total hours</source>
+          <target state="translated">總小時數</target>
+        </trans-unit>
+        <trans-unit id="StatsWeeklyHours" translate="yes" xml:space="preserve">
+          <source>Last 7 days</source>
+          <target state="translated">最近 7 天</target>
+        </trans-unit>
+        <trans-unit id="TopPlayedSoundsText" translate="yes" xml:space="preserve">
+          <source>Top played sounds</source>
+          <target state="translated">最常播放的聲音</target>
+        </trans-unit>
+        <trans-unit id="TopPlayedSoundsPlaceholder" translate="yes" xml:space="preserve">
+          <source>Use Ambie a little more to view more stats</source>
+          <target state="translated">多使用Ambie可查看更多統計數據</target>
+        </trans-unit>
+        <trans-unit id="StatsSubtitle" translate="yes" xml:space="preserve">
+          <source>View your usage stats in Ambie</source>
+          <target state="translated">在Ambie中查看您的使用統計數據</target>
+        </trans-unit>
+        <trans-unit id="StatsTitleText" translate="yes" xml:space="preserve">
+          <source>Stats</source>
+          <target state="translated">統計</target>
+        </trans-unit>
+        <trans-unit id="OsNotificationHelpMessage" translate="yes" xml:space="preserve">
+          <source>Ensure Windows notifications are enabled for Ambie</source>
+          <target state="translated">確保為Ambie啟用 Windows 通知</target>
+        </trans-unit>
+        <trans-unit id="EnableText" translate="yes" xml:space="preserve">
+          <source>Enable</source>
+          <target state="translated">使</target>
+        </trans-unit>
+        <trans-unit id="StatsPageSettingsHeader" translate="yes" xml:space="preserve">
+          <source>Helpful options</source>
+          <target state="translated">有用的選項</target>
+        </trans-unit>
+        <trans-unit id="ChannelSwitcherHide" translate="yes" xml:space="preserve">
+          <source>Hide channels</source>
+          <target state="translated">隱藏頻道</target>
+        </trans-unit>
+        <trans-unit id="ChannelSwitcherShow" translate="yes" xml:space="preserve">
+          <source>Show channels</source>
+          <target state="translated">顯示頻道</target>
+        </trans-unit>
+        <trans-unit id="CountdownText" translate="yes" xml:space="preserve">
+          <source>Countdown</source>
+          <target state="translated">倒計時</target>
+        </trans-unit>
+        <trans-unit id="NoneText" translate="yes" xml:space="preserve">
+          <source>None</source>
+          <target state="translated">沒有</target>
+        </trans-unit>
+        <trans-unit id="ChannelTimerFocusDisclaimer" translate="yes" xml:space="preserve">
+          <source>Focus timer is always shown during an active focus session.</source>
+          <target state="translated">焦點計時器始終顯示在活動焦點會話期間。</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitDay" translate="yes" xml:space="preserve">
+          <source>day</source>
+          <target state="translated">日</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitHour" translate="yes" xml:space="preserve">
+          <source>hour</source>
+          <target state="translated">小時</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitMinute" translate="yes" xml:space="preserve">
+          <source>minute</source>
+          <target state="translated">分鐘</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitMonth" translate="yes" xml:space="preserve">
+          <source>month</source>
+          <target state="translated">月</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitWeek" translate="yes" xml:space="preserve">
+          <source>week</source>
+          <target state="translated">周</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitYear" translate="yes" xml:space="preserve">
+          <source>year</source>
+          <target state="translated">年</target>
+        </trans-unit>
+        <trans-unit id="DisplayMode" translate="yes" xml:space="preserve">
+          <source>Display mode</source>
+          <target state="translated">顯示模式</target>
+        </trans-unit>
+        <trans-unit id="RelaxationTimerText" translate="yes" xml:space="preserve">
+          <source>Relaxation timer</source>
+          <target state="translated">放鬆定時器</target>
+        </trans-unit>
+        <trans-unit id="RelaxationTimerHelpMessage" translate="yes" xml:space="preserve">
+          <source>Use the relaxation timer to help you relax, sleep, or meditate.</source>
+          <target state="translated">使用放鬆計時器説明您放鬆、睡眠或冥想。</target>
+        </trans-unit>
+        <trans-unit id="RelaxationTimerHelpButtonAutomationName" translate="yes" xml:space="preserve">
+          <source>Relaxation timer information</source>
+          <target state="translated">放鬆計時器資訊</target>
+        </trans-unit>
+        <trans-unit id="IncludeInRelaxPageText" translate="yes" xml:space="preserve">
+          <source>Include in Relax page</source>
+          <target state="translated">包含在 Relax 頁面中</target>
+        </trans-unit>
+        <trans-unit id="SavedSoundMixHeader" translate="yes" xml:space="preserve">
+          <source>Your saved sound mixes</source>
+          <target state="translated">您保存的混音</target>
+        </trans-unit>
+        <trans-unit id="SleepMeditationGuideHeader" translate="yes" xml:space="preserve">
+          <source>Sleep and meditation guides</source>
+          <target state="translated">睡眠和冥想指南</target>
+        </trans-unit>
+        <trans-unit id="SelectMoreSoundsPlaceholder" translate="yes" xml:space="preserve">
+          <source>Mix and match up to 5 sounds</source>
+          <target state="translated">混合搭配多達 5 種聲音</target>
+        </trans-unit>
+        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
+          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Play more than 3 sounds. Unlock it all with Ambie+, and find your next favourite ambience.</source>
+          <target state="translated">高品質的聲音、優質視頻和精心策劃的冥想。訪問所有未來的內容。播放 3 種以上的聲音。使用 Ambie+ 解鎖這一切，並找到您下一個最喜歡的氛圍。</target>
+        </trans-unit>
+        <trans-unit id="MoreSoundsTipDescription" translate="yes" xml:space="preserve">
+          <source>Get Ambie+ to play up to 5 sounds</source>
+          <target state="translated">讓 Ambie+ 播放多達 5 種聲音</target>
+        </trans-unit>
+        <trans-unit id="MoreSoundsTipTitle" translate="yes" xml:space="preserve">
+          <source>Mix and match more sounds</source>
+          <target state="translated">混合搭配更多聲音</target>
         </trans-unit>
       </group>
     </body>

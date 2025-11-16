@@ -461,6 +461,9 @@
   <data name="SelectSoundsPlaceholder" xml:space="preserve">
     <value>Mix and match up to 3 sounds</value>
   </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>Mix and match up to 5 sounds</value>
+  </data>
   <data name="ThemeSettings" xml:space="preserve">
     <value>Theme settings</value>
   </data>
@@ -473,15 +476,6 @@
   </data>
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0} lifetime</value>
-  </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Access premium, high quality sounds</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Download video screensavers</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Support development</value>
   </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>Thank you for subscribing!</value>
@@ -956,6 +950,15 @@
   <data name="SleepTimerText" xml:space="preserve">
     <value>Sleep Timer</value>
   </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>Relaxation timer</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>Use the relaxation timer to help you relax, sleep, or meditate.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>Relaxation timer information</value>
+  </data>
   <data name="UnlockText" xml:space="preserve">
     <value>Unlock</value>
   </data>
@@ -966,7 +969,7 @@
     <value>Download sounds</value>
   </data>
   <data name="DisplayMode" xml:space="preserve">
-    <value>Dispaly mode</value>
+    <value>Display mode</value>
   </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>Dark screen</value>
@@ -1035,6 +1038,12 @@
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Free trial available</value>
   </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Get Ambie+ to play up to 5 sounds</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>Mix and match more sounds</value>
+  </data>
   <data name="OpenLastChannelText" xml:space="preserve">
     <value>Open last channel</value>
   </data>
@@ -1055,5 +1064,104 @@
   </data>
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Enable countdown timer</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Same benefits, lower monthly cost</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Get annual plan - {0}</value>
+  </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>Enter code</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>Enter promo code</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>Use a code to unlock discounts for Ambie+</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>Longest streak</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>Hours this month</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>Focus hours</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>Total hours</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>Last 7 days</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>Use Ambie a little more to view more stats</value>
+  </data>
+  <data name="TopPlayedSoundsText" xml:space="preserve">
+    <value>Top played sounds</value>
+  </data>
+  <data name="StatsSubtitle" xml:space="preserve">
+    <value>View your usage stats in Ambie</value>
+  </data>
+  <data name="StatsTitleText" xml:space="preserve">
+    <value>Stats</value>
+  </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>Ensure Windows notifications are enabled for Ambie</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>Helpful options</value>
+  </data>
+  <data name="ChannelSwitcherHide" xml:space="preserve">
+    <value>Hide channels</value>
+  </data>
+  <data name="ChannelSwitcherShow" xml:space="preserve">
+    <value>Show channels</value>
+  </data>
+  <data name="CountdownText" xml:space="preserve">
+    <value>Countdown</value>
+  </data>
+  <data name="NoneText" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>Focus timer is always shown during an active focus session.</value>
+  </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>day</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>hour</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>minute</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>month</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>week</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>year</value>
+  </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Include in Relax page</value>
+  </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>Your saved sound mixes</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>Sleep and meditation guides</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>High quality sounds, premium videos, and curated meditations. Access to all future content. Play more than 3 sounds. Unlock it all with Ambie+, and find your next favourite ambience.</value>
   </data>
 </root>

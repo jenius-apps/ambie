@@ -34,9 +34,31 @@ public class FileDownloader : IFileDownloader
             return "";
         }
 
-        HttpResponseMessage response = await _client.GetAsync(url);
+        HttpResponseMessage? response = null;
+        try
+        {
+            response = await _client.GetAsync(url);
+        }
+        catch (Exception ex)
+        {
+            _telemetry.TrackEvent("ImageDownloadException", new Dictionary<string, string>
+            {
+                { "imageUrl", url ?? string.Empty },
+                { "exception", ex.Message },
+            });
+        }
 
-        var contentType = response.Content.Headers.ContentType.MediaType;
+        if (response?.Content is null)
+        {
+            _telemetry.TrackEvent("ImageDownloadAndSaveAsyncNullResponse", new Dictionary<string, string>
+            {
+                { "imageUrl", url ?? string.Empty }
+            });
+
+            return string.Empty;
+        }
+
+        string contentType = response.Content.Headers?.ContentType?.MediaType ?? string.Empty;
         string nameWithExt;
         try
         {

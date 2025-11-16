@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
@@ -19,7 +20,10 @@
             FontSize="14"
             Glyph="{StaticResource GlyphSave}" />
         <Button.Flyout>
-            <Flyout x:Name="SaveFlyout" Closed="SaveFlyout_Closed">
+            <Flyout
+                x:Name="SaveFlyout"
+                Closed="SaveFlyout_Closed"
+                Placement="BottomEdgeAlignedRight">
                 <Flyout.FlyoutPresenterStyle>
                     <Style BasedOn="{StaticResource DefaultFlyoutPresenterStyle}" TargetType="FlyoutPresenter">
                         <Setter Property="Padding" Value="12" />
@@ -27,6 +31,10 @@
                 </Flyout.FlyoutPresenterStyle>
 
                 <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto" />
                         <ColumnDefinition Width="auto" />
@@ -52,6 +60,19 @@
                             FontSize="14"
                             Glyph="{StaticResource GlyphCheckMark}" />
                     </Button>
+
+                    <CheckBox
+                        Grid.Row="1"
+                        Grid.ColumnSpan="1"
+                        Margin="2,8,0,0"
+                        IsChecked="{x:Bind ShowInRelaxPage, Mode=OneWay}">
+                        <TextBlock
+                            Margin="0,3,0,0"
+                            FontSize="12"
+                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                            Text="{x:Bind strings:Resources.IncludeInRelaxPageText}"
+                            TextWrapping="WrapWholeWords" />
+                    </CheckBox>
                 </Grid>
             </Flyout>
         </Button.Flyout>

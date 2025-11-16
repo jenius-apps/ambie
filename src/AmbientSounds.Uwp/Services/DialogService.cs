@@ -111,7 +111,9 @@ public class DialogService : IDialogService
     }
 
     /// <inheritdoc/>
-    public async Task OpenPremiumAsync()
+    public async Task OpenPremiumAsync(
+        bool launchPromoCodeDirectly = false,
+        string? prefilledCode = null)
     {
         if (IsDialogOpen || _systemInfoProvider.IsCompact())
         {
@@ -119,15 +121,14 @@ public class DialogService : IDialogService
         }
 
         IsDialogOpen = true;
-        var content = new PremiumControl();
-        var dialog = new NoPaddingDialog()
+        var dialog = new PremiumDialog()
         {
             FlowDirection = GetFlowDirection(),
             RequestedTheme = GetTheme(),
-            Content = content
+            LaunchPromoCodeDirectly = launchPromoCodeDirectly,
+            PrefilledCode = prefilledCode
         };
 
-        content.CloseRequested += (s, e) => dialog.Hide();
         await dialog.ShowAsync();
         IsDialogOpen = false;
     }

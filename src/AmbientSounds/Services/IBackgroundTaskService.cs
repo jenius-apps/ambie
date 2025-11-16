@@ -36,4 +36,10 @@ public interface IBackgroundTaskService
     /// </summary>
     /// <param name="name">Name of task.</param>
     void UnregisterTask(string name);
+
+    /// <summary>
+    /// Registers the push notification renewal task.
+    /// </summary>
+    /// <param name="enable">Task will be registered if this is set to true. It will be disabled if false.</param>
+    void TogglePushNotificationRenewalTask(bool enable);
 }

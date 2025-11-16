@@ -67,14 +67,12 @@ public sealed partial class ShellPage : Page
             }
         }
 
-        SleepTimer.Initialize();
         await ViewModel.InitializeAsync();
     }
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)
     {
         App.Services.GetRequiredService<INavigator>().Frame = null;
-        SleepTimer.Uninitialize();
         ViewModel.Uninitialize();
     }
 
@@ -124,17 +122,5 @@ public sealed partial class ShellPage : Page
         {
             ViewModel.Search(query);
         }
-    }
-
-    private async void OnStreakClicked(object sender, RoutedEventArgs e)
-    {
-        await ViewModel.LoadRecentActivityAsync();
-        RecentFlyout.ShowAt((HyperlinkButton)sender);
-    }
-
-    private void OnStreakFlyoutClosed(object sender, object e)
-    {
-        // Reset streak UI
-        ViewModel.LoadStreak();
     }
 }

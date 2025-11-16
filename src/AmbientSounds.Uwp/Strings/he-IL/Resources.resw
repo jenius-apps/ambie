@@ -363,15 +363,6 @@
     <value>{0} לחודש</value>
     <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>גישה לצלילים איכותיים ומובחרים</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>הורד שומרי מסך וידאו</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>תמיכה בפיתוח</value>
-  </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>תודה שנרשמת!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
@@ -860,9 +851,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>הורדת צלילים</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>מצב Dispaly</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>מסך כהה</value>
   </data>
@@ -950,5 +938,125 @@
   </data>
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>הפעל טיימר ספירה לאחור</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>אותם יתרונות, עלות חודשית נמוכה יותר</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>קבל תוכנית שנתית - {0}</value>
+  </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>הזן קוד</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>הזן קוד הטבה</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>השתמש בקוד כדי לפתוח הנחות עבור Ambie+</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>שלח</value>
+  </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>הרצף הארוך ביותר</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>שעות החודש</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>שעות התמקדות</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>סה"כ שעות</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>7 הימים האחרונים</value>
+  </data>
+  <data name="TopPlayedSoundsText" xml:space="preserve">
+    <value>צלילים מושמעים מובילים</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>השתמש ב-Ambie קצת יותר כדי להציג נתונים סטטיסטיים נוספים</value>
+  </data>
+  <data name="StatsSubtitle" xml:space="preserve">
+    <value>הצגת סטטיסטיקות השימוש שלך ב- Ambie</value>
+  </data>
+  <data name="StatsTitleText" xml:space="preserve">
+    <value>סטטיסטיקה</value>
+  </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>ודא שהודעות Windows זמינות עבור Ambie</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>לאפשר</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>אפשרויות שימושיות</value>
+  </data>
+  <data name="ChannelSwitcherHide" xml:space="preserve">
+    <value>הסתרת ערוצים</value>
+  </data>
+  <data name="ChannelSwitcherShow" xml:space="preserve">
+    <value>הצג ערוצים</value>
+  </data>
+  <data name="CountdownText" xml:space="preserve">
+    <value>ספירה לאחור</value>
+  </data>
+  <data name="NoneText" xml:space="preserve">
+    <value>ללא</value>
+  </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>טיימר מיקוד מוצג תמיד במהלך הפעלת מיקוד פעילה.</value>
+  </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>יום</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>שעה</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>דקה</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>חודש</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>שבוע</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>שנה</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>מצב תצוגה</value>
+  </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>טיימר הרפיה</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>השתמש בטיימר ההרפיה כדי לעזור לך להירגע, לישון או לעשות מדיטציה.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>מידע על טיימר הרפיה</value>
+  </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>כלול בדף Relax</value>
+  </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>מיקסי הצלילים השמורים שלך</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>מדריכי שינה ומדיטציה</value>
+  </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>ערבב והתאם עד 5 צלילים</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>צלילים באיכות גבוהה, סרטוני פרימיום ומדיטציות שנאספו. גישה לכל התוכן העתידי. השמע יותר מ-3 צלילים. פתחו את הכל עם Ambie+, ומצאו את האווירה האהובה הבאה עליכם.</value>
+  </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>קבל את Ambie+ כדי להשמיע עד 5 צלילים</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>ערבב והתאם צלילים נוספים</value>
   </data>
 </root>

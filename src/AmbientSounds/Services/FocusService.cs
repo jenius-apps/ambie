@@ -121,7 +121,7 @@ public class FocusService : IFocusService
     private void PlaySounds()
     {
         var sounds = _mixMediaPlayerService.GetSoundIds();
-        if (sounds.Length > 0)
+        if (sounds.Length > 0 || !string.IsNullOrEmpty(_mixMediaPlayerService.FeaturedSoundId))
         {
             _mixMediaPlayerService.Play();
         }
@@ -133,12 +133,16 @@ public class FocusService : IFocusService
 
     public bool CanStartSession(int focusLength, int restLength) => focusLength > 0 && restLength >= 0;
 
-    public void PauseTimer()
+    public void PauseTimer(bool pauseSounds = true)
     {
         _timerService.Stop();
         _focusToastService.ClearToasts();
         CurrentState = FocusState.Paused;
-        _mixMediaPlayerService.Pause();
+
+        if (pauseSounds)
+        {
+            _mixMediaPlayerService.Pause();
+        }
     }
 
     public void StopTimer(bool sessionCompleted = false, bool pauseSounds = true)

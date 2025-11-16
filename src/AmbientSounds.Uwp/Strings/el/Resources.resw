@@ -363,15 +363,6 @@
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0} διάρκεια ζωής</value>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Αποκτήστε πρόσβαση σε ήχους υψηλής ποιότητας</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Λήψη προφύλαξης οθόνης βίντεο</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Υποστήριξη ανάπτυξης</value>
-  </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>Ευχαριστώ για την εγγραφή!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
@@ -845,9 +836,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>Λήψη ήχων</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>Λειτουργία Dispaly</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>Σκοτεινή οθόνη</value>
   </data>
@@ -935,5 +923,125 @@
   </data>
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Ενεργοποίηση χρονοδιακόπτη αντίστροφης μέτρησης</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Ίδια οφέλη, χαμηλότερο μηνιαίο κόστος</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Αποκτήστε ετήσιο πρόγραμμα - {0}</value>
+  </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>Εισάγετε τον κωδικό</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>Εισαγάγετε τον κωδικό προσφοράς</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>Χρησιμοποιήστε έναν κωδικό για να ξεκλειδώσετε εκπτώσεις για το Ambie+</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>Υποβάλλω</value>
+  </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>Μεγαλύτερο σερί</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>Ώρες αυτόν τον μήνα</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>Ώρες συγκέντρωσης</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>Σύνολο ωρών</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>Τελευταίες 7 ημέρες</value>
+  </data>
+  <data name="TopPlayedSoundsText" xml:space="preserve">
+    <value>Κορυφαίοι ήχοι</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>Χρησιμοποιήστε το Ambie λίγο περισσότερο για να δείτε περισσότερα στατιστικά στοιχεία</value>
+  </data>
+  <data name="StatsSubtitle" xml:space="preserve">
+    <value>Δείτε τα στατιστικά χρήσης σας στο Ambie</value>
+  </data>
+  <data name="StatsTitleText" xml:space="preserve">
+    <value>Στατιστικά</value>
+  </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>Βεβαιωθείτε ότι οι ειδοποιήσεις των Windows είναι ενεργοποιημένες για το Ambie</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>Ενεργοποιώ</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>Χρήσιμες επιλογές</value>
+  </data>
+  <data name="ChannelSwitcherHide" xml:space="preserve">
+    <value>Απόκρυψη καναλιών</value>
+  </data>
+  <data name="ChannelSwitcherShow" xml:space="preserve">
+    <value>Εμφάνιση καναλιών</value>
+  </data>
+  <data name="CountdownText" xml:space="preserve">
+    <value>Αντίστροφη μέτρηση</value>
+  </data>
+  <data name="NoneText" xml:space="preserve">
+    <value>Κανένας</value>
+  </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>Ο χρονοδιακόπτης εστίασης εμφανίζεται πάντα κατά τη διάρκεια μιας ενεργής περιόδου λειτουργίας εστίασης.</value>
+  </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>μέρα</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>ώρα</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>λεπτό</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>μήνας</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>εβδομάδα</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>έτος</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Λειτουργία εμφάνισης</value>
+  </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>Χρονοδιακόπτης χαλάρωσης</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>Χρησιμοποιήστε το χρονόμετρο χαλάρωσης για να σας βοηθήσει να χαλαρώσετε, να κοιμηθείτε ή να διαλογιστείτε.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>Πληροφορίες χρονοδιακόπτη χαλάρωσης</value>
+  </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Συμπερίληψη στη σελίδα Relax</value>
+  </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>Οι αποθηκευμένες μίξεις ήχου</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>Οδηγοί ύπνου και διαλογισμού</value>
+  </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>Μίξη και αντιστοίχιση έως και 5 ήχων</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Ήχοι υψηλής ποιότητας, premium βίντεο και επιμελημένοι διαλογισμοί. Πρόσβαση σε όλο το μελλοντικό περιεχόμενο. Αναπαραγωγή περισσότερων από 3 ήχων. Ξεκλειδώστε τα όλα με το Ambie+ και βρείτε την επόμενη αγαπημένη σας ατμόσφαιρα.</value>
+  </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Αποκτήστε το Ambie+ για αναπαραγωγή έως και 5 ήχων</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>Μίξη και αντιστοίχιση περισσότερων ήχων</value>
   </data>
 </root>

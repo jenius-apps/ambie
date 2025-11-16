@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-#nullable enable
-
 namespace AmbientSounds.Services;
 
 /// <summary>
@@ -44,6 +42,15 @@ public interface IMixMediaPlayerService
     /// Raised when the sound's playback position changed.
     /// </summary>
     event EventHandler<TimeSpan>? FeaturedSoundPositionChanged;
+
+    /// <summary>
+    /// Raised when the user attempts to add a sound
+    /// while already at the max sound count for free tier.
+    /// </summary>
+    /// <remarks>
+    /// This event is primarily used for telemetry purposes.
+    /// </remarks>
+    event EventHandler? MaxFreeSoundsHit;
 
     /// <summary>
     /// The total duration of the current featured sound.
@@ -157,7 +164,7 @@ public interface IMixMediaPlayerService
     /// <summary>
     /// Plays the given sound.
     /// </summary>
-    Task PlayFeaturedSoundAsync(FeaturedSoundType type, string id, string filepath, bool enableGaplessLoop = false);
+    Task PlayFeaturedSoundAsync(FeaturedSoundType type, string id, string filepath, bool enableGaplessLoop = false, bool addRandomIfNoActives = false);
 
     /// <summary>
     /// Stops the featured sound and removes it from playback.
@@ -167,7 +174,7 @@ public interface IMixMediaPlayerService
     /// <summary>
     /// Plays a random sound.
     /// </summary>
-    Task AddRandomAsync();
+    Task<string?> AddRandomAsync(bool keepPaused = false);
 
     /// <summary>
     /// Retrieves enumerable of active sound IDs.
@@ -175,4 +182,9 @@ public interface IMixMediaPlayerService
     /// <param name="oldestToNewest">Sorts the list from oldest to newest if true. Otherwise, sorts newest to oldest.</param>
     /// <returns>Sorted list of active sound IDs.</returns>
     IEnumerable<string> GetSoundIds(bool oldestToNewest);
+
+    /// <summary>
+    /// Gets the volume of the active players.
+    /// </summary>
+    Dictionary<string, double> GetPlayerVolumes();
 }

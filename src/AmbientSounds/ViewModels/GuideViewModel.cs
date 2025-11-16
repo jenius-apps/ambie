@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Extensions;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -41,6 +42,11 @@ public partial class GuideViewModel : ObservableObject
 
         DownloadProgress = progress ?? new();
     }
+
+    /// <summary>
+    /// The two-letter language code for this guide content.
+    /// </summary>
+    public string GuideCulture => OnlineGuide.UpperCaseCulture();
 
     [ObservableProperty]
     private double _downloadProgressValue;

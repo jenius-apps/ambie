@@ -17,13 +17,43 @@ public class BackgroundTaskService : IBackgroundTaskService
         }
     }
 
+    /// <inheritdoc/>
     public async Task<bool> RequestPermissionAsync()
     {
-        var result = await BackgroundExecutionManager.RequestAccessAsync();
-        return result is BackgroundAccessStatus.AlwaysAllowed
-            or BackgroundAccessStatus.AllowedSubjectToSystemPolicy;
+        try
+        {
+            var result = await BackgroundExecutionManager.RequestAccessAsync();
+            return result is BackgroundAccessStatus.AlwaysAllowed
+                or BackgroundAccessStatus.AllowedSubjectToSystemPolicy;
+        }
+        catch
+        {
+            return false;
+        }
     }
 
+    /// <inheritdoc/>
+    public void TogglePushNotificationRenewalTask(bool enable)
+    {
+        var taskType = typeof(PushNotificationRenewalTask);
+
+        // To avoid duplicate registrations, always unregister no matter the "enable" value.
+        UnregisterTask(taskType.Name);
+
+        if (enable)
+        {
+            var builder = new BackgroundTaskBuilder
+            {
+                Name = taskType.Name,
+                TaskEntryPoint = taskType.FullName
+            };
+            builder.SetTrigger(new TimeTrigger(20160, false)); // 14 days = 20160 minutes 
+            builder.AddCondition(new SystemCondition(SystemConditionType.InternetAvailable));
+            builder.Register();
+        }
+    }
+
+    /// <inheritdoc/>
     public void ToggleQuickResumeStartupTask(bool enable)
     {
         var taskType = typeof(StartupTask);
@@ -45,6 +75,7 @@ public class BackgroundTaskService : IBackgroundTaskService
         }
     }
 
+    /// <inheritdoc/>
     public void ToggleStreakReminderTask(bool enable)
     {
         var taskType = typeof(StreakReminderTask);
@@ -65,6 +96,7 @@ public class BackgroundTaskService : IBackgroundTaskService
         builder.Register();
     }
 
+    /// <inheritdoc/>
     public void UnregisterTask(string name)
     {
         foreach (var bgTask in BackgroundTaskRegistration.AllTasks)

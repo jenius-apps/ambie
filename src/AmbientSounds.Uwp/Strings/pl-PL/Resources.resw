@@ -366,15 +366,6 @@
     <value>{0} miesięcznie</value>
     <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Zyskaj dostęp do dźwięków o wysokiej jakości</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Pobierz wygaszacze ekranu</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Wesprzyj rozwój aplikacji</value>
-  </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>Dziękujemy za kupienie subskrypcji!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
@@ -761,7 +752,7 @@
     <value>Oops! Nie mogliśmy znaleźć tego dźwięku. Zobaczymy, czy uda nam się go dodać w przyszłości</value>
   </data>
   <data name="SearchText" xml:space="preserve">
-    <value>Szukać</value>
+    <value>Szukaj</value>
   </data>
   <data name="QuickResumeTitle" xml:space="preserve">
     <value>Szybkie wznawianie</value>
@@ -857,9 +848,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>Pobieranie dźwięków</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>Tryb wyświetlania</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>Ciemny ekran</value>
   </data>
@@ -947,5 +935,125 @@
   </data>
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Włącz minutnik</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Te same korzyści, niższy koszt miesięczny</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Skorzystaj z abonamentu rocznego - {0}</value>
+  </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>Wpisz kod</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>Wpisz kod promocyjny</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>Użyj kodu, aby odblokować zniżki na Ambie+</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>Prześlij</value>
+  </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>Najdłuższa passa</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>Godziny w tym miesiącu</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>Godziny skupienia</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>Łączna liczba godzin</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>Ostatnie 7 dni</value>
+  </data>
+  <data name="TopPlayedSoundsText" xml:space="preserve">
+    <value>Najczęściej odtwarzane dźwięki</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>Używaj Ambie trochę więcej, aby wyświetlić więcej statystyk</value>
+  </data>
+  <data name="StatsSubtitle" xml:space="preserve">
+    <value>Wyświetlanie statystyk użytkowania w Ambie</value>
+  </data>
+  <data name="StatsTitleText" xml:space="preserve">
+    <value>Statystyki</value>
+  </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>Upewnij się, że powiadomienia systemu Windows są włączone dla systemu Ambie</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>Umożliwiać</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>Przydatne opcje</value>
+  </data>
+  <data name="ChannelSwitcherHide" xml:space="preserve">
+    <value>Ukryj kanały</value>
+  </data>
+  <data name="ChannelSwitcherShow" xml:space="preserve">
+    <value>Pokaż kanały</value>
+  </data>
+  <data name="CountdownText" xml:space="preserve">
+    <value>Odliczanie</value>
+  </data>
+  <data name="NoneText" xml:space="preserve">
+    <value>Żaden</value>
+  </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>Timer ostrości jest zawsze wyświetlany podczas aktywnej sesji ostrości.</value>
+  </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>dzień</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>godzina</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>minuta</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>miesiąc</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>tydzień</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>rok</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Tryb wyświetlania</value>
+  </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>Zegar relaksu</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>Użyj timera relaksu, który pomoże Ci się zrelaksować, zasnąć lub medytować.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>Informacje o timerze relaksu</value>
+  </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Dołącz do strony Relaks</value>
+  </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>Zapisane miksy dźwiękowe</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>Przewodniki po śnie i medytacji</value>
+  </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>Mieszaj i dopasowuj do 5 dźwięków</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Wysokiej jakości dźwięki, filmy premium i wyselekcjonowane medytacje. Dostęp do całej przyszłej zawartości. Odtwarzaj więcej niż 3 dźwięki. Odblokuj to wszystko dzięki Ambie+ i znajdź swoją kolejną ulubioną atmosferę.</value>
+  </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Pobierz Ambie+, aby odtwarzać do 5 dźwięków</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>Miksuj i dopasowuj więcej dźwięków</value>
   </data>
 </root>

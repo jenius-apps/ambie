@@ -1,0 +1,442 @@
+﻿<Page
+    x:Class="AmbientSounds.Views.StatsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ani="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:controls="using:AmbientSounds.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ext="using:JeniusApps.Common.UI.Uwp"
+    xmlns:labs="using:CommunityToolkit.Labs.WinUI"
+    xmlns:local="using:AmbientSounds.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
+    xmlns:vm="using:AmbientSounds.ViewModels"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d">
+
+    <ScrollViewer Margin="{StaticResource MainFramePageMargin}" CanContentRenderOutsideBounds="True">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource PageBreakpoint1260}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="LeftGutter.Width" Value="*" />
+                        <Setter Target="ContentColumn.Width" Value="{StaticResource ContentColumnMaxWidth}" />
+                        <Setter Target="RightGutter.Width" Value="*" />
+                        <Setter Target="RootPanel.Margin" Value="{StaticResource ContentColumnMarginLarge}" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource PageBreakpoint620}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SummaryGrid.(Grid.Row)" Value="0" />
+                        <Setter Target="SummaryGrid.(Grid.Column)" Value="1" />
+                        <Setter Target="TopSection.RowSpacing" Value="0" />
+                        <Setter Target="TopSection.ColumnSpacing" Value="4" />
+                        <Setter Target="StreakGrid.MaxWidth" Value="264" />
+                        <Setter Target="LeftColumn.Width" Value="auto" />
+                        <Setter Target="RightColumn.Width" Value="*" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Grid x:Name="RootPanel" Margin="{StaticResource ContentColumnMarginSmall}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="LeftGutter" Width="auto" />
+                <ColumnDefinition x:Name="ContentColumn" Width="*" />
+                <ColumnDefinition x:Name="RightGutter" Width="auto" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="1">
+                <!--  Top section with streak and stat summary  -->
+                <Grid x:Name="TopSection" RowSpacing="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition x:Name="LeftColumn" Width="*" />
+                        <ColumnDefinition x:Name="RightColumn" Width="auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <!--  Streak  -->
+                    <Grid
+                        x:Name="StreakGrid"
+                        Padding="12,0,12,20"
+                        HorizontalAlignment="Stretch"
+                        Style="{StaticResource CardStyle}">
+                        <ani:Implicit.ShowAnimations>
+                            <ani:OpacityAnimation
+                                From="0"
+                                To="1"
+                                Duration="0:0:0.3" />
+                            <ani:TranslationAnimation
+                                From="0,12,0"
+                                To="0"
+                                Duration="0:0:0.3" />
+                        </ani:Implicit.ShowAnimations>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+
+                        <Border x:Name="ShadowTarget" Grid.RowSpan="4" />
+
+                        <TextBlock
+                            FontSize="80"
+                            FontWeight="SemiBold"
+                            Text="{x:Bind ViewModel.StreakCount, Mode=OneWay}"
+                            TextAlignment="Center">
+                            <TextBlock.Foreground>
+                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                    <GradientStop Offset="1" Color="#FFFCC94E" />
+                                    <GradientStop Offset="0" Color="#FFD67606" />
+                                </LinearGradientBrush>
+                            </TextBlock.Foreground>
+                            <ui:Effects.Shadow>
+                                <ui:AttachedDropShadow
+                                    BlurRadius="10"
+                                    CastTo="{x:Bind ShadowTarget}"
+                                    Opacity="0.2"
+                                    Offset="0,4" />
+                            </ui:Effects.Shadow>
+                        </TextBlock>
+
+                        <TextBlock
+                            Grid.Row="1"
+                            Text="{x:Bind strings:Resources.DayStreakPhrase}"
+                            TextAlignment="Center" />
+
+                        <ItemsControl
+                            Grid.Row="2"
+                            Margin="8,24,0,0"
+                            HorizontalAlignment="Center"
+                            ItemsSource="{x:Bind ViewModel.RecentActivity}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <toolkit:WrapPanel
+                                        HorizontalSpacing="8"
+                                        Orientation="Horizontal"
+                                        VerticalSpacing="1" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="vm:DayActivityViewModel">
+                                    <Grid Padding="0,4" ToolTipService.ToolTip="{x:Bind Date.ToLongDateString()}">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto" />
+                                            <RowDefinition Height="auto" />
+                                        </Grid.RowDefinitions>
+
+                                        <TextBlock
+                                            Margin="0,0,0,8"
+                                            FontSize="12"
+                                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                            Text="{x:Bind DayOfWeekShort}"
+                                            TextAlignment="Center" />
+
+                                        <Ellipse
+                                            Grid.Row="1"
+                                            Width="24"
+                                            Height="24"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Fill="{ThemeResource TextFillColorTertiaryBrush}"
+                                            Opacity="0.2"
+                                            Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(Active)}" />
+
+                                        <FontIcon
+                                            Grid.Row="1"
+                                            Margin="1,1,0,0"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontFamily="{StaticResource FluentUIGlyphs}"
+                                            FontSize="24"
+                                            Glyph="{StaticResource GlyphCheckMarkCircle}"
+                                            Visibility="{x:Bind Active}">
+                                            <FontIcon.Foreground>
+                                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                                    <GradientStop Offset="1" Color="#FFFCC94E" />
+                                                    <GradientStop Offset="0" Color="#FFD67606" />
+                                                </LinearGradientBrush>
+                                            </FontIcon.Foreground>
+                                        </FontIcon>
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                        <TextBlock
+                            Grid.Row="3"
+                            Margin="0,12,0,0"
+                            FontSize="12"
+                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                            Text="{x:Bind strings:Resources.StreakHelpMessage}"
+                            TextAlignment="Center"
+                            TextWrapping="WrapWholeWords" />
+                    </Grid>
+
+                    <!--  Stat summary  -->
+                    <Grid
+                        x:Name="SummaryGrid"
+                        Grid.Row="1"
+                        Padding="40"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Style="{StaticResource CardStyle}">
+                        <ani:Implicit.ShowAnimations>
+                            <ani:OpacityAnimation
+                                Delay="0:0:0.05"
+                                From="0"
+                                To="1"
+                                Duration="0:0:0.3" />
+                            <ani:TranslationAnimation
+                                Delay="0:0:0.05"
+                                From="0,12,0"
+                                To="0"
+                                Duration="0:0:0.3" />
+
+                        </ani:Implicit.ShowAnimations>
+
+                        <toolkit:UniformGrid
+                            ColumnSpacing="0"
+                            Columns="2"
+                            Orientation="Vertical"
+                            RowSpacing="24"
+                            Rows="3">
+                            <controls:TimerData
+                                Title="{x:Bind strings:Resources.StatsTotalHours}"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphPersonWithRibbon}"
+                                Text="{x:Bind ViewModel.TotalHours, Mode=OneWay}" />
+                            <controls:TimerData
+                                Title="{x:Bind strings:Resources.StatsMonthlyHours}"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphCalendar}"
+                                Text="{x:Bind ViewModel.HoursThisMonth, Mode=OneWay}" />
+                            <controls:TimerData
+                                Title="{x:Bind strings:Resources.StatsWeeklyHours}"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphCalendarWeek}"
+                                Text="{x:Bind ViewModel.HoursThisWeek, Mode=OneWay}" />
+                            <controls:TimerData
+                                Title="{x:Bind strings:Resources.StatsLongestStreak}"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphFire}"
+                                Text="{x:Bind ViewModel.LongestStreak, Mode=OneWay}" />
+                            <controls:TimerData
+                                Title="{x:Bind strings:Resources.StatsTotalFocusHours}"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphFocus}"
+                                Text="{x:Bind ViewModel.TotalFocusHours, Mode=OneWay}" />
+                            <controls:TimerData
+                                Title="{x:Bind strings:Resources.TasksCompleted}"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphCheckMarkCircle}"
+                                Text="{x:Bind ViewModel.TasksCompleted, Mode=OneWay}" />
+                        </toolkit:UniformGrid>
+                    </Grid>
+                </Grid>
+
+                <!--  Sound usage  -->
+                <Grid
+                    Margin="0,4,0,0"
+                    Padding="20"
+                    Style="{StaticResource CardStyle}">
+                    <ani:Implicit.ShowAnimations>
+                        <ani:OpacityAnimation
+                            Delay="0:0:0.1"
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.3" />
+                        <ani:TranslationAnimation
+                            Delay="0:0:0.1"
+                            From="0,12,0"
+                            To="0"
+                            Duration="0:0:0.3" />
+                    </ani:Implicit.ShowAnimations>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock FontWeight="SemiBold" Text="{x:Bind strings:Resources.TopPlayedSoundsText}" />
+
+                    <StackPanel
+                        Grid.Row="1"
+                        Margin="0,28"
+                        Visibility="{x:Bind ViewModel.TopPlayedSoundsPlaceholderVisible, Mode=OneWay}">
+                        <TextBlock
+                            AutomationProperties.AccessibilityView="Raw"
+                            FontSize="120"
+                            Text="🎧"
+                            TextAlignment="Center" />
+                        <TextBlock
+                            MaxWidth="180"
+                            FontSize="12"
+                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                            Text="{x:Bind strings:Resources.TopPlayedSoundsPlaceholder}"
+                            TextAlignment="Center"
+                            TextWrapping="WrapWholeWords" />
+                    </StackPanel>
+
+                    <ItemsControl
+                        Grid.Row="1"
+                        Margin="0,20,0,0"
+                        ItemsSource="{x:Bind ViewModel.SoundUsage}">
+
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="vm:SoundUsageHistoryViewModel">
+                                <StackPanel Margin="0,0,0,12">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock FontSize="12" Text="{x:Bind Name}" />
+                                        <TextBlock
+                                            Grid.Column="1"
+                                            FontSize="12"
+                                            Text="{x:Bind UsageTime}" />
+                                    </Grid>
+
+                                    <winui:ProgressBar
+                                        Margin="0,8,0,0"
+                                        HorizontalAlignment="Stretch"
+                                        Maximum="{x:Bind MaxValue}"
+                                        Value="{x:Bind UsageValue}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+
+                <!--  Helpful options  -->
+                <Grid
+                    Margin="0,4,0,0"
+                    Padding="20"
+                    Style="{StaticResource CardStyle}"
+                    Visibility="{x:Bind ViewModel.HelpfulOptionsVisible, Mode=OneWay}">
+                    <ani:Implicit.ShowAnimations>
+                        <ani:OpacityAnimation
+                            Delay="0:0:0.15"
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.3" />
+                        <ani:TranslationAnimation
+                            Delay="0:0:0.15"
+                            From="0,12,0"
+                            To="0"
+                            Duration="0:0:0.3" />
+                    </ani:Implicit.ShowAnimations>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock FontWeight="SemiBold" Text="{x:Bind strings:Resources.StatsPageSettingsHeader}" />
+
+                    <!--  Quick Resume  -->
+                    <labs:SettingsCard
+                        Grid.Row="1"
+                        Margin="0,12,0,0"
+                        Description="{x:Bind strings:Resources.QuickResumeDescription}"
+                        Header="{x:Bind strings:Resources.QuickResumeTitle}">
+                        <labs:SettingsCard.HeaderIcon>
+                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPcStartup}" />
+                        </labs:SettingsCard.HeaderIcon>
+
+                        <Grid>
+                            <Grid Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.IsQuickResumeEnabled), Mode=OneWay}">
+                                <Button
+                                    MinWidth="80"
+                                    Command="{x:Bind ViewModel.EnableQuickResumeCommand}"
+                                    Content="{x:Bind strings:Resources.EnableText}"
+                                    Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.EnableQuickResumeCommand.IsRunning), Mode=OneWay}" />
+                                <winui:ProgressRing
+                                    Width="20"
+                                    Height="20"
+                                    Margin="0,0,13,1"
+                                    Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                                    IsActive="{x:Bind ViewModel.EnableQuickResumeCommand.IsRunning, Mode=OneWay}"
+                                    IsIndeterminate="True"
+                                    Visibility="{x:Bind ViewModel.EnableQuickResumeCommand.IsRunning, Mode=OneWay}" />
+                            </Grid>
+                            <FontIcon
+                                Margin="0,0,12,0"
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                Glyph="{StaticResource GlyphCheckMarkCircle}"
+                                Visibility="{x:Bind ViewModel.IsQuickResumeEnabled, Mode=OneWay}" />
+                        </Grid>
+                    </labs:SettingsCard>
+
+                    <!--  streak reminder  -->
+                    <labs:SettingsCard
+                        Grid.Row="2"
+                        Margin="0,3,0,0"
+                        Description="{x:Bind strings:Resources.SettingsStreakReminderDescription}"
+                        Header="{x:Bind strings:Resources.SettingsStreakReminderHeader}">
+                        <labs:SettingsCard.HeaderIcon>
+                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFire}" />
+                        </labs:SettingsCard.HeaderIcon>
+
+                        <Grid>
+                            <Grid Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.IsStreakReminderEnabled), Mode=OneWay}">
+                                <Button
+                                    MinWidth="80"
+                                    Command="{x:Bind ViewModel.EnableStreakReminderCommand}"
+                                    Content="{x:Bind strings:Resources.EnableText}"
+                                    Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.EnableStreakReminderCommand.IsRunning), Mode=OneWay}" />
+                                <winui:ProgressRing
+                                    Width="20"
+                                    Height="20"
+                                    Margin="0,0,13,1"
+                                    Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                                    IsActive="{x:Bind ViewModel.EnableStreakReminderCommand.IsRunning, Mode=OneWay}"
+                                    IsIndeterminate="True"
+                                    Visibility="{x:Bind ViewModel.EnableStreakReminderCommand.IsRunning, Mode=OneWay}" />
+                            </Grid>
+                            <FontIcon
+                                Margin="0,0,12,0"
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                Glyph="{StaticResource GlyphCheckMarkCircle}"
+                                Visibility="{x:Bind ViewModel.IsStreakReminderEnabled, Mode=OneWay}" />
+                        </Grid>
+                    </labs:SettingsCard>
+
+                    <HyperlinkButton
+                        Grid.Row="3"
+                        Margin="0,6,0,-6"
+                        Padding="4,2"
+                        AutomationProperties.Name="{x:Bind strings:Resources.OsNotificationHelpMessage}"
+                        Command="{x:Bind ViewModel.LaunchWindowsNotificationSettingsCommand}"
+                        FontSize="12">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{x:Bind strings:Resources.OsNotificationHelpMessage}" />
+                            <FontIcon
+                                Margin="4,0,0,0"
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="12"
+                                Glyph="{StaticResource GlyphRedirect}" />
+                        </StackPanel>
+                    </HyperlinkButton>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Page>

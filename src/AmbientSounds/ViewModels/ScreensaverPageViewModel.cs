@@ -31,6 +31,7 @@ public partial class ScreensaverPageViewModel : ObservableObject
     private readonly ISystemInfoProvider _systemInfoProvider;
     private readonly IUserSettings _userSettings;
     private readonly IChannelService _channelService;
+    private readonly IFocusService _focusService;
     private readonly ChannelVmFactory _channelFactory;
     private Uri _videoSource = new(DefaultVideoSource);
     private string _activeScreensaverId = string.Empty;
@@ -51,7 +52,8 @@ public partial class ScreensaverPageViewModel : ObservableObject
         IUserSettings userSettings,
         IChannelService channelService,
         ChannelVmFactory channelVmFactory,
-        IExperimentationService experimentationService)
+        IExperimentationService experimentationService,
+        IFocusService focusService)
     {
         _localizer = localizer;
         _videoService = videoService;
@@ -62,11 +64,29 @@ public partial class ScreensaverPageViewModel : ObservableObject
         _userSettings = userSettings;
         _channelService = channelService;
         _channelFactory = channelVmFactory;
+        _focusService = focusService;
 
         _videoService.VideoDeleted += OnVideoDeleted;
 
-        UpdateClockSettings();
+        ChannelSwitcherVisible = !_userSettings.Get<bool>(UserSettingsConstants.ChannelSwitcherHidden);
     }
+
+    [ObservableProperty]
+    private bool _focusTimerVisible;
+
+    /// <summary>
+    /// A11y text to use for channel switcher toggle button.
+    /// </summary>
+    public string ToggleChannelSwitcherText => ChannelSwitcherVisible
+        ? _localizer.GetString("ChannelSwitcherHide")
+        : _localizer.GetString("ChannelSwitcherShow");
+
+    /// <summary>
+    /// Determines if the channel switcher is visible.
+    /// </summary>
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(ToggleChannelSwitcherText))]
+    private bool _channelSwitcherVisible;
 
     [ObservableProperty]
     private bool _clockVisible;
@@ -143,6 +163,8 @@ public partial class ScreensaverPageViewModel : ObservableObject
         }
 
         Loading = true;
+
+        UpdateClockSettings();
 
         var channelsTask = InitializeChannelsAsync(default);
 
@@ -225,10 +247,20 @@ public partial class ScreensaverPageViewModel : ObservableObject
         UpdateClockSettings();
     }
 
+    [RelayCommand]
+    private void ToggleChannelSwitcher()
+    {
+        ChannelSwitcherVisible = !ChannelSwitcherVisible;
+        _userSettings.Set(UserSettingsConstants.ChannelSwitcherHidden, !ChannelSwitcherVisible);
+    }
+
     private void UpdateClockSettings()
     {
+        string? channelTimerModeString = _userSettings.Get<string>(UserSettingsConstants.ChannelTimerModeKey);
         ClockVisible = _userSettings.Get<bool>(UserSettingsConstants.ChannelClockEnabledKey) ||
-            _userSettings.Get<bool>(UserSettingsConstants.ChannelCountdownEnabledKey);
+            channelTimerModeString == ChannelTimerMode.Countdown.ToString();
+
+        FocusTimerVisible = _focusService.CurrentState is not FocusState.None || channelTimerModeString == ChannelTimerMode.Focus.ToString();
     }
 
 

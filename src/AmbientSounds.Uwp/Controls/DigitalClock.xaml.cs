@@ -42,4 +42,9 @@ public sealed partial class DigitalClock : UserControl
         MinuteBox.NumberFormatter = formatter;
         SecondBox.NumberFormatter = formatter;
     }
+
+    private string GetPlayButtonAutomationName(bool canStart)
+    {
+        return canStart ? Strings.Resources.PlayerPlayText : Strings.Resources.PlayerPauseText;
+    }
 }

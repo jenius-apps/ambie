@@ -70,7 +70,6 @@
                                 Header="{x:Bind strings:Resources.FocusLength}"
                                 IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
                                 Maximum="{x:Bind constants:FocusConstants.TimerLimit}"
-                                StepFrequency="5"
                                 TickFrequency="15"
                                 Value="{x:Bind ViewModel.FocusLength, Mode=TwoWay}" />
                         </Grid>
@@ -99,7 +98,6 @@
                                 Header="{x:Bind strings:Resources.RestLength}"
                                 IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
                                 Maximum="{x:Bind constants:FocusConstants.TimerLimit}"
-                                StepFrequency="5"
                                 TickFrequency="15"
                                 Value="{x:Bind ViewModel.RestLength, Mode=TwoWay}" />
                         </Grid>
@@ -138,7 +136,7 @@
             <Button
                 Grid.Column="6"
                 AutomationProperties.Name="{x:Bind ViewModel.PrimaryButtonText, Mode=OneWay}"
-                Click="{x:Bind ViewModel.PlayOrPause}"
+                Command="{x:Bind ViewModel.PlayOrPauseCommand}"
                 IsEnabled="{x:Bind ViewModel.PlayEnabled, Mode=OneWay}"
                 Style="{StaticResource SmallSubtleIconButton}">
                 <FontIcon FontSize="12" Style="{StaticResource PlayTimerIcon}" />
@@ -228,7 +226,7 @@
                 Orientation="Horizontal">
                 <Button
                     AutomationProperties.Name="{x:Bind ViewModel.PrimaryButtonText, Mode=OneWay}"
-                    Click="{x:Bind ViewModel.PlayOrPause}"
+                    Command="{x:Bind ViewModel.PlayOrPauseCommand}"
                     IsEnabled="{x:Bind ViewModel.PlayEnabled, Mode=OneWay}"
                     Style="{StaticResource SmallSubtleIconButton}">
                     <Grid>
@@ -243,7 +241,7 @@
                     </Grid>
                 </Button>
                 <Button
-                    Click="{x:Bind ViewModel.Stop}"
+                    Command="{x:Bind ViewModel.StopCommand}"
                     Style="{StaticResource SmallSubtleIconButton}"
                     Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
                     <FontIcon FontSize="12" Style="{StaticResource StopTimerIcon}" />

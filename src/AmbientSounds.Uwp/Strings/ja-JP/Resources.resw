@@ -367,15 +367,6 @@
     <value>ご購入ありがとうございます！</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>プレミアムで高品質サウンドを取得する</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>動画スクリーンセーバーをダウンロードする</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>開発をサポートする</value>
-  </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>こんにちは</value>
   </data>
@@ -860,9 +851,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>サウンドのダウンロード</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>表示モード</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>暗い画面</value>
   </data>
@@ -950,5 +938,125 @@
   </data>
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>カウントダウンタイマーを有効にする</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>同じメリット、月額費用の削減</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>年間プランを入手 - {0}</value>
+  </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>コードを入力する</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>プロモーションコードを入力してください</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>コードを使用してAmbie+の割引を解除する</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>送信</value>
+  </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>最長ストリーク</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>今月の営業時間</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>フォーカス時間</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>合計時間</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>過去 7 日間</value>
+  </data>
+  <data name="TopPlayedSoundsText" xml:space="preserve">
+    <value>よく再生される音</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>Ambieをもう少し使って、より多くの統計を表示する</value>
+  </data>
+  <data name="StatsSubtitle" xml:space="preserve">
+    <value>Ambieでの利用統計を表示する</value>
+  </data>
+  <data name="StatsTitleText" xml:space="preserve">
+    <value>統計</value>
+  </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>Windows 通知が Ambie に対して有効になっていることを確認する</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>エネーブル</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>便利なオプション</value>
+  </data>
+  <data name="ChannelSwitcherHide" xml:space="preserve">
+    <value>チャンネルを隠す</value>
+  </data>
+  <data name="ChannelSwitcherShow" xml:space="preserve">
+    <value>チャンネルを表示</value>
+  </data>
+  <data name="CountdownText" xml:space="preserve">
+    <value>カウントダウン</value>
+  </data>
+  <data name="NoneText" xml:space="preserve">
+    <value>何一つ</value>
+  </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>フォーカスタイマーは、アクティブフォーカスセッション中に常に表示されます。</value>
+  </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>時</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>分</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>月</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>週</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>年</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>表示モード</value>
+  </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>リラクゼーションタイマー</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>リラクゼーションタイマーを使用して、リラックスしたり、睡眠したり、瞑想したりします。</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>リラクゼーションタイマー情報</value>
+  </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>リラックスページに含める</value>
+  </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>保存したサウンドミックス</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>睡眠と瞑想のガイド</value>
+  </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>最大5つのサウンドをミックス&amp;マッチ</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>高品質のサウンド、プレミアムビデオ、厳選された瞑想。将来のすべてのコンテンツへのアクセス。3つ以上のサウンドを再生します。Ambie+ですべてをアンロックし、次のお気に入りの雰囲気を見つけてください。</value>
+  </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Ambie+を入手して最大5つのサウンドを再生</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>より多くのサウンドをミックス&amp;マッチ</value>
   </data>
 </root>

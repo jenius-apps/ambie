@@ -69,6 +69,7 @@ public class Navigator : INavigator
             ContentPageType.Meditate => typeof(MeditatePage),
             ContentPageType.Search => typeof(SearchPage),
             ContentPageType.Channels => typeof(ChannelsPage),
+            ContentPageType.Stats => typeof(StatsPage),
             _ => typeof(HomePage)
         };
 
@@ -100,7 +101,7 @@ public class Navigator : INavigator
 
         if (RootFrame is Frame f)
         {
-            if (f.CurrentSourcePageType == typeof(CompactPage))
+            if (f.CurrentSourcePageType == typeof(CompactPage) || f.CurrentSourcePageType == typeof(ScreensaverPage))
             {
                 return;
             }

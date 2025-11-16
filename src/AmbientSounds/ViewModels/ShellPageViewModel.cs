@@ -20,29 +20,25 @@ namespace AmbientSounds.ViewModels;
 /// <summary>
 /// ViewModel for the shell page.
 /// </summary>
-public partial class ShellPageViewModel : ObservableObject
+public partial class ShellPageViewModel : BaseShellPageViewModel
 {
-    private const int LastDaysStreak = 7;
     private const int RatingsTimerInterval = 1800000; // 30 minutes
-    private readonly IUserSettings _userSettings;
     private readonly ITimerService _ratingTimer;
     private readonly ITelemetry _telemetry;
     private readonly INavigator _navigator;
     private readonly IDialogService _dialogService;
     private readonly IIapService _iapService;
-    private readonly IFocusService _focusService;
     private readonly ISoundMixService _soundMixService;
     private readonly IMixMediaPlayerService _mixMediaPlayerService;
     private readonly IShareService _shareService;
     private readonly IDispatcherQueue _dispatcherQueue;
-    private readonly IGuideService _guideService;
     private readonly ISoundService _soundService;
     private readonly IAssetLocalizer _assetLocalizer;
     private readonly ISearchService _searchService;
-    private readonly IStatService _statService;
-    private readonly ILocalizer _localizer;
     private readonly IAppStoreUpdater _appStoreUpdater;
     private readonly ISystemInfoProvider _systemInfoProvider;
+    private readonly ILocalizer _localizer;
+    private readonly IExperimentationService _experimentationService;
 
     public ShellPageViewModel(
         IUserSettings userSettings,
@@ -52,47 +48,44 @@ public partial class ShellPageViewModel : ObservableObject
         INavigator navigator,
         IDialogService dialogService,
         IIapService iapService,
-        IFocusService focusService,
         ISoundMixService soundMixService,
         IMixMediaPlayerService mixMediaPlayerService,
         IShareService shareService,
-        IGuideService guideService,
         IDispatcherQueue dispatcherQueue,
         ILocalizer localizer,
         ISoundService soundService,
         IAssetLocalizer assetLocalizer,
         ISearchService searchService,
-        IStatService statService,
-        IAppStoreUpdater appStoreUpdater)
+        IAppStoreUpdater appStoreUpdater,
+        IExperimentationService experimentationService,
+        IPushNotificationRegistrationService pushService)
+        : base(userSettings, pushService)
     {
         IsWin11 = systemInfoProvider.IsWin11();
-        IsMeditatePageVisible = systemInfoProvider.GetCulture().ToLower().Contains("en");
 
-        _userSettings = userSettings;
         _ratingTimer = timer;
         _telemetry = telemetry;
         _navigator = navigator;
         _dialogService = dialogService;
         _iapService = iapService;
-        _focusService = focusService;
         _soundMixService = soundMixService;
         _mixMediaPlayerService = mixMediaPlayerService;
         _shareService = shareService;
         _dispatcherQueue = dispatcherQueue;
-        _guideService = guideService;
         _soundService = soundService;
         _assetLocalizer = assetLocalizer;
         _searchService = searchService;
-        _statService = statService;
-        _localizer = localizer;
         _appStoreUpdater = appStoreUpdater;
         _systemInfoProvider = systemInfoProvider;
+        _localizer = localizer;
+        _experimentationService = experimentationService;
 
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Home"), "\uE10F", ContentPageType.Home.ToString(), tooltipSubtitle: localizer.GetString("HomeSubtitle")));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Catalogue"), "\uEC4F", ContentPageType.Catalogue.ToString(), tooltipSubtitle: localizer.GetString("CatalogueSubtitle")));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("FocusText"), "\uF272", ContentPageType.Focus.ToString(), tooltipSubtitle: localizer.GetString("FocusSubtitle")));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("ChannelsTitleText"), "\uE8B2", ContentPageType.Channels.ToString(), tooltipSubtitle: localizer.GetString("ChannelsSubtitle")));
-        if (IsMeditatePageVisible) { MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("RelaxText"), "\uEC0A", ContentPageType.Meditate.ToString(), tooltipSubtitle: localizer.GetString("MeditateSubtitle"))); }
+        MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("RelaxText"), "\uEC0A", ContentPageType.Meditate.ToString(), tooltipSubtitle: localizer.GetString("MeditateSubtitle")));
+        MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("StatsTitleText"), "\uEAFC", ContentPageType.Stats.ToString(), tooltipSubtitle: localizer.GetString("StatsSubtitle")));
         FooterItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("UpdatesText"), "\uE118", ContentPageType.Updates.ToString(), tooltipSubtitle: localizer.GetString("UpdatesSubtitle")));
         FooterItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("SettingsText"), "\uE713", ContentPageType.Settings.ToString(), tooltipSubtitle: localizer.GetString("SettingsSubtitle")));
 
@@ -113,18 +106,6 @@ public partial class ShellPageViewModel : ObservableObject
     }
 
     [ObservableProperty]
-    private int _streakCount;
-
-    [ObservableProperty]
-    private string _streakText = string.Empty;
-
-    [ObservableProperty]
-    private bool _showStreak;
-
-    [ObservableProperty]
-    private bool _newStreakExperience;
-
-    [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(SidePanelMica))]
     private bool _isWin11;
 
@@ -134,16 +115,19 @@ public partial class ShellPageViewModel : ObservableObject
     private bool _isRatingMessageVisible;
 
     [ObservableProperty]
-    private bool _isFreeTrialMessageVisible;
+    private string _premiumTeachingTipTitle;
+
+    [ObservableProperty]
+    private string _premiumTeachingTipMessage;
+
+    [ObservableProperty]
+    private bool _isPremiumTeachingTipVisible;
 
     [ObservableProperty]
     private bool _premiumButtonVisible;
 
     [ObservableProperty]
     private bool _isMissingSoundsMessageVisible;
-
-    [ObservableProperty]
-    private bool _isMeditatePageVisible;
 
     [ObservableProperty]
     private bool _updateButtonVisible;
@@ -193,16 +177,11 @@ public partial class ShellPageViewModel : ObservableObject
     {
         _telemetry.TrackEvent(TelemetryConstants.ShellPagePremiumClicked, new Dictionary<string, string>
         {
-            { "viaFreeTrialTip", IsFreeTrialMessageVisible.ToString().ToLower()  }
+            { "viaPremiumTeachingTip", IsPremiumTeachingTipVisible.ToString().ToLower()  }
         });
 
-        IsFreeTrialMessageVisible = false;
+        IsPremiumTeachingTipVisible = false;
         await _dialogService.OpenPremiumAsync();
-    }
-
-    public void GoToScreensaver()
-    {
-        _navigator.ToScreensaver();
     }
 
     [RelayCommand]
@@ -218,10 +197,8 @@ public partial class ShellPageViewModel : ObservableObject
         _userSettings.SettingSet += OnSettingSet;
         _navigator.ContentPageChanged += OnContentPageChanged;
         _shareService.ShareFailed += OnShareFailed;
-        _statService.StreakChanged += OnStreakChanged;
 
         _ = CheckForUpdatesAsync();
-        LoadStreak();
         await LoadPremiumContentAsync();
     }
 
@@ -249,15 +226,7 @@ public partial class ShellPageViewModel : ObservableObject
         _iapService.ProductPurchased -= OnProductPurchased;
         _navigator.ContentPageChanged -= OnContentPageChanged;
         _shareService.ShareFailed -= OnShareFailed;
-        _statService.StreakChanged -= OnStreakChanged;
-    }
-
-    private void OnStreakChanged(object sender, StreakChangedEventArgs e)
-    {
-        _dispatcherQueue.TryEnqueue(() =>
-        {
-            LoadStreak(e);
-        });
+        _mixMediaPlayerService.MaxFreeSoundsHit -= OnMaxFreeSoundsHit;
     }
 
     private void OnShareFailed(object sender, EventArgs e)
@@ -266,42 +235,15 @@ public partial class ShellPageViewModel : ObservableObject
         {
             IsMissingSoundsMessageVisible = true;
         });
-    }
 
-    public void LoadStreak(StreakChangedEventArgs? args = null)
-    {
-        int count = args?.NewStreak ?? _statService.ValidateAndRetrieveStreak();
-
-        StreakText = count == 1
-            ? _localizer.GetString("DaySingular")
-            : _localizer.GetString("DayPlural", count.ToString());
-
-        StreakCount = count;
-        NewStreakExperience = args?.AnimationRecommended ?? false;
-        ShowStreak = count > 0;
-    }
-
-    public async Task LoadRecentActivityAsync()
-    {
-        var recent = await _statService.GetRecentActiveHistory(LastDaysStreak);
-        DateTime tempDate = DateTime.Now.AddDays((LastDaysStreak - 1) * -1).Date;
-        RecentActivity.Clear();
-        foreach (var x in recent)
-        {
-            RecentActivity.Add(new DayActivityViewModel
-            {
-                Active = x,
-                Date = tempDate
-            });
-
-            tempDate = tempDate.AddDays(1);
-        }
+        _telemetry.TrackEvent(TelemetryConstants.MissingSoundsMessageShown);
     }
 
     [RelayCommand]
     private async Task OpenMissingDialogAsync()
     {
         IsMissingSoundsMessageVisible = false;
+        _telemetry.TrackEvent(TelemetryConstants.MissingSoundsMessageClicked);
         await _dialogService.MissingShareSoundsDialogAsync();
     }
 
@@ -323,22 +265,36 @@ public partial class ShellPageViewModel : ObservableObject
 
     private async Task LoadPremiumContentAsync()
     {
-        PremiumButtonVisible = await _iapService.CanShowPremiumButtonsAsync();
+        await UpdatePremiumButtonAsync();
 
         _telemetry.TrackEvent(PremiumButtonVisible
             ? TelemetryConstants.LaunchUserFreeTier
             : TelemetryConstants.LaunchUserPremiumTier);
 
+        bool isRatingsTipNotScheduled = _ratingTimer.Interval != RatingsTimerInterval;
+        bool isNotFirstRun = !_systemInfoProvider.IsFirstRun();
+        bool isNotFirstDayOfUse = _systemInfoProvider.FirstUseDate().AddDays(1) < DateTime.Now;
+        bool hasViewedFreeTrialTip = _userSettings.Get<bool>(UserSettingsConstants.HasViewedFreeTrialTipKey);
+
         if (PremiumButtonVisible
-            && _ratingTimer.Interval != RatingsTimerInterval // to avoid multiple tips, we check if the ratings tip is scheduled
-            && !_systemInfoProvider.IsFirstRun()
-            && !_userSettings.Get<bool>(UserSettingsConstants.HasViewedFreeTrialTipKey)
-            && _systemInfoProvider.FirstUseDate().AddDays(1) < DateTime.Now)
+            && isRatingsTipNotScheduled
+            && isNotFirstRun
+            && isNotFirstDayOfUse
+            && !hasViewedFreeTrialTip)
         {
             await Task.Delay(1000);
-            IsFreeTrialMessageVisible = true;
-            _telemetry.TrackEvent(TelemetryConstants.FreeTrialTipShown);
+            ShowFreeTrialTeachingTip();
             _userSettings.Set(UserSettingsConstants.HasViewedFreeTrialTipKey, true);
+        }
+
+        if (PremiumButtonVisible
+            && isRatingsTipNotScheduled
+            && isNotFirstRun
+            && isNotFirstDayOfUse
+            && hasViewedFreeTrialTip
+            && !_userSettings.Get<bool>(UserSettingsConstants.HasViewedMoreSoundsTipKey))
+        {
+            _mixMediaPlayerService.MaxFreeSoundsHit += OnMaxFreeSoundsHit;
         }
     }
 
@@ -360,13 +316,18 @@ public partial class ShellPageViewModel : ObservableObject
         }
     }
 
-    private void OnProductPurchased(object sender, string iapId)
+    private async Task UpdatePremiumButtonAsync()
     {
-        if (iapId is IapConstants.MsStoreAmbiePlusId 
-            or IapConstants.MsStoreAmbiePlusLifetimeId)
-        {
-            PremiumButtonVisible = false;
-        }
+        PremiumButtonVisible = await _iapService.CanShowPremiumButtonsAsync();
+
+        // This is the first time the desktop shell learns of the user's premium state.
+        // Update this state in settings.
+        _ = UpdateLastKnownPremiumStateAsync(PremiumButtonVisible);
+    }
+
+    private async void OnProductPurchased(object sender, string iapId)
+    {
+        await UpdatePremiumButtonAsync();
     }
 
     [RelayCommand]
@@ -438,6 +399,33 @@ public partial class ShellPageViewModel : ObservableObject
         {
             { "query", query }
         });
+    }
+
+    private void OnMaxFreeSoundsHit(object sender, EventArgs e)
+    {
+        _mixMediaPlayerService.MaxFreeSoundsHit -= OnMaxFreeSoundsHit;
+
+        _dispatcherQueue.TryEnqueue(() =>
+        {
+            ShowMoreSoundsTeachingTip();
+            _userSettings.Set(UserSettingsConstants.HasViewedMoreSoundsTipKey, true);
+        });
+    }
+
+    private void ShowMoreSoundsTeachingTip()
+    {
+        PremiumTeachingTipTitle = _localizer.GetString("MoreSoundsTipTitle");
+        PremiumTeachingTipMessage = _localizer.GetString("MoreSoundsTipDescription");
+        IsPremiumTeachingTipVisible = true;
+        _telemetry.TrackEvent(TelemetryConstants.MoreSoundsTipShown);
+    }
+
+    private void ShowFreeTrialTeachingTip()
+    {
+        PremiumTeachingTipTitle = _localizer.GetString("FreeTrialTipTitle");
+        PremiumTeachingTipMessage = _localizer.GetString("FreeTrialTipDescription");
+        IsPremiumTeachingTipVisible = true;
+        _telemetry.TrackEvent(TelemetryConstants.FreeTrialTipShown);
     }
 }
 

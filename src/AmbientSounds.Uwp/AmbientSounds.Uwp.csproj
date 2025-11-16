@@ -201,8 +201,8 @@
     <Compile Include="Controls\PlayerControl.xaml.cs">
       <DependentUpon>PlayerControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\PremiumControl.xaml.cs">
-      <DependentUpon>PremiumControl.xaml</DependentUpon>
+    <Compile Include="Controls\PremiumDialog.xaml.cs">
+      <DependentUpon>PremiumDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\PriceButtonContent.xaml.cs">
       <DependentUpon>PriceButtonContent.xaml</DependentUpon>
@@ -237,6 +237,9 @@
     <Compile Include="Controls\Shimmer.xaml.cs">
       <DependentUpon>Shimmer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SleepTimerBar.xaml.cs">
+      <DependentUpon>SleepTimerBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SleepTimerButton.xaml.cs">
       <DependentUpon>SleepTimerButton.xaml</DependentUpon>
     </Compile>
@@ -254,6 +257,9 @@
     </Compile>
     <Compile Include="Controls\SoundListItem.xaml.cs">
       <DependentUpon>SoundListItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SoundViewModelGridView.xaml.cs">
+      <DependentUpon>SoundViewModelGridView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\SparkleLottie.cs" />
     <Compile Include="Controls\SplitView.xaml.cs">
@@ -317,15 +323,9 @@
     <Compile Include="Services\ToastService.cs" />
     <Compile Include="Services\WindowsDownloadManager.cs" />
     <Compile Include="StateTriggers\TenFootTrigger.cs" />
-    <Compile Include="Strings\en-US\Resources.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resw</DependentUpon>
-    </Compile>
     <Compile Include="Tools\AssetsReader.cs" />
     <Compile Include="Tools\MicrosoftStoreRatings.cs" />
     <Compile Include="Tools\WindowsMediaPlayerFactory.cs" />
-    <Compile Include="Tools\WindowsPushNotificationSource.cs" />
     <Compile Include="Tools\WindowsSystemMediaControls.cs" />
     <Compile Include="Views\BlankPage.xaml.cs">
       <DependentUpon>BlankPage.xaml</DependentUpon>
@@ -369,6 +369,9 @@
     <Compile Include="Views\ShellPage.xaml.cs">
       <DependentUpon>ShellPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\StatsPage.xaml.cs">
+      <DependentUpon>StatsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UpdatesPage.xaml.cs">
       <DependentUpon>UpdatesPage.xaml</DependentUpon>
     </Compile>
@@ -388,7 +391,9 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\ambie_plus_banner.png" />
+    <Content Include="Assets\contrast-high\AmbiePlusBanner.png" />
+    <Content Include="Assets\contrast-standard\theme-light\AmbiePlusBanner.png" />
+    <Content Include="Assets\contrast-standard\theme-dark\AmbiePlusBanner.png" />
     <Content Include="Assets\Backgrounds\blisslike.png" />
     <Content Include="Assets\Backgrounds\gradient.png" />
     <Content Include="Assets\Backgrounds\water.png" />
@@ -582,7 +587,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\PremiumControl.xaml">
+    <Page Include="Controls\PremiumDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -630,6 +635,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\SleepTimerBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\SleepTimerButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -651,6 +660,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\SoundListItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SoundViewModelGridView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -766,6 +779,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\StatsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\UpdatesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -794,7 +811,7 @@
       <Version>0.0.1</Version>
     </PackageReference>
     <PackageReference Include="JeniusApps.Common.Uwp">
-      <Version>0.0.41-preview</Version>
+      <Version>0.0.54-preview</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection">
       <Version>7.0.0</Version>
@@ -831,6 +848,9 @@
     </PackageReference>
     <PackageReference Include="QueryString.NET">
       <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="ReswPlus">
+      <Version>0.3.1.5</Version>
     </PackageReference>
     <PackageReference Include="WindowsAzure.Messaging.Managed">
       <Version>0.1.7.9</Version>
@@ -900,6 +920,7 @@
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.el.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.es-ES.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.fa-IR.xlf" />
+    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.fr-CA.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.fr-FR.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.he-IL.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.hr-HR.xlf" />
@@ -982,6 +1003,9 @@
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\ro-RO\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\fr-CA\Resources.resw" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

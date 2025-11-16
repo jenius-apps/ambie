@@ -366,15 +366,6 @@
     <value>{0} per månad</value>
     <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Få tillgång till premiumljud av hög kvalitet!</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Växande katalog!</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Stöd utveckling!</value>
-  </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>Tack för att du prenumererar!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
@@ -860,9 +851,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>Ladda ner ljud</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>Dispaly-läge</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>Mörk skärm</value>
   </data>
@@ -947,5 +935,125 @@
   </data>
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Aktivera nedräkningstimer</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Samma fördelar, lägre månadskostnad</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Skaffa årsplan - {0}</value>
+  </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>Ange kod</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>Ange kampanjkod</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>Använd en kod för att låsa upp rabatter för Ambie+</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>Inlämna</value>
+  </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>Längsta svit</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>Öppettider den här månaden</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>Fokus timmar</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>Totalt antal timmar</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>Senaste 7 dagarna</value>
+  </data>
+  <data name="TopPlayedSoundsText" xml:space="preserve">
+    <value>Mest spelade ljud</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>Använd Ambie lite mer för att se mer statistik</value>
+  </data>
+  <data name="StatsSubtitle" xml:space="preserve">
+    <value>Visa din användningsstatistik i Ambie</value>
+  </data>
+  <data name="StatsTitleText" xml:space="preserve">
+    <value>Statistik</value>
+  </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>Se till att Windows-meddelanden är aktiverade för Ambie</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>Möjliggöra</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>Användbara alternativ</value>
+  </data>
+  <data name="ChannelSwitcherHide" xml:space="preserve">
+    <value>Dölj kanaler</value>
+  </data>
+  <data name="ChannelSwitcherShow" xml:space="preserve">
+    <value>Visa kanaler</value>
+  </data>
+  <data name="CountdownText" xml:space="preserve">
+    <value>Nedräkning</value>
+  </data>
+  <data name="NoneText" xml:space="preserve">
+    <value>Ingen</value>
+  </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>Fokustimern visas alltid under en aktiv fokussession.</value>
+  </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>dag</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>timme</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>minut</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>månad</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>vecka</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>år</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Visningsläge</value>
+  </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>Timer för avslappning</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>Använd avslappningstimern för att hjälpa dig att slappna av, sova eller meditera.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>Information om avslappningstimer</value>
+  </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Inkludera på Relax-sidan</value>
+  </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>Dina sparade ljudmixar</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>Sömn- och meditationsguider</value>
+  </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>Mixa och matcha upp till 5 ljud</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Ljud av hög kvalitet, premiumvideor och utvalda meditationer. Tillgång till allt framtida innehåll. Spela upp fler än 3 ljud. Lås upp allt med Ambie+ och hitta din nästa favoritmiljö.</value>
+  </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Få Ambie+ att spela upp till 5 ljud</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>Mixa och matcha fler ljud</value>
   </data>
 </root>

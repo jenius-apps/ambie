@@ -15,19 +15,16 @@ namespace AmbientSounds.ViewModels;
 /// </summary>
 public partial class CataloguePageViewModel : ObservableObject
 {
-    private readonly INavigator _navigator;
     private readonly IPageCache _pageCache;
-    private readonly CatalogueRowVmFactory _vmFactory;
+    private readonly ICatalogueRowVmFactory _vmFactory;
     private readonly IDialogService _dialogService;
 
     public CataloguePageViewModel(
         IPageCache pageCache,
-        INavigator navigator,
-        CatalogueRowVmFactory catalogueRowVmFactory,
+        ICatalogueRowVmFactory catalogueRowVmFactory,
         IDialogService dialogService)
     {
         _pageCache = pageCache;
-        _navigator = navigator;
         _vmFactory = catalogueRowVmFactory;
         _dialogService = dialogService;
     }
@@ -46,9 +43,9 @@ public partial class CataloguePageViewModel : ObservableObject
             List<Task> tasks = new();
             await Task.Delay(150, CancellationToken.None); // added to improve nav perf
             ct.ThrowIfCancellationRequested();
-            var rows = await _pageCache.GetCatalogueRowsAsync();
+            IReadOnlyList<Models.CatalogueRow> rows = await _pageCache.GetCatalogueRowsAsync();
             ct.ThrowIfCancellationRequested();
-            foreach (var row in rows)
+            foreach (Models.CatalogueRow row in rows)
             {
                 ct.ThrowIfCancellationRequested();
                 CatalogueRowViewModel vm = _vmFactory.Create(row);
@@ -71,7 +68,7 @@ public partial class CataloguePageViewModel : ObservableObject
 
     public void Uninitialize()
     {
-        foreach (var row in Rows)
+        foreach (CatalogueRowViewModel row in Rows)
         {
             row.Uninitialize();
         }
@@ -87,7 +84,7 @@ public partial class CataloguePageViewModel : ObservableObject
             return;
         }
 
-        var proceed = await _dialogService.OpenSoundDialogAsync(vm);
+        bool proceed = await _dialogService.OpenSoundDialogAsync(vm);
 
         if (!proceed)
         {

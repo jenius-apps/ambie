@@ -367,15 +367,6 @@
     <value>Tak fordi du abonnerede!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Få adgang til førsteklasses lyde i høj kvalitet</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Download video pauseskærme</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Støt udviklingen</value>
-  </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>Hej igen 👋🏽</value>
   </data>
@@ -860,9 +851,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>Download lyde</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>Dispaly-tilstand</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>Mørk skærm</value>
   </data>
@@ -947,5 +935,125 @@
   </data>
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Aktiver nedtællingstimer</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Samme fordele, lavere månedlige omkostninger</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Få årsabonnement - {0}</value>
+  </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>Indtast kode</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>Indtast kampagnekode</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>Brug en kode til at låse op for rabatter til Ambie+</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>Indsende</value>
+  </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>Længste stime</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>Åbningstider i denne måned</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>Fokustimer</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>Samlet antal timer</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>Sidste 7 dage</value>
+  </data>
+  <data name="TopPlayedSoundsText" xml:space="preserve">
+    <value>Mest afspillede lyde</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>Brug Ambie lidt mere for at se flere statistikker</value>
+  </data>
+  <data name="StatsSubtitle" xml:space="preserve">
+    <value>Se din brugsstatistik i Ambie</value>
+  </data>
+  <data name="StatsTitleText" xml:space="preserve">
+    <value>Statistik</value>
+  </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>Sørg for, at Windows-meddelelser er aktiveret for Ambie</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>Muliggøre</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>Nyttige muligheder</value>
+  </data>
+  <data name="ChannelSwitcherHide" xml:space="preserve">
+    <value>Skjul kanaler</value>
+  </data>
+  <data name="ChannelSwitcherShow" xml:space="preserve">
+    <value>Vis kanaler</value>
+  </data>
+  <data name="CountdownText" xml:space="preserve">
+    <value>Nedtælling</value>
+  </data>
+  <data name="NoneText" xml:space="preserve">
+    <value>Ingen</value>
+  </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>Fokustimeren vises altid under en aktiv fokussession.</value>
+  </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>dag</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>time</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>minut</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>måned</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>uge</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>år</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Visningstilstand</value>
+  </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>Afslapning timer</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>Brug afslapningstimeren til at hjælpe dig med at slappe af, sove eller meditere.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>Oplysninger om afslapningstimer</value>
+  </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Medtag på Relax-siden</value>
+  </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>Dine gemte lydmix</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>Søvn- og meditationsguider</value>
+  </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>Mix og match op til 5 lyde</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Lyde i høj kvalitet, førsteklasses videoer og kuraterede meditationer. Adgang til alt fremtidigt indhold. Afspil mere end 3 lyde. Lås op for det hele med Ambie+, og find din næste yndlingsstemning.</value>
+  </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Få Ambie+ til at afspille op til 5 lyde</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>Mix og match flere lyde</value>
   </data>
 </root>

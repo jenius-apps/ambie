@@ -475,18 +475,6 @@
           <target state="translated">{0} на месец</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Price per month, where the parameter {0} is a price like $1.00.</note>
         </trans-unit>
-        <trans-unit id="SubscriptionText1" translate="yes" xml:space="preserve">
-          <source>Access premium, high quality sounds</source>
-          <target state="translated">Достъп до първокласни, висококачествени звуци</target>
-        </trans-unit>
-        <trans-unit id="SubscriptionText2" translate="yes" xml:space="preserve">
-          <source>Download video screensavers</source>
-          <target state="translated">Изтегляне на видео скрийнсейвъри</target>
-        </trans-unit>
-        <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
-          <source>Support development</source>
-          <target state="translated">Подкрепете развитието</target>
-        </trans-unit>
         <trans-unit id="ThankYouForSub" translate="yes" xml:space="preserve">
           <source>Thank you for subscribing!</source>
           <target state="translated">Благодарим ви, че се абонирахте!</target>
@@ -1133,10 +1121,6 @@
           <source>Download sounds</source>
           <target state="translated">Изтегляне на звуци</target>
         </trans-unit>
-        <trans-unit id="DisplayMode" translate="yes" xml:space="preserve">
-          <source>Dispaly mode</source>
-          <target state="translated">Режим Dispaly</target>
-        </trans-unit>
         <trans-unit id="DisplayModeDarkScreen" translate="yes" xml:space="preserve">
           <source>Dark screen</source>
           <target state="translated">Тъмен екран</target>
@@ -1254,6 +1238,166 @@
         <trans-unit id="SettingsEnableCountdownHeader" translate="yes" xml:space="preserve">
           <source>Enable countdown timer</source>
           <target state="translated">Активирайте таймера за обратно броене</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
+          <source>Same benefits, lower monthly cost</source>
+          <target state="translated">Същите предимства, по-ниски месечни разходи</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanTitle" translate="yes" xml:space="preserve">
+          <source>Get annual plan - {0}</source>
+          <target state="translated">Вземете годишен план - {0}</target>
+        </trans-unit>
+        <trans-unit id="EnterCodePlaceholder" translate="yes" xml:space="preserve">
+          <source>Enter code</source>
+          <target state="translated">Въведете код</target>
+        </trans-unit>
+        <trans-unit id="EnterPromoCodeText" translate="yes" xml:space="preserve">
+          <source>Enter promo code</source>
+          <target state="translated">Въведете промоционален код</target>
+        </trans-unit>
+        <trans-unit id="PromoCodeMessage" translate="yes" xml:space="preserve">
+          <source>Use a code to unlock discounts for Ambie+</source>
+          <target state="translated">Използвайте код, за да отключите отстъпки за Ambie+</target>
+        </trans-unit>
+        <trans-unit id="SubmitText" translate="yes" xml:space="preserve">
+          <source>Submit</source>
+          <target state="translated">Изпрати</target>
+        </trans-unit>
+        <trans-unit id="StatsLongestStreak" translate="yes" xml:space="preserve">
+          <source>Longest streak</source>
+          <target state="translated">Най-дълга серия</target>
+        </trans-unit>
+        <trans-unit id="StatsMonthlyHours" translate="yes" xml:space="preserve">
+          <source>Hours this month</source>
+          <target state="translated">Работно време този месец</target>
+        </trans-unit>
+        <trans-unit id="StatsTotalFocusHours" translate="yes" xml:space="preserve">
+          <source>Focus hours</source>
+          <target state="translated">Часове за фокусиране</target>
+        </trans-unit>
+        <trans-unit id="StatsTotalHours" translate="yes" xml:space="preserve">
+          <source>Total hours</source>
+          <target state="translated">Общо часове</target>
+        </trans-unit>
+        <trans-unit id="StatsWeeklyHours" translate="yes" xml:space="preserve">
+          <source>Last 7 days</source>
+          <target state="translated">Последните 7 дни</target>
+        </trans-unit>
+        <trans-unit id="TopPlayedSoundsText" translate="yes" xml:space="preserve">
+          <source>Top played sounds</source>
+          <target state="translated">Най-възпроизвежданите звуци</target>
+        </trans-unit>
+        <trans-unit id="TopPlayedSoundsPlaceholder" translate="yes" xml:space="preserve">
+          <source>Use Ambie a little more to view more stats</source>
+          <target state="translated">Използвайте Ambie малко повече, за да видите повече статистики</target>
+        </trans-unit>
+        <trans-unit id="StatsSubtitle" translate="yes" xml:space="preserve">
+          <source>View your usage stats in Ambie</source>
+          <target state="translated">Преглед на статистическите данни за използването в Ambie</target>
+        </trans-unit>
+        <trans-unit id="StatsTitleText" translate="yes" xml:space="preserve">
+          <source>Stats</source>
+          <target state="translated">Статистика</target>
+        </trans-unit>
+        <trans-unit id="OsNotificationHelpMessage" translate="yes" xml:space="preserve">
+          <source>Ensure Windows notifications are enabled for Ambie</source>
+          <target state="translated">Уверете се, че известията на Windows са активирани за Ambie</target>
+        </trans-unit>
+        <trans-unit id="EnableText" translate="yes" xml:space="preserve">
+          <source>Enable</source>
+          <target state="translated">Разрешите</target>
+        </trans-unit>
+        <trans-unit id="StatsPageSettingsHeader" translate="yes" xml:space="preserve">
+          <source>Helpful options</source>
+          <target state="translated">Полезни опции</target>
+        </trans-unit>
+        <trans-unit id="ChannelSwitcherHide" translate="yes" xml:space="preserve">
+          <source>Hide channels</source>
+          <target state="translated">Скриване на канали</target>
+        </trans-unit>
+        <trans-unit id="ChannelSwitcherShow" translate="yes" xml:space="preserve">
+          <source>Show channels</source>
+          <target state="translated">Показване на канали</target>
+        </trans-unit>
+        <trans-unit id="CountdownText" translate="yes" xml:space="preserve">
+          <source>Countdown</source>
+          <target state="translated">Отброяване</target>
+        </trans-unit>
+        <trans-unit id="NoneText" translate="yes" xml:space="preserve">
+          <source>None</source>
+          <target state="translated">Никой</target>
+        </trans-unit>
+        <trans-unit id="ChannelTimerFocusDisclaimer" translate="yes" xml:space="preserve">
+          <source>Focus timer is always shown during an active focus session.</source>
+          <target state="translated">Таймерът за фокусиране винаги се показва по време на активна сесия за фокусиране.</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitDay" translate="yes" xml:space="preserve">
+          <source>day</source>
+          <target state="translated">ден</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitHour" translate="yes" xml:space="preserve">
+          <source>hour</source>
+          <target state="translated">час</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitMinute" translate="yes" xml:space="preserve">
+          <source>minute</source>
+          <target state="translated">минута</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitMonth" translate="yes" xml:space="preserve">
+          <source>month</source>
+          <target state="translated">месец</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitWeek" translate="yes" xml:space="preserve">
+          <source>week</source>
+          <target state="translated">седмица</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitYear" translate="yes" xml:space="preserve">
+          <source>year</source>
+          <target state="translated">година</target>
+        </trans-unit>
+        <trans-unit id="DisplayMode" translate="yes" xml:space="preserve">
+          <source>Display mode</source>
+          <target state="translated">Режим на показване</target>
+        </trans-unit>
+        <trans-unit id="RelaxationTimerText" translate="yes" xml:space="preserve">
+          <source>Relaxation timer</source>
+          <target state="translated">Таймер за релаксация</target>
+        </trans-unit>
+        <trans-unit id="RelaxationTimerHelpMessage" translate="yes" xml:space="preserve">
+          <source>Use the relaxation timer to help you relax, sleep, or meditate.</source>
+          <target state="translated">Използвайте таймера за релаксация, за да ви помогне да се отпуснете, да спите или да медитирате.</target>
+        </trans-unit>
+        <trans-unit id="RelaxationTimerHelpButtonAutomationName" translate="yes" xml:space="preserve">
+          <source>Relaxation timer information</source>
+          <target state="translated">Информация за таймера за релаксация</target>
+        </trans-unit>
+        <trans-unit id="IncludeInRelaxPageText" translate="yes" xml:space="preserve">
+          <source>Include in Relax page</source>
+          <target state="translated">Включете в страницата Релакс</target>
+        </trans-unit>
+        <trans-unit id="SavedSoundMixHeader" translate="yes" xml:space="preserve">
+          <source>Your saved sound mixes</source>
+          <target state="translated">Вашите запазени звукови миксове</target>
+        </trans-unit>
+        <trans-unit id="SleepMeditationGuideHeader" translate="yes" xml:space="preserve">
+          <source>Sleep and meditation guides</source>
+          <target state="translated">Ръководства за сън и медитация</target>
+        </trans-unit>
+        <trans-unit id="SelectMoreSoundsPlaceholder" translate="yes" xml:space="preserve">
+          <source>Mix and match up to 5 sounds</source>
+          <target state="translated">Смесване и съчетаване на до 5 звука</target>
+        </trans-unit>
+        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
+          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Play more than 3 sounds. Unlock it all with Ambie+, and find your next favourite ambience.</source>
+          <target state="translated">Висококачествени звуци, първокласни видеоклипове и подбрани медитации. Достъп до цялото бъдещо съдържание. Възпроизвеждане на повече от 3 звука. Отключете всичко с Ambie+ и намерете следващата си любима атмосфера.</target>
+        </trans-unit>
+        <trans-unit id="MoreSoundsTipDescription" translate="yes" xml:space="preserve">
+          <source>Get Ambie+ to play up to 5 sounds</source>
+          <target state="translated">Вземете Ambie+ за възпроизвеждане на до 5 звука</target>
+        </trans-unit>
+        <trans-unit id="MoreSoundsTipTitle" translate="yes" xml:space="preserve">
+          <source>Mix and match more sounds</source>
+          <target state="translated">Смесване и съчетаване на повече звуци</target>
         </trans-unit>
       </group>
     </body>

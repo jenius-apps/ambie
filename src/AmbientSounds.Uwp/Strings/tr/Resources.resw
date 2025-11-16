@@ -364,15 +364,6 @@
     <value>Abone olduğunuz için teşekkürler!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Premium, yüksek kaliteli seslere erişin</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Video ekran koruyucuları indirin</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Geliştirmeyi destekleyin</value>
-  </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>Tekrardan merhaba 👋🏽</value>
   </data>
@@ -854,9 +845,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>Sesleri indir</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>Dispaly modu</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>Karanlık ekran</value>
   </data>
@@ -944,5 +932,125 @@
   </data>
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Geri sayım sayacını etkinleştir</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Aynı avantajlar, daha düşük aylık maliyet</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Yıllık planı alın - {0}</value>
+  </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>Kodu girin</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>Promosyon kodunu girin</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>Ambie+ indirimlerinin kilidini açmak için bir kod kullanın</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>Gönder</value>
+  </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>En uzun galibiyet serisi</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>Bu ayki saatler</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>Odaklanma saatleri</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>Toplam saat</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>Son 7 gün</value>
+  </data>
+  <data name="TopPlayedSoundsText" xml:space="preserve">
+    <value>En çok çalınan sesler</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>Daha fazla istatistik görüntülemek için Ambie'yi biraz daha kullanın</value>
+  </data>
+  <data name="StatsSubtitle" xml:space="preserve">
+    <value>Ambie'de kullanım istatistiklerinizi görüntüleme</value>
+  </data>
+  <data name="StatsTitleText" xml:space="preserve">
+    <value>Istatistik</value>
+  </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>Ambie için Windows bildirimlerinin etkinleştirildiğinden emin olun</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>Etkinleştirmek</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>Yardımcı seçenekler</value>
+  </data>
+  <data name="ChannelSwitcherHide" xml:space="preserve">
+    <value>Kanalları gizle</value>
+  </data>
+  <data name="ChannelSwitcherShow" xml:space="preserve">
+    <value>Kanalları göster</value>
+  </data>
+  <data name="CountdownText" xml:space="preserve">
+    <value>Geri sayım</value>
+  </data>
+  <data name="NoneText" xml:space="preserve">
+    <value>Hiç kimse</value>
+  </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>Odak zamanlayıcısı, aktif bir odak oturumu sırasında her zaman gösterilir.</value>
+  </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>gün</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>saat</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>dakika</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>ay</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>hafta</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>yıl</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Ekran modu</value>
+  </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>Gevşeme zamanlayıcısı</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>Rahatlamanıza, uyumanıza veya meditasyon yapmanıza yardımcı olması için gevşeme zamanlayıcısını kullanın.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>Gevşeme zamanlayıcı bilgileri</value>
+  </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Relax sayfasına dahil et</value>
+  </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>Kaydettiğiniz ses karışımları</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>Uyku ve meditasyon rehberleri</value>
+  </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>5 sese kadar karıştırın ve eşleştirin</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Yüksek kaliteli sesler, birinci sınıf videolar ve küratörlüğünde meditasyonlar. Gelecekteki tüm içeriğe erişim. 3'ten fazla ses çalın. Ambie+ ile her şeyin kilidini açın ve yeni favori ambiyansınızı bulun.</value>
+  </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Ambie+'ın 5 adede kadar ses çalmasını sağlayın</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>Daha fazla sesi karıştırın ve eşleştirin</value>
   </data>
 </root>

@@ -298,35 +298,12 @@ sealed partial class App : Application
             {
                 bgServices.ToggleStreakReminderTask(true);
             }
+
+            if (userSettings.Get<bool>(UserSettingsConstants.Notifications))
+            {
+                bgServices.TogglePushNotificationRenewalTask(true);
+            }
         }
-
-        _ = TryRegisterPushNotificationsAsync();
-    }
-
-    private async Task TryRegisterPushNotificationsAsync()
-    {
-        IUserSettings userSettings = Services.GetRequiredService<IUserSettings>();
-
-        if (userSettings.Get<bool>(UserSettingsConstants.Notifications) is false ||
-            userSettings.Get<string>(UserSettingsConstants.LocalUserIdKey) is not { Length: > 0 } id)
-        {
-            return;
-        }
-
-        try
-        {
-#if DEBUG
-            // Don't want to needlessly send messages to the notification service
-            // when in debug mode.
-            await Task.Delay(1);
-#else
-            await Services.GetRequiredService<Tools.IPushNotificationService>().RegisterAsync(
-                id,
-                Services.GetRequiredService<JeniusApps.Common.Tools.ISystemInfoProvider>().GetCulture(),
-                default);
-#endif
-        }
-        catch { }
     }
 
     private async void HandleProtocolLaunch(IProtocolActivatedEventArgs protocolArgs)

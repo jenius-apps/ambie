@@ -358,15 +358,6 @@
     <value>Bedankt voor je inschrijving!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Krijg toegang tot hoogwaardige geluiden van hoge kwaliteit</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Videoscreensavers downloaden</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Ondersteuning van ontwikkeling</value>
-  </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>Hallo nogmaals 👋🏽</value>
   </data>
@@ -833,9 +824,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>Geluiden downloaden</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>Dispaly-modus</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>Donker scherm</value>
   </data>
@@ -923,5 +911,119 @@
   </data>
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Afteltimer inschakelen</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Dezelfde voordelen, lagere maandelijkse kosten</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Ontvang een jaarabonnement - {0}</value>
+  </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>Voer de code in</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>Voer de promotiecode in</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>Gebruik een code om kortingen te ontgrendelen voor Ambie+</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>Opslaan</value>
+  </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>Langste reeks</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>Uren deze maand</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>Focus uren</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>Totaal aantal uren</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>Afgelopen 7 dagen</value>
+  </data>
+  <data name="TopPlayedSoundsText" xml:space="preserve">
+    <value>Meest afgespeelde geluiden</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>Gebruik Ambie iets meer om meer statistieken te bekijken</value>
+  </data>
+  <data name="StatsSubtitle" xml:space="preserve">
+    <value>Bekijk uw gebruiksstatistieken in Ambie</value>
+  </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>Zorg ervoor dat Windows-meldingen zijn ingeschakeld voor Ambie</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>Inschakelen</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>Handige opties</value>
+  </data>
+  <data name="ChannelSwitcherHide" xml:space="preserve">
+    <value>Kanalen verbergen</value>
+  </data>
+  <data name="ChannelSwitcherShow" xml:space="preserve">
+    <value>Toon kanalen</value>
+  </data>
+  <data name="CountdownText" xml:space="preserve">
+    <value>Aftellen</value>
+  </data>
+  <data name="NoneText" xml:space="preserve">
+    <value>Geen</value>
+  </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>De focustimer wordt altijd weergegeven tijdens een actieve focussessie.</value>
+  </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>dag</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>uur</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>minuut</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>maand</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>jaar</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Weergave modus</value>
+  </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>Ontspanning timer</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>Gebruik de ontspanningstimer om u te helpen ontspannen, slapen of mediteren.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>Informatie over de ontspanningstimer</value>
+  </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Opnemen in Relax pagina</value>
+  </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>Uw opgeslagen geluidsmixen</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>Slaap- en meditatiegidsen</value>
+  </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>Mix en match tot 5 geluiden</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Geluiden van hoge kwaliteit, premium video's en gecureerde meditaties. Toegang tot alle toekomstige inhoud. Speel meer dan 3 geluiden af. Ontgrendel het allemaal met Ambie+ en vind je volgende favoriete sfeer.</value>
+  </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Krijg Ambie+ om tot 5 geluiden af te spelen</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>Mix en match meer geluiden</value>
   </data>
 </root>

@@ -62,11 +62,6 @@ public static class UserSettingsConstants
     public const string Notifications = "NotificationSetting";
 
     /// <summary>
-    /// The number of max active tracks.
-    /// </summary>
-    public const string MaxActive = "MaxActive";
-
-    /// <summary>
     /// Key for the list of active tracks.
     /// </summary>
     public const string ActiveTracks = "ActiveTracks";
@@ -177,9 +172,14 @@ public static class UserSettingsConstants
     public const string HasViewedFreeTrialTipKey = "HasViewedFreeTrialTip";
 
     /// <summary>
-    /// Remembers if the user enabled the channel countdown.
+    /// Remembers if the user has seen the more sounds tip.
     /// </summary>
-    public const string ChannelCountdownEnabledKey = "ChannelCountdownEnabled";
+    public const string HasViewedMoreSoundsTipKey = "HasViewedMoreSoundsTip";
+
+    /// <summary>
+    /// Remembers the timer mode for the channel page.
+    /// </summary>
+    public const string ChannelTimerModeKey = nameof(ChannelTimerModeKey);
 
     /// <summary>
     /// Remembers if the user enabled the channel clock.
@@ -187,9 +187,35 @@ public static class UserSettingsConstants
     public const string ChannelClockEnabledKey = "ChannelClockEnabled";
 
     /// <summary>
-    /// Remembers if the user enabled the channel clock's seconds.
+    /// Remembers your last used timer focus length.
     /// </summary>
-    public const string ChannelClockSecondsEnabledKey = "ChannelClockSecondsEnabled";
+    public const string LastUsedFocusLengthKey = "LastUsedFocusLength";
+
+    /// <summary>
+    /// Remembers your last used timer rest length.
+    /// </summary>
+    public const string LastUsedRestLengthKey = "LastUsedRestLength";
+
+    /// <summary>
+    /// Remembers your last used timer reptitions.
+    /// </summary>
+    public const string LastUsedRepetitionsKey = "LastUsedRepetitions";
+
+    /// <summary>
+    /// Remembers the user's last choice for 'show mix in relax page' option.
+    /// </summary>
+    public const string ShowMixInRelaxPageKey = nameof(ShowMixInRelaxPageKey);
+
+    /// <summary>
+    /// Remembers if the user has decided to hide the channel switcher.
+    /// </summary>
+    public const string ChannelSwitcherHidden = nameof(ChannelSwitcherHidden);
+
+    /// <summary>
+    /// Representing last known premium state.
+    /// Options: premium, free, or null.
+    /// </summary>
+    public const string LastKnownPremiumState = nameof(LastKnownPremiumState);
 
     /// <summary>
     ///  Settings defaults.
@@ -199,7 +225,6 @@ public static class UserSettingsConstants
         { Volume, 80d },
         { TelemetryOn, true },
         { Notifications, true },
-        { MaxActive, 3 },
         { ActiveTracks, Array.Empty<string>() },
         { ActiveMixId, string.Empty },
         { CurrentUserId, string.Empty },
@@ -217,7 +242,7 @@ public static class UserSettingsConstants
         { DevicePresenceIdKey, string.Empty },
         { CompactOnFocusKey, true },
         { HasLoadedPackagedSoundsKey, false },
-        { PlayAfterFocusKey, true }, 
+        { PlayAfterFocusKey, true },
         { QuickResumeKey, false },
         { ShowHomePageDownloadMessageKey, true },
         { ActiveStreakKey, 0 },
@@ -227,7 +252,13 @@ public static class UserSettingsConstants
         { LastUsedContentPageKey, string.Empty },
         { XboxSlideshowModeKey, SlideshowMode.Video.ToString() },
         { HasViewedFreeTrialTipKey, false },
+        { ChannelTimerModeKey, ChannelTimerMode.None.ToString() },
         { ChannelClockEnabledKey, false },
-        { ChannelClockSecondsEnabledKey, false },
+        { LastUsedFocusLengthKey, 0 },
+        { LastUsedRestLengthKey, 0 },
+        { LastUsedRepetitionsKey, 0 },
+        { ChannelSwitcherHidden, false },
+        { ShowMixInRelaxPageKey, true },
+        { LastKnownPremiumState, PremiumState.Unknown.ToString() },
     };
 }

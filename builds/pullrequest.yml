@@ -53,6 +53,7 @@ steps:
       $xmlDoc.SelectSingleNode("//root/data[@name='ChannelsUrl']").Value = "$(ChannelsUrl)"
       $xmlDoc.SelectSingleNode("//root/data[@name='NotificationHubConnectionString']").Value = "$(NotificationHubConnectionString)"
       $xmlDoc.SelectSingleNode("//root/data[@name='NotificationHubName']").Value = "$(NotificationHubName)"
+      $xmlDoc.SelectSingleNode("//root/data[@name='PromoCodesUrl']").Value = "$(PromoCodesUrl)"
       $xmlDoc.Save('$(Build.SourcesDirectory)\src\AmbientSounds.Uwp\appsettings.resw')
     failOnStderr: true
 
@@ -64,6 +65,7 @@ steps:
     nugetConfigPath: 'nuget.config'
     feedsToUse: 'config'
 
+# Ensure the uwp app project can build successfully.
 - task: VSBuild@1
   inputs:
     platform: 'x64'
@@ -71,7 +73,26 @@ steps:
     configuration: '$(buildConfiguration)'
     msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=CI'
 
-# - task: PublishBuildArtifacts@1
-#   displayName: 'Publish Artifact: drop'
-#   inputs:
-#     PathtoPublish: '$(build.artifactstagingdirectory)'
+# Install same .NET version that the Tests project uses.
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '9.x'
+    installationPath: $(Agent.ToolsDirectory)/dotnet
+
+# Build the test project
+- script: dotnet build AmbientSounds.Tests\AmbientSounds.Tests.csproj --configuration Debug
+  displayName: 'Build test project'
+
+# Run the test runner using the generated DLL from the previous step.
+- task: VSTest@3
+  displayName: "Running VS test runner"
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\*Tests.dll
+      !**\*TestAdapter.dll
+      !**\obj\**
+    searchFolder: '$(System.DefaultWorkingDirectory)' 
+    codeCoverageEnabled: true
+    configuration: 'Debug'

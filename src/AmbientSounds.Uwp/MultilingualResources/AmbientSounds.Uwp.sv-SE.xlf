@@ -478,21 +478,6 @@
           <target state="translated">{0} per månad</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Price per month, where the parameter {0} is a price like $1.00.</note>
         </trans-unit>
-        <trans-unit id="SubscriptionText1" translate="yes" xml:space="preserve">
-          <source>Access premium, high quality sounds</source>
-          <target state="needs-review-translation">Få tillgång till premiumljud av hög kvalitet!</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="SubscriptionText2" translate="yes" xml:space="preserve">
-          <source>Download video screensavers</source>
-          <target state="needs-review-translation">Växande katalog!</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
-          <source>Support development</source>
-          <target state="needs-review-translation">Stöd utveckling!</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
         <trans-unit id="ThankYouForSub" translate="yes" xml:space="preserve">
           <source>Thank you for subscribing!</source>
           <target state="translated">Tack för att du prenumererar!</target>
@@ -1139,10 +1124,6 @@
           <source>Download sounds</source>
           <target state="translated">Ladda ner ljud</target>
         </trans-unit>
-        <trans-unit id="DisplayMode" translate="yes" xml:space="preserve">
-          <source>Dispaly mode</source>
-          <target state="translated">Dispaly-läge</target>
-        </trans-unit>
         <trans-unit id="DisplayModeDarkScreen" translate="yes" xml:space="preserve">
           <source>Dark screen</source>
           <target state="translated">Mörk skärm</target>
@@ -1260,6 +1241,166 @@
         <trans-unit id="SettingsEnableCountdownHeader" translate="yes" xml:space="preserve">
           <source>Enable countdown timer</source>
           <target state="translated">Aktivera nedräkningstimer</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
+          <source>Same benefits, lower monthly cost</source>
+          <target state="translated">Samma fördelar, lägre månadskostnad</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanTitle" translate="yes" xml:space="preserve">
+          <source>Get annual plan - {0}</source>
+          <target state="translated">Skaffa årsplan - {0}</target>
+        </trans-unit>
+        <trans-unit id="EnterCodePlaceholder" translate="yes" xml:space="preserve">
+          <source>Enter code</source>
+          <target state="translated">Ange kod</target>
+        </trans-unit>
+        <trans-unit id="EnterPromoCodeText" translate="yes" xml:space="preserve">
+          <source>Enter promo code</source>
+          <target state="translated">Ange kampanjkod</target>
+        </trans-unit>
+        <trans-unit id="PromoCodeMessage" translate="yes" xml:space="preserve">
+          <source>Use a code to unlock discounts for Ambie+</source>
+          <target state="translated">Använd en kod för att låsa upp rabatter för Ambie+</target>
+        </trans-unit>
+        <trans-unit id="SubmitText" translate="yes" xml:space="preserve">
+          <source>Submit</source>
+          <target state="translated">Inlämna</target>
+        </trans-unit>
+        <trans-unit id="StatsLongestStreak" translate="yes" xml:space="preserve">
+          <source>Longest streak</source>
+          <target state="translated">Längsta svit</target>
+        </trans-unit>
+        <trans-unit id="StatsMonthlyHours" translate="yes" xml:space="preserve">
+          <source>Hours this month</source>
+          <target state="translated">Öppettider den här månaden</target>
+        </trans-unit>
+        <trans-unit id="StatsTotalFocusHours" translate="yes" xml:space="preserve">
+          <source>Focus hours</source>
+          <target state="translated">Fokus timmar</target>
+        </trans-unit>
+        <trans-unit id="StatsTotalHours" translate="yes" xml:space="preserve">
+          <source>Total hours</source>
+          <target state="translated">Totalt antal timmar</target>
+        </trans-unit>
+        <trans-unit id="StatsWeeklyHours" translate="yes" xml:space="preserve">
+          <source>Last 7 days</source>
+          <target state="translated">Senaste 7 dagarna</target>
+        </trans-unit>
+        <trans-unit id="TopPlayedSoundsText" translate="yes" xml:space="preserve">
+          <source>Top played sounds</source>
+          <target state="translated">Mest spelade ljud</target>
+        </trans-unit>
+        <trans-unit id="TopPlayedSoundsPlaceholder" translate="yes" xml:space="preserve">
+          <source>Use Ambie a little more to view more stats</source>
+          <target state="translated">Använd Ambie lite mer för att se mer statistik</target>
+        </trans-unit>
+        <trans-unit id="StatsSubtitle" translate="yes" xml:space="preserve">
+          <source>View your usage stats in Ambie</source>
+          <target state="translated">Visa din användningsstatistik i Ambie</target>
+        </trans-unit>
+        <trans-unit id="StatsTitleText" translate="yes" xml:space="preserve">
+          <source>Stats</source>
+          <target state="translated">Statistik</target>
+        </trans-unit>
+        <trans-unit id="OsNotificationHelpMessage" translate="yes" xml:space="preserve">
+          <source>Ensure Windows notifications are enabled for Ambie</source>
+          <target state="translated">Se till att Windows-meddelanden är aktiverade för Ambie</target>
+        </trans-unit>
+        <trans-unit id="EnableText" translate="yes" xml:space="preserve">
+          <source>Enable</source>
+          <target state="translated">Möjliggöra</target>
+        </trans-unit>
+        <trans-unit id="StatsPageSettingsHeader" translate="yes" xml:space="preserve">
+          <source>Helpful options</source>
+          <target state="translated">Användbara alternativ</target>
+        </trans-unit>
+        <trans-unit id="ChannelSwitcherHide" translate="yes" xml:space="preserve">
+          <source>Hide channels</source>
+          <target state="translated">Dölj kanaler</target>
+        </trans-unit>
+        <trans-unit id="ChannelSwitcherShow" translate="yes" xml:space="preserve">
+          <source>Show channels</source>
+          <target state="translated">Visa kanaler</target>
+        </trans-unit>
+        <trans-unit id="CountdownText" translate="yes" xml:space="preserve">
+          <source>Countdown</source>
+          <target state="translated">Nedräkning</target>
+        </trans-unit>
+        <trans-unit id="NoneText" translate="yes" xml:space="preserve">
+          <source>None</source>
+          <target state="translated">Ingen</target>
+        </trans-unit>
+        <trans-unit id="ChannelTimerFocusDisclaimer" translate="yes" xml:space="preserve">
+          <source>Focus timer is always shown during an active focus session.</source>
+          <target state="translated">Fokustimern visas alltid under en aktiv fokussession.</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitDay" translate="yes" xml:space="preserve">
+          <source>day</source>
+          <target state="translated">dag</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitHour" translate="yes" xml:space="preserve">
+          <source>hour</source>
+          <target state="translated">timme</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitMinute" translate="yes" xml:space="preserve">
+          <source>minute</source>
+          <target state="translated">minut</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitMonth" translate="yes" xml:space="preserve">
+          <source>month</source>
+          <target state="translated">månad</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitWeek" translate="yes" xml:space="preserve">
+          <source>week</source>
+          <target state="translated">vecka</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitYear" translate="yes" xml:space="preserve">
+          <source>year</source>
+          <target state="translated">år</target>
+        </trans-unit>
+        <trans-unit id="DisplayMode" translate="yes" xml:space="preserve">
+          <source>Display mode</source>
+          <target state="translated">Visningsläge</target>
+        </trans-unit>
+        <trans-unit id="RelaxationTimerText" translate="yes" xml:space="preserve">
+          <source>Relaxation timer</source>
+          <target state="translated">Timer för avslappning</target>
+        </trans-unit>
+        <trans-unit id="RelaxationTimerHelpMessage" translate="yes" xml:space="preserve">
+          <source>Use the relaxation timer to help you relax, sleep, or meditate.</source>
+          <target state="translated">Använd avslappningstimern för att hjälpa dig att slappna av, sova eller meditera.</target>
+        </trans-unit>
+        <trans-unit id="RelaxationTimerHelpButtonAutomationName" translate="yes" xml:space="preserve">
+          <source>Relaxation timer information</source>
+          <target state="translated">Information om avslappningstimer</target>
+        </trans-unit>
+        <trans-unit id="IncludeInRelaxPageText" translate="yes" xml:space="preserve">
+          <source>Include in Relax page</source>
+          <target state="translated">Inkludera på Relax-sidan</target>
+        </trans-unit>
+        <trans-unit id="SavedSoundMixHeader" translate="yes" xml:space="preserve">
+          <source>Your saved sound mixes</source>
+          <target state="translated">Dina sparade ljudmixar</target>
+        </trans-unit>
+        <trans-unit id="SleepMeditationGuideHeader" translate="yes" xml:space="preserve">
+          <source>Sleep and meditation guides</source>
+          <target state="translated">Sömn- och meditationsguider</target>
+        </trans-unit>
+        <trans-unit id="SelectMoreSoundsPlaceholder" translate="yes" xml:space="preserve">
+          <source>Mix and match up to 5 sounds</source>
+          <target state="translated">Mixa och matcha upp till 5 ljud</target>
+        </trans-unit>
+        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
+          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Play more than 3 sounds. Unlock it all with Ambie+, and find your next favourite ambience.</source>
+          <target state="translated">Ljud av hög kvalitet, premiumvideor och utvalda meditationer. Tillgång till allt framtida innehåll. Spela upp fler än 3 ljud. Lås upp allt med Ambie+ och hitta din nästa favoritmiljö.</target>
+        </trans-unit>
+        <trans-unit id="MoreSoundsTipDescription" translate="yes" xml:space="preserve">
+          <source>Get Ambie+ to play up to 5 sounds</source>
+          <target state="translated">Få Ambie+ att spela upp till 5 ljud</target>
+        </trans-unit>
+        <trans-unit id="MoreSoundsTipTitle" translate="yes" xml:space="preserve">
+          <source>Mix and match more sounds</source>
+          <target state="translated">Mixa och matcha fler ljud</target>
         </trans-unit>
       </group>
     </body>

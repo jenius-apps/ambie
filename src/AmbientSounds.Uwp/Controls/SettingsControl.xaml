@@ -14,7 +14,7 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <StackPanel Spacing="3">
+    <StackPanel>
         <StackPanel.ChildrenTransitions>
             <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
             <RepositionThemeTransition IsStaggeringEnabled="False" />
@@ -25,7 +25,10 @@
             Style="{StaticResource BodyStrongTextBlockStyle}"
             Text="{x:Bind strings:Resources.ThemeSettings}" />
 
-        <labs:SettingsCard Description="{x:Bind strings:Resources.SettingsThemeDescription}" Header="{x:Bind strings:Resources.SettingsTheme}">
+        <labs:SettingsCard
+            Margin="0,3,0,0"
+            Description="{x:Bind strings:Resources.SettingsThemeDescription}"
+            Header="{x:Bind strings:Resources.SettingsTheme}">
             <labs:SettingsCard.HeaderIcon>
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPaintBrush}" />
             </labs:SettingsCard.HeaderIcon>
@@ -37,7 +40,10 @@
             </ComboBox>
         </labs:SettingsCard>
 
-        <labs:SettingsExpander Description="{x:Bind ViewModel.BackgroundImageDescription, Mode=OneWay}" Header="{x:Bind strings:Resources.BackgroundImage}">
+        <labs:SettingsExpander
+            Margin="0,3,0,0"
+            Description="{x:Bind ViewModel.BackgroundImageDescription, Mode=OneWay}"
+            Header="{x:Bind strings:Resources.BackgroundImage}">
             <labs:SettingsExpander.HeaderIcon>
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPallete}" />
             </labs:SettingsExpander.HeaderIcon>
@@ -87,12 +93,28 @@
         </labs:SettingsExpander>
 
         <TextBlock
-            Margin="1,29,0,5"
+            Margin="1,32,0,5"
             Style="{StaticResource BodyStrongTextBlockStyle}"
             Text="{x:Bind strings:Resources.SettingsGeneralHeader}" />
 
+        <!--  Promo code  -->
+        <labs:SettingsCard
+            Margin="0,3,0,0"
+            Description="{x:Bind strings:Resources.PromoCodeMessage}"
+            Header="{x:Bind strings:Resources.EnterPromoCodeText}"
+            Visibility="{x:Bind ViewModel.PromoCodeVisible, Mode=OneWay}">
+            <labs:SettingsCard.HeaderIcon>
+                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSaleTag}" />
+            </labs:SettingsCard.HeaderIcon>
+
+            <Button Command="{x:Bind ViewModel.EnterPromoCodeCommand}" Content="{x:Bind strings:Resources.EnterCodePlaceholder}" />
+        </labs:SettingsCard>
+
         <!--  feedback  -->
-        <labs:SettingsCard Description="{x:Bind strings:Resources.SettingsFeedbackDescription}" Header="{x:Bind strings:Resources.FeedbackText}">
+        <labs:SettingsCard
+            Margin="0,3,0,0"
+            Description="{x:Bind strings:Resources.SettingsFeedbackDescription}"
+            Header="{x:Bind strings:Resources.FeedbackText}">
             <labs:SettingsCard.HeaderIcon>
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFeedback}" />
             </labs:SettingsCard.HeaderIcon>
@@ -109,7 +131,10 @@
         </labs:SettingsCard>
 
         <!--  streak reminder  -->
-        <labs:SettingsCard Description="{x:Bind strings:Resources.SettingsStreakReminderDescription}" Header="{x:Bind strings:Resources.SettingsStreakReminderHeader}">
+        <labs:SettingsCard
+            Margin="0,3,0,0"
+            Description="{x:Bind strings:Resources.SettingsStreakReminderDescription}"
+            Header="{x:Bind strings:Resources.SettingsStreakReminderHeader}">
             <labs:SettingsCard.HeaderIcon>
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFire}" />
             </labs:SettingsCard.HeaderIcon>
@@ -125,7 +150,10 @@
         </labs:SettingsCard>
 
         <!--  Telemetry  -->
-        <labs:SettingsCard x:Uid="SettingsTelemetrySwitch" Description="{x:Bind strings:Resources.SettingsTelemetrySwitchDescription}">
+        <labs:SettingsCard
+            x:Uid="SettingsTelemetrySwitch"
+            Margin="0,3,0,0"
+            Description="{x:Bind strings:Resources.SettingsTelemetrySwitchDescription}">
             <labs:SettingsCard.HeaderIcon>
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDiagnostics}" />
             </labs:SettingsCard.HeaderIcon>
@@ -141,7 +169,10 @@
         </labs:SettingsCard>
 
         <!--  New sound notifications  -->
-        <labs:SettingsCard x:Uid="SettingsNotificationsSwitch" Description="{x:Bind strings:Resources.SettingsNotificationsSwitchDescription}">
+        <labs:SettingsCard
+            x:Uid="SettingsNotificationsSwitch"
+            Margin="0,3,0,0"
+            Description="{x:Bind strings:Resources.SettingsNotificationsSwitchDescription}">
             <labs:SettingsCard.HeaderIcon>
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphNotification}" />
             </labs:SettingsCard.HeaderIcon>
@@ -157,7 +188,10 @@
         </labs:SettingsCard>
 
         <!--  Resume on launch  -->
-        <labs:SettingsCard Description="{x:Bind strings:Resources.SettingsResumeOnLaunchDescription}" Header="{x:Bind strings:Resources.SettingsResumeOnLaunch}">
+        <labs:SettingsCard
+            Margin="0,3,0,0"
+            Description="{x:Bind strings:Resources.SettingsResumeOnLaunchDescription}"
+            Header="{x:Bind strings:Resources.SettingsResumeOnLaunch}">
             <labs:SettingsCard.HeaderIcon>
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPlay}" />
             </labs:SettingsCard.HeaderIcon>
@@ -173,7 +207,10 @@
         </labs:SettingsCard>
 
         <!--  Ambie Mini on focus  -->
-        <labs:SettingsCard Description="{x:Bind strings:Resources.SettingsCompactModeDescription}" Header="{x:Bind strings:Resources.SettingsCompactMode}">
+        <labs:SettingsCard
+            Margin="0,3,0,0"
+            Description="{x:Bind strings:Resources.SettingsCompactModeDescription}"
+            Header="{x:Bind strings:Resources.SettingsCompactMode}">
             <labs:SettingsCard.HeaderIcon>
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphCompact}" />
             </labs:SettingsCard.HeaderIcon>
@@ -189,7 +226,10 @@
         </labs:SettingsCard>
 
         <!--  Continue playing sounds after focus session ends  -->
-        <labs:SettingsCard Description="{x:Bind strings:Resources.SettingsPlayAfterFocusDescription}" Header="{x:Bind strings:Resources.SettingsPlayAfterFocusHeader}">
+        <labs:SettingsCard
+            Margin="0,3,0,0"
+            Description="{x:Bind strings:Resources.SettingsPlayAfterFocusDescription}"
+            Header="{x:Bind strings:Resources.SettingsPlayAfterFocusHeader}">
             <labs:SettingsCard.HeaderIcon>
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFocus}" />
             </labs:SettingsCard.HeaderIcon>
@@ -205,7 +245,10 @@
         </labs:SettingsCard>
 
         <!--  Launch on PC startup  -->
-        <labs:SettingsCard Description="{x:Bind strings:Resources.QuickResumeDescription}" Header="{x:Bind strings:Resources.QuickResumeTitle}">
+        <labs:SettingsCard
+            Margin="0,3,0,0"
+            Description="{x:Bind strings:Resources.QuickResumeDescription}"
+            Header="{x:Bind strings:Resources.QuickResumeTitle}">
             <labs:SettingsCard.HeaderIcon>
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPcStartup}" />
             </labs:SettingsCard.HeaderIcon>
@@ -221,6 +264,7 @@
         </labs:SettingsCard>
 
         <labs:SettingsCard
+            Margin="0,3,0,0"
             Description="{x:Bind strings:Resources.SettingsModifySubDescription}"
             Header="Ambie+"
             Visibility="{x:Bind ViewModel.ManageSubscriptionVisible, Mode=OneWay}">
@@ -239,7 +283,7 @@
             </Button>
         </labs:SettingsCard>
 
-        <labs:SettingsExpander Header="{x:Bind strings:Resources.AboutAmbie}">
+        <labs:SettingsExpander Margin="0,3,0,0" Header="{x:Bind strings:Resources.AboutAmbie}">
             <labs:SettingsExpander.Description>
                 <TextBlock Text="© Jenius Apps" />
             </labs:SettingsExpander.Description>
@@ -253,32 +297,38 @@
                 Text="{x:Bind Version}" />
             <labs:SettingsExpander.Items>
                 <labs:SettingsCard>
-
                     <labs:SettingsCard.Header>
-                        <TextBlock DoubleTapped="OnDoubleTapped">
-                            <Run Text="🍁" />
-                            <Run x:Uid="HelloFromVancouver" />
-                        </TextBlock>
+                        <StackPanel>
+                            <TextBlock DoubleTapped="OnDoubleTapped">
+                                <Run Text="🍁" />
+                                <Run x:Uid="HelloFromVancouver" />
+                            </TextBlock>
+
+                            <TextBlock
+                                Margin="0,4,0,0"
+                                FontSize="12"
+                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                IsTextSelectionEnabled="True">
+                                <Run Text="Ambie ID:" />
+                                <Run Text="{x:Bind ViewModel.DeviceId, Mode=OneWay}" />
+                            </TextBlock>
+                        </StackPanel>
                     </labs:SettingsCard.Header>
                 </labs:SettingsCard>
                 <labs:SettingsCard ContentAlignment="Left">
                     <StackPanel Margin="-12,0,0,0" Orientation="Vertical">
+                        <HyperlinkButton Command="{x:Bind ViewModel.RequestRatingCommand}" Content="{x:Bind strings:Resources.RateUsText}" />
                         <HyperlinkButton x:Uid="PrivacyPolicyButton" NavigateUri="https://github.com/jenius-apps/ambie/blob/main/privacypolicy.md" />
                         <HyperlinkButton Content="{x:Bind strings:Resources.TermsOfUse}" NavigateUri="https://github.com/jenius-apps/ambie/blob/main/termsofuse.md" />
-                        <HyperlinkButton Content="{x:Bind strings:Resources.FollowTwitter}" NavigateUri="https://twitter.com/ambie_app" />
-                        <HyperlinkButton Command="{x:Bind ViewModel.RequestRatingCommand}" Content="{x:Bind strings:Resources.RateUsText}" />
-                        <HyperlinkButton Command="{x:Bind ViewModel.TryUpdateCommand}" Content="{x:Bind strings:Resources.CheckForUpdatesText}" />
-                        <winui:ProgressBar
-                            Width="200"
-                            Margin="12,4,0,4"
-                            IsIndeterminate="True"
-                            Visibility="{x:Bind ViewModel.UpdateBarVisible}" />
                     </StackPanel>
                 </labs:SettingsCard>
             </labs:SettingsExpander.Items>
         </labs:SettingsExpander>
 
-        <StackPanel x:Name="ExperimentalPanel" Visibility="Collapsed">
+        <StackPanel
+            x:Name="ExperimentalPanel"
+            Margin="0,3,0,0"
+            Visibility="Collapsed">
             <TextBlock
                 Margin="1,29,0,5"
                 Style="{StaticResource BodyStrongTextBlockStyle}"

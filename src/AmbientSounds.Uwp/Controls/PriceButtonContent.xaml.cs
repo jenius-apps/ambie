@@ -16,6 +16,12 @@ public sealed partial class PriceButtonContent : UserControl
 {
     private readonly ILocalizer _localizer;
 
+    public static readonly DependencyProperty AutomationNameProperty = DependencyProperty.Register(
+        nameof(AutomationName),
+        typeof(string),
+        typeof(PriceButtonContent),
+        new PropertyMetadata(string.Empty));
+
     public static readonly DependencyProperty PrimaryTextProperty = DependencyProperty.Register(
         nameof(PrimaryText),
         typeof(string),
@@ -49,6 +55,12 @@ public sealed partial class PriceButtonContent : UserControl
     {
         this.InitializeComponent();
         _localizer = App.Services.GetRequiredService<ILocalizer>();
+    }
+
+    public string AutomationName
+    {
+        get => (string)GetValue(AutomationNameProperty);
+        set => SetValue(AutomationNameProperty, value);
     }
 
     public string PrimaryText
@@ -90,29 +102,33 @@ public sealed partial class PriceButtonContent : UserControl
                 HumanizeTime(PriceInfo.SubTrialLength, PriceInfo.SubTrialLengthUnit),
                 $"{PriceInfo.FormattedPrice}/{HumanizeRecurrence(PriceInfo.RecurrenceUnit)}");
         }
+        else if (PriceInfo is { IsSubscription: true, FormattedPrice: string price, RecurrenceUnit: DurationUnit.Year })
+        {
+            PrimaryText = string.Format(Strings.Resources.AnnualPlanTitle, $"{price}/{HumanizeRecurrence(DurationUnit.Year)}");
+            CaptionText = Strings.Resources.AnnualPlanCaption;
+        }
         else
         {
             PrimaryText = PriceInfo.FormattedPrice;
             CaptionText = string.Empty;
         }
 
+        AutomationName = $"{PrimaryText}. {CaptionText}.";
         PrimaryTextFontWeight = CaptionText.Length > 0 ? FontWeights.SemiBold : FontWeights.Normal;
     }
 
     private static string HumanizeRecurrence(DurationUnit unit)
     {
-        var result = unit switch
+        return unit switch
         {
-            DurationUnit.Minute => TimeUnit.Minute.Humanize(),
-            DurationUnit.Hour => TimeUnit.Hour.Humanize(),
-            DurationUnit.Day => TimeUnit.Day.Humanize(),
-            DurationUnit.Week => TimeUnit.Week.Humanize(),
-            DurationUnit.Month => TimeUnit.Month.Humanize(),
-            DurationUnit.Year => TimeUnit.Year.Humanize(),
+            DurationUnit.Minute => Strings.Resources.DurationUnitMinute,
+            DurationUnit.Hour => Strings.Resources.DurationUnitHour,
+            DurationUnit.Day => Strings.Resources.DurationUnitDay,
+            DurationUnit.Week => Strings.Resources.DurationUnitWeek,
+            DurationUnit.Month => Strings.Resources.DurationUnitMonth,
+            DurationUnit.Year => Strings.Resources.DurationUnitYear,
             _ => string.Empty
         };
-
-        return result.ToLower();
     }
 
     private static string HumanizeTime(int length, DurationUnit unit)

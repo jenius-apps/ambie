@@ -44,7 +44,7 @@ public partial class CatalogueRowViewModel : ObservableObject
     [ObservableProperty]
     private bool _newAnimationVisible;
 
-    public ObservableCollection<OnlineSoundViewModel> Sounds { get; } = new();
+    public ObservableCollection<OnlineSoundViewModel> Sounds { get; } = [];
 
     public async Task LoadAsync(string? launchArgs, CancellationToken ct)
     {
@@ -65,10 +65,10 @@ public partial class CatalogueRowViewModel : ObservableObject
         {
             Sounds.Clear();
             List<Task> tasks = new(sounds.Count);
-            foreach (var sound in sounds)
+            foreach (Sound sound in sounds)
             {
                 ct.ThrowIfCancellationRequested();
-                var vm = _soundVmFactory.GetOnlineSoundVm(sound);
+                OnlineSoundViewModel? vm = _soundVmFactory.GetOnlineSoundVm(sound);
                 if (vm is not null)
                 {
                     tasks.Add(vm.LoadCommand.ExecuteAsync(null));
@@ -85,8 +85,7 @@ public partial class CatalogueRowViewModel : ObservableObject
 
     private void HandleLaunchArgs(string? launchArgs)
     {
-        if (_row.Name.ToLower() == "new" &&
-            launchArgs == LaunchConstants.NewSoundArgument)
+        if (launchArgs == LaunchConstants.NewSoundArgument && _row.Name.ToLower() == "new")
         {
             NewAnimationVisible = true;
         }
@@ -96,7 +95,7 @@ public partial class CatalogueRowViewModel : ObservableObject
     {
         RowVisible = false;
 
-        foreach (var s in Sounds)
+        foreach (OnlineSoundViewModel s in Sounds)
         {
             s.Dispose();
         }

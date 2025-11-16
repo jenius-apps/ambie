@@ -367,15 +367,6 @@
     <value>Děkujeme za předplacení!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Získejte přístup k prémiovým zvukům s vysokou kvalitou</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Stáhnout spořiče obrazovky</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Podpořte vývoj</value>
-  </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>Znovu zdravíme 👋🏽</value>
   </data>
@@ -860,9 +851,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>Stahování zvuků</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>Režim zobrazení</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>Tmavá obrazovka</value>
   </data>
@@ -950,5 +938,125 @@
   </data>
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Povolit odpočítávání</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Stejné výhody, nižší měsíční náklady</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Získejte roční plán - {0}</value>
+  </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>Zadat kód</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>Zadejte promo kód</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>Odemkněte si slevy na Ambie+ pomocí kódu</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>Podat</value>
+  </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>Nejdelší série</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>Otevírací doba tento měsíc</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>Doba soustředění</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>Celkový počet hodin</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>Posledních 7 dní</value>
+  </data>
+  <data name="TopPlayedSoundsText" xml:space="preserve">
+    <value>Nejlépe hrané zvuky</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>Použijte Ambie trochu více pro zobrazení více statistik</value>
+  </data>
+  <data name="StatsSubtitle" xml:space="preserve">
+    <value>Zobrazení statistik využití v Ambie</value>
+  </data>
+  <data name="StatsTitleText" xml:space="preserve">
+    <value>Statistické údaje</value>
+  </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>Zkontrolujte, zda jsou pro Ambie povoleny notifikace systému Windows</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>Zapnout</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>Užitečné možnosti</value>
+  </data>
+  <data name="ChannelSwitcherHide" xml:space="preserve">
+    <value>Skrýt kanály</value>
+  </data>
+  <data name="ChannelSwitcherShow" xml:space="preserve">
+    <value>Zobrazit kanály</value>
+  </data>
+  <data name="CountdownText" xml:space="preserve">
+    <value>Odpočítávání</value>
+  </data>
+  <data name="NoneText" xml:space="preserve">
+    <value>Žádný</value>
+  </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>Časovač zaostření se zobrazuje vždy během aktivní relace zaostření.</value>
+  </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>den</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>hodina</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>minuta</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>měsíc</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>týden</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>rok</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Režim zobrazení</value>
+  </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>Časovač relaxace</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>Použijte časovač relaxace, který vám pomůže relaxovat, spát nebo meditovat.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>Informace o časovači relaxace</value>
+  </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Zahrnout do stránky Relax</value>
+  </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>Vaše uložené zvukové mixy</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>Průvodci spánkem a meditací</value>
+  </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>Mixujte a spojte až 5 zvuků</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Vysoce kvalitní zvuky, prémiová videa a vybrané meditace. Přístup k veškerému budoucímu obsahu. Přehrajte více než 3 zvuky. Odemkněte vše s Ambie+ a najděte si své další oblíbené prostředí.</value>
+  </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Pořiďte si Ambie+ pro přehrávání až 5 zvuků</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>Kombinujte více zvuků</value>
   </data>
 </root>

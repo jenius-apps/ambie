@@ -1,24 +1,17 @@
-﻿using JeniusApps.Common.Tools;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
-namespace AmbientSounds.Services.Uwp;
+namespace AmbientSounds.Services;
 
 public class QuickResumeService : IQuickResumeService
 {
-    private readonly IToastService _toastService;
     private readonly IBackgroundTaskService _backgroundTaskService;
 
-    public QuickResumeService(
-        IToastService toastService,
-        IBackgroundTaskService backgroundTaskService)
+    public QuickResumeService(IBackgroundTaskService backgroundTaskService)
     {
-        _toastService = toastService;
         _backgroundTaskService = backgroundTaskService;
     }
 
+    /// <inheritdoc/>
     public async Task<bool> TryEnableAsync()
     {
         var allowed = await _backgroundTaskService.RequestPermissionAsync();
@@ -31,6 +24,7 @@ public class QuickResumeService : IQuickResumeService
         return true;
     }
 
+    /// <inheritdoc/>
     public void Disable()
     {
         _backgroundTaskService.ToggleQuickResumeStartupTask(false);

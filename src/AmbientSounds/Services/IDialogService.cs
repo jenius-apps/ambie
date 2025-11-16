@@ -1,9 +1,6 @@
-﻿using AmbientSounds.Models;
-using AmbientSounds.ViewModels;
+﻿using AmbientSounds.ViewModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
-#nullable enable
 
 namespace AmbientSounds.Services;
 
@@ -31,7 +28,8 @@ public interface IDialogService
     /// Opens the premium dialog where users can purchase
     /// ambie plus.
     /// </summary>
-    Task OpenPremiumAsync();
+    /// <param name="launchPromoCodeDirectly">If true, dialog will launch into the promo code page directly.</param>
+    Task OpenPremiumAsync(bool launchPromoCodeDirectly = false, string? prefilledCode = null);
 
     /// <summary>
     /// Opens dialog regarding missing sounds.
@@ -69,7 +67,7 @@ public interface IDialogService
     /// Returns a real string if the operation was confirmed, the text was valid, and if the text was changed.
     /// </returns>
     Task<string?> EditTextAsync(string prepopulatedText, int? maxSize = null);
-    
+
     /// <summary>
     /// Opens the tutorial dialog.
     /// </summary>

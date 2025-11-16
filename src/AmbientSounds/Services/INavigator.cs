@@ -12,7 +12,7 @@ public interface INavigator
     /// <summary>
     /// Raised when the content page was changed.
     /// </summary>
-    event EventHandler<ContentPageType>? ContentPageChanged; 
+    event EventHandler<ContentPageType>? ContentPageChanged;
 
     /// <summary>
     /// The root frame of the app.
@@ -57,7 +57,7 @@ public interface INavigator
     /// </summary>
     /// <param name="closingOverlayMode">Used to determine which page to navigate back to.</param>
     Task CloseCompactOverlayAsync(CompactViewMode closingOverlayMode);
-    
+
     /// <summary>
     /// Navigates to the page corresponding to the given enum.
     /// </summary>
@@ -76,6 +76,7 @@ public enum ContentPageType
     Updates,
     Search,
     Channels,
+    Stats,
 }
 
 public enum CompactViewMode

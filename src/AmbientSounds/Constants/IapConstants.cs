@@ -2,50 +2,54 @@
 using System.Linq;
 using System;
 
-namespace AmbientSounds.Constants
+namespace AmbientSounds.Constants;
+
+public static class IapConstants
 {
-    public static class IapConstants
+    public const string MsStoreAmbiePlusId = "ambieplus";
+    public const string MsStoreAmbiePlusAnnualId = "annualambieplus";
+    public const string MsStoreAmbiePlusLifetimeId = "lifetimeambieplus";
+
+    public static bool ContainsAmbiePlus(this IReadOnlyList<string> ids)
     {
-        public const string MsStoreAmbiePlusId = "ambieplus";
-        public const string MsStoreAmbiePlusLifetimeId = "lifetimeambieplus";
+        return ids.ContainsId(MsStoreAmbiePlusId) || ids.ContainsId(MsStoreAmbiePlusAnnualId);
+    }
 
-        public static bool ContainsAmbiePlus(this IReadOnlyList<string> ids) => ids.ContainsId(MsStoreAmbiePlusId);
-
-        public static bool ContainsAmbiePlus(this string id)
+    public static bool ContainsAmbiePlus(this string id)
+    {
+        if (id is null)
         {
-            if (id is null)
-            {
-                return false;
-            }
-
-            return id.StartsWith(MsStoreAmbiePlusId);
+            return false;
         }
 
-        public static (string, int) SplitIdAndVersion(this string iapId)
+        return id.StartsWith(MsStoreAmbiePlusId, StringComparison.OrdinalIgnoreCase) ||
+            id.StartsWith(MsStoreAmbiePlusAnnualId, StringComparison.OrdinalIgnoreCase);
+    }
+
+    public static (string, int) SplitIdAndVersion(this string iapId)
+    {
+        if (string.IsNullOrEmpty(iapId))
         {
-            if (string.IsNullOrEmpty(iapId))
-            {
-                return (string.Empty, 0);
-            }
-
-            if (iapId.Split('_') is [string id, string version, ..])
-            {
-                return int.TryParse(version, out int result)
-                    ? (id, result)
-                    : (id, 0);
-            }
-
-            return (iapId, 0);
+            return (string.Empty, 0);
         }
 
-        private static bool ContainsId(this IReadOnlyList<string> ids, string id)
+        if (iapId.Split('_') is [string id, string version, ..])
         {
-            if (ids is null || ids.Count == 0)
-            {
-                return false;
-            }
-
-            return ids.Any(x => x.StartsWith(id, StringComparison.OrdinalIgnoreCase));
+            return int.TryParse(version, out int result)
+                ? (id, result)
+                : (id, 0);
         }
+
+        return (iapId, 0);
+    }
+
+    private static bool ContainsId(this IReadOnlyList<string> ids, string id)
+    {
+        if (ids is null || ids.Count == 0)
+        {
+            return false;
+        }
+
+        return ids.Any(x => x.StartsWith(id, StringComparison.OrdinalIgnoreCase));
     }
 }

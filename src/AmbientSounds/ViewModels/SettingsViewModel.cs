@@ -4,6 +4,7 @@ using AmbientSounds.Services;
 using AmbientSounds.Tools;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.PushNotifications;
 using JeniusApps.Common.Settings;
 using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
@@ -21,7 +22,7 @@ public partial class SettingsViewModel : ObservableObject
     private readonly IImagePicker _imagePicker;
     private readonly IAssetsReader _assetsReader;
     private readonly IUserSettings _userSettings;
-    private readonly IPushNotificationService _notifications;
+    private readonly IPushNotificationService _notifications; // used in release mode, don't remove
     private readonly ITelemetry _telemetry;
     private readonly IAppStoreRatings _appStoreRatings;
     private readonly IQuickResumeService _quickResumeService;
@@ -29,7 +30,8 @@ public partial class SettingsViewModel : ObservableObject
     private readonly IIapService _iapService;
     private readonly IUriLauncher _uriLauncher;
     private readonly IAppStoreUpdater _storeUpdater;
-    private readonly ISystemInfoProvider _systemInfoProvider;
+    private readonly ISystemInfoProvider _systemInfoProvider; // used in release mode, don't remove
+    private readonly IDialogService _dialogService;
     private bool _notificationsLoading;
 
     public SettingsViewModel(
@@ -45,7 +47,8 @@ public partial class SettingsViewModel : ObservableObject
         ILocalizer localizer,
         IIapService iapService,
         IUriLauncher uriLauncher,
-        IAppStoreUpdater appStoreUpdater)
+        IAppStoreUpdater appStoreUpdater,
+        IDialogService dialogService)
     {
         _userSettings = userSettings;
         _notifications = notifications;
@@ -59,14 +62,21 @@ public partial class SettingsViewModel : ObservableObject
         _uriLauncher = uriLauncher;
         _storeUpdater = appStoreUpdater;
         _systemInfoProvider = systemInfoProvider;
+        _dialogService = dialogService;
 
         if (systemInfoProvider.IsOnBatterySaver())
         {
             BackgroundImageDescription = "🥰 " + localizer.GetString("SettingsBackgroundDescription");
         }
 
-        _xboxDisplayModeSelectedIndex = GetInitialXboxDisplayModeIndex();
+        _xboxDisplayModeSelectedIndex = (int)GetEnum(UserSettingsConstants.XboxSlideshowModeKey, SlideshowMode.Images);
+        _channelTimerModeIndex = (int)GetEnum(UserSettingsConstants.ChannelTimerModeKey, ChannelTimerMode.None);
+
+        DeviceId = _userSettings.Get<string>(UserSettingsConstants.LocalUserIdKey) ?? string.Empty;
     }
+
+    [ObservableProperty]
+    private string _deviceId = string.Empty;
 
     [ObservableProperty]
     private bool _updateBarVisible;
@@ -79,6 +89,17 @@ public partial class SettingsViewModel : ObservableObject
 
     [ObservableProperty]
     private int _xboxDisplayModeSelectedIndex;
+
+    [ObservableProperty]
+    private bool _promoCodeVisible;
+
+    /// <summary>
+    /// Determines the selected index for the channel timer mode.
+    /// </summary>
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(ChannelCountdownEnabled))]
+    [NotifyPropertyChangedFor(nameof(ChannelFocusEnabled))]
+    private int _channelTimerModeIndex;
 
     /// <summary>
     /// Paths to available background images.
@@ -137,18 +158,15 @@ public partial class SettingsViewModel : ObservableObject
         set => _userSettings.Set(UserSettingsConstants.CompactOnFocusKey, value);
     }
 
-    public bool ChannelCountdownEnabled
-    {
-        get => _userSettings.Get<bool>(UserSettingsConstants.ChannelCountdownEnabledKey);
-        set
-        {
-            _userSettings.Set(UserSettingsConstants.ChannelCountdownEnabledKey, value);
-            OnPropertyChanged();
-            _telemetry.TrackEvent(value
-                ? TelemetryConstants.ChannelViewerCountdownkEnabled
-                : TelemetryConstants.ChannelViewerCountdownDisabled);
-        }
-    }
+    /// <summary>
+    /// Determines if the countdown timer on the channel viewer page is enabled.
+    /// </summary>
+    public bool ChannelCountdownEnabled => ((ChannelTimerMode)ChannelTimerModeIndex) is ChannelTimerMode.Countdown;
+
+    /// <summary>
+    /// Determines if the focus timer on the channel viewer page is enabled.
+    /// </summary>
+    public bool ChannelFocusEnabled => ((ChannelTimerMode)ChannelTimerModeIndex) is ChannelTimerMode.Focus;
 
     public bool ChannelClockEnabled
     {
@@ -163,22 +181,7 @@ public partial class SettingsViewModel : ObservableObject
         }
     }
 
-    public string ChannelClockPreview => ChannelClockSecondsEnabled
-        ? DateTime.Now.ToLongTimeString()
-        : DateTime.Now.ToShortTimeString();
-
-    public bool ChannelClockSecondsEnabled
-    {
-        get => _userSettings.Get<bool>(UserSettingsConstants.ChannelClockSecondsEnabledKey);
-        set
-        {
-            _userSettings.Set(UserSettingsConstants.ChannelClockSecondsEnabledKey, value);
-            OnPropertyChanged(nameof(ChannelClockPreview));
-            _telemetry.TrackEvent(value is true
-                ? TelemetryConstants.ChannelViewerClockSecondsEnabled
-                : TelemetryConstants.ChannelViewerClockSecondsDisabled);
-        }
-    }
+    public string ChannelClockPreview => DateTime.Now.ToShortTimeString();
 
     public bool StreaksReminderEnabled
     {
@@ -260,20 +263,22 @@ public partial class SettingsViewModel : ObservableObject
         set => SetNotifications(value);
     }
 
-    public async Task InitializeAsync()
+    public async Task InitializeAsync(string? navigationArguments)
     {
         ManageSubscriptionVisible = await _iapService.IsSubscriptionOwnedAsync();
+        PromoCodeVisible = await _iapService.CanShowPremiumButtonsAsync();
+
+        if (PromoCodeVisible
+            && LaunchConstants.TryGetPromoCode(navigationArguments, out string? promoCode))
+        {
+            _ = EnterPromoCodeCommand.ExecuteAsync(promoCode);
+        }
     }
 
-    private int GetInitialXboxDisplayModeIndex()
+    private TEnum GetEnum<TEnum>(string settingsKey, TEnum defaultValue) where TEnum : struct
     {
-        string? displayModeString = _userSettings.Get<string>(UserSettingsConstants.XboxSlideshowModeKey);
-        if (Enum.TryParse(displayModeString, out SlideshowMode result))
-        {
-            return (int)result;
-        }
-
-        return (int)SlideshowMode.Images;
+        string? rawStringValue = _userSettings.Get<string>(settingsKey);
+        return Enum.TryParse(rawStringValue, out TEnum result) ? result : defaultValue;
     }
 
     public void Uninitialize()
@@ -298,10 +303,12 @@ public partial class SettingsViewModel : ObservableObject
 #else
             if (value)
             {
+                _backgroundTaskService.TogglePushNotificationRenewalTask(true);
                 await _notifications.RegisterAsync(id, _systemInfoProvider.GetCulture(), default);
             }
             else
             {
+                _backgroundTaskService.TogglePushNotificationRenewalTask(false);
                 await _notifications.UnregisterAsync(id, default);
             }
 #endif
@@ -364,6 +371,8 @@ public partial class SettingsViewModel : ObservableObject
         {
             _userSettings.Set(UserSettingsConstants.HasRated, true);
         }
+
+        _telemetry.TrackEvent(TelemetryConstants.SettingsRateUsClicked);
     }
 
     [RelayCommand]
@@ -402,6 +411,13 @@ public partial class SettingsViewModel : ObservableObject
         UpdateBarVisible = false;
     }
 
+    [RelayCommand]
+    private async Task EnterPromoCodeAsync(string? prefilledCode = null)
+    {
+        await _dialogService.OpenPremiumAsync(launchPromoCodeDirectly: true, prefilledCode);
+        PromoCodeVisible = await _iapService.CanShowPremiumButtonsAsync();
+    }
+
     partial void OnXboxDisplayModeSelectedIndexChanged(int oldIndex, int newIndex)
     {
         if (oldIndex == newIndex)
@@ -418,6 +434,25 @@ public partial class SettingsViewModel : ObservableObject
             {
                 { "mode", mode.ToString() }
             });
+        }
+    }
+
+    partial void OnChannelTimerModeIndexChanged(int oldIndex, int newIndex)
+    {
+        if (oldIndex == newIndex)
+        {
+            return;
+        }
+
+        if (Enum.GetNames(typeof(ChannelTimerMode)).Length > newIndex && newIndex >= 0)
+        {
+            var mode = (ChannelTimerMode)newIndex;
+            _userSettings.Set(UserSettingsConstants.ChannelTimerModeKey, mode.ToString());
+
+            //_telemetry.TrackEvent(TelemetryConstants.XboxSlideshowModeChanged, new Dictionary<string, string>
+            //{
+            //    { "mode", mode.ToString() }
+            //});
         }
     }
 }

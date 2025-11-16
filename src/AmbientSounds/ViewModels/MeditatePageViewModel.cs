@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Constants;
+﻿using AmbientSounds.Cache;
+using AmbientSounds.Constants;
 using AmbientSounds.Factories;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
@@ -9,7 +10,9 @@ using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels;
@@ -23,6 +26,10 @@ public partial class MeditatePageViewModel : ObservableObject
     private readonly IIapService _iapService;
     private readonly IDispatcherQueue _dispatcherQueue;
     private readonly ITelemetry _telemetry;
+    private readonly IPageCache _pageCache;
+    private readonly ICatalogueRowVmFactory _catalogueRowVmFactory;
+    private readonly ISoundService _soundService;
+    private readonly ISoundVmFactory _soundVmFactory;
 
     public MeditatePageViewModel(
         IGuideService guideService,
@@ -31,7 +38,11 @@ public partial class MeditatePageViewModel : ObservableObject
         IIapService iapService,
         IMixMediaPlayerService mixMediaPlayerService,
         IDispatcherQueue dispatcherQueue,
-        ITelemetry telemetry)
+        ITelemetry telemetry,
+        IPageCache pageCache,
+        ICatalogueRowVmFactory catalogueRowVmFactory,
+        ISoundService soundService,
+        ISoundVmFactory soundVmFactory)
     {
         _guideService = guideService;
         _guideVmFactory = guideVmFactory;
@@ -40,18 +51,36 @@ public partial class MeditatePageViewModel : ObservableObject
         _iapService = iapService;
         _dispatcherQueue = dispatcherQueue;
         _telemetry = telemetry;
+        _pageCache = pageCache;
+        _catalogueRowVmFactory = catalogueRowVmFactory;
+        _soundService = soundService;
+        _soundVmFactory = soundVmFactory;
+
+        SavedMixes.CollectionChanged += OnSavedMixesCollectionChanged;
     }
 
-    public ObservableCollection<GuideViewModel> Guides { get; } = new();
+    public ObservableCollection<SoundViewModel> SavedMixes { get; } = [];
+
+    public ObservableCollection<GuideViewModel> Guides { get; } = [];
+
+    public ObservableCollection<CatalogueRowViewModel> Rows { get; } = [];
 
     [ObservableProperty]
     private bool _placeholderVisible;
 
-    public async Task InitializeAsync()
+    /// <summary>
+    /// Determines if the saved mixes UI is visible.
+    /// </summary>
+    public bool SavedMixesVisible => SavedMixes.Count > 0;
+
+    public async Task InitializeAsync(CancellationToken ct)
     {
+        ct.ThrowIfCancellationRequested();
         _mixMediaPlayerService.PlaybackStateChanged += OnPlaybackChanged;
         _iapService.ProductPurchased += OnProductPurchased;
         _guideService.GuideStopped += OnGuideStopped;
+        _soundService.LocalSoundAdded += OnLocalSoundAdded;
+        _soundService.LocalSoundDeleted += OnLocalSoundDeleted;
 
         if (Guides.Count > 0)
         {
@@ -59,15 +88,17 @@ public partial class MeditatePageViewModel : ObservableObject
         }
 
         PlaceholderVisible = true;
-        var guidesTask = _guideService.GetOnlineGuidesAsync();
+        Task<IReadOnlyList<Guide>> guidesTask = _guideService.GetOnlineGuidesAsync();
 
         // Include delay to account for shimmer effect.
-        await Task.WhenAll(guidesTask, Task.Delay(600)); 
-        var guides = await guidesTask;
+        await Task.WhenAll(guidesTask, Task.Delay(300, ct));
+        ct.ThrowIfCancellationRequested();
+        IReadOnlyList<Guide> guides = await guidesTask;
 
-        foreach (var guide in guides.OrderBy(static x => x.Id))
+        foreach (Guide? guide in guides.OrderBy(static x => x.Id))
         {
-            var vm = _guideVmFactory.Create(
+            ct.ThrowIfCancellationRequested();
+            GuideViewModel vm = _guideVmFactory.Create(
                 guide,
                 DownloadCommand,
                 DeleteCommand,
@@ -80,7 +111,7 @@ public partial class MeditatePageViewModel : ObservableObject
 
             Guide? offlineGuide = await _guideService.GetOfflineGuideAsync(guide.Id);
             vm.IsDownloaded = offlineGuide is not null;
-            vm.IsPlaying = _mixMediaPlayerService.FeaturedSoundId == guide.Id 
+            vm.IsPlaying = _mixMediaPlayerService.FeaturedSoundId == guide.Id
                 && _mixMediaPlayerService.PlaybackState is MediaPlaybackState.Playing;
             vm.IsOwned = !guide.IsPremium || await _iapService.IsAnyOwnedAsync(guide.IapIds);
             Guides.Add(vm);
@@ -90,6 +121,40 @@ public partial class MeditatePageViewModel : ObservableObject
                 PlaceholderVisible = false;
             }
         }
+
+        await LoadMixesAsync(ct);
+        await LoadRowsAsync(ct);
+    }
+
+    private async Task LoadMixesAsync(CancellationToken ct)
+    {
+        ct.ThrowIfCancellationRequested();
+        IReadOnlyList<Sound> mixes = await _soundService.GetLocalMixesAsync(tag: AssetTagConstants.MeditatePageTag);
+        ct.ThrowIfCancellationRequested();
+        foreach (Sound mix in mixes.OrderBy(x => x.Name))
+        {
+            ct.ThrowIfCancellationRequested();
+            SoundViewModel vm = _soundVmFactory.GetSoundVm(mix);
+            SavedMixes.Add(vm);
+        }
+    }
+
+    private async Task LoadRowsAsync(CancellationToken ct)
+    {
+        ct.ThrowIfCancellationRequested();
+        IReadOnlyList<CatalogueRow> rows = await _pageCache.GetMeditatePageRowsAsync(ct);
+        ct.ThrowIfCancellationRequested();
+
+        List<Task> tasks = [];
+        foreach (CatalogueRow row in rows)
+        {
+            ct.ThrowIfCancellationRequested();
+            CatalogueRowViewModel vm = _catalogueRowVmFactory.Create(row);
+            tasks.Add(vm.LoadAsync(null, ct));
+            Rows.Add(vm);
+        }
+
+        await Task.WhenAll(tasks);
     }
 
     public void Uninitialize()
@@ -97,13 +162,48 @@ public partial class MeditatePageViewModel : ObservableObject
         _mixMediaPlayerService.PlaybackStateChanged -= OnPlaybackChanged;
         _iapService.ProductPurchased -= OnProductPurchased;
         _guideService.GuideStopped -= OnGuideStopped;
+        _soundService.LocalSoundAdded -= OnLocalSoundAdded;
+        _soundService.LocalSoundDeleted -= OnLocalSoundDeleted;
 
-        foreach (var g in Guides)
+        foreach (GuideViewModel g in Guides)
         {
             g.Uninitialize();
         }
-
         Guides.Clear();
+
+        foreach (CatalogueRowViewModel row in Rows)
+        {
+            row.Uninitialize();
+        }
+        Rows.Clear();
+
+        foreach (SoundViewModel mixVm in SavedMixes)
+        {
+            mixVm.Dispose();
+        }
+        SavedMixes.Clear();
+    }
+
+    private void OnLocalSoundAdded(object sender, Sound newSound)
+    {
+        if (!newSound.IsMix)
+        {
+            return;
+        }
+
+        SoundViewModel vm = _soundVmFactory.GetSoundVm(newSound);
+        _dispatcherQueue.TryEnqueue(() => SavedMixes.Add(vm));
+    }
+
+    private void OnLocalSoundDeleted(object sender, string removedSoundId)
+    {
+        SoundViewModel? mixToRemove = SavedMixes.FirstOrDefault(x => x.Id == removedSoundId);
+        if (mixToRemove is null)
+        {
+            return;
+        }
+
+        _dispatcherQueue.TryEnqueue(() => SavedMixes.Remove(mixToRemove));
     }
 
     [RelayCommand]
@@ -188,7 +288,7 @@ public partial class MeditatePageViewModel : ObservableObject
         // This ensures that when a guide starts playing, the play icon changes
         // to the stop icon.
         string currentGuideId = _mixMediaPlayerService.FeaturedSoundId;
-        foreach (var guideVm in Guides)
+        foreach (GuideViewModel guideVm in Guides)
         {
             guideVm.IsPlaying = guideVm.OnlineGuide.Id == currentGuideId;
         }
@@ -196,7 +296,7 @@ public partial class MeditatePageViewModel : ObservableObject
 
     private void OnProductPurchased(object sender, string purchasedIapId)
     {
-        foreach (var guideVm in Guides)
+        foreach (GuideViewModel guideVm in Guides)
         {
             if (guideVm.OnlineGuide.IapIds.Contains(purchasedIapId))
             {
@@ -209,10 +309,15 @@ public partial class MeditatePageViewModel : ObservableObject
     {
         _dispatcherQueue.TryEnqueue(() =>
         {
-            foreach (var guideVm in Guides)
+            foreach (GuideViewModel guideVm in Guides)
             {
                 guideVm.IsPlaying = false;
             }
         });
+    }
+
+    private void OnSavedMixesCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+    {
+        OnPropertyChanged(nameof(SavedMixesVisible));
     }
 }

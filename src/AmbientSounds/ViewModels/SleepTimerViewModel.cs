@@ -18,11 +18,11 @@ public partial class SleepTimerViewModel : ObservableObject
     private readonly ITelemetry _telemetry;
     private readonly IDispatcherQueue _dispatcherQueue;
     private readonly ILocalizer _localizer;
-    private readonly int[] _timeOptions = [15, 30, 45, 60, 90, 120];
+    private readonly int[] _timeOptions = [5, 10, 15, 30, 45, 60, 90, 120];
     private SleepTimerOptionsViewModel? _activeTimerOption;
 
     public SleepTimerViewModel(
-        ISleepTimerService sleepTimerService, 
+        ISleepTimerService sleepTimerService,
         ITelemetry telemetry,
         IDispatcherQueue dispatcherQueue,
         ILocalizer localizer)
@@ -34,7 +34,7 @@ public partial class SleepTimerViewModel : ObservableObject
 
         Options.Add(new SleepTimerOptionsViewModel(0, _localizer.GetString("OffTextBlock/Text"), StartTimerCommand));
 
-        foreach (var option in _timeOptions)
+        foreach (int option in _timeOptions)
         {
             Options.Add(new SleepTimerOptionsViewModel(option, TimeSpan.FromMinutes(option).Humanize(maxUnit: TimeUnit.Minute), StartTimerCommand));
         }
@@ -63,7 +63,7 @@ public partial class SleepTimerViewModel : ObservableObject
     private double _percentLeft;
 
     public ObservableCollection<SleepTimerOptionsViewModel> Options { get; } = [];
-    
+
     [RelayCommand]
     private void StartTimer(int minutes)
     {
@@ -73,7 +73,7 @@ public partial class SleepTimerViewModel : ObservableObject
             return;
         }
 
-        foreach (var option in Options)
+        foreach (SleepTimerOptionsViewModel option in Options)
         {
             option.IsActive = option.Minutes == minutes;
 
@@ -97,7 +97,7 @@ public partial class SleepTimerViewModel : ObservableObject
     private void StopTimer()
     {
         _activeTimerOption = null;
-        foreach (var option in Options)
+        foreach (SleepTimerOptionsViewModel option in Options)
         {
             option.IsActive = option.Minutes == 0;
         }

@@ -36,6 +36,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     private readonly IDialogService _dialogService;
     private readonly ICompactNavigator _compactNavigator;
     private readonly IDispatcherQueue _dispatcherQueue;
+    private bool? _allowSoundPausing;
     private bool _isHelpMessageVisible;
     private int _focusLength;
     private int _restLength;
@@ -51,7 +52,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     private int _secondsRemaining;
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(FocusLengthProgress))]
-    private double _focusLengthRemaining; 
+    private double _focusLengthRemaining;
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(RestLengthProgress))]
     private double _restLengthRemaining;
@@ -121,11 +122,11 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     [ObservableProperty]
     private bool _insightsVisible;
 
-    public ObservableCollection<RecentFocusSettingsViewModel> RecentSettings { get; } = new();
+    public ObservableCollection<RecentFocusSettingsViewModel> RecentSettings { get; } = [];
 
-    public ObservableCollection<FocusTaskViewModel> FocusTasks { get; } = new();
+    public ObservableCollection<FocusTaskViewModel> FocusTasks { get; } = [];
 
-    public ObservableCollection<FocusSegmentViewModel> Segments { get; } = new();
+    public ObservableCollection<FocusSegmentViewModel> Segments { get; } = [];
 
     public double FocusLengthProgress => FocusLength - FocusLengthRemaining;
 
@@ -135,7 +136,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
     public bool ActiveDataVisible => CancelVisible && FocusTasks.Count == 0;
 
-    public bool CountdownVisible => CancelVisible && FocusTasks.Count == 0 ;
+    public bool CountdownVisible => CancelVisible && FocusTasks.Count == 0;
 
     public bool IsRecentVisible => _focusService.CurrentState == FocusState.None && RecentSettings.Count > 0;
 
@@ -179,6 +180,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         set
         {
             SetProperty(ref _focusLength, value);
+            _userSettings.Set(UserSettingsConstants.LastUsedFocusLengthKey, value);
             OnPropertyChanged(nameof(TotalTime));
             OnPropertyChanged(nameof(TotalFocus));
             OnPropertyChanged(nameof(EndTime));
@@ -193,6 +195,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         set
         {
             SetProperty(ref _restLength, value);
+            _userSettings.Set(UserSettingsConstants.LastUsedRestLengthKey, value);
             OnPropertyChanged(nameof(TotalTime));
             OnPropertyChanged(nameof(TotalRest));
             OnPropertyChanged(nameof(EndTime));
@@ -207,6 +210,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         set
         {
             SetProperty(ref _repetitions, value);
+            _userSettings.Set(UserSettingsConstants.LastUsedRepetitionsKey, value);
             OnPropertyChanged(nameof(TotalTime));
             OnPropertyChanged(nameof(EndTime));
             OnPropertyChanged(nameof(TotalFocus));
@@ -248,21 +252,30 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     {
         get
         {
-            TimeSpan duration = FocusExtensions.GetTotalTime(FocusLength, RestLength, Repetitions);
-            DateTime endTime = _focusHistoryService.GetStartTime().Add(duration);
+            TimeSpan remainingDuration = FocusExtensions.GetTotalTime(FocusLength, RestLength, Repetitions);
+
+            // If the timer isn't running, then the end time is simply
+            // calculated as now + remaining duration. If the timer is running,
+            // then we use the start time that was logged for the active session.
+            DateTime start = _focusService.CurrentState is FocusState.None
+                ? DateTime.Now
+                : _focusHistoryService.GetStartTime();
+
+            DateTime endTime = start.Add(remainingDuration);
             return endTime.ToShortTimeString();
         }
     }
 
-    public async Task InitializeAsync()
+    public async Task InitializeAsync(bool allowSoundPausing)
     {
+        _allowSoundPausing = allowSoundPausing;
         _focusService.TimeUpdated += OnTimeUpdated;
         _focusService.FocusStateChanged += OnFocusStateChanged;
         _userSettings.SettingSet += OnSettingChanged;
 
         await InitializeTasksAsync();
         InitializeSegments();
-        var recentInterruptionTask = _focusHistoryService.GetRecentInterruptionsAsync();
+        Task<IReadOnlyList<FocusInterruption>> recentInterruptionTask = _focusHistoryService.GetRecentInterruptionsAsync();
 
         // Initialize recent list
         if (RecentSettings.Count > 0)
@@ -270,18 +283,18 @@ public partial class FocusTimerModuleViewModel : ObservableObject
             RecentSettings.Clear();
         }
 
-        var recents = await _recentFocusService.GetRecentAsync();
-        foreach (var recent in recents.OrderByDescending(x => x.LastUsed))
+        IReadOnlyList<RecentFocusSettings> recents = await _recentFocusService.GetRecentAsync();
+        foreach (RecentFocusSettings recent in recents.OrderByDescending(x => x.LastUsed))
         {
             RecentSettings.Add(new RecentFocusSettingsViewModel(recent, DeleteRecentSettingCommand));
         }
 
-        if (RecentSettings.FirstOrDefault() is { } s)
-        {
-            LoadRecentSettings(s);
-        }
+        // Load last used numbers
+        FocusLength = _userSettings.Get<int>(UserSettingsConstants.LastUsedFocusLengthKey);
+        RestLength = _userSettings.Get<int>(UserSettingsConstants.LastUsedRestLengthKey);
+        Repetitions = _userSettings.Get<int>(UserSettingsConstants.LastUsedRepetitionsKey);
 
-        var interruptions = await recentInterruptionTask;
+        IReadOnlyList<FocusInterruption> interruptions = await recentInterruptionTask;
         InsightsVisible = interruptions.Count > 0;
         OnPropertyChanged(nameof(IsRecentVisible));
 
@@ -290,6 +303,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
     public void Uninitialize()
     {
+        _allowSoundPausing = null;
         _focusService.TimeUpdated -= OnTimeUpdated;
         _focusService.FocusStateChanged -= OnFocusStateChanged;
         _userSettings.SettingSet -= OnSettingChanged;
@@ -301,9 +315,13 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         Segments.Clear();
     }
 
-    public bool CanStartTutorial() => SlidersEnabled;
+    public bool CanStartTutorial()
+    {
+        return SlidersEnabled;
+    }
 
-    public void PlayOrPause()
+    [RelayCommand]
+    private void PlayOrPause()
     {
         if (PauseVisible)
         {
@@ -317,13 +335,14 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
     private void Pause()
     {
-        _focusService.PauseTimer();
+        _focusService.PauseTimer(pauseSounds: _allowSoundPausing ?? true);
     }
 
-    public void Stop()
+    [RelayCommand]
+    private void Stop()
     {
         Segments.Clear();
-        _focusService.StopTimer();
+        _focusService.StopTimer(pauseSounds: _allowSoundPausing ?? true);
     }
 
     public void ShowHelpMessage()
@@ -351,7 +370,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
             return;
         }
 
-        RecentSettings.Remove(vm);
+        _ = RecentSettings.Remove(vm);
         await _recentFocusService.RemoveRecentAsync(vm.Settings);
     }
 
@@ -435,6 +454,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
                 _ = _recentFocusService.AddRecentAsync(FocusLength, RestLength, Repetitions);
                 InitializeSegments();
                 OnPropertyChanged(nameof(StartTime));
+                OnPropertyChanged(nameof(EndTime));
             }
         }
 
@@ -462,7 +482,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         while (index < (Repetitions + 1))
         {
             double progress = 0;
-            if (index < activePosition || 
+            if (index < activePosition ||
                 (index == activePosition && _focusService.CurrentSession.SessionType == SessionType.Rest))
             {
                 progress = 100;
@@ -473,7 +493,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
                     ? _focusService.CurrentSession.GetPercentComplete()
                     : 0;
             }
-                    
+
             Segments.Add(new FocusSegmentViewModel()
             {
                 Progress = progress
@@ -498,12 +518,12 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     private async Task InitializeTasksAsync()
     {
         FocusTasks.Clear();
-        var tasks = await _taskService.GetTasksAsync();
+        IReadOnlyList<FocusTask> tasks = await _taskService.GetTasksAsync();
         int index = 1;
-        foreach (var t in tasks)
+        foreach (FocusTask t in tasks)
         {
             FocusTasks.Add(new FocusTaskViewModel(
-                t, 
+                t,
                 complete: CompleteTaskCommand,
                 reopen: ReopenTaskCommand,
                 displayTitle: _localizer.GetString("TaskTitle", index.ToString())));
@@ -543,9 +563,9 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     private void UpdateButtonStates()
     {
         SlidersEnabled = _focusService.CurrentState == FocusState.None;
-        PlayVisible = _focusService.CurrentState == FocusState.Paused || _focusService.CurrentState == FocusState.None;
+        PlayVisible = _focusService.CurrentState is FocusState.Paused or FocusState.None;
         PauseVisible = _focusService.CurrentState == FocusState.Active;
-        CancelVisible = _focusService.CurrentState == FocusState.Active || _focusService.CurrentState == FocusState.Paused;
+        CancelVisible = _focusService.CurrentState is FocusState.Active or FocusState.Paused;
         PrimaryButtonText = PauseVisible
             ? _localizer.GetString("Pause")
             : _localizer.GetString("Start");

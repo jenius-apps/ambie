@@ -369,15 +369,6 @@
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0} بدون محدودیت زمانی</value>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>به صداهای ممتاز و با کیفیت بالا دسترسی داشته باشید</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>دانلود فیلم محافظ صفحه نمایش</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>پشتیبانی از توسعه این برنامه</value>
-  </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>با تشکر از شما برای اشتراک !</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
@@ -860,9 +851,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>دانلود صداها</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>حالت Dispaly</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>صفحه نمایش تیره</value>
   </data>
@@ -950,5 +938,125 @@
   </data>
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>تایمر شمارش معکوس را فعال کنید</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>مزایای مشابه، هزینه ماهانه کمتر</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>دریافت برنامه سالانه - {0}</value>
+  </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>کد را وارد کنید</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>کد تبلیغاتی را وارد کنید</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>از یک کد برای باز کردن قفل تخفیف برای Ambie+ استفاده کنید</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>ارسال</value>
+  </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>طولانی ترین رگه</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>ساعات کاری این ماه</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>ساعات تمرکز</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>کل ساعت ها</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>7 روز گذشته</value>
+  </data>
+  <data name="TopPlayedSoundsText" xml:space="preserve">
+    <value>صداهای پخش شده برتر</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>برای مشاهده آمار بیشتر از Ambie کمی بیشتر استفاده کنید</value>
+  </data>
+  <data name="StatsSubtitle" xml:space="preserve">
+    <value>آمار استفاده خود را در Ambie مشاهده کنید</value>
+  </data>
+  <data name="StatsTitleText" xml:space="preserve">
+    <value>آمار</value>
+  </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>اطمینان حاصل کنید که اعلان های ویندوز برای Ambie فعال هستند</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>گزینه های مفید</value>
+  </data>
+  <data name="ChannelSwitcherHide" xml:space="preserve">
+    <value>مخفی کردن کانال ها</value>
+  </data>
+  <data name="ChannelSwitcherShow" xml:space="preserve">
+    <value>نمایش کانال ها</value>
+  </data>
+  <data name="CountdownText" xml:space="preserve">
+    <value>شمارش معکوس</value>
+  </data>
+  <data name="NoneText" xml:space="preserve">
+    <value>هیچ کدام</value>
+  </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>تایمر فوکوس همیشه در طول یک جلسه فوکوس فعال نشان داده می شود.</value>
+  </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>روز</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>ساعت</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>دقیقه</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>ماه</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>هفته</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>سال</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>حالت نمایش</value>
+  </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>تایمر آرامش</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>از تایمر آرامش برای کمک به استراحت، خوابیدن یا مدیتیشن استفاده کنید.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>اطلاعات تایمر آرامش</value>
+  </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>در صفحه Relax گنجانده شود</value>
+  </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>میکس های صدای ذخیره شده شما</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>راهنماهای خواب و مدیتیشن</value>
+  </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>تا 5 صدا را میکس و مطابقت دهید</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>صداهای با کیفیت بالا، ویدیوهای ممتاز و مدیتیشن های انتخاب شده. دسترسی به تمام محتوای آینده. بیش از 3 صدا پخش کنید. قفل همه چیز را با Ambie+ باز کنید و محیط مورد علاقه بعدی خود را پیدا کنید.</value>
+  </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Ambie+ را برای پخش حداکثر 5 صدا دریافت کنید</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>صداهای بیشتری را ترکیب و مطابقت دهید</value>
   </data>
 </root>

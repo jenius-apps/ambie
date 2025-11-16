@@ -18,7 +18,7 @@
     mc:Ignorable="d">
     <Page.Resources>
         <BrushTransition x:Key="Transition" Duration="0:0:1" />
-        <x:Double x:Key="GradientHeight">240</x:Double>
+        <x:Double x:Key="GradientHeight">260</x:Double>
     </Page.Resources>
 
     <Grid
@@ -157,19 +157,38 @@
 
         <controls:Screensaver x:Name="ScreensaverControl" Visibility="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}" />
 
-        <controls:DigitalClock
-            x:Name="ClockControl"
+        <!--  clock timer controls  -->
+        <Grid
             Margin="0,120,0,0"
             VerticalAlignment="Top"
-            Canvas.ZIndex="1"
-            Visibility="{x:Bind ViewModel.ClockVisible, Mode=OneWay}">
-            <ani:Implicit.ShowAnimations>
-                <ani:OpacityAnimation
-                    From="0"
-                    To="1"
-                    Duration="0:0:5" />
-            </ani:Implicit.ShowAnimations>
-        </controls:DigitalClock>
+            Canvas.ZIndex="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <controls:DigitalClock x:Name="ClockControl" Visibility="{x:Bind ViewModel.ClockVisible, Mode=OneWay}">
+                <ani:Implicit.ShowAnimations>
+                    <ani:OpacityAnimation
+                        From="0"
+                        To="1"
+                        Duration="0:0:5" />
+                </ani:Implicit.ShowAnimations>
+            </controls:DigitalClock>
+
+            <Border
+                Grid.Row="1"
+                Width="328"
+                MinHeight="100"
+                Margin="0,4,0,0"
+                HorizontalAlignment="Center"
+                Background="{ThemeResource BackgroundAcrylicBrush}"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="4"
+                Visibility="{x:Bind ViewModel.FocusTimerVisible, Mode=OneWay}">
+                <controls:CompactFocusTimerModule x:Name="FocusTimerWidget" />
+            </Border>
+        </Grid>
 
         <Grid
             x:Name="VideosGrid"
@@ -203,14 +222,66 @@
                     <GradientStop Offset="1" Color="#FF000000" />
                 </LinearGradientBrush>
             </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Button
+                Margin="48,0,0,40"
+                VerticalAlignment="Bottom"
+                AutomationProperties.Name="{x:Bind ViewModel.ToggleChannelSwitcherText, Mode=OneWay}"
+                Command="{x:Bind ViewModel.ToggleChannelSwitcherCommand}"
+                Style="{StaticResource IconButton}"
+                ToolTipService.ToolTip="{x:Bind ViewModel.ToggleChannelSwitcherText, Mode=OneWay}">
+                <ani:Implicit.Animations>
+                    <ani:OffsetAnimation Duration="0:0:0.3" />
+                </ani:Implicit.Animations>
+                <Grid>
+                    <FontIcon
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        Glyph="{StaticResource GlyphChevronDown}"
+                        Visibility="{x:Bind ViewModel.ChannelSwitcherVisible, Mode=OneWay}">
+                        <ani:Implicit.ShowAnimations>
+                            <ani:OpacityAnimation
+                                From="0"
+                                To="1"
+                                Duration="0:0:0.3" />
+                        </ani:Implicit.ShowAnimations>
+                    </FontIcon>
+                    <FontIcon
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        Glyph="{StaticResource GlyphChevronUp}"
+                        Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.ChannelSwitcherVisible), Mode=OneWay}">
+                        <ani:Implicit.ShowAnimations>
+                            <ani:OpacityAnimation
+                                From="0"
+                                To="1"
+                                Duration="0:0:0.3" />
+                        </ani:Implicit.ShowAnimations>
+                    </FontIcon>
+                </Grid>
+            </Button>
             <ListView
-                Padding="40,0,0,0"
+                Grid.Row="1"
+                Margin="0,-40,0,0"
+                Padding="40,0,0,20"
                 ItemsSource="{x:Bind ViewModel.Channels}"
                 ScrollViewer.HorizontalScrollBarVisibility="Auto"
                 ScrollViewer.HorizontalScrollMode="Enabled"
                 ScrollViewer.VerticalScrollBarVisibility="Disabled"
                 ScrollViewer.VerticalScrollMode="Disabled"
-                SelectionMode="None">
+                SelectionMode="None"
+                Visibility="{x:Bind ViewModel.ChannelSwitcherVisible, Mode=OneWay}">
+                <ani:Implicit.ShowAnimations>
+                    <ani:OpacityAnimation
+                        From="0"
+                        To="1"
+                        Duration="0:0:0.3" />
+                    <ani:TranslationAnimation
+                        From="0,40,0"
+                        To="1"
+                        Duration="0:0:0.3" />
+                </ani:Implicit.ShowAnimations>
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="Padding" Value="0" />

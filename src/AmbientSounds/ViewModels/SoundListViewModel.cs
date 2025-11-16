@@ -1,7 +1,6 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Factories;
 using AmbientSounds.Services;
-using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using JeniusApps.Common.Settings;
@@ -16,6 +15,9 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels;
 
+/// <summary>
+/// Used for home page scenarios because it's designed to show all offline sounds available.
+/// </summary>
 public partial class SoundListViewModel : ObservableObject
 {
     private readonly ISoundService _soundService;
@@ -42,14 +44,6 @@ public partial class SoundListViewModel : ObservableObject
         IUserSettings userSettings,
         INavigator navigator)
     {
-        Guard.IsNotNull(soundService);
-        Guard.IsNotNull(telemetry);
-        Guard.IsNotNull(soundVmFactory);
-        Guard.IsNotNull(dialogService);
-        Guard.IsNotNull(downloadManager);
-        Guard.IsNotNull(userSettings);
-        Guard.IsNotNull(navigator);
-
         _soundService = soundService;
         _telemetry = telemetry;
         _factory = soundVmFactory;
@@ -96,7 +90,7 @@ public partial class SoundListViewModel : ObservableObject
     /// <summary>
     /// The list of sounds for this page.
     /// </summary>
-    public ObservableCollection<SoundViewModel> Sounds { get; } = new();
+    public ObservableCollection<SoundViewModel> Sounds { get; } = [];
 
     [RelayCommand]
     private async Task OnMixUnavailableAsync(IList<string>? unavailable)
@@ -136,7 +130,7 @@ public partial class SoundListViewModel : ObservableObject
             await _soundService.PrepopulateSoundsIfEmpty();
             _userSettings.Set(UserSettingsConstants.HasLoadedPackagedSoundsKey, true);
         }
-        
+
         var soundList = await _soundService.GetLocalSoundsAsync();
         if (soundList is null || soundList.Count == 0)
         {

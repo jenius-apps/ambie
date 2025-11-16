@@ -366,15 +366,6 @@
     <value>{0} на месец</value>
     <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Достъп до първокласни, висококачествени звуци</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Изтегляне на видео скрийнсейвъри</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Подкрепете развитието</value>
-  </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>Благодарим ви, че се абонирахте!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
@@ -860,9 +851,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>Изтегляне на звуци</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>Режим Dispaly</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>Тъмен екран</value>
   </data>
@@ -950,5 +938,125 @@
   </data>
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Активирайте таймера за обратно броене</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Същите предимства, по-ниски месечни разходи</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Вземете годишен план - {0}</value>
+  </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>Въведете код</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>Въведете промоционален код</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>Използвайте код, за да отключите отстъпки за Ambie+</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>Изпрати</value>
+  </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>Най-дълга серия</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>Работно време този месец</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>Часове за фокусиране</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>Общо часове</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>Последните 7 дни</value>
+  </data>
+  <data name="TopPlayedSoundsText" xml:space="preserve">
+    <value>Най-възпроизвежданите звуци</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>Използвайте Ambie малко повече, за да видите повече статистики</value>
+  </data>
+  <data name="StatsSubtitle" xml:space="preserve">
+    <value>Преглед на статистическите данни за използването в Ambie</value>
+  </data>
+  <data name="StatsTitleText" xml:space="preserve">
+    <value>Статистика</value>
+  </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>Уверете се, че известията на Windows са активирани за Ambie</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>Разрешите</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>Полезни опции</value>
+  </data>
+  <data name="ChannelSwitcherHide" xml:space="preserve">
+    <value>Скриване на канали</value>
+  </data>
+  <data name="ChannelSwitcherShow" xml:space="preserve">
+    <value>Показване на канали</value>
+  </data>
+  <data name="CountdownText" xml:space="preserve">
+    <value>Отброяване</value>
+  </data>
+  <data name="NoneText" xml:space="preserve">
+    <value>Никой</value>
+  </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>Таймерът за фокусиране винаги се показва по време на активна сесия за фокусиране.</value>
+  </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>ден</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>час</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>минута</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>месец</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>седмица</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>година</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Режим на показване</value>
+  </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>Таймер за релаксация</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>Използвайте таймера за релаксация, за да ви помогне да се отпуснете, да спите или да медитирате.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>Информация за таймера за релаксация</value>
+  </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Включете в страницата Релакс</value>
+  </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>Вашите запазени звукови миксове</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>Ръководства за сън и медитация</value>
+  </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>Смесване и съчетаване на до 5 звука</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Висококачествени звуци, първокласни видеоклипове и подбрани медитации. Достъп до цялото бъдещо съдържание. Възпроизвеждане на повече от 3 звука. Отключете всичко с Ambie+ и намерете следващата си любима атмосфера.</value>
+  </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Вземете Ambie+ за възпроизвеждане на до 5 звука</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>Смесване и съчетаване на повече звуци</value>
   </data>
 </root>

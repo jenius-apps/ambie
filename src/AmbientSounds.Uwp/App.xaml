@@ -229,6 +229,13 @@
                 <Setter Property="Fill" Value="{ThemeResource DividerStrokeColorDefaultBrush}" />
             </Style>
 
+            <Style x:Key="CardStyle" TargetType="Grid">
+                <Setter Property="Background" Value="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
+                <Setter Property="BorderBrush" Value="{ThemeResource CardStrokeColorDefaultBrush}" />
+                <Setter Property="CornerRadius" Value="12" />
+                <Setter Property="BorderThickness" Value="1" />
+            </Style>
+
             <x:Double x:Key="WideWindowBreakpoint">670</x:Double>
             <Thickness x:Key="NarrowPageMargin">16,0</Thickness>
             <Thickness x:Key="WidePageMargin">40,0</Thickness>
@@ -244,7 +251,8 @@
 
             <FontFamily x:Key="FluentUIGlyphs">/Assets/fluentui.ttf#Segoe Fluent Icons</FontFamily>
             <FontFamily x:Key="FluentUIGlyphsCustom">/Assets/fluentuicustom.ttf#fluentui</FontFamily>
-            <x:String x:Key="GlyphCalendar">&#xE163;</x:String>
+            <x:String x:Key="GlyphCalendar">&#xE787;</x:String>
+            <x:String x:Key="GlyphCalendarWeek">&#xE8C0;</x:String>
             <x:String x:Key="GlyphShuffle">&#xE14B;</x:String>
             <x:String x:Key="GlyphSettings">&#xE713;</x:String>
             <x:String x:Key="GlyphDownload">&#xEBD3;</x:String>
@@ -266,7 +274,8 @@
             <x:String x:Key="GlyphSleep">&#xEC46;</x:String>
             <x:String x:Key="GlyphInterruption">&#xEB44;</x:String>
             <x:String x:Key="GlyphChevronRight">&#xE0E3;</x:String>
-            <x:String x:Key="GlyphSaleTag">&#xE1CB;</x:String>
+            <x:String x:Key="GlyphChevronDown">&#xE70D;</x:String>
+            <x:String x:Key="GlyphChevronUp">&#xE70E;</x:String>
             <x:String x:Key="GlyphBack">&#xE112;</x:String>
             <x:String x:Key="GlyphForward">&#xE111;</x:String>
             <x:String x:Key="GlyphDiagnostics">&#xE9D9;</x:String>
@@ -314,6 +323,10 @@
             <x:String x:Key="GlyphFilmstrip">&#xE8B2;</x:String>
             <x:String x:Key="GlyphFeedback">&#xED15;</x:String>
             <x:String x:Key="GlyphGiftbox">&#xF133;</x:String>
+            <x:String x:Key="GlyphSaleTag">&#xE8EC;</x:String>
+            <x:String x:Key="GlyphStarFilled">&#xE735;</x:String>
+            <x:String x:Key="GlyphPersonWithRibbon">&#xECA7;</x:String>
+            <x:String x:Key="GlyphLanguage">&#xF2B7;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>

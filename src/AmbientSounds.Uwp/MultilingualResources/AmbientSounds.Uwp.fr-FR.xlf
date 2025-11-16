@@ -124,7 +124,7 @@
         </trans-unit>
         <trans-unit id="Soundcoffeeshop" translate="yes" xml:space="preserve">
           <source>Coffee shop</source>
-          <target state="translated">Café-restaurant</target>
+          <target state="translated">Café</target>
         </trans-unit>
         <trans-unit id="Soundcreek" translate="yes" xml:space="preserve">
           <source>Creek</source>
@@ -307,11 +307,11 @@
         </trans-unit>
         <trans-unit id="ClearActiveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Clear all active sounds</source>
-          <target state="translated">Effacer tous les sons actifs</target>
+          <target state="translated">Arrêter tous les sons actifs</target>
         </trans-unit>
         <trans-unit id="ClearActiveButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Clear all active sounds</source>
-          <target state="translated">Effacer tous les sons actifs</target>
+          <target state="translated">Arrêter tous les sons actifs</target>
         </trans-unit>
         <trans-unit id="ConfirmSaveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Confirm save</source>
@@ -487,18 +487,6 @@
           <target state="translated">Merci de vous être abonné!</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Thank you message shown after user purchases a subscription.</note>
         </trans-unit>
-        <trans-unit id="SubscriptionText1" translate="yes" xml:space="preserve">
-          <source>Access premium, high quality sounds</source>
-          <target state="translated">Accédez à des sons de haute qualité</target>
-        </trans-unit>
-        <trans-unit id="SubscriptionText2" translate="yes" xml:space="preserve">
-          <source>Download video screensavers</source>
-          <target state="translated">Télécharger des vidéos</target>
-        </trans-unit>
-        <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
-          <source>Support development</source>
-          <target state="translated">Soutenir le développement</target>
-        </trans-unit>
         <trans-unit id="HelloAgain" translate="yes" xml:space="preserve">
           <source>Hello again 👋🏽</source>
           <target state="translated">Rebonjour 👋🏽</target>
@@ -545,7 +533,7 @@
         </trans-unit>
         <trans-unit id="ViewPremiumInfo" translate="yes" xml:space="preserve">
           <source>View premium info</source>
-          <target state="translated">Afficher les informations sur les primes</target>
+          <target state="translated">Afficher les informations sur les abonnements</target>
         </trans-unit>
         <trans-unit id="ToggleFullscreen" translate="yes" xml:space="preserve">
           <source>Toggle fullscreen</source>
@@ -573,7 +561,7 @@
         </trans-unit>
         <trans-unit id="FocusSessionCompleteTitle" translate="yes" xml:space="preserve">
           <source>Focus session complete</source>
-          <target state="translated">Séance de mise au point terminée</target>
+          <target state="translated">Séance de concentration terminée</target>
         </trans-unit>
         <trans-unit id="FocusSessionFocusMessage" translate="yes" xml:space="preserve">
           <source>Time to focus</source>
@@ -585,15 +573,15 @@
         </trans-unit>
         <trans-unit id="RestText" translate="yes" xml:space="preserve">
           <source>Rest</source>
-          <target state="translated">Le repos</target>
+          <target state="translated">Repos</target>
         </trans-unit>
         <trans-unit id="FocusDotTooltip" translate="yes" xml:space="preserve">
           <source>Focus session is active!</source>
-          <target state="translated">La session de mise au point est active</target>
+          <target state="translated">La session de concentration est active</target>
         </trans-unit>
         <trans-unit id="SessionTypeFocus" translate="yes" xml:space="preserve">
           <source>Focusing</source>
-          <target state="translated">Mise au point</target>
+          <target state="translated">En concentration</target>
         </trans-unit>
         <trans-unit id="SessionTypeRest" translate="yes" xml:space="preserve">
           <source>Resting</source>
@@ -638,7 +626,7 @@
         </trans-unit>
         <trans-unit id="Repeats" translate="yes" xml:space="preserve">
           <source>Repeats</source>
-          <target state="translated">Répète</target>
+          <target state="translated">Répétitions</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpAction" translate="yes" xml:space="preserve">
           <source>Show me how to use it</source>
@@ -650,11 +638,11 @@
         </trans-unit>
         <trans-unit id="FocusTimerHelpTitle" translate="yes" xml:space="preserve">
           <source>Welcome to Focus Timer!</source>
-          <target state="translated">Bienvenue à la minuterie de mise au point</target>
+          <target state="translated">Bienvenue à la minuterie de concentration</target>
         </trans-unit>
         <trans-unit id="Help" translate="yes" xml:space="preserve">
           <source>Help</source>
-          <target state="translated">Aider</target>
+          <target state="translated">Aide</target>
         </trans-unit>
         <trans-unit id="Next" translate="yes" xml:space="preserve">
           <source>Next</source>
@@ -662,15 +650,15 @@
         </trans-unit>
         <trans-unit id="TipFocusMessage" translate="yes" xml:space="preserve">
           <source>Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!</source>
-          <target state="translated">Chaque cycle comporte un segment de mise au point et un segment de repos. Choisissez la durée de chaque segment de mise au point. Nous recommandons 25 minutes pour commencer !</target>
+          <target state="translated">Chaque cycle comporte un segment de concentration et un segment de repos. Choisissez la durée de chaque segment de concentration. Nous recommandons 25 minutes pour commencer !</target>
         </trans-unit>
         <trans-unit id="TipFocusTitle" translate="yes" xml:space="preserve">
           <source>Set focus minutes</source>
-          <target state="translated">Définir les minutes de mise au point</target>
+          <target state="translated">Définir les minutes de concentration</target>
         </trans-unit>
         <trans-unit id="TipRepeatsMessage" translate="yes" xml:space="preserve">
           <source>Each focus and rest cycle can repeat multiple times. Try adding 1 repeat!</source>
-          <target state="translated">Chaque cycle de mise au point et de repos peut se répéter plusieurs fois. Essayez d'ajouter 1 répétition !</target>
+          <target state="translated">Chaque cycle de concentration et de repos peut se répéter plusieurs fois. Essayez d'ajouter 1 répétition !</target>
         </trans-unit>
         <trans-unit id="TipRepeatsTitle" translate="yes" xml:space="preserve">
           <source>Set repeats</source>
@@ -686,11 +674,11 @@
         </trans-unit>
         <trans-unit id="TipStartButtonMessage" translate="yes" xml:space="preserve">
           <source>Start the timer and work on your tasks. We'll send you notifications when it's time to rest. Work hard!</source>
-          <target state="translated">Démarrez le chronomètre et travaillez sur vos tâches. Nous vous enverrons des notifications lorsqu'il sera temps de vous reposer. Travailler dur!</target>
+          <target state="translated">Démarrez la minuterie et travaillez sur vos tâches. Nous vous enverrons des notifications lorsqu'il sera temps de vous reposer. Travaillez dur!</target>
         </trans-unit>
         <trans-unit id="TipStartButtonTitle" translate="yes" xml:space="preserve">
           <source>Ready, set, go</source>
-          <target state="translated">Prêt, prêt, partez</target>
+          <target state="translated">Prêt, partez</target>
         </trans-unit>
         <trans-unit id="RecentFocusAccessibleName" translate="yes" xml:space="preserve">
           <source>{0} focus minutes, {1} rest minutes, {2} repeats.</source>
@@ -787,7 +775,7 @@
         </trans-unit>
         <trans-unit id="SettingsCompactMode" translate="yes" xml:space="preserve">
           <source>Open Ambie Mini when focusing</source>
-          <target state="translated">Ouvrez Ambie Mini lors de la mise au point</target>
+          <target state="translated">Ouvrez Ambie Mini lors de la concentration</target>
         </trans-unit>
         <trans-unit id="DurationText" translate="yes" xml:space="preserve">
           <source>Duration</source>
@@ -823,7 +811,7 @@
         </trans-unit>
         <trans-unit id="EditHomePageMessage" translate="yes" xml:space="preserve">
           <source>Drag and drop sounds to personalize your home page. Try it now!</source>
-          <target state="translated">Faites glisser et déposez des sons pour personnaliser votre âge de départ. Essayez-le maintenant!</target>
+          <target state="translated">Faites glisser et déposez des sons pour personnaliser votre page d'accueil. Essayez-le maintenant!</target>
         </trans-unit>
         <trans-unit id="EmptyCatalogueMessage" translate="yes" xml:space="preserve">
           <source>Sorry about that! We couldn't load the catalogue. Try checking your internet connection.</source>
@@ -835,7 +823,7 @@
         </trans-unit>
         <trans-unit id="SettingsCompactModeDescription" translate="yes" xml:space="preserve">
           <source>Ambie Mini will open automatically when focusing</source>
-          <target state="translated">Ambie Mini s’ouvre automatiquement lors de la mise au point</target>
+          <target state="translated">Ambie Mini s’ouvre automatiquement lors de la concentration</target>
         </trans-unit>
         <trans-unit id="SettingsNotificationsSwitchDescription" translate="yes" xml:space="preserve">
           <source>We'll notify you know when new sounds are available</source>
@@ -843,7 +831,7 @@
         </trans-unit>
         <trans-unit id="SettingsResumeOnLaunchDescription" translate="yes" xml:space="preserve">
           <source>On launch, Ambie will resume playing automatically</source>
-          <target state="translated">Au lancement, Ambie reprendra le jeu automatiquement</target>
+          <target state="translated">Au lancement, Ambie reprendra la lecture automatiquement</target>
         </trans-unit>
         <trans-unit id="SettingsTelemetrySwitchDescription" translate="yes" xml:space="preserve">
           <source>Crashes and anonymous usage info are reported to help improve Ambie</source>
@@ -879,7 +867,7 @@
         </trans-unit>
         <trans-unit id="MissingShareSoundsTitle" translate="yes" xml:space="preserve">
           <source>You're missing some sounds</source>
-          <target state="translated">La musique te manque</target>
+          <target state="translated">Les sont sont absents</target>
         </trans-unit>
         <trans-unit id="ReviewText" translate="yes" xml:space="preserve">
           <source>Review</source>
@@ -979,7 +967,7 @@
         </trans-unit>
         <trans-unit id="SettingsPlayAfterFocusHeader" translate="yes" xml:space="preserve">
           <source>Continue sounds after focusing</source>
-          <target state="translated">Continuer les sons après la mise au point</target>
+          <target state="translated">Continuer les sons après la concentration</target>
         </trans-unit>
         <trans-unit id="RelaxText" translate="yes" xml:space="preserve">
           <source>Relax</source>
@@ -1051,7 +1039,7 @@
         </trans-unit>
         <trans-unit id="StreakReminderMessage" translate="yes" xml:space="preserve">
           <source>Keep your streak alive!</source>
-          <target state="translated">Continuez votre série en vie !</target>
+          <target state="translated">Gardez votre série en vie !</target>
         </trans-unit>
         <trans-unit id="StreakReminderTitle" translate="yes" xml:space="preserve">
           <source>{0}-day streak</source>
@@ -1088,7 +1076,7 @@
         </trans-unit>
         <trans-unit id="FocusSubtitle" translate="yes" xml:space="preserve">
           <source>Are you working or studying? Use our innovative focus timer to help you be productive.</source>
-          <target state="translated">Travaillez-vous ou étudiez-vous ? Utilisez notre minuterie de mise au point innovante pour vous aider à être productif.</target>
+          <target state="translated">Travaillez-vous ou étudiez-vous ? Utilisez notre minuterie de concentration innovante pour vous aider à être productif.</target>
         </trans-unit>
         <trans-unit id="HomeSubtitle" translate="yes" xml:space="preserve">
           <source>View the sounds you have installed, play up to 3 sounds, and find your favourite combination.</source>
@@ -1136,7 +1124,7 @@
         </trans-unit>
         <trans-unit id="UnlockText" translate="yes" xml:space="preserve">
           <source>Unlock</source>
-          <target state="translated">Ouvrir</target>
+          <target state="translated">Déverouillez</target>
         </trans-unit>
         <trans-unit id="AdjustSoundVolume" translate="yes" xml:space="preserve">
           <source>Adjust sound volume</source>
@@ -1145,10 +1133,6 @@
         <trans-unit id="DownloadSounds" translate="yes" xml:space="preserve">
           <source>Download sounds</source>
           <target state="translated">Télécharger des sons</target>
-        </trans-unit>
-        <trans-unit id="DisplayMode" translate="yes" xml:space="preserve">
-          <source>Dispaly mode</source>
-          <target state="translated">Mode d’affichage</target>
         </trans-unit>
         <trans-unit id="DisplayModeDarkScreen" translate="yes" xml:space="preserve">
           <source>Dark screen</source>
@@ -1267,6 +1251,166 @@
         <trans-unit id="SettingsEnableCountdownHeader" translate="yes" xml:space="preserve">
           <source>Enable countdown timer</source>
           <target state="translated">Activer le compte à rebours</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
+          <source>Same benefits, lower monthly cost</source>
+          <target state="translated">Mêmes avantages, coût mensuel inférieur</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanTitle" translate="yes" xml:space="preserve">
+          <source>Get annual plan - {0}</source>
+          <target state="translated">Obtenir un plan annuel - {0}</target>
+        </trans-unit>
+        <trans-unit id="EnterCodePlaceholder" translate="yes" xml:space="preserve">
+          <source>Enter code</source>
+          <target state="translated">Entrez le code</target>
+        </trans-unit>
+        <trans-unit id="EnterPromoCodeText" translate="yes" xml:space="preserve">
+          <source>Enter promo code</source>
+          <target state="translated">Entrez le code promo</target>
+        </trans-unit>
+        <trans-unit id="PromoCodeMessage" translate="yes" xml:space="preserve">
+          <source>Use a code to unlock discounts for Ambie+</source>
+          <target state="translated">Utilisez un code pour débloquer des réductions pour Ambie+</target>
+        </trans-unit>
+        <trans-unit id="SubmitText" translate="yes" xml:space="preserve">
+          <source>Submit</source>
+          <target state="translated">Envoyer</target>
+        </trans-unit>
+        <trans-unit id="StatsLongestStreak" translate="yes" xml:space="preserve">
+          <source>Longest streak</source>
+          <target state="translated">Plus longue série</target>
+        </trans-unit>
+        <trans-unit id="StatsMonthlyHours" translate="yes" xml:space="preserve">
+          <source>Hours this month</source>
+          <target state="translated">Heures d’ouverture ce mois-ci</target>
+        </trans-unit>
+        <trans-unit id="StatsTotalFocusHours" translate="yes" xml:space="preserve">
+          <source>Focus hours</source>
+          <target state="translated">Heures de concentration</target>
+        </trans-unit>
+        <trans-unit id="StatsTotalHours" translate="yes" xml:space="preserve">
+          <source>Total hours</source>
+          <target state="translated">Nombre total d’heures</target>
+        </trans-unit>
+        <trans-unit id="StatsWeeklyHours" translate="yes" xml:space="preserve">
+          <source>Last 7 days</source>
+          <target state="translated">7 derniers jours</target>
+        </trans-unit>
+        <trans-unit id="TopPlayedSoundsText" translate="yes" xml:space="preserve">
+          <source>Top played sounds</source>
+          <target state="translated">Les sons les plus joués</target>
+        </trans-unit>
+        <trans-unit id="TopPlayedSoundsPlaceholder" translate="yes" xml:space="preserve">
+          <source>Use Ambie a little more to view more stats</source>
+          <target state="translated">Utilisez Ambie un peu plus pour voir plus de statistiques</target>
+        </trans-unit>
+        <trans-unit id="StatsSubtitle" translate="yes" xml:space="preserve">
+          <source>View your usage stats in Ambie</source>
+          <target state="translated">Afficher vos statistiques d’utilisation dans Ambie</target>
+        </trans-unit>
+        <trans-unit id="StatsTitleText" translate="yes" xml:space="preserve">
+          <source>Stats</source>
+          <target state="translated">Statistiques</target>
+        </trans-unit>
+        <trans-unit id="OsNotificationHelpMessage" translate="yes" xml:space="preserve">
+          <source>Ensure Windows notifications are enabled for Ambie</source>
+          <target state="translated">Assurez-vous que les notifications Windows sont activées pour Ambie</target>
+        </trans-unit>
+        <trans-unit id="EnableText" translate="yes" xml:space="preserve">
+          <source>Enable</source>
+          <target state="translated">Activer</target>
+        </trans-unit>
+        <trans-unit id="StatsPageSettingsHeader" translate="yes" xml:space="preserve">
+          <source>Helpful options</source>
+          <target state="translated">Options utiles</target>
+        </trans-unit>
+        <trans-unit id="ChannelSwitcherHide" translate="yes" xml:space="preserve">
+          <source>Hide channels</source>
+          <target state="translated">Masquer les chaînes</target>
+        </trans-unit>
+        <trans-unit id="ChannelSwitcherShow" translate="yes" xml:space="preserve">
+          <source>Show channels</source>
+          <target state="translated">Afficher les chaînes</target>
+        </trans-unit>
+        <trans-unit id="CountdownText" translate="yes" xml:space="preserve">
+          <source>Countdown</source>
+          <target state="translated">Compte à rebours</target>
+        </trans-unit>
+        <trans-unit id="NoneText" translate="yes" xml:space="preserve">
+          <source>None</source>
+          <target state="translated">Aucun</target>
+        </trans-unit>
+        <trans-unit id="ChannelTimerFocusDisclaimer" translate="yes" xml:space="preserve">
+          <source>Focus timer is always shown during an active focus session.</source>
+          <target state="translated">La minuterie de concentration est toujours affichée pendant une session de concentration active.</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitDay" translate="yes" xml:space="preserve">
+          <source>day</source>
+          <target state="translated">jour</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitHour" translate="yes" xml:space="preserve">
+          <source>hour</source>
+          <target state="translated">heure</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitMinute" translate="yes" xml:space="preserve">
+          <source>minute</source>
+          <target state="translated">minute</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitMonth" translate="yes" xml:space="preserve">
+          <source>month</source>
+          <target state="translated">mois</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitWeek" translate="yes" xml:space="preserve">
+          <source>week</source>
+          <target state="translated">semaine</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitYear" translate="yes" xml:space="preserve">
+          <source>year</source>
+          <target state="translated">année</target>
+        </trans-unit>
+        <trans-unit id="DisplayMode" translate="yes" xml:space="preserve">
+          <source>Display mode</source>
+          <target state="translated">Mode d’affichage</target>
+        </trans-unit>
+        <trans-unit id="RelaxationTimerText" translate="yes" xml:space="preserve">
+          <source>Relaxation timer</source>
+          <target state="translated">Minuterie de relaxation</target>
+        </trans-unit>
+        <trans-unit id="RelaxationTimerHelpMessage" translate="yes" xml:space="preserve">
+          <source>Use the relaxation timer to help you relax, sleep, or meditate.</source>
+          <target state="translated">Utilisez la minuterie de relaxation pour vous aider à vous détendre, dormir ou méditer.</target>
+        </trans-unit>
+        <trans-unit id="RelaxationTimerHelpButtonAutomationName" translate="yes" xml:space="preserve">
+          <source>Relaxation timer information</source>
+          <target state="translated">Informations sur la minuterie de relaxation</target>
+        </trans-unit>
+        <trans-unit id="IncludeInRelaxPageText" translate="yes" xml:space="preserve">
+          <source>Include in Relax page</source>
+          <target state="translated">Inclure dans la page Relax</target>
+        </trans-unit>
+        <trans-unit id="SavedSoundMixHeader" translate="yes" xml:space="preserve">
+          <source>Your saved sound mixes</source>
+          <target state="translated">Vos mixages sonores enregistrés</target>
+        </trans-unit>
+        <trans-unit id="SleepMeditationGuideHeader" translate="yes" xml:space="preserve">
+          <source>Sleep and meditation guides</source>
+          <target state="translated">Guides de sommeil et de méditation</target>
+        </trans-unit>
+        <trans-unit id="SelectMoreSoundsPlaceholder" translate="yes" xml:space="preserve">
+          <source>Mix and match up to 5 sounds</source>
+          <target state="translated">Mélangez et associez jusqu’à 5 sons</target>
+        </trans-unit>
+        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
+          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Play more than 3 sounds. Unlock it all with Ambie+, and find your next favourite ambience.</source>
+          <target state="translated">Des sons de haute qualité, des vidéos premium et des méditations organisées. Accès à tous les contenus futurs. Jouez plus de 3 sons. Débloquez tout cela avec Ambie+ et trouvez votre prochaine ambiance préférée.</target>
+        </trans-unit>
+        <trans-unit id="MoreSoundsTipDescription" translate="yes" xml:space="preserve">
+          <source>Get Ambie+ to play up to 5 sounds</source>
+          <target state="translated">Obtenez Ambie+ pour jouer jusqu’à 5 sons</target>
+        </trans-unit>
+        <trans-unit id="MoreSoundsTipTitle" translate="yes" xml:space="preserve">
+          <source>Mix and match more sounds</source>
+          <target state="translated">Mélangez et assortissez plus de sons</target>
         </trans-unit>
       </group>
     </body>

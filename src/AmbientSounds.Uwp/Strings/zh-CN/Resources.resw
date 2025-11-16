@@ -367,15 +367,6 @@
     <value>感谢您的订阅！</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>享用高级优质音效</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>下载视频</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>支持我们的开发</value>
-  </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>嗨！又见面了！👋🏽</value>
   </data>
@@ -860,9 +851,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>下载声音</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>虚幻模式</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>暗屏</value>
   </data>
@@ -950,5 +938,125 @@
   </data>
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>启用倒数计时器</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>相同的权益，更低的每月费用</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>获取年度计划 - {0}</value>
+  </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>输入代码</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>输入促销代码</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>使用代码解锁 Ambie+ 的折扣</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>提交</value>
+  </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>最长连胜</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>本月营业时间</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>专注时间</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>总小时数</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>最近 7 天</value>
+  </data>
+  <data name="TopPlayedSoundsText" xml:space="preserve">
+    <value>最常播放的声音</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>多使用 Ambie 可查看更多统计数据</value>
+  </data>
+  <data name="StatsSubtitle" xml:space="preserve">
+    <value>在 Ambie 中查看您的使用统计数据</value>
+  </data>
+  <data name="StatsTitleText" xml:space="preserve">
+    <value>统计</value>
+  </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>确保为 Ambie 启用 Windows 通知</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>使</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>有用的选项</value>
+  </data>
+  <data name="ChannelSwitcherHide" xml:space="preserve">
+    <value>隐藏频道</value>
+  </data>
+  <data name="ChannelSwitcherShow" xml:space="preserve">
+    <value>显示频道</value>
+  </data>
+  <data name="CountdownText" xml:space="preserve">
+    <value>倒计时</value>
+  </data>
+  <data name="NoneText" xml:space="preserve">
+    <value>没有</value>
+  </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>焦点计时器始终显示在活动焦点会话期间。</value>
+  </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>小时</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>分钟</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>月</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>周</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>年</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>显示模式</value>
+  </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>放松定时器</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>使用放松计时器帮助您放松、睡眠或冥想。</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>放松计时器信息</value>
+  </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>包含在 Relax 页面中</value>
+  </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>您保存的混音</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>睡眠和冥想指南</value>
+  </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>混合和匹配多达 5 种声音</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>高品质的声音、优质视频和精心策划的冥想。访问所有未来内容。播放 3 种以上的声音。使用 Ambie+ 解锁这一切，并找到您下一个最喜欢的氛围。</value>
+  </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>让 Ambie+ 播放多达 5 种声音</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>混合和匹配更多声音</value>
   </data>
 </root>

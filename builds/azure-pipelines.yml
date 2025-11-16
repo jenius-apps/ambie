@@ -3,8 +3,14 @@
 # Add steps that test and distribute an app, save build artifacts, and more:
 # https://aka.ms/yaml
 
-trigger: none
-
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - src/AmbientSounds.Uwp/Package.appxmanifest
+      
 pr: none
 
 pool:
@@ -52,6 +58,7 @@ steps:
       $xmlDoc.SelectSingleNode("//root/data[@name='ChannelsUrl']").Value = "$(ChannelsUrl)"
       $xmlDoc.SelectSingleNode("//root/data[@name='NotificationHubConnectionString']").Value = "$(NotificationHubConnectionString)"
       $xmlDoc.SelectSingleNode("//root/data[@name='NotificationHubName']").Value = "$(NotificationHubName)"
+      $xmlDoc.SelectSingleNode("//root/data[@name='PromoCodesUrl']").Value = "$(PromoCodesUrl)"
       $xmlDoc.Save('$(Build.SourcesDirectory)\src\AmbientSounds.Uwp\appsettings.resw')
     failOnStderr: true
 
