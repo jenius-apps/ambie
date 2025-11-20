@@ -1,1419 +1,1275 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
-  <file datatype="xml" source-language="en-US" target-language="tr" original="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
-    <header>
-      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6916.0" tool-company="Microsoft" />
-    </header>
-    <body>
-      <group id="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
-        <trans-unit id="CloseCompactMode.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Close Ambie Mini</source>
-          <target state="needs-review-translation">Kompakt modu kapat</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="CloseCompactMode.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>Close Ambie Mini</source>
-          <target state="needs-review-translation">Kompakt modu kapat</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="CloseText" translate="yes" xml:space="preserve">
-          <source>Close</source>
-          <target state="translated">Kapat</target>
-        </trans-unit>
-        <trans-unit id="Copyright.Text" translate="yes" xml:space="preserve">
-          <source>Copyright</source>
-          <target state="translated">Telif Hakkı</target>
-        </trans-unit>
-        <trans-unit id="CopyrightJeniusApps.Text" translate="yes" xml:space="preserve">
-          <source>Copyright Jenius Apps</source>
-          <target state="translated">Telif hakkı Jenius Apps</target>
-        </trans-unit>
-        <trans-unit id="HelloFromVancouver.Text" translate="yes" xml:space="preserve">
-          <source>Hello from Vancouver</source>
-          <target state="translated">Vancouver'dan Merhaba</target>
-        </trans-unit>
-        <trans-unit id="LogoButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>View app information</source>
-          <target state="needs-review-translation">Uygulama bilgilerini görüntülemek için tıklayın</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="MoreButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>View more options</source>
-          <target state="needs-review-translation">Daha fazla seçenek görmek için tıklayın</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="MoreButtonContact.Label" translate="yes" xml:space="preserve">
-          <source>Contact the creator</source>
-          <target state="translated">İçerik oluşturucuyla iletişime geçin</target>
-        </trans-unit>
-        <trans-unit id="RateUsText" translate="yes" xml:space="preserve">
-          <source>Rate us</source>
-          <target state="translated">Bizi değerlendirin</target>
-        </trans-unit>
-        <trans-unit id="MoreButtonSettings.Label" translate="yes" xml:space="preserve">
-          <source>Settings</source>
-          <target state="translated">Ayarlar</target>
-        </trans-unit>
-        <trans-unit id="MoreButtonShare.Label" translate="yes" xml:space="preserve">
-          <source>Share link for Ambie</source>
-          <target state="translated">Ambie için bağlantı paylaş</target>
-        </trans-unit>
-        <trans-unit id="MoreButtonTranslate.Label" translate="yes" xml:space="preserve">
-          <source>Add or improve translations</source>
-          <target state="translated">Çeviri ekleyin veya iyileştirin</target>
-        </trans-unit>
-        <trans-unit id="OffTextBlock.Text" translate="yes" xml:space="preserve">
-          <source>Off</source>
-          <target state="translated">Kapalı</target>
-        </trans-unit>
-        <trans-unit id="OnTextBlock.Text" translate="yes" xml:space="preserve">
-          <source>On</source>
-          <target state="translated">Açık</target>
-        </trans-unit>
-        <trans-unit id="PauseTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Pause the timer</source>
-          <target state="translated">Zamanlayıcıyı duraklat</target>
-        </trans-unit>
-        <trans-unit id="PlayerPauseText" translate="yes" xml:space="preserve">
-          <source>Pause</source>
-          <target state="needs-review-translation">Sesi duraklat</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="PlayerPlayText" translate="yes" xml:space="preserve">
-          <source>Play</source>
-          <target state="needs-review-translation">Sesi Oynat</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="PlayTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Continue the timer</source>
-          <target state="translated">Zamanlayıcıya devam et</target>
-        </trans-unit>
-        <trans-unit id="ReadyToPlayText" translate="yes" xml:space="preserve">
-          <source>Ready to play</source>
-          <target state="translated">Oynatmaya hazır</target>
-        </trans-unit>
-        <trans-unit id="SettingsTelemetrySwitch.Header" translate="yes" xml:space="preserve">
-          <source>Telemetry</source>
-          <target state="translated">Telemetri</target>
-        </trans-unit>
-        <trans-unit id="SettingsText" translate="yes" xml:space="preserve">
-          <source>Settings</source>
-          <target state="translated">Ayarlar</target>
-        </trans-unit>
-        <trans-unit id="SleepTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>View sleep timer options</source>
-          <target state="needs-review-translation">Seçilen süreden sonra sesin duracağı bir uyku zamanlayıcısı ayarlamak için buraya tıklayın.</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="SleepTimerButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>View sleep timer options</source>
-          <target state="needs-review-translation">Seçilen süreden sonra sesin duracağı bir uyku zamanlayıcısı ayarlamak için buraya tıklayın.</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="Soundbeach" translate="yes" xml:space="preserve">
-          <source>Beach</source>
-          <target state="translated">Plaj</target>
-        </trans-unit>
-        <trans-unit id="Soundbirds" translate="yes" xml:space="preserve">
-          <source>Birds</source>
-          <target state="translated">Kuşlar</target>
-        </trans-unit>
-        <trans-unit id="Soundcitystreet" translate="yes" xml:space="preserve">
-          <source>City street</source>
-          <target state="translated">Şehir Sokağı</target>
-        </trans-unit>
-        <trans-unit id="Soundcoffeeshop" translate="yes" xml:space="preserve">
-          <source>Coffee shop</source>
-          <target state="translated">Kahve dükkanı</target>
-        </trans-unit>
-        <trans-unit id="Soundcreek" translate="yes" xml:space="preserve">
-          <source>Creek</source>
-          <target state="translated">Dere</target>
-        </trans-unit>
-        <trans-unit id="Soundfireplace" translate="yes" xml:space="preserve">
-          <source>Fireplace</source>
-          <target state="translated">Şömine</target>
-        </trans-unit>
-        <trans-unit id="Soundrain" translate="yes" xml:space="preserve">
-          <source>Rain</source>
-          <target state="translated">Yağmur</target>
-        </trans-unit>
-        <trans-unit id="Soundrainforest" translate="yes" xml:space="preserve">
-          <source>Rainforest</source>
-          <target state="translated">Yağmur ormanı</target>
-        </trans-unit>
-        <trans-unit id="Soundunderwater" translate="yes" xml:space="preserve">
-          <source>Underwater</source>
-          <target state="translated">Su altı</target>
-        </trans-unit>
-        <trans-unit id="Soundwaterfall" translate="yes" xml:space="preserve">
-          <source>Waterfall</source>
-          <target state="translated">Şelale</target>
-        </trans-unit>
-        <trans-unit id="Soundwhitenoise" translate="yes" xml:space="preserve">
-          <source>White noise</source>
-          <target state="translated">Beyaz gürültü</target>
-        </trans-unit>
-        <trans-unit id="SoundsLoadingRing.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Sounds are loading</source>
-          <target state="translated">Sesler yükleniyor</target>
-        </trans-unit>
-        <trans-unit id="SoundUnplayable" translate="yes" xml:space="preserve">
-          <source>Cannot play sound</source>
-          <target state="translated">Ses çalınamıyor</target>
-        </trans-unit>
-        <trans-unit id="StopTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Stop the timer and clear the time</source>
-          <target state="translated">Zamanlayıcıyı durdurun ve zamanı sıfırlayın</target>
-        </trans-unit>
-        <trans-unit id="VolumeSlider.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Global volume</source>
-          <target state="needs-review-translation">Ses seviyesini değiştir</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="SettingsThemeHeader.Text" translate="yes" xml:space="preserve">
-          <source>Theme</source>
-          <target state="translated">Tema</target>
-        </trans-unit>
-        <trans-unit id="SettingsThemeDefaultRadio.Content" translate="yes" xml:space="preserve">
-          <source>Auto</source>
-          <target state="translated">Otomatik</target>
-        </trans-unit>
-        <trans-unit id="SettingsThemeDarkRadio.Content" translate="yes" xml:space="preserve">
-          <source>Dark</source>
-          <target state="translated">Karanlık</target>
-        </trans-unit>
-        <trans-unit id="SettingsThemeLightRadio.Content" translate="yes" xml:space="preserve">
-          <source>Light</source>
-          <target state="translated">Aydınlık</target>
-        </trans-unit>
-        <trans-unit id="Soundvacuum" translate="yes" xml:space="preserve">
-          <source>Vacuum</source>
-          <target state="translated">Vakum</target>
-        </trans-unit>
-        <trans-unit id="Soundthunder" translate="yes" xml:space="preserve">
-          <source>Thunder</source>
-          <target state="translated">Gök gürültüsü</target>
-        </trans-unit>
-        <trans-unit id="SettingsNotificationsSwitch.Header" translate="yes" xml:space="preserve">
-          <source>Notification for new sounds</source>
-          <target state="translated">Yeni sesler için bildirim</target>
-        </trans-unit>
-        <trans-unit id="Soundwind" translate="yes" xml:space="preserve">
-          <source>Wind</source>
-          <target state="translated">Rüzgar</target>
-        </trans-unit>
-        <trans-unit id="AlreadyDownloaded" translate="yes" xml:space="preserve">
-          <source>Already downloaded</source>
-          <target state="translated">Zaten indirildi</target>
-          <note from="MultilingualEditor" annotates="source" priority="4">Ses zaten indirildi</note>
-          <note from="MultilingualBuild" annotates="source" priority="2">The sound is already downloaded</note>
-        </trans-unit>
-        <trans-unit id="BackButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Go back</source>
-          <target state="translated">Geri </target>
-          <note from="MultilingualEditor" annotates="source" priority="4">Önceki sayfaya geri döner</note>
-          <note from="MultilingualBuild" annotates="source" priority="2">Going back to the previous page</note>
-        </trans-unit>
-        <trans-unit id="CanDownload" translate="yes" xml:space="preserve">
-          <source>Can be downloaded</source>
-          <target state="translated">İndirilebilir</target>
-          <note from="MultilingualEditor" annotates="source" priority="4">Ses indirilebilir</note>
-          <note from="MultilingualBuild" annotates="source" priority="2">The sound can be downloaded</note>
-        </trans-unit>
-        <trans-unit id="DownloadSoundButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Download sound</source>
-          <target state="translated">Sesi indir</target>
-        </trans-unit>
-        <trans-unit id="DownloadSoundButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>Download sound</source>
-          <target state="translated">Sesi indir</target>
-        </trans-unit>
-        <trans-unit id="OnlineSoundsList.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Sound catalogue</source>
-          <target state="translated">Ses kataloğu</target>
-        </trans-unit>
-        <trans-unit id="SoundsGridView.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Sounds</source>
-          <target state="translated">Sesler</target>
-          <note from="MultilingualEditor" annotates="source" priority="4">Seslerin listesi</note>
-          <note from="MultilingualBuild" annotates="source" priority="2">List of sounds</note>
-        </trans-unit>
-        <trans-unit id="PrivacyPolicyButton.Content" translate="yes" xml:space="preserve">
-          <source>Privacy policy</source>
-          <target state="translated">Gizlilik Politikası</target>
-        </trans-unit>
-        <trans-unit id="PrivacyPolicyButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Privacy policy</source>
-          <target state="translated">Gizlilik Politikası</target>
-        </trans-unit>
-        <trans-unit id="DeleteButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Delete sound</source>
-          <target state="translated">Sesi sil</target>
-        </trans-unit>
-        <trans-unit id="DeleteTextBlock.Text" translate="yes" xml:space="preserve">
-          <source>Delete</source>
-          <target state="translated">Sil</target>
-        </trans-unit>
-        <trans-unit id="DownloadTextBlock.Text" translate="yes" xml:space="preserve">
-          <source>Download</source>
-          <target state="translated">İndir</target>
-        </trans-unit>
-        <trans-unit id="DeleteAppBarButton.Label" translate="yes" xml:space="preserve">
-          <source>Delete</source>
-          <target state="translated">Sil</target>
-        </trans-unit>
-        <trans-unit id="RandomButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Play random sound</source>
-          <target state="translated">Rastgele ses oynat</target>
-        </trans-unit>
-        <trans-unit id="RandomButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>Play random sound</source>
-          <target state="translated">Rastgele ses oynat</target>
-        </trans-unit>
-        <trans-unit id="ScreensaverMode" translate="yes" xml:space="preserve">
-          <source>Screensaver mode</source>
-          <target state="translated">Ekran koruyucu modu</target>
-        </trans-unit>
-        <trans-unit id="SettingsScreensaverSwitch.Header" translate="yes" xml:space="preserve">
-          <source>Screensaver</source>
-          <target state="translated">Ekran koruyucu</target>
-        </trans-unit>
-        <trans-unit id="BuyButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Purchase sound</source>
-          <target state="translated">Sesi satın al</target>
-        </trans-unit>
-        <trans-unit id="PreviewButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Preview sound</source>
-          <target state="translated">Sesi önizle</target>
-        </trans-unit>
-        <trans-unit id="PreviewButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>Preview sound</source>
-          <target state="translated">Sesi önizle</target>
-        </trans-unit>
-        <trans-unit id="Paused" translate="yes" xml:space="preserve">
-          <source>Paused</source>
-          <target state="translated">Durduruldu</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Sound is paused</note>
-        </trans-unit>
-        <trans-unit id="Playing" translate="yes" xml:space="preserve">
-          <source>Playing</source>
-          <target state="translated">Oynatılıyor</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Sound is playing</note>
-        </trans-unit>
-        <trans-unit id="VolumeSliderSound.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Sound volume</source>
-          <target state="translated">Ses seviyesi</target>
-        </trans-unit>
-        <trans-unit id="ActiveTrackListView.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Active sounds</source>
-          <target state="translated">Aktif sesler</target>
-        </trans-unit>
-        <trans-unit id="ClearActiveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Clear all active sounds</source>
-          <target state="translated">Tüm aktif sesleri temizle</target>
-        </trans-unit>
-        <trans-unit id="ClearActiveButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>Clear all active sounds</source>
-          <target state="translated">Tüm aktif sesleri temizle</target>
-        </trans-unit>
-        <trans-unit id="ConfirmSaveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Confirm save</source>
-          <target state="translated">Kaydetmeyi onayla</target>
-        </trans-unit>
-        <trans-unit id="GlobalVolume" translate="yes" xml:space="preserve">
-          <source>Global volume</source>
-          <target state="translated">Ses seviyesi</target>
-        </trans-unit>
-        <trans-unit id="NameInputBox.Header" translate="yes" xml:space="preserve">
-          <source>Sound mix name</source>
-          <target state="translated">Ses karışımı adı</target>
-        </trans-unit>
-        <trans-unit id="NameInputBox.PlaceholderText" translate="yes" xml:space="preserve">
-          <source>Optional</source>
-          <target state="translated">İsteğe bağlı</target>
-        </trans-unit>
-        <trans-unit id="SaveMixButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Save custom sound mix</source>
-          <target state="translated">Özel ses karışımını kaydet</target>
-        </trans-unit>
-        <trans-unit id="SaveMixButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>Save custom sound mix (Ctrl+S)</source>
-          <target state="translated">Özel ses karışımını kaydet (Ctrl+S)</target>
-        </trans-unit>
-        <trans-unit id="CancelText" translate="yes" xml:space="preserve">
-          <source>Cancel</source>
-          <target state="translated">İptal et</target>
-        </trans-unit>
-        <trans-unit id="RenameText" translate="yes" xml:space="preserve">
-          <source>Rename</source>
-          <target state="translated">Yeniden adlandır</target>
-        </trans-unit>
-        <trans-unit id="RenameAppBarButton.Label" translate="yes" xml:space="preserve">
-          <source>Rename</source>
-          <target state="translated">Yeniden adlandır</target>
-        </trans-unit>
-        <trans-unit id="CompactMode" translate="yes" xml:space="preserve">
-          <source>Ambie Mini</source>
-          <target state="needs-review-translation">Kompakt mod</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="SignOutAppBarButton.Label" translate="yes" xml:space="preserve">
-          <source>Sign out</source>
-          <target state="translated">Oturumu kapat</target>
-        </trans-unit>
-        <trans-unit id="SignInDescriptionText" translate="yes" xml:space="preserve">
-          <source>This will enable sound gallery sync across your devices.</source>
-          <target state="translated">Cihazlarınız arasında ses galerisi senkronizasyonunu etkinleştirir.</target>
-        </trans-unit>
-        <trans-unit id="AccountOptionsButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>View account options</source>
-          <target state="translated">Hesap ayarlarını görüntüle</target>
-        </trans-unit>
-        <trans-unit id="AccountOptionsButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>View account options</source>
-          <target state="translated">Hesap ayarlarını görüntüle</target>
-        </trans-unit>
-        <trans-unit id="SignInButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Sign in</source>
-          <target state="translated">Giriş yap</target>
-        </trans-unit>
-        <trans-unit id="SignInButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>Sign in</source>
-          <target state="translated">Giriş yap</target>
-        </trans-unit>
-        <trans-unit id="SyncAppBarButton.Label" translate="yes" xml:space="preserve">
-          <source>Sync</source>
-          <target state="translated">Senkronizasyon</target>
-        </trans-unit>
-        <trans-unit id="BrowseText" translate="yes" xml:space="preserve">
-          <source>Browse</source>
-          <target state="translated">Göz at</target>
-        </trans-unit>
-        <trans-unit id="Attribution" translate="yes" xml:space="preserve">
-          <source>Attribution</source>
-          <target state="new">Attribution</target>
-        </trans-unit>
-        <trans-unit id="Name" translate="yes" xml:space="preserve">
-          <source>Name</source>
-          <target state="translated">İsim</target>
-        </trans-unit>
-        <trans-unit id="NewSound" translate="yes" xml:space="preserve">
-          <source>New sound</source>
-          <target state="translated">Yeni ses</target>
-        </trans-unit>
-        <trans-unit id="Refresh" translate="yes" xml:space="preserve">
-          <source>Refresh</source>
-          <target state="translated">Yenile</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Text for a button that will refresh a list with new data</note>
-        </trans-unit>
-        <trans-unit id="SignIn" translate="yes" xml:space="preserve">
-          <source>Sign in</source>
-          <target state="translated">Giriş yap</target>
-        </trans-unit>
-        <trans-unit id="AreYouSure" translate="yes" xml:space="preserve">
-          <source>Are you sure?</source>
-          <target state="translated">Emin misiniz?</target>
-        </trans-unit>
-        <trans-unit id="Yes" translate="yes" xml:space="preserve">
-          <source>Yes</source>
-          <target state="translated">Evet</target>
-        </trans-unit>
-        <trans-unit id="Optional" translate="yes" xml:space="preserve">
-          <source>Optional</source>
-          <target state="translated">İsteğe bağlı</target>
-        </trans-unit>
-        <trans-unit id="Required" translate="yes" xml:space="preserve">
-          <source>Required</source>
-          <target state="translated">Gerekli</target>
-        </trans-unit>
-        <trans-unit id="Donate" translate="yes" xml:space="preserve">
-          <source>Donate</source>
-          <target state="translated">Bağış yap</target>
-        </trans-unit>
-        <trans-unit id="TermsOfUse" translate="yes" xml:space="preserve">
-          <source>Terms of Use</source>
-          <target state="translated">Kullanım Şartları</target>
-        </trans-unit>
-        <trans-unit id="FollowTwitter" translate="yes" xml:space="preserve">
-          <source>Follow us on Twitter</source>
-          <target state="translated">Twitter'da bizi takip et</target>
-        </trans-unit>
-        <trans-unit id="Dismiss" translate="yes" xml:space="preserve">
-          <source>Dismiss</source>
-          <target state="translated">Kapat</target>
-        </trans-unit>
-        <trans-unit id="FirstLaunchMessage" translate="yes" xml:space="preserve">
-          <source>Thank you for trying Ambie. For the best experience, try pinning us to your taskbar! Enjoy your relaxing stay 🏝</source>
-          <target state="translated">Ambie'yi denediğiniz için teşekkürler. En iyi deneyim için bizi görev çubuğunuza sabitlemeyi deneyin! Dinlenmenizin keyfini çıkarın 🏝</target>
-        </trans-unit>
-        <trans-unit id="HelloAndWelcome" translate="yes" xml:space="preserve">
-          <source>Hello and welcome!</source>
-          <target state="translated">Merhaba, hoş geldiniz!</target>
-        </trans-unit>
-        <trans-unit id="PinToTaskbar" translate="yes" xml:space="preserve">
-          <source>Pin to taskbar</source>
-          <target state="translated">Görev çubuğuna sabitle</target>
-        </trans-unit>
-        <trans-unit id="Preview" translate="yes" xml:space="preserve">
-          <source>Preview</source>
-          <target state="translated">Ön izleme</target>
-        </trans-unit>
-        <trans-unit id="Catalogue" translate="yes" xml:space="preserve">
-          <source>Catalogue</source>
-          <target state="translated">Katalog</target>
-        </trans-unit>
-        <trans-unit id="Home" translate="yes" xml:space="preserve">
-          <source>Home</source>
-          <target state="translated">Ev</target>
-        </trans-unit>
-        <trans-unit id="SelectSoundsPlaceholder" translate="yes" xml:space="preserve">
-          <source>Mix and match up to 3 sounds</source>
-          <target state="translated">3 sese kadar karıştırın ve eşleştirin</target>
-        </trans-unit>
-        <trans-unit id="RemoveActiveButton" translate="yes" xml:space="preserve">
-          <source>Remove {0} from active list</source>
-          <target state="translated">{0} öğesini aktif listeden kaldır</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</note>
-        </trans-unit>
-        <trans-unit id="ThemeSettings" translate="yes" xml:space="preserve">
-          <source>Theme settings</source>
-          <target state="translated">Tema Ayarları</target>
-        </trans-unit>
-        <trans-unit id="PricePerMonth" translate="yes" xml:space="preserve">
-          <source>{0} per month</source>
-          <target state="translated">Aylık {0}</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Price per month, where the parameter {0} is a price like $1.00.</note>
-        </trans-unit>
-        <trans-unit id="ThankYouForSub" translate="yes" xml:space="preserve">
-          <source>Thank you for subscribing!</source>
-          <target state="translated">Abone olduğunuz için teşekkürler!</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Thank you message shown after user purchases a subscription.</note>
-        </trans-unit>
-        <trans-unit id="HelloAgain" translate="yes" xml:space="preserve">
-          <source>Hello again 👋🏽</source>
-          <target state="translated">Tekrardan merhaba 👋🏽</target>
-        </trans-unit>
-        <trans-unit id="RateUsMessage" translate="yes" xml:space="preserve">
-          <source>Enjoying Ambie? Please consider rating us!</source>
-          <target state="translated">Ambie'den hoşlanıyor musun? Lütfen bizi derecelendirmeyi düşünün!</target>
-        </trans-unit>
-        <trans-unit id="SettingsResumeOnLaunch" translate="yes" xml:space="preserve">
-          <source>Auto resume when Ambie opens</source>
-          <target state="translated">Ambie açıldığında otomatik olarak devam ettir</target>
-        </trans-unit>
-        <trans-unit id="DownloadText" translate="yes" xml:space="preserve">
-          <source>Download</source>
-          <target state="translated">İndir</target>
-        </trans-unit>
-        <trans-unit id="MissingSoundsMessage" translate="yes" xml:space="preserve">
-          <source>We need to download some sounds in order to play this. Once downloaded, try playing this again. Start download?</source>
-          <target state="translated">Bunu çalabilmemiz için bazı sesleri indirmemiz gerekiyor. İndirildikten sonra, tekrar oynatmayı deneyin. İndirme başlatılsın mı?</target>
-        </trans-unit>
-        <trans-unit id="MissingSoundsTitle" translate="yes" xml:space="preserve">
-          <source>Missing sounds</source>
-          <target state="translated">Eksik sesler</target>
-        </trans-unit>
-        <trans-unit id="Default" translate="yes" xml:space="preserve">
-          <source>Default</source>
-          <target state="translated">Varsayılan</target>
-        </trans-unit>
-        <trans-unit id="DeleteText" translate="yes" xml:space="preserve">
-          <source>Delete</source>
-          <target state="translated">Sil</target>
-        </trans-unit>
-        <trans-unit id="SizeMegaByte" translate="yes" xml:space="preserve">
-          <source>{0} MB</source>
-          <target state="translated">{0} MB</target>
-        </trans-unit>
-        <trans-unit id="MoreScreensavers" translate="yes" xml:space="preserve">
-          <source>More screensavers</source>
-          <target state="translated">Daha fazla ekran koruyucu</target>
-        </trans-unit>
-        <trans-unit id="ScreensaverCatalogue" translate="yes" xml:space="preserve">
-          <source>Screensaver catalogue</source>
-          <target state="translated">Ekran koruyucu kataloğu</target>
-        </trans-unit>
-        <trans-unit id="ViewPremiumInfo" translate="yes" xml:space="preserve">
-          <source>View premium info</source>
-          <target state="translated">Premium bilgilerini görüntüle</target>
-        </trans-unit>
-        <trans-unit id="ToggleFullscreen" translate="yes" xml:space="preserve">
-          <source>Toggle fullscreen</source>
-          <target state="translated">Tam ekrana geç</target>
-        </trans-unit>
-        <trans-unit id="GetAmbiePlus" translate="yes" xml:space="preserve">
-          <source>Get Ambie+</source>
-          <target state="translated">Ambie+'ı edinin</target>
-        </trans-unit>
-        <trans-unit id="FocusText" translate="yes" xml:space="preserve">
-          <source>Focus</source>
-          <target state="translated">Odaklan</target>
-        </trans-unit>
-        <trans-unit id="PauseTimer" translate="yes" xml:space="preserve">
-          <source>Pause timer</source>
-          <target state="translated">Zamanlayıcıyı durdur</target>
-        </trans-unit>
-        <trans-unit id="StartTimer" translate="yes" xml:space="preserve">
-          <source>Start timer</source>
-          <target state="translated">Zamanlayıcıyı başlat</target>
-        </trans-unit>
-        <trans-unit id="FocusSessionCompleteMessage" translate="yes" xml:space="preserve">
-          <source>Well done!</source>
-          <target state="translated">Tebrikler!</target>
-        </trans-unit>
-        <trans-unit id="FocusSessionCompleteTitle" translate="yes" xml:space="preserve">
-          <source>Focus session complete</source>
-          <target state="translated">Odaklanma oturumu tamamlandı</target>
-        </trans-unit>
-        <trans-unit id="FocusSessionFocusMessage" translate="yes" xml:space="preserve">
-          <source>Time to focus</source>
-          <target state="translated">Odaklanma zamanı</target>
-        </trans-unit>
-        <trans-unit id="FocusSessionRestMessage" translate="yes" xml:space="preserve">
-          <source>Time to rest</source>
-          <target state="translated">Dinlenme zamanı</target>
-        </trans-unit>
-        <trans-unit id="RestText" translate="yes" xml:space="preserve">
-          <source>Rest</source>
-          <target state="translated">Dinlen</target>
-        </trans-unit>
-        <trans-unit id="FocusDotTooltip" translate="yes" xml:space="preserve">
-          <source>Focus session is active!</source>
-          <target state="translated">Odaklanma oturumu aktif!</target>
-        </trans-unit>
-        <trans-unit id="SessionTypeFocus" translate="yes" xml:space="preserve">
-          <source>Focusing</source>
-          <target state="translated">Odaklanma</target>
-        </trans-unit>
-        <trans-unit id="SessionTypeRest" translate="yes" xml:space="preserve">
-          <source>Resting</source>
-          <target state="translated">Dinlenme</target>
-        </trans-unit>
-        <trans-unit id="Pause" translate="yes" xml:space="preserve">
-          <source>Pause</source>
-          <target state="translated">Durdur</target>
-        </trans-unit>
-        <trans-unit id="Reset" translate="yes" xml:space="preserve">
-          <source>Reset</source>
-          <target state="translated">Sıfırla</target>
-        </trans-unit>
-        <trans-unit id="ResetTimer" translate="yes" xml:space="preserve">
-          <source>Reset timer</source>
-          <target state="translated">Zamanlayıcıyı sıfırla</target>
-        </trans-unit>
-        <trans-unit id="Start" translate="yes" xml:space="preserve">
-          <source>Start</source>
-          <target state="translated">Başlat</target>
-        </trans-unit>
-        <trans-unit id="FocusLength" translate="yes" xml:space="preserve">
-          <source>Focus minutes</source>
-          <target state="translated">Odaklanma dakikaları</target>
-        </trans-unit>
-        <trans-unit id="FocusNotesPlaceholder" translate="yes" xml:space="preserve">
-          <source>You can jot down any notes here 🙂</source>
-          <target state="translated">Notlarınızı buraya yazabilirsiniz 🙂</target>
-        </trans-unit>
-        <trans-unit id="FocusPlanningHeader" translate="yes" xml:space="preserve">
-          <source>What's the plan?</source>
-          <target state="translated">Planınız nedir?</target>
-        </trans-unit>
-        <trans-unit id="Notepad" translate="yes" xml:space="preserve">
-          <source>Notepad</source>
-          <target state="translated">Not defteri</target>
-        </trans-unit>
-        <trans-unit id="RestLength" translate="yes" xml:space="preserve">
-          <source>Rest minutes</source>
-          <target state="translated">Dinlenme dakikaları</target>
-        </trans-unit>
-        <trans-unit id="Repeats" translate="yes" xml:space="preserve">
-          <source>Repeats</source>
-          <target state="translated">Tekrarlar</target>
-        </trans-unit>
-        <trans-unit id="FocusTimerHelpAction" translate="yes" xml:space="preserve">
-          <source>Show me how to use it</source>
-          <target state="translated">Nasıl kullanıldığını göster</target>
-        </trans-unit>
-        <trans-unit id="FocusTimerHelpMessage" translate="yes" xml:space="preserve">
-          <source>This is an interval timer inspired by the pomodoro technique. The goal is to focus on a task for an extended period of time, then take a shorter rest break. Repeat this cycle to keep focusing!</source>
-          <target state="translated">Focus Timer, pomodoro tekniğinden ilham alınarak hazırlanmış olan aralıklı zamanlayıcıdır. Uzun bir süre bir göreve odaklanabilmenin sırrı, ardından daha kısa bir dinlenme molası vermektir. Odaklanmaya devam etmek için bu döngüyü tekrarlayın!</target>
-        </trans-unit>
-        <trans-unit id="FocusTimerHelpTitle" translate="yes" xml:space="preserve">
-          <source>Welcome to Focus Timer!</source>
-          <target state="translated">Focus Timer'a Hoş Geldiniz!</target>
-        </trans-unit>
-        <trans-unit id="Help" translate="yes" xml:space="preserve">
-          <source>Help</source>
-          <target state="translated">Yardım</target>
-        </trans-unit>
-        <trans-unit id="Next" translate="yes" xml:space="preserve">
-          <source>Next</source>
-          <target state="translated">Sonraki</target>
-        </trans-unit>
-        <trans-unit id="TipFocusMessage" translate="yes" xml:space="preserve">
-          <source>Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!</source>
-          <target state="translated">Her döngünün bir odak bölümü ve bir dinlenme bölümü vardır. Her bir odak bölümünün ne kadar süreceğini seçin. Başlangıç olarak 25 dakikayı öneriyoruz!</target>
-        </trans-unit>
-        <trans-unit id="TipFocusTitle" translate="yes" xml:space="preserve">
-          <source>Set focus minutes</source>
-          <target state="translated">Odaklanma dakikalarını ayarla</target>
-        </trans-unit>
-        <trans-unit id="TipRepeatsMessage" translate="yes" xml:space="preserve">
-          <source>Each focus and rest cycle can repeat multiple times. Try adding 1 repeat!</source>
-          <target state="translated">Odaklanma ve dinlenme döngüleri birden çok kez tekrarlanabilir. 1 tekrar eklemeyi deneyin!</target>
-        </trans-unit>
-        <trans-unit id="TipRepeatsTitle" translate="yes" xml:space="preserve">
-          <source>Set repeats</source>
-          <target state="translated">Tekrarları ayarla</target>
-        </trans-unit>
-        <trans-unit id="TipRestMessage" translate="yes" xml:space="preserve">
-          <source>Now, choose how long each rest segment will be. We recommend about 5 minutes for now!</source>
-          <target state="translated">Şimdi, her dinlenme bölümünün ne kadar süreceğini seçin. Şimdilik yaklaşık 5 dakikayı öneriyoruz!</target>
-        </trans-unit>
-        <trans-unit id="TipRestTitle" translate="yes" xml:space="preserve">
-          <source>Set rest minutes</source>
-          <target state="translated">Dinlenme dakikalarını ayarla</target>
-        </trans-unit>
-        <trans-unit id="TipStartButtonMessage" translate="yes" xml:space="preserve">
-          <source>Start the timer and work on your tasks. We'll send you notifications when it's time to rest. Work hard!</source>
-          <target state="translated">Zamanlayıcıyı başlatın ve görevleriniz üzerinde çalışın. Dinlenme zamanı geldiğinde size bildirim göndereceğiz. İyi çalışmalar!</target>
-        </trans-unit>
-        <trans-unit id="TipStartButtonTitle" translate="yes" xml:space="preserve">
-          <source>Ready, set, go</source>
-          <target state="translated">Hazır, ayarla, başla</target>
-        </trans-unit>
-        <trans-unit id="RecentFocusAccessibleName" translate="yes" xml:space="preserve">
-          <source>{0} focus minutes, {1} rest minutes, {2} repeats.</source>
-          <target state="translated">{0} odaklanma dakikaları, {1} dinlenme dakikaları, {2} tekrarlar.</target>
-        </trans-unit>
-        <trans-unit id="RecentFocusList" translate="yes" xml:space="preserve">
-          <source>List of recent focus configurations.</source>
-          <target state="translated">Son konfigürasyonların listesi.</target>
-        </trans-unit>
-        <trans-unit id="ZeroToMax" translate="yes" xml:space="preserve">
-          <source>0 to {0}</source>
-          <target state="translated">0 dan {0}'a</target>
-        </trans-unit>
-        <trans-unit id="History" translate="yes" xml:space="preserve">
-          <source>History</source>
-          <target state="translated">Geçmiş</target>
-        </trans-unit>
-        <trans-unit id="Interruptions" translate="yes" xml:space="preserve">
-          <source>Interruptions</source>
-          <target state="translated">Bölünmeler</target>
-        </trans-unit>
-        <trans-unit id="FocusHistoryPlaceholderText" translate="yes" xml:space="preserve">
-          <source>Your recent history will appear here</source>
-          <target state="translated">Yakın geçmişiniz burada görünecek</target>
-        </trans-unit>
-        <trans-unit id="LogInterruption" translate="yes" xml:space="preserve">
-          <source>Log interruption</source>
-          <target state="translated">Bölünme kaydet</target>
-        </trans-unit>
-        <trans-unit id="Confirm" translate="yes" xml:space="preserve">
-          <source>Confirm</source>
-          <target state="translated">Onayla</target>
-        </trans-unit>
-        <trans-unit id="InterruptionMinutesTitle" translate="yes" xml:space="preserve">
-          <source>Minutes interrupted</source>
-          <target state="translated">Bölünme dakikaları</target>
-        </trans-unit>
-        <trans-unit id="Notes" translate="yes" xml:space="preserve">
-          <source>Notes</source>
-          <target state="translated">Notlar</target>
-        </trans-unit>
-        <trans-unit id="InterruptionMinutesHelpMessage" translate="yes" xml:space="preserve">
-          <source>Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.</source>
-          <target state="translated">Bir şey tarafından kesintiye uğradınız mı? Kesintilerinizi burada takip edin, böylece daha sonra geçmişinizde gözden geçirebilirsiniz.</target>
-        </trans-unit>
-        <trans-unit id="HistoryRecent" translate="yes" xml:space="preserve">
-          <source>Recent history</source>
-          <target state="translated">Geçmiş</target>
-        </trans-unit>
-        <trans-unit id="RoundsCompleted" translate="yes" xml:space="preserve">
-          <source>Rounds completed</source>
-          <target state="translated">Tamamlanan turlar</target>
-        </trans-unit>
-        <trans-unit id="ResultMessageFail1" translate="yes" xml:space="preserve">
-          <source>Good effort</source>
-          <target state="translated">İyi çaba</target>
-        </trans-unit>
-        <trans-unit id="ResultMessageSuccess1" translate="yes" xml:space="preserve">
-          <source>You're amazing</source>
-          <target state="translated">Harikasın</target>
-        </trans-unit>
-        <trans-unit id="AppDisplayName" translate="yes" xml:space="preserve">
-          <source>Ambie</source>
-          <target state="translated">Ambie</target>
-        </trans-unit>
-        <trans-unit id="TaskModuleNewTaskPlaceholder" translate="yes" xml:space="preserve">
-          <source>Add tasks to focus on, then press the start button</source>
-          <target state="translated">Odaklanmak için görevler ekleyin, ardından başlat düğmesine basın</target>
-        </trans-unit>
-        <trans-unit id="TaskModuleTitle" translate="yes" xml:space="preserve">
-          <source>Tasks</source>
-          <target state="translated">Görevler</target>
-        </trans-unit>
-        <trans-unit id="TaskModuleRecentCompleted" translate="yes" xml:space="preserve">
-          <source>Recently completed</source>
-          <target state="translated">Yakın zamanda tamamlandı</target>
-        </trans-unit>
-        <trans-unit id="EditText" translate="yes" xml:space="preserve">
-          <source>Edit</source>
-          <target state="translated">Düzenle</target>
-        </trans-unit>
-        <trans-unit id="TasksCompleted" translate="yes" xml:space="preserve">
-          <source>Tasks completed</source>
-          <target state="translated">Tamamlanan görevler</target>
-        </trans-unit>
-        <trans-unit id="Timer" translate="yes" xml:space="preserve">
-          <source>Timer</source>
-          <target state="translated">Zamanlayıcı</target>
-        </trans-unit>
-        <trans-unit id="TaskTitle" translate="yes" xml:space="preserve">
-          <source>Task {0}</source>
-          <target state="translated">Görev {0}</target>
-        </trans-unit>
-        <trans-unit id="SettingsCompactMode" translate="yes" xml:space="preserve">
-          <source>Open Ambie Mini when focusing</source>
-          <target state="translated">Netleme yaparken Ambie Mini'yi açın</target>
-        </trans-unit>
-        <trans-unit id="DurationText" translate="yes" xml:space="preserve">
-          <source>Duration</source>
-          <target state="translated">Süre</target>
-        </trans-unit>
-        <trans-unit id="EndTimeText" translate="yes" xml:space="preserve">
-          <source>End</source>
-          <target state="translated">Son</target>
-        </trans-unit>
-        <trans-unit id="MiniText" translate="yes" xml:space="preserve">
-          <source>Mini</source>
-          <target state="new">Mini</target>
-        </trans-unit>
-        <trans-unit id="CompactModeTooltipTitle" translate="yes" xml:space="preserve">
-          <source>Open Ambie Mini</source>
-          <target state="translated">Açık Ambie Mini</target>
-        </trans-unit>
-        <trans-unit id="CompactModeTooltipMessage" translate="yes" xml:space="preserve">
-          <source>With Ambie Mini, we'll shrink the window and display only the necessary items to help you focus.</source>
-          <target state="translated">Ambie Mini ile pencereyi küçülteceğiz ve odaklanmanıza yardımcı olmak için yalnızca gerekli öğeleri görüntüleyeceğiz.</target>
-        </trans-unit>
-        <trans-unit id="PausesText" translate="yes" xml:space="preserve">
-          <source>Pauses</source>
-          <target state="translated">Durakla -tır</target>
-        </trans-unit>
-        <trans-unit id="EmptyHomeMessage" translate="yes" xml:space="preserve">
-          <source>Download sounds from the catalogue</source>
-          <target state="translated">Katalogdan sesleri indirin</target>
-        </trans-unit>
-        <trans-unit id="EditHomePage" translate="yes" xml:space="preserve">
-          <source>Edit home page</source>
-          <target state="translated">Giriş sayfasını düzenle</target>
-        </trans-unit>
-        <trans-unit id="EditHomePageMessage" translate="yes" xml:space="preserve">
-          <source>Drag and drop sounds to personalize your home page. Try it now!</source>
-          <target state="translated">Ana sayfanızı kişiselleştirmek için sesleri sürükleyip bırakın. Şimdi deneyin!</target>
-        </trans-unit>
-        <trans-unit id="EmptyCatalogueMessage" translate="yes" xml:space="preserve">
-          <source>Sorry about that! We couldn't load the catalogue. Try checking your internet connection.</source>
-          <target state="translated">Bunun için üzgünüm! Kataloğu yükleyemedik. İnternet bağlantınızı kontrol etmeyi deneyin.</target>
-        </trans-unit>
-        <trans-unit id="AboutAmbie" translate="yes" xml:space="preserve">
-          <source>About Ambie</source>
-          <target state="translated">Ambie Hakkında</target>
-        </trans-unit>
-        <trans-unit id="SettingsCompactModeDescription" translate="yes" xml:space="preserve">
-          <source>Ambie Mini will open automatically when focusing</source>
-          <target state="translated">Ambie Mini netleme sırasında otomatik olarak açılacak</target>
-        </trans-unit>
-        <trans-unit id="SettingsNotificationsSwitchDescription" translate="yes" xml:space="preserve">
-          <source>We'll notify you know when new sounds are available</source>
-          <target state="translated">Yeni sesler çıktığında sizi bilgilendireceğiz</target>
-        </trans-unit>
-        <trans-unit id="SettingsResumeOnLaunchDescription" translate="yes" xml:space="preserve">
-          <source>On launch, Ambie will resume playing automatically</source>
-          <target state="translated">Lansmanda, Ambie otomatik olarak oynamaya devam edecek</target>
-        </trans-unit>
-        <trans-unit id="SettingsTelemetrySwitchDescription" translate="yes" xml:space="preserve">
-          <source>Crashes and anonymous usage info are reported to help improve Ambie</source>
-          <target state="translated">Kilitlenmeler ve anonim kullanım bilgileri, Ambie'yi iyileştirmeye yardımcı olmak için bildirilir</target>
-        </trans-unit>
-        <trans-unit id="BackgroundImage" translate="yes" xml:space="preserve">
-          <source>Background image</source>
-          <target state="translated">Arka plan resmi</target>
-        </trans-unit>
-        <trans-unit id="CustomImage" translate="yes" xml:space="preserve">
-          <source>Custom image</source>
-          <target state="translated">Özel görüntü</target>
-        </trans-unit>
-        <trans-unit id="SettingsGeneralHeader" translate="yes" xml:space="preserve">
-          <source>General settings</source>
-          <target state="translated">Genel ayarlar</target>
-        </trans-unit>
-        <trans-unit id="SettingsTheme" translate="yes" xml:space="preserve">
-          <source>Choose your mode</source>
-          <target state="translated">Modunuzu seçin</target>
-        </trans-unit>
-        <trans-unit id="SettingsThemeDescription" translate="yes" xml:space="preserve">
-          <source>Change the colours that appear in Ambie</source>
-          <target state="translated">Ambie'de görünen renkleri değiştirme</target>
-        </trans-unit>
-        <trans-unit id="ShareMessage" translate="yes" xml:space="preserve">
-          <source>Share what you're listening to</source>
-          <target state="translated">Dinlediklerinizi paylaşın</target>
-        </trans-unit>
-        <trans-unit id="MissingShareSoundsMessage" translate="yes" xml:space="preserve">
-          <source>Let's see if they can be downloaded.</source>
-          <target state="translated">Bakalım indirilebilecek mi?</target>
-        </trans-unit>
-        <trans-unit id="MissingShareSoundsTitle" translate="yes" xml:space="preserve">
-          <source>You're missing some sounds</source>
-          <target state="translated">Bazı sesleri kaçırıyorsun</target>
-        </trans-unit>
-        <trans-unit id="ReviewText" translate="yes" xml:space="preserve">
-          <source>Review</source>
-          <target state="translated">Eleştiri</target>
-        </trans-unit>
-        <trans-unit id="ShareText" translate="yes" xml:space="preserve">
-          <source>Share</source>
-          <target state="translated">Paylaş</target>
-        </trans-unit>
-        <trans-unit id="CopiedText" translate="yes" xml:space="preserve">
-          <source>Copied!</source>
-          <target state="translated">Kopya -lanan!</target>
-        </trans-unit>
-        <trans-unit id="CopyText" translate="yes" xml:space="preserve">
-          <source>Copy</source>
-          <target state="translated">Kopya etmek</target>
-        </trans-unit>
-        <trans-unit id="OrText" translate="yes" xml:space="preserve">
-          <source>Or</source>
-          <target state="translated">Veya</target>
-        </trans-unit>
-        <trans-unit id="BuyDurableTooltip" translate="yes" xml:space="preserve">
-          <source>Unlock this sound</source>
-          <target state="translated">Bu sesin kilidini aç</target>
-        </trans-unit>
-        <trans-unit id="PriceForLifetime" translate="yes" xml:space="preserve">
-          <source>{0} lifetime</source>
-          <target state="translated">{0} ömrü</target>
-        </trans-unit>
-        <trans-unit id="CheckForUpdatesText" translate="yes" xml:space="preserve">
-          <source>Check for updates</source>
-          <target state="translated">Güncellemeleri kontrol edin</target>
-        </trans-unit>
-        <trans-unit id="UpdatesPageMessage1" translate="yes" xml:space="preserve">
-          <source>Check here for updates to your sounds and videos.</source>
-          <target state="translated">Seslerinize ve videolarınıza yönelik güncellemeler için burayı kontrol edin.</target>
-        </trans-unit>
-        <trans-unit id="UpdatesPageMessage2" translate="yes" xml:space="preserve">
-          <source>Updates contain improvements to translations, sound quality, and more.</source>
-          <target state="translated">Güncelleştirmeler çeviriler, ses kalitesi ve daha fazlasında iyileştirmeler içerir.</target>
-        </trans-unit>
-        <trans-unit id="UpdatesText" translate="yes" xml:space="preserve">
-          <source>Updates</source>
-          <target state="translated">Güncelleştirme</target>
-        </trans-unit>
-        <trans-unit id="UpdateAllText" translate="yes" xml:space="preserve">
-          <source>Update all</source>
-          <target state="translated">Tümünü güncelle</target>
-        </trans-unit>
-        <trans-unit id="DataVersionColon" translate="yes" xml:space="preserve">
-          <source>Data version:</source>
-          <target state="translated">Veri sürümü:</target>
-        </trans-unit>
-        <trans-unit id="FileVersionColon" translate="yes" xml:space="preserve">
-          <source>File version:</source>
-          <target state="translated">Dosya sürümü:</target>
-        </trans-unit>
-        <trans-unit id="UpdatesPlaceholderText" translate="yes" xml:space="preserve">
-          <source>Fully up-to-date. You're all set.</source>
-          <target state="translated">Tamamen güncel. Hepiniz hazırsınız.</target>
-        </trans-unit>
-        <trans-unit id="UpdateReasonFile" translate="yes" xml:space="preserve">
-          <source>Improves playback quality</source>
-          <target state="translated">Oynatma kalitesini artırır</target>
-        </trans-unit>
-        <trans-unit id="UpdateReasonMetaData" translate="yes" xml:space="preserve">
-          <source>Improves translations and other metadata</source>
-          <target state="translated">Çevirileri ve diğer meta verileri geliştirir</target>
-        </trans-unit>
-        <trans-unit id="UpdateReasonMetaDataAndFile" translate="yes" xml:space="preserve">
-          <source>Improves playback quality, translations, and other metadata</source>
-          <target state="translated">Oynatma kalitesini, çevirileri ve diğer meta verileri iyileştirir</target>
-        </trans-unit>
-        <trans-unit id="InterruptionInsightsMessage" translate="yes" xml:space="preserve">
-          <source>Is there anything we can learn to avoid future interruptions?</source>
-          <target state="translated">Gelecekteki kesintilerden kaçınmak için öğrenebileceğimiz bir şey var mı?</target>
-        </trans-unit>
-        <trans-unit id="RecentInterruptionsText" translate="yes" xml:space="preserve">
-          <source>Recent interruptions</source>
-          <target state="translated">Son kesintiler</target>
-        </trans-unit>
-        <trans-unit id="InterruptionInsightsButtonText" translate="yes" xml:space="preserve">
-          <source>Need help with interruptions?</source>
-          <target state="translated">Kesintilerle ilgili yardıma mı ihtiyacınız var?</target>
-        </trans-unit>
-        <trans-unit id="SettingsOutputDevice" translate="yes" xml:space="preserve">
-          <source>Output device</source>
-          <target state="translated">Çıkış aygıtı</target>
-        </trans-unit>
-        <trans-unit id="SettingsOutputDeviceDescription" translate="yes" xml:space="preserve">
-          <source>Choose where to play sound</source>
-          <target state="translated">Sesin nerede çalınacağını seçme</target>
-        </trans-unit>
-        <trans-unit id="SettingsPlayAfterFocusDescription" translate="yes" xml:space="preserve">
-          <source>Sounds will continue to play after your focus session ends</source>
-          <target state="translated">Odaklanma oturumunuz sona erdikten sonra sesler çalmaya devam eder</target>
-        </trans-unit>
-        <trans-unit id="SettingsPlayAfterFocusHeader" translate="yes" xml:space="preserve">
-          <source>Continue sounds after focusing</source>
-          <target state="translated">Odaklandıktan sonra seslere devam etme</target>
-        </trans-unit>
-        <trans-unit id="RelaxText" translate="yes" xml:space="preserve">
-          <source>Relax</source>
-          <target state="translated">Dinlenmek</target>
-        </trans-unit>
-        <trans-unit id="BackgroundSoundsText" translate="yes" xml:space="preserve">
-          <source>Background sounds</source>
-          <target state="translated">Arka plan sesleri</target>
-        </trans-unit>
-        <trans-unit id="MeditatingText" translate="yes" xml:space="preserve">
-          <source>Meditating</source>
-          <target state="translated">Meditasyon</target>
-        </trans-unit>
-        <trans-unit id="AlwaysAskMeText" translate="yes" xml:space="preserve">
-          <source>Always ask me</source>
-          <target state="translated">Her zaman bana sor</target>
-        </trans-unit>
-        <trans-unit id="PlayRandom" translate="yes" xml:space="preserve">
-          <source>Play random sound</source>
-          <target state="translated">Rastgele ses çalma</target>
-        </trans-unit>
-        <trans-unit id="NowPlayingText" translate="yes" xml:space="preserve">
-          <source>Now playing</source>
-          <target state="translated">Şu anda çalınıyor</target>
-        </trans-unit>
-        <trans-unit id="SearchPageHeader" translate="yes" xml:space="preserve">
-          <source>Results for "{0}"</source>
-          <target state="translated">"{0}" için sonuçlar</target>
-        </trans-unit>
-        <trans-unit id="SearchEmptyPlaceholderText" translate="yes" xml:space="preserve">
-          <source>Oops! We couldn't find that sound. We'll see if we can add it in the future</source>
-          <target state="translated">Oops! O sesi bulamadık. Gelecekte ekleyip ekleyemeyeceğimizi göreceğiz</target>
-        </trans-unit>
-        <trans-unit id="SearchText" translate="yes" xml:space="preserve">
-          <source>Search</source>
-          <target state="translated">Aramak</target>
-        </trans-unit>
-        <trans-unit id="QuickResumeTitle" translate="yes" xml:space="preserve">
-          <source>Quick Resume</source>
-          <target state="translated">Hızlı Devam</target>
-        </trans-unit>
-        <trans-unit id="QuickResumeToastMessage" translate="yes" xml:space="preserve">
-          <source>Resume your last ambience</source>
-          <target state="translated">Son ambiyansınıza devam edin</target>
-        </trans-unit>
-        <trans-unit id="QuickResumeDescription" translate="yes" xml:space="preserve">
-          <source>Resume your last ambience with one click when your PC starts up</source>
-          <target state="translated">PC'niz başladığında tek bir tıklama ile son ambiyansınıza devam edin</target>
-        </trans-unit>
-        <trans-unit id="HomePageDownloadMessage" translate="yes" xml:space="preserve">
-          <source>Get more sounds from the catalogue</source>
-          <target state="translated">Katalogdan daha fazla ses alın</target>
-        </trans-unit>
-        <trans-unit id="SkipThisSegment" translate="yes" xml:space="preserve">
-          <source>Skip this segment</source>
-          <target state="translated">Bu segmenti atla</target>
-        </trans-unit>
-        <trans-unit id="DayPlural" translate="yes" xml:space="preserve">
-          <source>{0} days</source>
-          <target state="translated">{0} gün</target>
-        </trans-unit>
-        <trans-unit id="DaySingular" translate="yes" xml:space="preserve">
-          <source>1 day</source>
-          <target state="translated">1 gün</target>
-        </trans-unit>
-        <trans-unit id="StreakHeader" translate="yes" xml:space="preserve">
-          <source>My streak</source>
-          <target state="translated">Benim çizgim</target>
-        </trans-unit>
-        <trans-unit id="StreakReminderMessage" translate="yes" xml:space="preserve">
-          <source>Keep your streak alive!</source>
-          <target state="translated">Galibiyet serinizi canlı tutun!</target>
-        </trans-unit>
-        <trans-unit id="StreakReminderTitle" translate="yes" xml:space="preserve">
-          <source>{0}-day streak</source>
-          <target state="translated">{0} günlük galibiyet serisi</target>
-        </trans-unit>
-        <trans-unit id="DayStreakPhrase" translate="yes" xml:space="preserve">
-          <source>day streak</source>
-          <target state="translated">Gün Çizgisi</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">A portion of a phrase that looks like '5-day streak'</note>
-        </trans-unit>
-        <trans-unit id="StreakHelpMessage" translate="yes" xml:space="preserve">
-          <source>Listening daily grows your streak, but skipping a day resets it!</source>
-          <target state="translated">Her gün dinlemek serinizi artırır, ancak bir günü atlamak onu sıfırlar!</target>
-        </trans-unit>
-        <trans-unit id="SettingsStreakReminderDescription" translate="yes" xml:space="preserve">
-          <source>Receive reminders to help keep your daily streak active</source>
-          <target state="translated">Günlük serinizi aktif tutmanıza yardımcı olacak hatırlatıcılar alın</target>
-        </trans-unit>
-        <trans-unit id="SettingsStreakReminderHeader" translate="yes" xml:space="preserve">
-          <source>Streak reminders</source>
-          <target state="translated">Çizgi hatırlatıcıları</target>
-        </trans-unit>
-        <trans-unit id="SettingsBackgroundDescription" translate="yes" xml:space="preserve">
-          <source>Your background is currently disabled to help you save battery!</source>
-          <target state="translated">Pilden tasarruf etmenize yardımcı olmak için arka planınız şu anda devre dışı!</target>
-        </trans-unit>
-        <trans-unit id="AddNewTaskText" translate="yes" xml:space="preserve">
-          <source>Add new task</source>
-          <target state="translated">Yeni görev ekle</target>
-        </trans-unit>
-        <trans-unit id="CatalogueSubtitle" translate="yes" xml:space="preserve">
-          <source>Access the built-in catalogue of sounds. Download your next favourite music here.</source>
-          <target state="translated">Yerleşik ses kataloğuna erişin. Bir sonraki favori müziğinizi buradan indirin.</target>
-        </trans-unit>
-        <trans-unit id="FocusSubtitle" translate="yes" xml:space="preserve">
-          <source>Are you working or studying? Use our innovative focus timer to help you be productive.</source>
-          <target state="translated">Çalışıyor musunuz yoksa okuyor musunuz? Üretken olmanıza yardımcı olması için yenilikçi odak zamanlayıcımızı kullanın.</target>
-        </trans-unit>
-        <trans-unit id="HomeSubtitle" translate="yes" xml:space="preserve">
-          <source>View the sounds you have installed, play up to 3 sounds, and find your favourite combination.</source>
-          <target state="translated">Yüklediğiniz sesleri görüntüleyin, 3 adede kadar ses çalın ve en sevdiğiniz kombinasyonu bulun.</target>
-        </trans-unit>
-        <trans-unit id="MeditateSubtitle" translate="yes" xml:space="preserve">
-          <source>Use our meditation guides to help you relax or to calm your nerves.</source>
-          <target state="translated">Rahatlamanıza veya sinirlerinizi yatıştırmanıza yardımcı olması için meditasyon rehberlerimizi kullanın.</target>
-        </trans-unit>
-        <trans-unit id="SettingsSubtitle" translate="yes" xml:space="preserve">
-          <source>Toggle your settings here.</source>
-          <target state="translated">Ayarlarınızı buradan değiştirin.</target>
-        </trans-unit>
-        <trans-unit id="UpdatesSubtitle" translate="yes" xml:space="preserve">
-          <source>Check here occasionally for updates to the sounds you have installed.</source>
-          <target state="translated">Yüklediğiniz seslerin güncellemeleri için ara sıra burayı kontrol edin.</target>
-        </trans-unit>
-        <trans-unit id="AddTaskPlaceholder" translate="yes" xml:space="preserve">
-          <source>Click + to add a task</source>
-          <target state="translated">Görev eklemek için + işaretine tıklayın</target>
-        </trans-unit>
-        <trans-unit id="ModifyText" translate="yes" xml:space="preserve">
-          <source>Modify</source>
-          <target state="translated">Değiştirmek</target>
-        </trans-unit>
-        <trans-unit id="SettingsModifySubDescription" translate="yes" xml:space="preserve">
-          <source>Modify your subscription</source>
-          <target state="translated">Aboneliğinizi değiştirme</target>
-        </trans-unit>
-        <trans-unit id="AppUpdateDescription" translate="yes" xml:space="preserve">
-          <source>There's a new update available! Restart now to apply the update.</source>
-          <target state="translated">Yeni bir güncelleme mevcut! Güncelleştirmeyi uygulamak için şimdi yeniden başlatın.</target>
-        </trans-unit>
-        <trans-unit id="RestartText" translate="yes" xml:space="preserve">
-          <source>Restart</source>
-          <target state="translated">Yeni -den başlatın</target>
-        </trans-unit>
-        <trans-unit id="SleepTimerDescription" translate="yes" xml:space="preserve">
-          <source>Ambie will pause when the timer ends</source>
-          <target state="translated">Zamanlayıcı sona erdiğinde Ambie duraklayacaktır</target>
-        </trans-unit>
-        <trans-unit id="SleepTimerText" translate="yes" xml:space="preserve">
-          <source>Sleep Timer</source>
-          <target state="translated">Uyku Zamanlayıcısı</target>
-        </trans-unit>
-        <trans-unit id="UnlockText" translate="yes" xml:space="preserve">
-          <source>Unlock</source>
-          <target state="translated">Kilidi açmak</target>
-        </trans-unit>
-        <trans-unit id="AdjustSoundVolume" translate="yes" xml:space="preserve">
-          <source>Adjust sound volume</source>
-          <target state="translated">Ses seviyesini ayarla</target>
-        </trans-unit>
-        <trans-unit id="DownloadSounds" translate="yes" xml:space="preserve">
-          <source>Download sounds</source>
-          <target state="translated">Sesleri indir</target>
-        </trans-unit>
-        <trans-unit id="DisplayModeDarkScreen" translate="yes" xml:space="preserve">
-          <source>Dark screen</source>
-          <target state="translated">Karanlık ekran</target>
-        </trans-unit>
-        <trans-unit id="DisplayModeDarkScreenDescription" translate="yes" xml:space="preserve">
-          <source>Helps with sleeping</source>
-          <target state="translated">Uyumaya yardımcı olur</target>
-        </trans-unit>
-        <trans-unit id="DisplayModeSlideshow" translate="yes" xml:space="preserve">
-          <source>Slideshow</source>
-          <target state="translated">Slayt gösterisi</target>
-        </trans-unit>
-        <trans-unit id="DisplayModeSlideshowDescription" translate="yes" xml:space="preserve">
-          <source>Carousel of images</source>
-          <target state="translated">Görüntülerin atlıkarınca</target>
-        </trans-unit>
-        <trans-unit id="DisplayModeVideo" translate="yes" xml:space="preserve">
-          <source>Videos</source>
-          <target state="translated">Video</target>
-        </trans-unit>
-        <trans-unit id="DisplayModeVideoDescription" translate="yes" xml:space="preserve">
-          <source>Plays videos, if available</source>
-          <target state="translated">Varsa videoları oynatır</target>
-        </trans-unit>
-        <trans-unit id="SettingsNotificationsSwitchHeader" translate="yes" xml:space="preserve">
-          <source>Notification for new sounds</source>
-          <target state="translated">Yeni sesler için bildirim</target>
-        </trans-unit>
-        <trans-unit id="SettingsTelemetrySwitchHeader" translate="yes" xml:space="preserve">
-          <source>Telemetry</source>
-          <target state="translated">Telemetri</target>
-        </trans-unit>
-        <trans-unit id="DownloadingVideoMessage" translate="yes" xml:space="preserve">
-          <source>Downloading your video. We'll be ready soon.</source>
-          <target state="translated">Videonuzu indirme. Yakında hazır olacağız.</target>
-        </trans-unit>
-        <trans-unit id="DownloadingText" translate="yes" xml:space="preserve">
-          <source>Downloading</source>
-          <target state="translated">Indiriyor</target>
-        </trans-unit>
-        <trans-unit id="UnlockVideoText" translate="yes" xml:space="preserve">
-          <source>Unlock video</source>
-          <target state="translated">Videonun kilidini aç</target>
-        </trans-unit>
-        <trans-unit id="AvailableText" translate="yes" xml:space="preserve">
-          <source>Available</source>
-          <target state="translated">Mevcut</target>
-        </trans-unit>
-        <trans-unit id="IncludedText" translate="yes" xml:space="preserve">
-          <source>Included</source>
-          <target state="translated">Dahil</target>
-        </trans-unit>
-        <trans-unit id="SlideshowImagesText" translate="yes" xml:space="preserve">
-          <source>Slideshow images</source>
-          <target state="translated">Slayt gösterisi görüntüleri</target>
-        </trans-unit>
-        <trans-unit id="VideoBackgroundText" translate="yes" xml:space="preserve">
-          <source>Video background</source>
-          <target state="translated">Video arka planı</target>
-        </trans-unit>
-        <trans-unit id="StartFreeTrialText" translate="yes" xml:space="preserve">
-          <source>Start free trial</source>
-          <target state="translated">Ücretsiz deneme sürümünü başlatın</target>
-        </trans-unit>
-        <trans-unit id="SubWithTrialCaptionTemplate" translate="yes" xml:space="preserve">
-          <source>{0} free, then {1}</source>
-          <target state="translated">{0} ücretsiz, sonra {1}</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">E.g. 1 week free, then $1.49/month</note>
-        </trans-unit>
-        <trans-unit id="ContactUsText" translate="yes" xml:space="preserve">
-          <source>Contact us</source>
-          <target state="translated">Bize ulaşın</target>
-        </trans-unit>
-        <trans-unit id="FeedbackText" translate="yes" xml:space="preserve">
-          <source>Feedback</source>
-          <target state="translated">Geri besleme</target>
-        </trans-unit>
-        <trans-unit id="SettingsFeedbackDescription" translate="yes" xml:space="preserve">
-          <source>Contact us if you have feedback, questions, or issues</source>
-          <target state="translated">Geri bildiriminiz, sorularınız veya sorunlarınız varsa bizimle iletişime geçin</target>
-        </trans-unit>
-        <trans-unit id="FreeTrialTipDescription" translate="yes" xml:space="preserve">
-          <source>Claim your free 7 days of Ambie+</source>
-          <target state="needs-review-translation">7 gün ücretsiz talep edin</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="FreeTrialTipTitle" translate="yes" xml:space="preserve">
-          <source>Free trial available</source>
-          <target state="translated">Ücretsiz deneme sürümü mevcut</target>
-        </trans-unit>
-        <trans-unit id="OpenLastChannelText" translate="yes" xml:space="preserve">
-          <source>Open last channel</source>
-          <target state="translated">Son kanalı aç</target>
-        </trans-unit>
-        <trans-unit id="ChannelsTitleText" translate="yes" xml:space="preserve">
-          <source>Channels</source>
-          <target state="translated">Kanal</target>
-        </trans-unit>
-        <trans-unit id="ChannelsSubtitle" translate="yes" xml:space="preserve">
-          <source>View full screen videos or other visual content to help you focus, study, or relax.</source>
-          <target state="translated">Odaklanmanıza, çalışmanıza veya rahatlamanıza yardımcı olması için tam ekran videoları veya diğer görsel içerikleri görüntüleyin.</target>
-        </trans-unit>
-        <trans-unit id="ViewDetailsText" translate="yes" xml:space="preserve">
-          <source>View details</source>
-          <target state="translated">Ayrıntıları görüntüleme</target>
-        </trans-unit>
-        <trans-unit id="SettingsEnableClockHeader" translate="yes" xml:space="preserve">
-          <source>Enable clock</source>
-          <target state="translated">Saati etkinleştir</target>
-        </trans-unit>
-        <trans-unit id="SettingsEnableClockSecondsHeader" translate="yes" xml:space="preserve">
-          <source>Display seconds on clock</source>
-          <target state="translated">Saatte saniyeleri göster</target>
-        </trans-unit>
-        <trans-unit id="SettingsEnableCountdownHeader" translate="yes" xml:space="preserve">
-          <source>Enable countdown timer</source>
-          <target state="translated">Geri sayım sayacını etkinleştir</target>
-        </trans-unit>
-        <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
-          <source>Same benefits, lower monthly cost</source>
-          <target state="translated">Aynı avantajlar, daha düşük aylık maliyet</target>
-        </trans-unit>
-        <trans-unit id="AnnualPlanTitle" translate="yes" xml:space="preserve">
-          <source>Get annual plan - {0}</source>
-          <target state="translated">Yıllık planı alın - {0}</target>
-        </trans-unit>
-        <trans-unit id="EnterCodePlaceholder" translate="yes" xml:space="preserve">
-          <source>Enter code</source>
-          <target state="translated">Kodu girin</target>
-        </trans-unit>
-        <trans-unit id="EnterPromoCodeText" translate="yes" xml:space="preserve">
-          <source>Enter promo code</source>
-          <target state="translated">Promosyon kodunu girin</target>
-        </trans-unit>
-        <trans-unit id="PromoCodeMessage" translate="yes" xml:space="preserve">
-          <source>Use a code to unlock discounts for Ambie+</source>
-          <target state="translated">Ambie+ indirimlerinin kilidini açmak için bir kod kullanın</target>
-        </trans-unit>
-        <trans-unit id="SubmitText" translate="yes" xml:space="preserve">
-          <source>Submit</source>
-          <target state="translated">Gönder</target>
-        </trans-unit>
-        <trans-unit id="StatsLongestStreak" translate="yes" xml:space="preserve">
-          <source>Longest streak</source>
-          <target state="translated">En uzun galibiyet serisi</target>
-        </trans-unit>
-        <trans-unit id="StatsMonthlyHours" translate="yes" xml:space="preserve">
-          <source>Hours this month</source>
-          <target state="translated">Bu ayki saatler</target>
-        </trans-unit>
-        <trans-unit id="StatsTotalFocusHours" translate="yes" xml:space="preserve">
-          <source>Focus hours</source>
-          <target state="translated">Odaklanma saatleri</target>
-        </trans-unit>
-        <trans-unit id="StatsTotalHours" translate="yes" xml:space="preserve">
-          <source>Total hours</source>
-          <target state="translated">Toplam saat</target>
-        </trans-unit>
-        <trans-unit id="StatsWeeklyHours" translate="yes" xml:space="preserve">
-          <source>Last 7 days</source>
-          <target state="translated">Son 7 gün</target>
-        </trans-unit>
-        <trans-unit id="TopPlayedSoundsText" translate="yes" xml:space="preserve">
-          <source>Top played sounds</source>
-          <target state="translated">En çok çalınan sesler</target>
-        </trans-unit>
-        <trans-unit id="TopPlayedSoundsPlaceholder" translate="yes" xml:space="preserve">
-          <source>Use Ambie a little more to view more stats</source>
-          <target state="translated">Daha fazla istatistik görüntülemek için Ambie'yi biraz daha kullanın</target>
-        </trans-unit>
-        <trans-unit id="StatsSubtitle" translate="yes" xml:space="preserve">
-          <source>View your usage stats in Ambie</source>
-          <target state="translated">Ambie'de kullanım istatistiklerinizi görüntüleme</target>
-        </trans-unit>
-        <trans-unit id="StatsTitleText" translate="yes" xml:space="preserve">
-          <source>Stats</source>
-          <target state="translated">Istatistik</target>
-        </trans-unit>
-        <trans-unit id="OsNotificationHelpMessage" translate="yes" xml:space="preserve">
-          <source>Ensure Windows notifications are enabled for Ambie</source>
-          <target state="translated">Ambie için Windows bildirimlerinin etkinleştirildiğinden emin olun</target>
-        </trans-unit>
-        <trans-unit id="EnableText" translate="yes" xml:space="preserve">
-          <source>Enable</source>
-          <target state="translated">Etkinleştirmek</target>
-        </trans-unit>
-        <trans-unit id="StatsPageSettingsHeader" translate="yes" xml:space="preserve">
-          <source>Helpful options</source>
-          <target state="translated">Yardımcı seçenekler</target>
-        </trans-unit>
-        <trans-unit id="ChannelSwitcherHide" translate="yes" xml:space="preserve">
-          <source>Hide channels</source>
-          <target state="translated">Kanalları gizle</target>
-        </trans-unit>
-        <trans-unit id="ChannelSwitcherShow" translate="yes" xml:space="preserve">
-          <source>Show channels</source>
-          <target state="translated">Kanalları göster</target>
-        </trans-unit>
-        <trans-unit id="CountdownText" translate="yes" xml:space="preserve">
-          <source>Countdown</source>
-          <target state="translated">Geri sayım</target>
-        </trans-unit>
-        <trans-unit id="NoneText" translate="yes" xml:space="preserve">
-          <source>None</source>
-          <target state="translated">Hiç kimse</target>
-        </trans-unit>
-        <trans-unit id="ChannelTimerFocusDisclaimer" translate="yes" xml:space="preserve">
-          <source>Focus timer is always shown during an active focus session.</source>
-          <target state="translated">Odak zamanlayıcısı, aktif bir odak oturumu sırasında her zaman gösterilir.</target>
-        </trans-unit>
-        <trans-unit id="DurationUnitDay" translate="yes" xml:space="preserve">
-          <source>day</source>
-          <target state="translated">gün</target>
-        </trans-unit>
-        <trans-unit id="DurationUnitHour" translate="yes" xml:space="preserve">
-          <source>hour</source>
-          <target state="translated">saat</target>
-        </trans-unit>
-        <trans-unit id="DurationUnitMinute" translate="yes" xml:space="preserve">
-          <source>minute</source>
-          <target state="translated">dakika</target>
-        </trans-unit>
-        <trans-unit id="DurationUnitMonth" translate="yes" xml:space="preserve">
-          <source>month</source>
-          <target state="translated">ay</target>
-        </trans-unit>
-        <trans-unit id="DurationUnitWeek" translate="yes" xml:space="preserve">
-          <source>week</source>
-          <target state="translated">hafta</target>
-        </trans-unit>
-        <trans-unit id="DurationUnitYear" translate="yes" xml:space="preserve">
-          <source>year</source>
-          <target state="translated">yıl</target>
-        </trans-unit>
-        <trans-unit id="DisplayMode" translate="yes" xml:space="preserve">
-          <source>Display mode</source>
-          <target state="translated">Ekran modu</target>
-        </trans-unit>
-        <trans-unit id="RelaxationTimerText" translate="yes" xml:space="preserve">
-          <source>Relaxation timer</source>
-          <target state="translated">Gevşeme zamanlayıcısı</target>
-        </trans-unit>
-        <trans-unit id="RelaxationTimerHelpMessage" translate="yes" xml:space="preserve">
-          <source>Use the relaxation timer to help you relax, sleep, or meditate.</source>
-          <target state="translated">Rahatlamanıza, uyumanıza veya meditasyon yapmanıza yardımcı olması için gevşeme zamanlayıcısını kullanın.</target>
-        </trans-unit>
-        <trans-unit id="RelaxationTimerHelpButtonAutomationName" translate="yes" xml:space="preserve">
-          <source>Relaxation timer information</source>
-          <target state="translated">Gevşeme zamanlayıcı bilgileri</target>
-        </trans-unit>
-        <trans-unit id="IncludeInRelaxPageText" translate="yes" xml:space="preserve">
-          <source>Include in Relax page</source>
-          <target state="translated">Relax sayfasına dahil et</target>
-        </trans-unit>
-        <trans-unit id="SavedSoundMixHeader" translate="yes" xml:space="preserve">
-          <source>Your saved sound mixes</source>
-          <target state="translated">Kaydettiğiniz ses karışımları</target>
-        </trans-unit>
-        <trans-unit id="SleepMeditationGuideHeader" translate="yes" xml:space="preserve">
-          <source>Sleep and meditation guides</source>
-          <target state="translated">Uyku ve meditasyon rehberleri</target>
-        </trans-unit>
-        <trans-unit id="SelectMoreSoundsPlaceholder" translate="yes" xml:space="preserve">
-          <source>Mix and match up to 5 sounds</source>
-          <target state="translated">5 sese kadar karıştırın ve eşleştirin</target>
-        </trans-unit>
-        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
-          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Play more than 3 sounds. Unlock it all with Ambie+, and find your next favourite ambience.</source>
-          <target state="translated">Yüksek kaliteli sesler, birinci sınıf videolar ve küratörlüğünde meditasyonlar. Gelecekteki tüm içeriğe erişim. 3'ten fazla ses çalın. Ambie+ ile her şeyin kilidini açın ve yeni favori ambiyansınızı bulun.</target>
-        </trans-unit>
-        <trans-unit id="MoreSoundsTipDescription" translate="yes" xml:space="preserve">
-          <source>Get Ambie+ to play up to 5 sounds</source>
-          <target state="translated">Ambie+'ın 5 adede kadar ses çalmasını sağlayın</target>
-        </trans-unit>
-        <trans-unit id="MoreSoundsTipTitle" translate="yes" xml:space="preserve">
-          <source>Mix and match more sounds</source>
-          <target state="translated">Daha fazla sesi karıştırın ve eşleştirin</target>
-        </trans-unit>
-      </group>
-    </body>
-  </file>
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+	<file original="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW" datatype="plaintext" xml:space="preserve" source-language="en" target-language="tr">
+		<header>
+			<tool tool-id="lokalise.com" tool-name="Lokalise"></tool>
+		</header>
+		<body>
+			<group id="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW">
+				<trans-unit id="CloseCompactMode.AutomationProperties.Name">
+					<source></source>
+					<target>Kompakt modu kapat</target>
+					<note priority="2" from="MultilingualUpdate">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+				</trans-unit>
+				<trans-unit id="CloseCompactMode.ToolTipService.ToolTip">
+					<source></source>
+					<target>Kompakt modu kapat</target>
+					<note priority="2" from="MultilingualUpdate">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+				</trans-unit>
+				<trans-unit id="CloseText">
+					<source></source>
+					<target>Kapat</target>
+				</trans-unit>
+				<trans-unit id="Copyright.Text">
+					<source></source>
+					<target>Telif Hakkı</target>
+				</trans-unit>
+				<trans-unit id="CopyrightJeniusApps.Text">
+					<source></source>
+					<target>Telif hakkı Jenius Apps</target>
+				</trans-unit>
+				<trans-unit id="HelloFromVancouver.Text">
+					<source></source>
+					<target>Vancouver'dan Merhaba</target>
+				</trans-unit>
+				<trans-unit id="LogoButton.AutomationProperties.Name">
+					<source></source>
+					<target>Uygulama bilgilerini görüntülemek için tıklayın</target>
+					<note priority="2" from="MultilingualUpdate">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+				</trans-unit>
+				<trans-unit id="MoreButton.AutomationProperties.Name">
+					<source></source>
+					<target>Daha fazla seçenek görmek için tıklayın</target>
+					<note priority="2" from="MultilingualUpdate">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+				</trans-unit>
+				<trans-unit id="MoreButtonContact.Label">
+					<source></source>
+					<target>İçerik oluşturucuyla iletişime geçin</target>
+				</trans-unit>
+				<trans-unit id="RateUsText">
+					<source></source>
+					<target>Bizi değerlendirin</target>
+				</trans-unit>
+				<trans-unit id="MoreButtonSettings.Label">
+					<source></source>
+					<target>Ayarlar</target>
+				</trans-unit>
+				<trans-unit id="MoreButtonShare.Label">
+					<source></source>
+					<target>Ambie için bağlantı paylaş</target>
+				</trans-unit>
+				<trans-unit id="MoreButtonTranslate.Label">
+					<source></source>
+					<target>Çeviriye ekleme yapın veya iyileştirin</target>
+				</trans-unit>
+				<trans-unit id="OffTextBlock.Text">
+					<source></source>
+					<target>Kapalı</target>
+				</trans-unit>
+				<trans-unit id="OnTextBlock.Text">
+					<source></source>
+					<target>Açık</target>
+				</trans-unit>
+				<trans-unit id="PauseTimerButton.AutomationProperties.Name">
+					<source></source>
+					<target>Zamanlayıcıyı duraklat</target>
+				</trans-unit>
+				<trans-unit id="PlayerPauseText">
+					<source></source>
+					<target>Sesi duraklat</target>
+					<note priority="2" from="MultilingualUpdate">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+				</trans-unit>
+				<trans-unit id="PlayerPlayText">
+					<source></source>
+					<target>Sesi Oynat</target>
+					<note priority="2" from="MultilingualUpdate">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+				</trans-unit>
+				<trans-unit id="PlayTimerButton.AutomationProperties.Name">
+					<source></source>
+					<target>Zamanlayıcıya devam et</target>
+				</trans-unit>
+				<trans-unit id="ReadyToPlayText">
+					<source></source>
+					<target>Oynatmaya hazır</target>
+				</trans-unit>
+				<trans-unit id="SettingsTelemetrySwitch.Header">
+					<source></source>
+					<target>Telemetri</target>
+				</trans-unit>
+				<trans-unit id="SettingsText">
+					<source></source>
+					<target>Ayarlar</target>
+				</trans-unit>
+				<trans-unit id="SleepTimerButton.AutomationProperties.Name">
+					<source></source>
+					<target>Uyku zamanlayıcısı seçeneklerini görüntüle</target>
+					<note priority="2" from="MultilingualUpdate">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+				</trans-unit>
+				<trans-unit id="SleepTimerButton.ToolTipService.ToolTip">
+					<source></source>
+					<target>Uyku zamanlayıcısı seçeneklerini görüntüle</target>
+					<note priority="2" from="MultilingualUpdate">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+				</trans-unit>
+				<trans-unit id="Soundbeach">
+					<source></source>
+					<target>Plaj</target>
+				</trans-unit>
+				<trans-unit id="Soundbirds">
+					<source></source>
+					<target>Kuşlar</target>
+				</trans-unit>
+				<trans-unit id="Soundcitystreet">
+					<source></source>
+					<target>Şehir Sokağı</target>
+				</trans-unit>
+				<trans-unit id="Soundcoffeeshop">
+					<source></source>
+					<target>Kahve dükkanı</target>
+				</trans-unit>
+				<trans-unit id="Soundcreek">
+					<source></source>
+					<target>Dere</target>
+				</trans-unit>
+				<trans-unit id="Soundfireplace">
+					<source></source>
+					<target>Şömine</target>
+				</trans-unit>
+				<trans-unit id="Soundrain">
+					<source></source>
+					<target>Yağmur</target>
+				</trans-unit>
+				<trans-unit id="Soundrainforest">
+					<source></source>
+					<target>Yağmur ormanı</target>
+				</trans-unit>
+				<trans-unit id="Soundunderwater">
+					<source></source>
+					<target>Su altı</target>
+				</trans-unit>
+				<trans-unit id="Soundwaterfall">
+					<source></source>
+					<target>Şelale</target>
+				</trans-unit>
+				<trans-unit id="Soundwhitenoise">
+					<source></source>
+					<target>Beyaz gürültü</target>
+				</trans-unit>
+				<trans-unit id="SoundsLoadingRing.AutomationProperties.Name">
+					<source></source>
+					<target>Sesler yükleniyor</target>
+				</trans-unit>
+				<trans-unit id="SoundUnplayable">
+					<source></source>
+					<target>Ses çalınamıyor</target>
+				</trans-unit>
+				<trans-unit id="StopTimerButton.AutomationProperties.Name">
+					<source></source>
+					<target>Zamanlayıcıyı durdurun ve zamanı sıfırlayın</target>
+				</trans-unit>
+				<trans-unit id="VolumeSlider.AutomationProperties.Name">
+					<source></source>
+					<target>Global ses seviyesi</target>
+					<note priority="2" from="MultilingualUpdate">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+				</trans-unit>
+				<trans-unit id="SettingsThemeHeader.Text">
+					<source></source>
+					<target>Tema</target>
+				</trans-unit>
+				<trans-unit id="SettingsThemeDefaultRadio.Content">
+					<source></source>
+					<target>Otomatik</target>
+				</trans-unit>
+				<trans-unit id="SettingsThemeDarkRadio.Content">
+					<source></source>
+					<target>Karanlık</target>
+				</trans-unit>
+				<trans-unit id="SettingsThemeLightRadio.Content">
+					<source></source>
+					<target>Aydınlık</target>
+				</trans-unit>
+				<trans-unit id="Soundvacuum">
+					<source></source>
+					<target>Vakum</target>
+				</trans-unit>
+				<trans-unit id="Soundthunder">
+					<source></source>
+					<target>Gök gürültüsü</target>
+				</trans-unit>
+				<trans-unit id="SettingsNotificationsSwitch.Header">
+					<source></source>
+					<target>Yeni eklenen sesler için bildirim alın</target>
+				</trans-unit>
+				<trans-unit id="Soundwind">
+					<source></source>
+					<target>Rüzgar</target>
+				</trans-unit>
+				<trans-unit id="AlreadyDownloaded">
+					<source></source>
+					<target>Zaten indirildi</target>
+					<note priority="4" from="MultilingualEditor">Ses zaten indirildi</note>
+					<note priority="2" from="MultilingualBuild">The sound is already downloaded</note>
+				</trans-unit>
+				<trans-unit id="BackButton.AutomationProperties.Name">
+					<source></source>
+					<target>Geri </target>
+					<note priority="4" from="MultilingualEditor">Önceki sayfaya geri döner</note>
+					<note priority="2" from="MultilingualBuild">Going back to the previous page</note>
+				</trans-unit>
+				<trans-unit id="CanDownload">
+					<source></source>
+					<target>İndirilebilir</target>
+					<note priority="4" from="MultilingualEditor">Ses indirilebilir</note>
+					<note priority="2" from="MultilingualBuild">The sound can be downloaded</note>
+				</trans-unit>
+				<trans-unit id="DownloadSoundButton.AutomationProperties.Name">
+					<source></source>
+					<target>Sesi indir</target>
+				</trans-unit>
+				<trans-unit id="DownloadSoundButton.ToolTipService.ToolTip">
+					<source></source>
+					<target>Sesi indir</target>
+				</trans-unit>
+				<trans-unit id="OnlineSoundsList.AutomationProperties.Name">
+					<source></source>
+					<target>Ses kataloğu</target>
+				</trans-unit>
+				<trans-unit id="SoundsGridView.AutomationProperties.Name">
+					<source></source>
+					<target>Sesler</target>
+					<note priority="4" from="MultilingualEditor">Seslerin listesi</note>
+					<note priority="2" from="MultilingualBuild">List of sounds</note>
+				</trans-unit>
+				<trans-unit id="PrivacyPolicyButton.Content">
+					<source></source>
+					<target>Gizlilik Politikası</target>
+				</trans-unit>
+				<trans-unit id="PrivacyPolicyButton.AutomationProperties.Name">
+					<source></source>
+					<target>Gizlilik Politikası</target>
+				</trans-unit>
+				<trans-unit id="DeleteButton.AutomationProperties.Name">
+					<source></source>
+					<target>Sesi sil</target>
+				</trans-unit>
+				<trans-unit id="DeleteTextBlock.Text">
+					<source></source>
+					<target>Sil</target>
+				</trans-unit>
+				<trans-unit id="DownloadTextBlock.Text">
+					<source></source>
+					<target>İndir</target>
+				</trans-unit>
+				<trans-unit id="DeleteAppBarButton.Label">
+					<source></source>
+					<target>Sil</target>
+				</trans-unit>
+				<trans-unit id="RandomButton.AutomationProperties.Name">
+					<source></source>
+					<target>Rastgele bir ses oynat</target>
+				</trans-unit>
+				<trans-unit id="RandomButton.ToolTipService.ToolTip">
+					<source></source>
+					<target>Rastgele bir ses oynat</target>
+				</trans-unit>
+				<trans-unit id="ScreensaverMode">
+					<source></source>
+					<target>Ekran koruyucu modu</target>
+				</trans-unit>
+				<trans-unit id="SettingsScreensaverSwitch.Header">
+					<source></source>
+					<target>Ekran koruyucu</target>
+				</trans-unit>
+				<trans-unit id="BuyButton.AutomationProperties.Name">
+					<source></source>
+					<target>Sesi satın al</target>
+				</trans-unit>
+				<trans-unit id="PreviewButton.AutomationProperties.Name">
+					<source></source>
+					<target>Sesi önizle</target>
+				</trans-unit>
+				<trans-unit id="PreviewButton.ToolTipService.ToolTip">
+					<source></source>
+					<target>Sesi önizle</target>
+				</trans-unit>
+				<trans-unit id="Paused">
+					<source></source>
+					<target>Durduruldu</target>
+					<note priority="2" from="MultilingualBuild">Sound is paused</note>
+				</trans-unit>
+				<trans-unit id="Playing">
+					<source></source>
+					<target>Oynatılıyor</target>
+					<note priority="2" from="MultilingualBuild">Sound is playing</note>
+				</trans-unit>
+				<trans-unit id="VolumeSliderSound.AutomationProperties.Name">
+					<source></source>
+					<target>Ses seviyesi</target>
+				</trans-unit>
+				<trans-unit id="ActiveTrackListView.AutomationProperties.Name">
+					<source></source>
+					<target>Aktif sesler</target>
+				</trans-unit>
+				<trans-unit id="ClearActiveButton.AutomationProperties.Name">
+					<source></source>
+					<target>Tüm aktif sesleri temizle</target>
+				</trans-unit>
+				<trans-unit id="ClearActiveButton.ToolTipService.ToolTip">
+					<source></source>
+					<target>Tüm aktif sesleri temizle</target>
+				</trans-unit>
+				<trans-unit id="ConfirmSaveButton.AutomationProperties.Name">
+					<source></source>
+					<target>Kaydetmeyi onayla</target>
+				</trans-unit>
+				<trans-unit id="GlobalVolume">
+					<source></source>
+					<target>Global ses seviyesi</target>
+				</trans-unit>
+				<trans-unit id="NameInputBox.Header">
+					<source></source>
+					<target>Ses karışımı adı</target>
+				</trans-unit>
+				<trans-unit id="NameInputBox.PlaceholderText">
+					<source></source>
+					<target>İsteğe bağlı</target>
+				</trans-unit>
+				<trans-unit id="SaveMixButton.AutomationProperties.Name">
+					<source></source>
+					<target>Özel ses karışımını kaydet</target>
+				</trans-unit>
+				<trans-unit id="SaveMixButton.ToolTipService.ToolTip">
+					<source></source>
+					<target>Özel ses karışımını kaydet (Ctrl+S)</target>
+				</trans-unit>
+				<trans-unit id="CancelText">
+					<source></source>
+					<target>İptal et</target>
+				</trans-unit>
+				<trans-unit id="RenameText">
+					<source></source>
+					<target>Yeniden adlandır</target>
+				</trans-unit>
+				<trans-unit id="RenameAppBarButton.Label">
+					<source></source>
+					<target>Yeniden adlandır</target>
+				</trans-unit>
+				<trans-unit id="CompactMode">
+					<source></source>
+					<target>Ambie Mini</target>
+					<note priority="2" from="MultilingualUpdate">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+				</trans-unit>
+				<trans-unit id="SignOutAppBarButton.Label">
+					<source></source>
+					<target>Oturumu kapat</target>
+				</trans-unit>
+				<trans-unit id="SignInDescriptionText">
+					<source></source>
+					<target>Cihazlarınız arasında ses galerisi senkronizasyonunu etkinleştirir.</target>
+				</trans-unit>
+				<trans-unit id="AccountOptionsButton.AutomationProperties.Name">
+					<source></source>
+					<target>Hesap ayarlarını görüntüle</target>
+				</trans-unit>
+				<trans-unit id="AccountOptionsButton.ToolTipService.ToolTip">
+					<source></source>
+					<target>Hesap ayarlarını görüntüle</target>
+				</trans-unit>
+				<trans-unit id="SignInButton.AutomationProperties.Name">
+					<source></source>
+					<target>Giriş yap</target>
+				</trans-unit>
+				<trans-unit id="SignInButton.ToolTipService.ToolTip">
+					<source></source>
+					<target>Giriş yap</target>
+				</trans-unit>
+				<trans-unit id="SyncAppBarButton.Label">
+					<source></source>
+					<target>Senkronizasyon</target>
+				</trans-unit>
+				<trans-unit id="BrowseText">
+					<source></source>
+					<target>Göz at</target>
+				</trans-unit>
+				<trans-unit id="Attribution">
+					<source></source>
+					<target>Atıf</target>
+				</trans-unit>
+				<trans-unit id="Name">
+					<source></source>
+					<target>İsim</target>
+				</trans-unit>
+				<trans-unit id="NewSound">
+					<source></source>
+					<target>Yeni ses</target>
+				</trans-unit>
+				<trans-unit id="Refresh">
+					<source></source>
+					<target>Yenile</target>
+					<note priority="2" from="MultilingualBuild">Text for a button that will refresh a list with new data</note>
+				</trans-unit>
+				<trans-unit id="SignIn">
+					<source></source>
+					<target>Giriş yap</target>
+				</trans-unit>
+				<trans-unit id="AreYouSure">
+					<source></source>
+					<target>Emin misiniz?</target>
+				</trans-unit>
+				<trans-unit id="Yes">
+					<source></source>
+					<target>Evet</target>
+				</trans-unit>
+				<trans-unit id="Optional">
+					<source></source>
+					<target>İsteğe bağlı</target>
+				</trans-unit>
+				<trans-unit id="Required">
+					<source></source>
+					<target>Gerekli</target>
+				</trans-unit>
+				<trans-unit id="Donate">
+					<source></source>
+					<target>Bağış yap</target>
+				</trans-unit>
+				<trans-unit id="TermsOfUse">
+					<source></source>
+					<target>Kullanım Şartları</target>
+				</trans-unit>
+				<trans-unit id="FollowTwitter">
+					<source></source>
+					<target>Twitter'da bizi takip et</target>
+				</trans-unit>
+				<trans-unit id="Dismiss">
+					<source></source>
+					<target>Kapat</target>
+				</trans-unit>
+				<trans-unit id="FirstLaunchMessage">
+					<source></source>
+					<target>Ambie'yi denediğiniz için teşekkürler. En iyi deneyim için bizi görev çubuğunuza sabitlemeyi deneyin! Dinlenmenizin keyfini çıkarın 🏝</target>
+				</trans-unit>
+				<trans-unit id="HelloAndWelcome">
+					<source></source>
+					<target>Merhaba, hoş geldiniz!</target>
+				</trans-unit>
+				<trans-unit id="PinToTaskbar">
+					<source></source>
+					<target>Görev çubuğuna sabitle</target>
+				</trans-unit>
+				<trans-unit id="Preview">
+					<source></source>
+					<target>Ön izleme</target>
+				</trans-unit>
+				<trans-unit id="Catalogue">
+					<source></source>
+					<target>Katalog</target>
+				</trans-unit>
+				<trans-unit id="Home">
+					<source></source>
+					<target>Ev</target>
+				</trans-unit>
+				<trans-unit id="SelectSoundsPlaceholder">
+					<source></source>
+					<target>3 sese kadar karıştırın ve eşleştirin</target>
+				</trans-unit>
+				<trans-unit id="RemoveActiveButton">
+					<source></source>
+					<target>{0} öğesini aktif listeden kaldır</target>
+					<note priority="2" from="MultilingualBuild">Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</note>
+				</trans-unit>
+				<trans-unit id="ThemeSettings">
+					<source></source>
+					<target>Tema Ayarları</target>
+				</trans-unit>
+				<trans-unit id="PricePerMonth">
+					<source></source>
+					<target>Aylık {0}</target>
+					<note priority="2" from="MultilingualBuild">Price per month, where the parameter {0} is a price like $1.00.</note>
+				</trans-unit>
+				<trans-unit id="ThankYouForSub">
+					<source></source>
+					<target>Abone olduğunuz için teşekkürler!</target>
+					<note priority="2" from="MultilingualBuild">Thank you message shown after user purchases a subscription.</note>
+				</trans-unit>
+				<trans-unit id="SubscriptionText1">
+					<source></source>
+					<target>Premium, yüksek kaliteli seslere erişin</target>
+				</trans-unit>
+				<trans-unit id="SubscriptionText2">
+					<source></source>
+					<target>Video ekran koruyucuları indirin</target>
+				</trans-unit>
+				<trans-unit id="SubscriptionText3">
+					<source></source>
+					<target>Geliştirmeyi destekleyin</target>
+				</trans-unit>
+				<trans-unit id="HelloAgain">
+					<source></source>
+					<target>Tekrardan merhaba 👋🏽</target>
+				</trans-unit>
+				<trans-unit id="RateUsMessage">
+					<source></source>
+					<target>Ambie'yi beğeniyor musunuz? Lütfen bizi derecelendirmeyi düşünün!</target>
+				</trans-unit>
+				<trans-unit id="SettingsResumeOnLaunch">
+					<source></source>
+					<target>Ambie açıldığında otomatik olarak devam ettir</target>
+				</trans-unit>
+				<trans-unit id="DownloadText">
+					<source></source>
+					<target>İndir</target>
+				</trans-unit>
+				<trans-unit id="MissingSoundsMessage">
+					<source></source>
+					<target>Bunu çalabilmemiz için bazı sesleri indirmemiz gerekiyor. İndirildikten sonra, tekrar oynatmayı deneyin. İndirme başlatılsın mı?</target>
+				</trans-unit>
+				<trans-unit id="MissingSoundsTitle">
+					<source></source>
+					<target>Eksik ses</target>
+				</trans-unit>
+				<trans-unit id="Default">
+					<source></source>
+					<target>Varsayılan</target>
+				</trans-unit>
+				<trans-unit id="DeleteText">
+					<source></source>
+					<target>Sil</target>
+				</trans-unit>
+				<trans-unit id="SizeMegaByte">
+					<source></source>
+					<target>{0} MB</target>
+				</trans-unit>
+				<trans-unit id="MoreScreensavers">
+					<source></source>
+					<target>Daha fazla ekran koruyucu</target>
+				</trans-unit>
+				<trans-unit id="ScreensaverCatalogue">
+					<source></source>
+					<target>Ekran koruyucu kataloğu</target>
+				</trans-unit>
+				<trans-unit id="ViewPremiumInfo">
+					<source></source>
+					<target>Premium bilgilerini görüntüle</target>
+				</trans-unit>
+				<trans-unit id="ToggleFullscreen">
+					<source></source>
+					<target>Tam ekrana geç</target>
+				</trans-unit>
+				<trans-unit id="GetAmbiePlus">
+					<source></source>
+					<target>Ambie+'ı edinin</target>
+				</trans-unit>
+				<trans-unit id="FocusText">
+					<source></source>
+					<target>Odaklan</target>
+				</trans-unit>
+				<trans-unit id="PauseTimer">
+					<source></source>
+					<target>Zamanlayıcıyı durdur</target>
+				</trans-unit>
+				<trans-unit id="StartTimer">
+					<source></source>
+					<target>Zamanlayıcıyı başlat</target>
+				</trans-unit>
+				<trans-unit id="FocusSessionCompleteMessage">
+					<source></source>
+					<target>Tebrikler!</target>
+				</trans-unit>
+				<trans-unit id="FocusSessionCompleteTitle">
+					<source></source>
+					<target>Odaklanma oturumu tamamlandı</target>
+				</trans-unit>
+				<trans-unit id="FocusSessionFocusMessage">
+					<source></source>
+					<target>Odaklanma zamanı</target>
+				</trans-unit>
+				<trans-unit id="FocusSessionRestMessage">
+					<source></source>
+					<target>Dinlenme zamanı</target>
+				</trans-unit>
+				<trans-unit id="RestText">
+					<source></source>
+					<target>Dinlen</target>
+				</trans-unit>
+				<trans-unit id="FocusDotTooltip">
+					<source></source>
+					<target>Odaklanma oturumu aktif!</target>
+				</trans-unit>
+				<trans-unit id="SessionTypeFocus">
+					<source></source>
+					<target>Odaklanma</target>
+				</trans-unit>
+				<trans-unit id="SessionTypeRest">
+					<source></source>
+					<target>Dinlenme</target>
+				</trans-unit>
+				<trans-unit id="Pause">
+					<source></source>
+					<target>Durdur</target>
+				</trans-unit>
+				<trans-unit id="Reset">
+					<source></source>
+					<target>Sıfırla</target>
+				</trans-unit>
+				<trans-unit id="ResetTimer">
+					<source></source>
+					<target>Zamanlayıcıyı sıfırla</target>
+				</trans-unit>
+				<trans-unit id="Start">
+					<source></source>
+					<target>Başlat</target>
+				</trans-unit>
+				<trans-unit id="FocusLength">
+					<source></source>
+					<target>Odaklanma dakikaları</target>
+				</trans-unit>
+				<trans-unit id="FocusNotesPlaceholder">
+					<source></source>
+					<target>Notlarınızı buraya yazabilirsiniz 🙂</target>
+				</trans-unit>
+				<trans-unit id="FocusPlanningHeader">
+					<source></source>
+					<target>Planınız nedir?</target>
+				</trans-unit>
+				<trans-unit id="Notepad">
+					<source></source>
+					<target>Not defteri</target>
+				</trans-unit>
+				<trans-unit id="RestLength">
+					<source></source>
+					<target>Dinlenme dakikaları</target>
+				</trans-unit>
+				<trans-unit id="Repeats">
+					<source></source>
+					<target>Tekrarlar</target>
+				</trans-unit>
+				<trans-unit id="FocusTimerHelpAction">
+					<source></source>
+					<target>Nasıl kullanıldığını göster</target>
+				</trans-unit>
+				<trans-unit id="FocusTimerHelpMessage">
+					<source></source>
+					<target>Focus Timer, pomodoro tekniğinden ilham alınarak hazırlanmış olan aralıklı zamanlayıcıdır. Uzun bir süre bir göreve odaklanabilmenin sırrı, ardından daha kısa bir dinlenme molası vermektir. Odaklanmaya devam etmek için bu döngüyü tekrarlayın!</target>
+				</trans-unit>
+				<trans-unit id="FocusTimerHelpTitle">
+					<source></source>
+					<target>Focus Timer'a Hoş Geldiniz!</target>
+				</trans-unit>
+				<trans-unit id="Help">
+					<source></source>
+					<target>Yardım</target>
+				</trans-unit>
+				<trans-unit id="Next">
+					<source></source>
+					<target>Sonraki</target>
+				</trans-unit>
+				<trans-unit id="TipFocusMessage">
+					<source></source>
+					<target>Her döngünün bir odak bölümü ve bir dinlenme bölümü vardır. Her bir odak bölümünün ne kadar süreceğini seçin. Başlangıç olarak 25 dakikayı öneriyoruz!</target>
+				</trans-unit>
+				<trans-unit id="TipFocusTitle">
+					<source></source>
+					<target>Odaklanma dakikalarını ayarla</target>
+				</trans-unit>
+				<trans-unit id="TipRepeatsMessage">
+					<source></source>
+					<target>Odaklanma ve dinlenme döngüleri birden çok kez tekrarlanabilir. 1 tekrar eklemeyi deneyin!</target>
+				</trans-unit>
+				<trans-unit id="TipRepeatsTitle">
+					<source></source>
+					<target>Tekrarları ayarla</target>
+				</trans-unit>
+				<trans-unit id="TipRestMessage">
+					<source></source>
+					<target>Şimdi, her dinlenme bölümünün ne kadar süreceğini seçin. Şimdilik yaklaşık 5 dakikayı öneriyoruz!</target>
+				</trans-unit>
+				<trans-unit id="TipRestTitle">
+					<source></source>
+					<target>Dinlenme dakikalarını ayarla</target>
+				</trans-unit>
+				<trans-unit id="TipStartButtonMessage">
+					<source></source>
+					<target>Zamanlayıcıyı başlatın ve görevleriniz üzerinde çalışın. Dinlenme zamanı geldiğinde size bildirim göndereceğiz. İyi çalışmalar!</target>
+				</trans-unit>
+				<trans-unit id="TipStartButtonTitle">
+					<source></source>
+					<target>Hazır, ayarla, başla</target>
+				</trans-unit>
+				<trans-unit id="RecentFocusAccessibleName">
+					<source></source>
+					<target>{0} odaklanma dakikası, {1} dinlenme dakikası, {2} tekrar.</target>
+				</trans-unit>
+				<trans-unit id="RecentFocusList">
+					<source></source>
+					<target>Son konfigürasyonların listesi.</target>
+				</trans-unit>
+				<trans-unit id="ZeroToMax">
+					<source></source>
+					<target>0'dan {0}'a</target>
+				</trans-unit>
+				<trans-unit id="History">
+					<source></source>
+					<target>Geçmiş</target>
+				</trans-unit>
+				<trans-unit id="Interruptions">
+					<source></source>
+					<target>Kesintiler</target>
+				</trans-unit>
+				<trans-unit id="FocusHistoryPlaceholderText">
+					<source></source>
+					<target>Geçmişiniz burada görünecek</target>
+				</trans-unit>
+				<trans-unit id="LogInterruption">
+					<source></source>
+					<target>Kesintiyi kaydet</target>
+				</trans-unit>
+				<trans-unit id="Confirm">
+					<source></source>
+					<target>Onayla</target>
+				</trans-unit>
+				<trans-unit id="InterruptionMinutesTitle">
+					<source></source>
+					<target>Kesinti dakikası</target>
+				</trans-unit>
+				<trans-unit id="Notes">
+					<source></source>
+					<target>Notlar</target>
+				</trans-unit>
+				<trans-unit id="InterruptionMinutesHelpMessage">
+					<source></source>
+					<target>Bir şey tarafından mı bölündün? Kesintilerini burada takip et, böylece daha sonra geçmişinde gözden geçirebilirsin.</target>
+				</trans-unit>
+				<trans-unit id="HistoryRecent">
+					<source></source>
+					<target>Geçmiş</target>
+				</trans-unit>
+				<trans-unit id="RoundsCompleted">
+					<source></source>
+					<target>Tamamlanan turlar</target>
+				</trans-unit>
+				<trans-unit id="ResultMessageFail1">
+					<source></source>
+					<target>İyi çaba</target>
+				</trans-unit>
+				<trans-unit id="ResultMessageSuccess1">
+					<source></source>
+					<target>Harikasın</target>
+				</trans-unit>
+				<trans-unit id="AppDisplayName">
+					<source></source>
+					<target>Ambie</target>
+				</trans-unit>
+				<trans-unit id="TaskModuleNewTaskPlaceholder">
+					<source></source>
+					<target>Odaklanmak için görevler ekleyin, ardından başlat düğmesine basın</target>
+				</trans-unit>
+				<trans-unit id="TaskModuleTitle">
+					<source></source>
+					<target>Görevler</target>
+				</trans-unit>
+				<trans-unit id="TaskModuleRecentCompleted">
+					<source></source>
+					<target>Yakın zamanda tamamlandı</target>
+				</trans-unit>
+				<trans-unit id="EditText">
+					<source></source>
+					<target>Düzenle</target>
+				</trans-unit>
+				<trans-unit id="TasksCompleted">
+					<source></source>
+					<target>Tamamlanan görevler</target>
+				</trans-unit>
+				<trans-unit id="Timer">
+					<source></source>
+					<target>Zamanlayıcı</target>
+				</trans-unit>
+				<trans-unit id="TaskTitle">
+					<source></source>
+					<target>Görev {0}</target>
+				</trans-unit>
+				<trans-unit id="SettingsCompactMode">
+					<source></source>
+					<target>Odaklanırken Ambie Mini'yi açın</target>
+				</trans-unit>
+				<trans-unit id="DurationText">
+					<source></source>
+					<target>Süre</target>
+				</trans-unit>
+				<trans-unit id="EndTimeText">
+					<source></source>
+					<target>Son</target>
+				</trans-unit>
+				<trans-unit id="MiniText">
+					<source></source>
+					<target>Mini</target>
+				</trans-unit>
+				<trans-unit id="CompactModeTooltipTitle">
+					<source></source>
+					<target>Ambie Mini'yi aç</target>
+				</trans-unit>
+				<trans-unit id="CompactModeTooltipMessage">
+					<source></source>
+					<target>Ambie Mini ile pencereyi küçültüp yalnızca gerekli öğeleri göstereceğiz, böylece odaklanmana yardımcı olacağız.</target>
+				</trans-unit>
+				<trans-unit id="PausesText">
+					<source></source>
+					<target>Durakla -tır</target>
+				</trans-unit>
+				<trans-unit id="EmptyHomeMessage">
+					<source></source>
+					<target>Katalogdan sesleri indirin</target>
+				</trans-unit>
+				<trans-unit id="EditHomePage">
+					<source></source>
+					<target>Giriş sayfasını düzenle</target>
+				</trans-unit>
+				<trans-unit id="EditHomePageMessage">
+					<source></source>
+					<target>Ana sayfanızı kişiselleştirmek için sesleri sürükleyip bırakın. Şimdi deneyin!</target>
+				</trans-unit>
+				<trans-unit id="EmptyCatalogueMessage">
+					<source></source>
+					<target>Bunun için üzgünüz! Kataloğu yükleyemedik. İnternet bağlantını kontrol etmeyi dene.</target>
+				</trans-unit>
+				<trans-unit id="AboutAmbie">
+					<source></source>
+					<target>Ambie Hakkında</target>
+				</trans-unit>
+				<trans-unit id="SettingsCompactModeDescription">
+					<source></source>
+					<target>Ambie Mini, odaklanıldığında otomatik olarak açılacak</target>
+				</trans-unit>
+				<trans-unit id="SettingsNotificationsSwitchDescription">
+					<source></source>
+					<target>Yeni sesler çıktığında sizi bilgilendireceğiz</target>
+				</trans-unit>
+				<trans-unit id="SettingsResumeOnLaunchDescription">
+					<source></source>
+					<target>Başlatıldığında, Ambie otomatik olarak çalmaya devam edecek</target>
+				</trans-unit>
+				<trans-unit id="SettingsTelemetrySwitchDescription">
+					<source></source>
+					<target>Kilitlenmeler ve anonim kullanım bilgileri, Ambie'yi iyileştirmeye yardımcı olmak için bildirilir</target>
+				</trans-unit>
+				<trans-unit id="BackgroundImage">
+					<source></source>
+					<target>Arka plan resmi</target>
+				</trans-unit>
+				<trans-unit id="CustomImage">
+					<source></source>
+					<target>Özel görüntü</target>
+				</trans-unit>
+				<trans-unit id="SettingsGeneralHeader">
+					<source></source>
+					<target>Genel ayarlar</target>
+				</trans-unit>
+				<trans-unit id="SettingsTheme">
+					<source></source>
+					<target>Modunuzu seçin</target>
+				</trans-unit>
+				<trans-unit id="SettingsThemeDescription">
+					<source></source>
+					<target>Ambie'de görünen renkleri değiştirme</target>
+				</trans-unit>
+				<trans-unit id="ShareMessage">
+					<source></source>
+					<target>Dinlediklerinizi paylaşın</target>
+				</trans-unit>
+				<trans-unit id="MissingShareSoundsMessage">
+					<source></source>
+					<target>Bakalım indirilebilecek mi?</target>
+				</trans-unit>
+				<trans-unit id="MissingShareSoundsTitle">
+					<source></source>
+					<target>Bazı sesleri kaçırıyorsun</target>
+				</trans-unit>
+				<trans-unit id="ReviewText">
+					<source></source>
+					<target>Eleştiri</target>
+				</trans-unit>
+				<trans-unit id="ShareText">
+					<source></source>
+					<target>Paylaş</target>
+				</trans-unit>
+				<trans-unit id="CopiedText">
+					<source></source>
+					<target>Kopyalandı!</target>
+				</trans-unit>
+				<trans-unit id="CopyText">
+					<source></source>
+					<target>Kopya</target>
+				</trans-unit>
+				<trans-unit id="OrText">
+					<source></source>
+					<target>Veya</target>
+				</trans-unit>
+				<trans-unit id="BuyDurableTooltip">
+					<source></source>
+					<target>Bu sesin kilidini aç</target>
+				</trans-unit>
+				<trans-unit id="PriceForLifetime">
+					<source></source>
+					<target>{0} ömür boyu</target>
+				</trans-unit>
+				<trans-unit id="CheckForUpdatesText">
+					<source></source>
+					<target>Güncellemeleri kontrol edin</target>
+				</trans-unit>
+				<trans-unit id="UpdatesPageMessage1">
+					<source></source>
+					<target>Seslerinize ve videolarınıza yönelik güncellemeler için burayı kontrol edin.</target>
+				</trans-unit>
+				<trans-unit id="UpdatesPageMessage2">
+					<source></source>
+					<target>Güncelleştirmeler çeviriler, ses kalitesi ve daha fazlasında iyileştirmeler içerir.</target>
+				</trans-unit>
+				<trans-unit id="UpdatesText">
+					<source></source>
+					<target>Güncelleştirmeler</target>
+				</trans-unit>
+				<trans-unit id="UpdateAllText">
+					<source></source>
+					<target>Tümünü güncelle</target>
+				</trans-unit>
+				<trans-unit id="DataVersionColon">
+					<source></source>
+					<target>Sürüm:</target>
+				</trans-unit>
+				<trans-unit id="FileVersionColon">
+					<source></source>
+					<target>Dosya sürümü:</target>
+				</trans-unit>
+				<trans-unit id="UpdatesPlaceholderText">
+					<source></source>
+					<target>Tamamen güncel. Her şey hazır.</target>
+				</trans-unit>
+				<trans-unit id="UpdateReasonFile">
+					<source></source>
+					<target>Oynatma kalitesini artırır</target>
+				</trans-unit>
+				<trans-unit id="UpdateReasonMetaData">
+					<source></source>
+					<target>Çevirileri ve diğer meta verileri geliştirir</target>
+				</trans-unit>
+				<trans-unit id="UpdateReasonMetaDataAndFile">
+					<source></source>
+					<target>Oynatma kalitesini, çevirileri ve diğer meta verileri iyileştirir</target>
+				</trans-unit>
+				<trans-unit id="InterruptionInsightsMessage">
+					<source></source>
+					<target>Gelecekteki kesintilerden kaçınmak için öğrenebileceğimiz bir şey var mı?</target>
+				</trans-unit>
+				<trans-unit id="RecentInterruptionsText">
+					<source></source>
+					<target>Son kesintiler</target>
+				</trans-unit>
+				<trans-unit id="InterruptionInsightsButtonText">
+					<source></source>
+					<target>Kesintilerle ilgili yardıma mı ihtiyacınız var?</target>
+				</trans-unit>
+				<trans-unit id="SettingsOutputDevice">
+					<source></source>
+					<target>Çıkış aygıtı</target>
+				</trans-unit>
+				<trans-unit id="SettingsOutputDeviceDescription">
+					<source></source>
+					<target>Sesin nerede çalınacağını seçme</target>
+				</trans-unit>
+				<trans-unit id="SettingsPlayAfterFocusDescription">
+					<source></source>
+					<target>Odaklanma oturumunuz sona erdikten sonra sesler çalmaya devam eder</target>
+				</trans-unit>
+				<trans-unit id="SettingsPlayAfterFocusHeader">
+					<source></source>
+					<target>Odaklandıktan sonra seslere devam etme</target>
+				</trans-unit>
+				<trans-unit id="RelaxText">
+					<source></source>
+					<target>Dinlenmek</target>
+				</trans-unit>
+				<trans-unit id="BackgroundSoundsText">
+					<source></source>
+					<target>Arka plan sesleri</target>
+				</trans-unit>
+				<trans-unit id="MeditatingText">
+					<source></source>
+					<target>Meditasyon</target>
+				</trans-unit>
+				<trans-unit id="AlwaysAskMeText">
+					<source></source>
+					<target>Her zaman bana sor</target>
+				</trans-unit>
+				<trans-unit id="PlayRandom">
+					<source></source>
+					<target>Rastgele ses çal</target>
+				</trans-unit>
+				<trans-unit id="NowPlayingText">
+					<source></source>
+					<target>Şu anda çalınıyor</target>
+				</trans-unit>
+				<trans-unit id="SearchPageHeader">
+					<source></source>
+					<target>"{0}" için sonuçlar</target>
+				</trans-unit>
+				<trans-unit id="SearchEmptyPlaceholderText">
+					<source></source>
+					<target>Oops! O sesi bulamadık. Gelecekte ekleyip ekleyemeyeceğimizi göreceğiz</target>
+				</trans-unit>
+				<trans-unit id="SearchText">
+					<source></source>
+					<target>Aramak</target>
+				</trans-unit>
+				<trans-unit id="QuickResumeTitle">
+					<source></source>
+					<target>Hızlı Devam</target>
+				</trans-unit>
+				<trans-unit id="QuickResumeToastMessage">
+					<source></source>
+					<target>Son ambiyansınıza devam edin</target>
+				</trans-unit>
+				<trans-unit id="QuickResumeDescription">
+					<source></source>
+					<target>PC'niz başladığında tek bir tıklama ile son ambiyansınıza devam edin</target>
+				</trans-unit>
+				<trans-unit id="HomePageDownloadMessage">
+					<source></source>
+					<target>Katalogdan daha fazla ses alın</target>
+				</trans-unit>
+				<trans-unit id="SkipThisSegment">
+					<source></source>
+					<target>Bu segmenti atla</target>
+				</trans-unit>
+				<trans-unit id="DayPlural">
+					<source></source>
+					<target>{0} gün</target>
+				</trans-unit>
+				<trans-unit id="DaySingular">
+					<source></source>
+					<target>1 gün</target>
+				</trans-unit>
+				<trans-unit id="StreakHeader">
+					<source></source>
+					<target>Serilerim</target>
+				</trans-unit>
+				<trans-unit id="StreakReminderMessage">
+					<source></source>
+					<target>Galibiyet serinizi canlı tutun!</target>
+				</trans-unit>
+				<trans-unit id="StreakReminderTitle">
+					<source></source>
+					<target>{0} günlük galibiyet serisi</target>
+				</trans-unit>
+				<trans-unit id="DayStreakPhrase">
+					<source></source>
+					<target>günlük serim</target>
+					<note priority="2" from="MultilingualBuild">A portion of a phrase that looks like '5-day streak'</note>
+				</trans-unit>
+				<trans-unit id="StreakHelpMessage">
+					<source></source>
+					<target>Her gün dinlemek serinizi artırır, ancak bir günü atlamak onu sıfırlar!</target>
+				</trans-unit>
+				<trans-unit id="SettingsStreakReminderDescription">
+					<source></source>
+					<target>Günlük serinizi aktif tutmanıza yardımcı olacak hatırlatıcılar alın</target>
+				</trans-unit>
+				<trans-unit id="SettingsStreakReminderHeader">
+					<source></source>
+					<target>Seri hatırlatıcıları</target>
+				</trans-unit>
+				<trans-unit id="SettingsBackgroundDescription">
+					<source></source>
+					<target>Pilden tasarruf etmenize yardımcı olmak için arka planınız şu anda devre dışı!</target>
+				</trans-unit>
+				<trans-unit id="AddNewTaskText">
+					<source></source>
+					<target>Yeni görev ekle</target>
+				</trans-unit>
+				<trans-unit id="CatalogueSubtitle">
+					<source></source>
+					<target>Yerleşik ses kataloğuna erişin. Bir sonraki favori müziğinizi buradan indirin.</target>
+				</trans-unit>
+				<trans-unit id="FocusSubtitle">
+					<source></source>
+					<target>Çalışıyor musunuz yoksa okuyor musunuz? Üretken olmanıza yardımcı olması için yenilikçi odak zamanlayıcımızı kullanın.</target>
+				</trans-unit>
+				<trans-unit id="HomeSubtitle">
+					<source></source>
+					<target>Yüklediğiniz sesleri görüntüleyin, 3 adede kadar ses çalın ve en sevdiğiniz kombinasyonu bulun.</target>
+				</trans-unit>
+				<trans-unit id="MeditateSubtitle">
+					<source></source>
+					<target>Rahatlamanıza veya sinirlerinizi yatıştırmanıza yardımcı olması için meditasyon rehberlerimizi kullanın.</target>
+				</trans-unit>
+				<trans-unit id="SettingsSubtitle">
+					<source></source>
+					<target>Ayarlarınızı buradan değiştirin.</target>
+				</trans-unit>
+				<trans-unit id="UpdatesSubtitle">
+					<source></source>
+					<target>Yüklediğiniz seslerin güncellemeleri için ara sıra burayı kontrol edin.</target>
+				</trans-unit>
+				<trans-unit id="AddTaskPlaceholder">
+					<source></source>
+					<target>Görev eklemek için + işaretine tıklayın</target>
+				</trans-unit>
+				<trans-unit id="ModifyText">
+					<source></source>
+					<target>Değiştir</target>
+				</trans-unit>
+				<trans-unit id="SettingsModifySubDescription">
+					<source></source>
+					<target>Aboneliğinizi güncelleme</target>
+				</trans-unit>
+				<trans-unit id="AppUpdateDescription">
+					<source></source>
+					<target>Yeni bir güncelleme mevcut! Güncelleştirmeyi uygulamak için şimdi yeniden başlatın.</target>
+				</trans-unit>
+				<trans-unit id="RestartText">
+					<source></source>
+					<target>Yeniden başlat</target>
+				</trans-unit>
+				<trans-unit id="SleepTimerDescription">
+					<source></source>
+					<target>Zamanlayıcı sona erdiğinde Ambie duraklayacaktır</target>
+				</trans-unit>
+				<trans-unit id="SleepTimerText">
+					<source></source>
+					<target>Uyku Zamanlayıcısı</target>
+				</trans-unit>
+				<trans-unit id="UnlockText">
+					<source></source>
+					<target>Kilidi aç</target>
+				</trans-unit>
+				<trans-unit id="AdjustSoundVolume">
+					<source></source>
+					<target>Ses seviyesini ayarla</target>
+				</trans-unit>
+				<trans-unit id="DownloadSounds">
+					<source></source>
+					<target>Sesleri indir</target>
+				</trans-unit>
+				<trans-unit id="DisplayMode">
+					<source></source>
+					<target>Dispaly modu</target>
+				</trans-unit>
+				<trans-unit id="DisplayModeDarkScreen">
+					<source></source>
+					<target>Karanlık ekran</target>
+				</trans-unit>
+				<trans-unit id="DisplayModeDarkScreenDescription">
+					<source></source>
+					<target>Uyumaya yardımcı olur</target>
+				</trans-unit>
+				<trans-unit id="DisplayModeSlideshow">
+					<source></source>
+					<target>Slayt gösterisi</target>
+				</trans-unit>
+				<trans-unit id="DisplayModeSlideshowDescription">
+					<source></source>
+					<target>Görsellerin döngüsü</target>
+				</trans-unit>
+				<trans-unit id="DisplayModeVideo">
+					<source></source>
+					<target>Videolar</target>
+				</trans-unit>
+				<trans-unit id="DisplayModeVideoDescription">
+					<source></source>
+					<target>Varsa videoları oynatır</target>
+				</trans-unit>
+				<trans-unit id="SettingsNotificationsSwitchHeader">
+					<source></source>
+					<target>Yeni sesler için bildirim</target>
+				</trans-unit>
+				<trans-unit id="SettingsTelemetrySwitchHeader">
+					<source></source>
+					<target>Telemetri</target>
+				</trans-unit>
+				<trans-unit id="DownloadingVideoMessage">
+					<source></source>
+					<target>Videonuz indiriliyor. Yakında hazır olacak.</target>
+				</trans-unit>
+				<trans-unit id="DownloadingText">
+					<source></source>
+					<target>İndiriyor</target>
+				</trans-unit>
+				<trans-unit id="UnlockVideoText">
+					<source></source>
+					<target>Videonun kilidini aç</target>
+				</trans-unit>
+				<trans-unit id="AvailableText">
+					<source></source>
+					<target>Mevcut</target>
+				</trans-unit>
+				<trans-unit id="IncludedText">
+					<source></source>
+					<target>Dahil</target>
+				</trans-unit>
+				<trans-unit id="SlideshowImagesText">
+					<source></source>
+					<target>Slayt gösterisi görselleri</target>
+				</trans-unit>
+				<trans-unit id="VideoBackgroundText">
+					<source></source>
+					<target>Video arka planı</target>
+				</trans-unit>
+				<trans-unit id="StartFreeTrialText">
+					<source></source>
+					<target>Ücretsiz deneme sürümünü başlatın</target>
+				</trans-unit>
+				<trans-unit id="SubWithTrialCaptionTemplate">
+					<source></source>
+					<target>{0} ücretsiz, sonra {1}</target>
+					<note priority="2" from="MultilingualBuild">E.g. 1 week free, then $1.49/month</note>
+				</trans-unit>
+				<trans-unit id="ContactUsText">
+					<source></source>
+					<target>Bize ulaşın</target>
+				</trans-unit>
+				<trans-unit id="FeedbackText">
+					<source></source>
+					<target>Geri bildirim</target>
+				</trans-unit>
+				<trans-unit id="SettingsFeedbackDescription">
+					<source></source>
+					<target>Geri bildiriminiz, sorularınız veya sorunlarınız varsa bizimle iletişime geçin</target>
+				</trans-unit>
+				<trans-unit id="FreeTrialTipDescription">
+					<source></source>
+					<target>Ücretsiz 7 gün Ambie+'ınızı alın</target>
+					<note priority="2" from="MultilingualUpdate">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+				</trans-unit>
+				<trans-unit id="FreeTrialTipTitle">
+					<source></source>
+					<target>Ücretsiz deneme sürümü mevcut</target>
+				</trans-unit>
+				<trans-unit id="OpenLastChannelText">
+					<source></source>
+					<target>Son kanalı aç</target>
+				</trans-unit>
+				<trans-unit id="ChannelsTitleText">
+					<source></source>
+					<target>Kanallar</target>
+				</trans-unit>
+				<trans-unit id="ChannelsSubtitle">
+					<source></source>
+					<target>Odaklanmanıza, çalışmanıza veya rahatlamanıza yardımcı olması için tam ekran videoları veya diğer görsel içerikleri görüntüleyin.</target>
+				</trans-unit>
+				<trans-unit id="ViewDetailsText">
+					<source></source>
+					<target>Ayrıntıları görüntüleme</target>
+				</trans-unit>
+				<trans-unit id="SettingsEnableClockHeader">
+					<source></source>
+					<target>Saati etkinleştir</target>
+				</trans-unit>
+				<trans-unit id="SettingsEnableClockSecondsHeader">
+					<source></source>
+					<target>Saatte saniyeleri göster</target>
+				</trans-unit>
+				<trans-unit id="SettingsEnableCountdownHeader">
+					<source></source>
+					<target>Geri sayım sayacını etkinleştir</target>
+				</trans-unit>
+			</group>
+		</body>
+	</file>
 </xliff>
