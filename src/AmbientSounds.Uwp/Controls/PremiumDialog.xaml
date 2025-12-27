@@ -201,29 +201,6 @@
                 Text="{x:Bind strings:Resources.OrText.ToLower()}"
                 TextAlignment="Center" />
 
-            <!--  annual button  -->
-            <Button
-                Grid.Row="2"
-                Height="54"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                AutomationProperties.Name="{x:Bind AnnualPriceContent.AutomationName, Mode=OneWay}"
-                Command="{x:Bind ViewModel.PurchaseAnnualCommand}"
-                Visibility="{x:Bind ViewModel.AnnualSubExperimentEnabled}">
-                <Grid>
-                    <local:PriceButtonContent
-                        x:Name="AnnualPriceContent"
-                        PriceInfo="{x:Bind ViewModel.AnnualPriceInfo, Mode=OneWay}"
-                        Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.AnnualButtonLoading), Mode=OneWay}" />
-                    <winui:ProgressRing
-                        Width="20"
-                        Height="20"
-                        Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
-                        IsActive="{x:Bind ViewModel.AnnualButtonLoading, Mode=OneWay}"
-                        Visibility="{x:Bind ViewModel.AnnualButtonLoading, Mode=OneWay}" />
-                </Grid>
-            </Button>
-
             <!--  lifetime button  -->
             <Button
                 Grid.Row="2"
@@ -233,17 +210,18 @@
                 Command="{x:Bind ViewModel.PurchaseLifetimeCommand}"
                 Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.AnnualSubExperimentEnabled)}">
                 <Grid>
-                    <StackPanel Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.LifetimeButtonLoading), Mode=OneWay}">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal"
+                        Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.LifetimeButtonLoading), Mode=OneWay}">
                         <TextBlock
+                            Margin="0,0,2,0"
                             FontSize="12"
-                            Text="{x:Bind ViewModel.LifetimePrice, Mode=OneWay}"
-                            TextAlignment="Center" />
-                        <TextBlock
-                            x:Name="TariffText"
-                            FontSize="10"
                             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                            Text="25% increase applied in response to US tariffs on Canadian goods"
-                            Visibility="Collapsed" />
+                            Text="{x:Bind ViewModel.StrikeThroughPrice, Mode=OneWay}"
+                            TextDecorations="Strikethrough"
+                            Visibility="{x:Bind ViewModel.IsLifetimeOnSale, Mode=OneWay}" />
+                        <TextBlock FontSize="12" Text="{x:Bind ViewModel.LifetimePrice, Mode=OneWay}" />
                     </StackPanel>
                     <winui:ProgressRing
                         Width="20"

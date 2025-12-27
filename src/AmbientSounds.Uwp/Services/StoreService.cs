@@ -111,6 +111,9 @@ public class StoreService : IIapService
 
         return new PriceInfo
         {
+            IsOnSale = addon.Price.IsOnSale,
+            SaleEndDateUtc = addon.Price.SaleEndDate.UtcDateTime,
+            FormattedBasePrice = addon.Price.FormattedBasePrice,
             FormattedPrice = isSub ? addon.Price.FormattedRecurrencePrice : addon.Price.FormattedPrice,
             IsSubscription = isSub,
             RecurrenceLength = (int)(sku?.SubscriptionInfo?.BillingPeriod ?? 0),
