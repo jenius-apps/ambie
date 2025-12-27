@@ -1,4 +1,6 @@
-﻿namespace AmbientSounds.Models;
+﻿using System;
+
+namespace AmbientSounds.Models;
 
 /// <summary>
 /// Class that holds price information.
@@ -9,6 +11,9 @@ public class PriceInfo
     /// The localized and formatted price of the product.
     /// E.g. $1.49.
     /// </summary>
+    /// <remarks>
+    /// If the product is on sale, this will be the sale price.
+    /// </remarks>
     public string FormattedPrice { get; init; } = string.Empty;
 
     /// <summary>
@@ -50,6 +55,21 @@ public class PriceInfo
     /// E.g. If it's a 1-week trial, then this property is <see cref="DurationUnit.Week"/>.
     /// </summary>
     public DurationUnit SubTrialLengthUnit { get; init; }
+
+    /// <summary>
+    /// Describes if the product is currently on sale.
+    /// </summary>
+    public bool IsOnSale { get; init; }
+
+    /// <summary>
+    /// The original price of the product, regardless of sales.
+    /// </summary>
+    public string FormattedBasePrice { get; init; } = string.Empty;
+
+    /// <summary>
+    /// The end date of the sale.
+    /// </summary>
+    public DateTime SaleEndDateUtc { get; init; }
 }
 
 public enum DurationUnit

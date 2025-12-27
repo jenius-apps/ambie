@@ -285,7 +285,7 @@
 
         <labs:SettingsExpander Margin="0,3,0,0" Header="{x:Bind strings:Resources.AboutAmbie}">
             <labs:SettingsExpander.Description>
-                <TextBlock Text="© Jenius Apps" />
+                <TextBlock Text="© Jenius Apps. Made in Canada." />
             </labs:SettingsExpander.Description>
             <labs:SettingsExpander.HeaderIcon>
                 <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/logo.png" />
@@ -299,11 +299,7 @@
                 <labs:SettingsCard>
                     <labs:SettingsCard.Header>
                         <StackPanel>
-                            <TextBlock DoubleTapped="OnDoubleTapped">
-                                <Run Text="🍁" />
-                                <Run x:Uid="HelloFromVancouver" />
-                            </TextBlock>
-
+                            <TextBlock x:Uid="HelloFromVancouver" DoubleTapped="OnDoubleTapped" />
                             <TextBlock
                                 Margin="0,4,0,0"
                                 FontSize="12"
