@@ -1,8 +1,8 @@
 ﻿using AmbientSounds.Constants;
-using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.Store;
 using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 using System;
@@ -121,7 +121,7 @@ public partial class PremiumControlViewModel : ObservableObject
 
     private async Task InitializeLifetimeAsync()
     {
-        if (LifetimePrice is { Length: > 0} || LifetimeButtonLoading || AnnualSubExperimentEnabled)
+        if (LifetimePrice is { Length: > 0 } || LifetimeButtonLoading || AnnualSubExperimentEnabled)
         {
             return;
         }
@@ -226,7 +226,7 @@ public partial class PremiumControlViewModel : ObservableObject
             { "iapid", iapId },
         });
 
-        var success = await _iapService.BuyAsync(iapId, latest: true, iapIdCacheOverride: IapConstants.MsStoreAmbiePlusId);
+        bool success = await _iapService.BuyAsync(iapId, latest: true, iapIdCacheOverride: IapConstants.MsStoreAmbiePlusId);
 
         if (success)
         {

@@ -811,7 +811,7 @@
       <Version>0.0.1</Version>
     </PackageReference>
     <PackageReference Include="JeniusApps.Common.Uwp">
-      <Version>0.0.54-preview</Version>
+      <Version>0.0.58-preview</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection">
       <Version>7.0.0</Version>
