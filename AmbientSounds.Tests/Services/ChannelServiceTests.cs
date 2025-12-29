@@ -2,6 +2,7 @@
 using AmbientSounds.Events;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
+using JeniusApps.Common.Store;
 using Moq;
 using System;
 using System.Collections.Generic;

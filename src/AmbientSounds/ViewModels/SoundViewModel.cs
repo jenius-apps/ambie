@@ -4,6 +4,7 @@ using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.Store;
 using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 using System;
@@ -183,7 +184,7 @@ public partial class SoundViewModel : ObservableObject
     private async Task UpdateIsLockVisibleAsync()
     {
         bool isPremium = _sound.IapIds.Count > 0
-            ? _sound.IsPremium && _sound.IapIds.ContainsAmbiePlus()
+            ? _sound.IsPremium && _iapService.ContainsSubscriptionPrefix(_sound.IapIds)
 #pragma warning disable CS0618
             : _sound.IsPremium && _sound.IapId == IapConstants.MsStoreAmbiePlusId; // backwards compatibility
 #pragma warning restore CS0618

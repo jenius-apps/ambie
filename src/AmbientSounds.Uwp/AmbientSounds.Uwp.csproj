@@ -315,7 +315,6 @@
     <Compile Include="Services\ImagePicker.cs" />
     <Compile Include="Services\PreviewService.cs" />
     <Compile Include="Services\ProtocolLaunchController.cs" />
-    <Compile Include="Services\StoreService.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\FileWriter.cs" />
     <Compile Include="Services\Navigator.cs" />
@@ -811,7 +810,7 @@
       <Version>0.0.1</Version>
     </PackageReference>
     <PackageReference Include="JeniusApps.Common.Uwp">
-      <Version>0.0.58-preview</Version>
+      <Version>0.0.59-preview</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection">
       <Version>7.0.0</Version>

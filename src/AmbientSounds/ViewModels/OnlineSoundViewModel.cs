@@ -3,6 +3,7 @@ using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.Store;
 using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 using System;
@@ -216,7 +217,7 @@ public partial class OnlineSoundViewModel : ObservableObject
     /// <summary>
     /// Determines if the plus badge is visible.
     /// </summary>
-    public bool PlusBadgeVisible => _sound.IsPremium && _sound.IapIds.ContainsAmbiePlus();
+    public bool PlusBadgeVisible => _sound.IsPremium && _iapService.ContainsSubscriptionPrefix(_sound.IapIds);
 
     /// <summary>
     /// True if download progress should be visible.
@@ -419,7 +420,7 @@ public partial class OnlineSoundViewModel : ObservableObject
         {
             // New IAP was just purchased, so we perform
             // a local check to see if the sound gets unlocked.
-            IsOwned = _sound.IapIds.Contains(newlyPurchasedIapId) || (newlyPurchasedIapId.ContainsAmbiePlus() && _sound.IapIds.ContainsAmbiePlus());
+            IsOwned = _sound.IapIds.Contains(newlyPurchasedIapId) || (_iapService.ContainsSubscriptionPrefix(newlyPurchasedIapId) && _iapService.ContainsSubscriptionPrefix(_sound.IapIds));
         }
         else
         {

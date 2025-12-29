@@ -13,6 +13,8 @@ using JeniusApps.Common.PushNotifications;
 using JeniusApps.Common.PushNotifications.Uwp;
 using JeniusApps.Common.Settings;
 using JeniusApps.Common.Settings.Uwp;
+using JeniusApps.Common.Store;
+using JeniusApps.Common.Store.Uwp;
 using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 using JeniusApps.Common.Tools.Uwp;
@@ -78,6 +80,13 @@ partial class App
             var connectionString = s.GetRequiredService<IAppSettings>().NotificationHubConnectionString;
             var queueName = s.GetRequiredService<IAppSettings>().NotificationHubName;
             return new AzureServiceBusPushNotificationStorage(connectionString, queueName);
+        });
+
+        collection.AddSingleton<IIapService, StoreService>(s =>
+        {
+            return new StoreService(
+                [IapConstants.MsStoreAmbiePlusId, IapConstants.MsStoreAmbiePlusAnnualId],
+                [IapConstants.MsStoreAmbiePlusLifetimeId]);
         });
 
         IServiceProvider provider = collection.BuildServiceProvider();
@@ -214,7 +223,6 @@ partial class App
     [Singleton(typeof(PlayerTelemetryTracker))]
     [Singleton(typeof(SoundEffectsService), typeof(ISoundEffectsService))]
     [Singleton(typeof(PreviewService), typeof(IPreviewService))]
-    [Singleton(typeof(StoreService), typeof(IIapService))]
     [Singleton(typeof(WindowsDownloadManager), typeof(IDownloadManager))]
     [Singleton(typeof(ScreensaverService), typeof(IScreensaverService))]
     [Singleton(typeof(SystemInfoProvider), typeof(ISystemInfoProvider))]

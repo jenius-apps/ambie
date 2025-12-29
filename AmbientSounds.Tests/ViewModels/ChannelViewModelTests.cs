@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
+using JeniusApps.Common.Store;
 using JeniusApps.Common.Telemetry;
 using Moq;
 using System.Threading.Tasks;
