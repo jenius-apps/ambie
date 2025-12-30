@@ -207,22 +207,39 @@
                 Height="54"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
+                HorizontalContentAlignment="Stretch"
                 Command="{x:Bind ViewModel.PurchaseLifetimeCommand}"
                 Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.AnnualSubExperimentEnabled)}">
                 <Grid>
-                    <StackPanel
-                        HorizontalAlignment="Center"
-                        Orientation="Horizontal"
-                        Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.LifetimeButtonLoading), Mode=OneWay}">
+                    <StackPanel HorizontalAlignment="Center" Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.LifetimeButtonLoading), Mode=OneWay}">
+                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                            <Border
+                                Margin="0,0,4,0"
+                                Background="Gold"
+                                CornerRadius="4"
+                                Visibility="{x:Bind ViewModel.LifetimePriceCaptionVisible, Mode=OneWay}">
+                                <TextBlock
+                                    Margin="4,2"
+                                    VerticalAlignment="Center"
+                                    FontSize="10"
+                                    FontWeight="Bold"
+                                    Foreground="Black"
+                                    Text="{x:Bind strings:Resources.SaleText.ToUpper()}" />
+                            </Border>
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                Text="{x:Bind ViewModel.LifetimePrice, Mode=OneWay}"
+                                TextAlignment="Center" />
+                        </StackPanel>
                         <TextBlock
-                            Margin="0,0,2,0"
+                            Margin="0,2,0,0"
                             FontSize="12"
-                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                            Text="{x:Bind ViewModel.StrikeThroughPrice, Mode=OneWay}"
-                            TextDecorations="Strikethrough"
-                            Visibility="{x:Bind ViewModel.IsLifetimeOnSale, Mode=OneWay}" />
-                        <TextBlock FontSize="12" Text="{x:Bind ViewModel.LifetimePrice, Mode=OneWay}" />
+                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                            Text="{x:Bind ViewModel.LifetimePriceCaption, Mode=OneWay}"
+                            TextAlignment="Center"
+                            Visibility="{x:Bind ViewModel.LifetimePriceCaptionVisible, Mode=OneWay}" />
                     </StackPanel>
+
                     <winui:ProgressRing
                         Width="20"
                         Height="20"

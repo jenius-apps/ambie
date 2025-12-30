@@ -1059,4 +1059,10 @@
   <data name="MoreSoundsTipTitle" xml:space="preserve">
     <value>混合搭配更多聲音</value>
   </data>
+  <data name="SaleCaption" xml:space="preserve">
+    <value>原價：{0}。結束：{1}。</value>
+  </data>
+  <data name="SaleText" xml:space="preserve">
+    <value>出售</value>
+  </data>
 </root>

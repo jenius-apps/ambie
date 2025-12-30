@@ -1044,4 +1044,10 @@
   <data name="MoreSoundsTipTitle" xml:space="preserve">
     <value>Μίξη και αντιστοίχιση περισσότερων ήχων</value>
   </data>
+  <data name="SaleCaption" xml:space="preserve">
+    <value>Αρχική τιμή: {0}. Λήξη: {1}.</value>
+  </data>
+  <data name="SaleText" xml:space="preserve">
+    <value>Έκπτωση</value>
+  </data>
 </root>

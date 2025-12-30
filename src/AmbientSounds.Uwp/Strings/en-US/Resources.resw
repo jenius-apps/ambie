@@ -1164,4 +1164,10 @@
   <data name="PremiumMessage" xml:space="preserve">
     <value>High quality sounds, premium videos, and curated meditations. Access to all future content. Play more than 3 sounds. Unlock it all with Ambie+, and find your next favourite ambience.</value>
   </data>
+  <data name="SaleCaption" xml:space="preserve">
+    <value>Original price: {0}. Ends: {1}.</value>
+  </data>
+  <data name="SaleText" xml:space="preserve">
+    <value>Sale</value>
+  </data>
 </root>

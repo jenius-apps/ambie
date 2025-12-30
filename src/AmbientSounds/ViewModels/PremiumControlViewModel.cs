@@ -2,6 +2,7 @@
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Humanizer;
 using JeniusApps.Common.Store;
 using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
@@ -51,8 +52,9 @@ public partial class PremiumControlViewModel : ObservableObject
 
     public string MonthlyPriceButtonAutomationName => MonthlyPriceInfo?.FormattedPrice ?? string.Empty;
 
-    [ObservableProperty]
-    private string _lifetimePrice = string.Empty;
+    public string LifetimePrice => LifetimePriceInfo?.FormattedPrice is { Length: > 0 } price
+        ? _localizer.GetString("PriceForLifetime", price)
+        : string.Empty;
 
     [ObservableProperty]
     private bool _buttonLoading;
@@ -79,15 +81,16 @@ public partial class PremiumControlViewModel : ObservableObject
     private PriceInfo? _monthlyPriceInfo;
 
     [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(IsLifetimeOnSale))]
-    [NotifyPropertyChangedFor(nameof(StrikeThroughPrice))]
+    [NotifyPropertyChangedFor(nameof(LifetimePrice))]
+    [NotifyPropertyChangedFor(nameof(LifetimePriceCaption))]
+    [NotifyPropertyChangedFor(nameof(LifetimePriceCaptionVisible))]
     private PriceInfo? _lifetimePriceInfo;
 
-    public bool IsLifetimeOnSale => LifetimePriceInfo?.IsOnSale ?? false;
-
-    public string StrikeThroughPrice => LifetimePriceInfo?.IsOnSale is true
-        ? LifetimePriceInfo.FormattedBasePrice
+    public string LifetimePriceCaption => LifetimePriceInfo?.IsOnSale is true
+        ? _localizer.FormatString("SaleCaption", LifetimePriceInfo.FormattedBasePrice, LifetimePriceInfo.SaleEndDateUtc.ToLocalTime().Humanize())
         : string.Empty;
+
+    public bool LifetimePriceCaptionVisible => !string.IsNullOrEmpty(LifetimePriceCaption);
 
     [ObservableProperty]
     private string _promoCodeInput = string.Empty;
@@ -116,6 +119,18 @@ public partial class PremiumControlViewModel : ObservableObject
 
         ButtonLoading = true;
         MonthlyPriceInfo = await _iapService.GetLatestPriceAsync(IapConstants.MsStoreAmbiePlusId);
+#if DEBUG
+        MonthlyPriceInfo = new PriceInfo
+        {
+            FormattedPrice = "$1.50",
+            HasSubTrial = true,
+            IsSubscription = true,
+            SubTrialLength = 1,
+            SubTrialLengthUnit = DurationUnit.Week,
+            RecurrenceLength = 1,
+            RecurrenceUnit = DurationUnit.Month
+        };
+#endif
         ButtonLoading = false;
     }
 
@@ -128,7 +143,15 @@ public partial class PremiumControlViewModel : ObservableObject
 
         LifetimeButtonLoading = true;
         LifetimePriceInfo = await _iapService.GetLatestPriceAsync(IapConstants.MsStoreAmbiePlusLifetimeId);
-        LifetimePrice = _localizer.GetString("PriceForLifetime", LifetimePriceInfo.FormattedPrice);
+#if DEBUG
+        LifetimePriceInfo = new PriceInfo
+        {
+            SaleEndDateUtc = DateTime.UtcNow.AddDays(7),
+            IsOnSale = true,
+            FormattedPrice = "$10.00",
+            FormattedBasePrice = "$15.00"
+        };
+#endif
         LifetimeButtonLoading = false;
     }
 

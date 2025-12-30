@@ -1056,4 +1056,10 @@
   <data name="MoreSoundsTipTitle" xml:space="preserve">
     <value>Amestecați și potriviți mai multe sunete</value>
   </data>
+  <data name="SaleCaption" xml:space="preserve">
+    <value>Preț original: {0}. Finaluri: {1}.</value>
+  </data>
+  <data name="SaleText" xml:space="preserve">
+    <value>Vânzare</value>
+  </data>
 </root>

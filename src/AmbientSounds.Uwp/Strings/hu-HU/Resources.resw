@@ -535,6 +535,9 @@
   <data name="InterruptionMinutesTitle" xml:space="preserve">
     <value>Félbeszakadt percek</value>
   </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Jegyzetek</value>
+  </data>
   <data name="InterruptionMinutesHelpMessage" xml:space="preserve">
     <value>Félbeszakított valami? Itt követheti nyomon a megszakításokat, így később áttekintheti őket az előzményekben.</value>
   </data>
@@ -1046,5 +1049,11 @@
   </data>
   <data name="MoreSoundsTipTitle" xml:space="preserve">
     <value>Keverjen és illesszen össze több hangot</value>
+  </data>
+  <data name="SaleCaption" xml:space="preserve">
+    <value>Eredeti ár: {0}. Vége: {1}.</value>
+  </data>
+  <data name="SaleText" xml:space="preserve">
+    <value>Eladás</value>
   </data>
 </root>

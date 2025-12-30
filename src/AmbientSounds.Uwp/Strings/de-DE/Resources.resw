@@ -903,6 +903,9 @@
   <data name="ContactUsText" xml:space="preserve">
     <value>Kontaktieren Sie uns</value>
   </data>
+  <data name="FeedbackText" xml:space="preserve">
+    <value>Rückmeldungen</value>
+  </data>
   <data name="SettingsFeedbackDescription" xml:space="preserve">
     <value>Kontaktieren Sie uns, wenn Sie Feedback, Fragen oder Probleme haben</value>
   </data>
@@ -1049,5 +1052,11 @@
   </data>
   <data name="MoreSoundsTipTitle" xml:space="preserve">
     <value>Mixe und kombiniere mehr Sounds</value>
+  </data>
+  <data name="SaleCaption" xml:space="preserve">
+    <value>Ursprünglicher Preis: {0}. Ende: {1}.</value>
+  </data>
+  <data name="SaleText" xml:space="preserve">
+    <value>Ausverkauf</value>
   </data>
 </root>

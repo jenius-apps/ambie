@@ -392,7 +392,7 @@
         </trans-unit>
         <trans-unit id="Attribution" translate="yes" xml:space="preserve">
           <source>Attribution</source>
-          <target state="new">Attribution</target>
+          <target state="translated">Atıf</target>
         </trans-unit>
         <trans-unit id="Name" translate="yes" xml:space="preserve">
           <source>Name</source>
@@ -1412,6 +1412,14 @@
         <trans-unit id="MoreSoundsTipTitle" translate="yes" xml:space="preserve">
           <source>Mix and match more sounds</source>
           <target state="translated">Daha fazla sesi karıştırın ve eşleştirin</target>
+        </trans-unit>
+        <trans-unit id="SaleCaption" translate="yes" xml:space="preserve">
+          <source>Original price: {0}. Ends: {1}.</source>
+          <target state="translated">Orijinal fiyat: {0}. Son: {1}.</target>
+        </trans-unit>
+        <trans-unit id="SaleText" translate="yes" xml:space="preserve">
+          <source>Sale</source>
+          <target state="translated">Satış</target>
         </trans-unit>
       </group>
     </body>

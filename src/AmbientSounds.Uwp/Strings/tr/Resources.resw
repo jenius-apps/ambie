@@ -291,6 +291,9 @@
   <data name="BrowseText" xml:space="preserve">
     <value>Göz at</value>
   </data>
+  <data name="Attribution" xml:space="preserve">
+    <value>Atıf</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>İsim</value>
   </data>
@@ -1052,5 +1055,11 @@
   </data>
   <data name="MoreSoundsTipTitle" xml:space="preserve">
     <value>Daha fazla sesi karıştırın ve eşleştirin</value>
+  </data>
+  <data name="SaleCaption" xml:space="preserve">
+    <value>Orijinal fiyat: {0}. Son: {1}.</value>
+  </data>
+  <data name="SaleText" xml:space="preserve">
+    <value>Satış</value>
   </data>
 </root>
