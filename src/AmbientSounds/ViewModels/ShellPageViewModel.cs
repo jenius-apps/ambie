@@ -133,6 +133,9 @@ public partial class ShellPageViewModel : BaseShellPageViewModel
     [ObservableProperty]
     private bool _updateButtonVisible;
 
+    [ObservableProperty]
+    private bool _isSaleTagVisible;
+
     public ObservableCollection<MenuItem> MenuItems { get; } = [];
 
     public ObservableCollection<MenuItem> FooterItems { get; } = [];
@@ -324,6 +327,11 @@ public partial class ShellPageViewModel : BaseShellPageViewModel
         // This is the first time the desktop shell learns of the user's premium state.
         // Update this state in settings.
         _ = UpdateLastKnownPremiumStateAsync(PremiumButtonVisible);
+
+        if (PremiumButtonVisible)
+        {
+            IsSaleTagVisible = await _iapService.GetLatestPriceAsync(IapConstants.MsStoreAmbiePlusLifetimeId) is { IsOnSale: true };
+        }
     }
 
     private async void OnProductPurchased(object sender, string iapId)

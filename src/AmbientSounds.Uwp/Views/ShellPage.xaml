@@ -315,9 +315,9 @@
                                     FontFamily="{StaticResource FluentUIGlyphsCustom}"
                                     Glyph="{StaticResource GlyphCustomPremium}"
                                     Visibility="Collapsed" />
-                                <TextBlock
+                                <StackPanel
                                     x:Name="PremiumText"
-                                    Text="{x:Bind strings:Resources.GetAmbiePlus}"
+                                    Orientation="Horizontal"
                                     Visibility="Visible">
                                     <animations:Implicit.ShowAnimations>
                                         <animations:OpacityAnimation
@@ -325,7 +325,23 @@
                                             To="1"
                                             Duration="0:0:0.6" />
                                     </animations:Implicit.ShowAnimations>
-                                </TextBlock>
+                                    <TextBlock VerticalAlignment="Center" Text="{x:Bind strings:Resources.GetAmbiePlus}" />
+                                    <Border
+                                        Margin="4,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Background="Gold"
+                                        CornerRadius="4"
+                                        Visibility="{x:Bind ViewModel.IsSaleTagVisible, Mode=OneWay}">
+                                        <TextBlock
+                                            Margin="4,2"
+                                            VerticalAlignment="Center"
+                                            FontSize="10"
+                                            FontWeight="Bold"
+                                            Foreground="Black"
+                                            Text="{x:Bind strings:Resources.SaleText.ToUpper()}" />
+                                    </Border>
+
+                                </StackPanel>
                             </StackPanel>
                         </HyperlinkButton>
 
