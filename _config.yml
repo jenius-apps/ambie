@@ -14,6 +14,8 @@ app_icon                                  : assets/appicon.png                  
 app_name                                  : Ambie White Noise                                          # Automatically populates if not set and if iOS app ID is set.  Otherwise enter manually.
 app_price                                 : Free                                          # Automatically populates if not set and if iOS app ID is set.  Otherwise enter manually.
 app_description                           : Focus, study, or relax. Sounds for every mood.
+                                            New Year SALE! 25% Off Ambie+ Lifetime Subscription at Purchase
+                                            Sale ends January 31st, 2026
 
 enable_smart_app_banner                   : false                                      # Set to true to show a smart app banner at top of page on mobile devices.
 
