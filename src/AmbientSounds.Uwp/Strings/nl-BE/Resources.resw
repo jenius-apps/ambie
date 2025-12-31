@@ -954,6 +954,9 @@
   <data name="StatsSubtitle" xml:space="preserve">
     <value>Bekijk uw gebruiksstatistieken in Ambie</value>
   </data>
+  <data name="StatsTitleText" xml:space="preserve">
+    <value>Statistieken</value>
+  </data>
   <data name="OsNotificationHelpMessage" xml:space="preserve">
     <value>Zorg ervoor dat Windows-meldingen zijn ingeschakeld voor Ambie</value>
   </data>
@@ -1025,5 +1028,11 @@
   </data>
   <data name="MoreSoundsTipTitle" xml:space="preserve">
     <value>Mix en match meer geluiden</value>
+  </data>
+  <data name="SaleCaption" xml:space="preserve">
+    <value>Oorspronkelijke prijs: {0}. Eind: {1}.</value>
+  </data>
+  <data name="SaleText" xml:space="preserve">
+    <value>Verkoop</value>
   </data>
 </root>

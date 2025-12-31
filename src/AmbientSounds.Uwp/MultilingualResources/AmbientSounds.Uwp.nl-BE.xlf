@@ -1306,7 +1306,7 @@
         </trans-unit>
         <trans-unit id="StatsTitleText" translate="yes" xml:space="preserve">
           <source>Stats</source>
-          <target state="new">Stats</target>
+          <target state="translated">Statistieken</target>
         </trans-unit>
         <trans-unit id="OsNotificationHelpMessage" translate="yes" xml:space="preserve">
           <source>Ensure Windows notifications are enabled for Ambie</source>
@@ -1407,6 +1407,14 @@
         <trans-unit id="MoreSoundsTipTitle" translate="yes" xml:space="preserve">
           <source>Mix and match more sounds</source>
           <target state="translated">Mix en match meer geluiden</target>
+        </trans-unit>
+        <trans-unit id="SaleCaption" translate="yes" xml:space="preserve">
+          <source>Original price: {0}. Ends: {1}.</source>
+          <target state="translated">Oorspronkelijke prijs: {0}. Eind: {1}.</target>
+        </trans-unit>
+        <trans-unit id="SaleText" translate="yes" xml:space="preserve">
+          <source>Sale</source>
+          <target state="translated">Verkoop</target>
         </trans-unit>
       </group>
     </body>

@@ -863,6 +863,9 @@
   <data name="DisplayModeSlideshowDescription" xml:space="preserve">
     <value>Carrusel de imágenes</value>
   </data>
+  <data name="DisplayModeVideo" xml:space="preserve">
+    <value>Vídeos</value>
+  </data>
   <data name="DisplayModeVideoDescription" xml:space="preserve">
     <value>Reproduce vídeos, si están disponibles</value>
   </data>
@@ -1055,5 +1058,11 @@
   </data>
   <data name="MoreSoundsTipTitle" xml:space="preserve">
     <value>Mezcla y combina más sonidos</value>
+  </data>
+  <data name="SaleCaption" xml:space="preserve">
+    <value>Precio original: {0}. Fins: {1}.</value>
+  </data>
+  <data name="SaleText" xml:space="preserve">
+    <value>Venta</value>
   </data>
 </root>

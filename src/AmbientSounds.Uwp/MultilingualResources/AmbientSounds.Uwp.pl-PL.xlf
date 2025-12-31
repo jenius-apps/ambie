@@ -1404,6 +1404,14 @@
           <source>Mix and match more sounds</source>
           <target state="translated">Miksuj i dopasowuj więcej dźwięków</target>
         </trans-unit>
+        <trans-unit id="SaleCaption" translate="yes" xml:space="preserve">
+          <source>Original price: {0}. Ends: {1}.</source>
+          <target state="translated">Cena oryginalna: {0}. Zakończenie: {1}.</target>
+        </trans-unit>
+        <trans-unit id="SaleText" translate="yes" xml:space="preserve">
+          <source>Sale</source>
+          <target state="translated">Sprzedaż</target>
+        </trans-unit>
       </group>
     </body>
   </file>

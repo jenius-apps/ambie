@@ -1047,4 +1047,10 @@
   <data name="MoreSoundsTipTitle" xml:space="preserve">
     <value>Miješajte i spajajte više zvukova</value>
   </data>
+  <data name="SaleCaption" xml:space="preserve">
+    <value>Izvorna cijena: {0}. Kraj: {1}.</value>
+  </data>
+  <data name="SaleText" xml:space="preserve">
+    <value>Prodaja</value>
+  </data>
 </root>

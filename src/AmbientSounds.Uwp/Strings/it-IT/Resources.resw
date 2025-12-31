@@ -1059,4 +1059,10 @@
   <data name="MoreSoundsTipTitle" xml:space="preserve">
     <value>Mescola e abbina più suoni</value>
   </data>
+  <data name="SaleCaption" xml:space="preserve">
+    <value>Prezzo originale: {0}. Fine: {1}.</value>
+  </data>
+  <data name="SaleText" xml:space="preserve">
+    <value>Vendita</value>
+  </data>
 </root>

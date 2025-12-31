@@ -1402,6 +1402,14 @@
           <source>Mix and match more sounds</source>
           <target state="translated">混合搭配更多聲音</target>
         </trans-unit>
+        <trans-unit id="SaleCaption" translate="yes" xml:space="preserve">
+          <source>Original price: {0}. Ends: {1}.</source>
+          <target state="translated">原價：{0}。結束：{1}。</target>
+        </trans-unit>
+        <trans-unit id="SaleText" translate="yes" xml:space="preserve">
+          <source>Sale</source>
+          <target state="translated">出售</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -1059,4 +1059,10 @@
   <data name="MoreSoundsTipTitle" xml:space="preserve">
     <value>Kombinujte více zvuků</value>
   </data>
+  <data name="SaleCaption" xml:space="preserve">
+    <value>Původní cena: {0}. Konce: {1}.</value>
+  </data>
+  <data name="SaleText" xml:space="preserve">
+    <value>Prodej</value>
+  </data>
 </root>
