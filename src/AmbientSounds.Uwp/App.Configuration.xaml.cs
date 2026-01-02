@@ -86,7 +86,11 @@ partial class App
         {
             return new StoreService(
                 [IapConstants.MsStoreAmbiePlusId, IapConstants.MsStoreAmbiePlusAnnualId],
-                [IapConstants.MsStoreAmbiePlusLifetimeId]);
+                [IapConstants.MsStoreAmbiePlusLifetimeId]
+                #if DEBUG
+                , debugAllOwned: true
+                #endif
+                );
         });
 
         IServiceProvider provider = collection.BuildServiceProvider();
