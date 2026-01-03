@@ -4,6 +4,8 @@ using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.System;
+using JeniusApps.Common.Telemetry;
+using AmbientSounds.Constants;
 
 #nullable enable
 
@@ -91,6 +93,7 @@ public sealed partial class PlayerControl : UserControl
         {
             args.Handled = true;
             await ViewModel.TogglePlayStateCommand.ExecuteAsync(null);
+            App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.PlaybackToggledByKeyboardShortcut);
         }
     }
 }
