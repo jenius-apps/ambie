@@ -179,12 +179,17 @@ public class FocusService : IFocusService
 
         if (pauseSounds)
         {
-            _mixMediaPlayerService.Pause();
+            _mixMediaPlayerService.Pause(fadeOut: false);
         }
+
+        // TODO issue is caused by concurrency when the pause is happening above with fadeout (previous code)
+        // while also applying volume changes to all players below. Both are dealing working on fades, hence the bug.
+        // As a stop gap, the above is no longer using fade. But it leads to lack of fade entrance on the next session. Feels like a bandaid fix
+        // I think proper fix is to apply concurrency handling when changing volumes.
 
         // Need to reset to the previous volume so that 
         // if the user starts focusing again, the volume isn't 0.
-        if (_mixMediaPlayerService.GlobalVolume == 0)
+        if (_mixMediaPlayerService.GlobalVolume == MixMediaPlayerService.EffectiveMuteVolume)
         {
             _mixMediaPlayerService.GlobalVolume = _previousGlobalVolume;
         }
@@ -280,6 +285,13 @@ public class FocusService : IFocusService
         {
             PauseTimer();
         }
+    }
+
+    public void SetPreviousGlobalVolume(double previousGlobalVolume)
+    {
+        // Only used for unit tests.
+
+        _previousGlobalVolume = previousGlobalVolume;
     }
 }
 
