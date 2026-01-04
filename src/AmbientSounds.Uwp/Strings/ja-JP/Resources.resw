@@ -1065,4 +1065,10 @@
   <data name="SaleText" xml:space="preserve">
     <value>売却</value>
   </data>
+  <data name="SoundsPlayingPlural" xml:space="preserve">
+    <value>{0}音が流れている</value>
+  </data>
+  <data name="SoundsPlayingSingular" xml:space="preserve">
+    <value>1音が流れる</value>
+  </data>
 </root>

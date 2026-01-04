@@ -1413,6 +1413,14 @@
           <source>Sale</source>
           <target state="translated">Venta</target>
         </trans-unit>
+        <trans-unit id="SoundsPlayingPlural" translate="yes" xml:space="preserve">
+          <source>{0} sounds playing</source>
+          <target state="translated">{0} suena</target>
+        </trans-unit>
+        <trans-unit id="SoundsPlayingSingular" translate="yes" xml:space="preserve">
+          <source>1 sound playing</source>
+          <target state="translated">1 sonido de reproducción</target>
+        </trans-unit>
       </group>
     </body>
   </file>

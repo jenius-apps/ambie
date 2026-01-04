@@ -1050,4 +1050,10 @@
   <data name="SaleText" xml:space="preserve">
     <value>Έκπτωση</value>
   </data>
+  <data name="SoundsPlayingPlural" xml:space="preserve">
+    <value>{0} ακούγεται η αναπαραγωγή</value>
+  </data>
+  <data name="SoundsPlayingSingular" xml:space="preserve">
+    <value>1 αναπαραγωγή ήχου</value>
+  </data>
 </root>

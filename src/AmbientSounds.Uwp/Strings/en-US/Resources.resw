@@ -1170,4 +1170,10 @@
   <data name="SaleText" xml:space="preserve">
     <value>Sale</value>
   </data>
+  <data name="SoundsPlayingPlural" xml:space="preserve">
+    <value>{0} sounds playing</value>
+  </data>
+  <data name="SoundsPlayingSingular" xml:space="preserve">
+    <value>1 sound playing</value>
+  </data>
 </root>

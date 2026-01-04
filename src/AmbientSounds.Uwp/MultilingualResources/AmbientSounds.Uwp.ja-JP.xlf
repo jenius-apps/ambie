@@ -1407,6 +1407,14 @@
           <source>Sale</source>
           <target state="translated">売却</target>
         </trans-unit>
+        <trans-unit id="SoundsPlayingPlural" translate="yes" xml:space="preserve">
+          <source>{0} sounds playing</source>
+          <target state="translated">{0}音が流れている</target>
+        </trans-unit>
+        <trans-unit id="SoundsPlayingSingular" translate="yes" xml:space="preserve">
+          <source>1 sound playing</source>
+          <target state="translated">1音が流れる</target>
+        </trans-unit>
       </group>
     </body>
   </file>
