@@ -103,7 +103,7 @@ public interface IMixMediaPlayerService
     /// <summary>
     /// Pauses playback.
     /// </summary>
-    void Pause();
+    void Pause(bool fadeOut = true);
 
     /// <summary>
     /// Returns the sound ids currently paused or playing.

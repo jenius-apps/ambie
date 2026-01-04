@@ -12,11 +12,11 @@ namespace AmbientSounds.Services;
 
 public class MixMediaPlayerService : IMixMediaPlayerService
 {
+    public const double EffectiveMuteVolume = 0.000001d;
     private const double DefaultFadeInDurationMs = 1000;
     private const double DefaultFadeOutDurationMs = 300;
     private const int MaxFreeSoundCount = 3;
     private const int MaxPremiumSoundCount = 5;
-
     private readonly Dictionary<string, IMediaPlayer> _activePlayers = [];
     private readonly Dictionary<string, string> _soundNames = [];
     private readonly Dictionary<string, DateTimeOffset> _activeSoundDateTimes = [];
@@ -146,7 +146,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         if (value == 0d)
         {
             // prevent volume from being permanently zero.
-            value = 0.000001d;
+            value = EffectiveMuteVolume;
         }
 
         foreach (string soundId in _activePlayers.Keys)
@@ -413,12 +413,19 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         _lastAddedSoundIds = [];
     }
 
-    public void Pause()
+    public void Pause(bool fadeOut = true)
     {
         PlaybackState = MediaPlaybackState.Paused;
         foreach (var p in _activePlayers.Values)
         {
-            p.Pause(fadeDuration: DefaultFadeOutDurationMs);
+            if (fadeOut)
+            {
+                p.Pause(fadeDuration: DefaultFadeOutDurationMs);
+            }
+            else
+            {
+                p.Pause();
+            }
         }
         _featureSoundData?.Player.Pause(fadeDuration: DefaultFadeOutDurationMs);
     }
@@ -510,7 +517,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
                 _dispatcherQueue.TryEnqueue(Play);
                 break;
             case SystemMediaControlsButton.Pause:
-                _dispatcherQueue.TryEnqueue(Pause);
+                _dispatcherQueue.TryEnqueue(() => Pause());
                 break;
             default:
                 break;

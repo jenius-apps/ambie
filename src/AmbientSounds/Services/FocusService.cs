@@ -179,12 +179,12 @@ public class FocusService : IFocusService
 
         if (pauseSounds)
         {
-            _mixMediaPlayerService.Pause();
+            _mixMediaPlayerService.Pause(fadeOut: false);
         }
 
         // Need to reset to the previous volume so that 
         // if the user starts focusing again, the volume isn't 0.
-        if (_mixMediaPlayerService.GlobalVolume == 0)
+        if (_mixMediaPlayerService.GlobalVolume == MixMediaPlayerService.EffectiveMuteVolume)
         {
             _mixMediaPlayerService.GlobalVolume = _previousGlobalVolume;
         }
