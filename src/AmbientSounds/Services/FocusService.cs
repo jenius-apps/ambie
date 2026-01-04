@@ -281,6 +281,13 @@ public class FocusService : IFocusService
             PauseTimer();
         }
     }
+
+    public void SetPreviousGlobalVolume(double previousGlobalVolume)
+    {
+        // Only used for unit tests.
+
+        _previousGlobalVolume = previousGlobalVolume;
+    }
 }
 
 public enum FocusState
