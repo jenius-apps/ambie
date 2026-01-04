@@ -33,7 +33,7 @@ namespace AmbientSounds.Services
                 switch (command)
                 {
                     case "pause":
-                        _dispatcherQueue.TryEnqueue(_player.Pause);
+                        _dispatcherQueue.TryEnqueue(() => _player.Pause());
                         result = "Ok";
                         break;
                     case "resume":
