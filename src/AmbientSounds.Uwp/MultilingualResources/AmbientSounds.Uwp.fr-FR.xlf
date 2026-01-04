@@ -1420,6 +1420,14 @@
           <source>Sale</source>
           <target state="translated">Vente</target>
         </trans-unit>
+        <trans-unit id="SoundsPlayingPlural" translate="yes" xml:space="preserve">
+          <source>{0} sounds playing</source>
+          <target state="translated">{0} son en train de jouer</target>
+        </trans-unit>
+        <trans-unit id="SoundsPlayingSingular" translate="yes" xml:space="preserve">
+          <source>1 sound playing</source>
+          <target state="translated">1 son jouant</target>
+        </trans-unit>
       </group>
     </body>
   </file>

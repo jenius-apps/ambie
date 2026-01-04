@@ -1062,4 +1062,10 @@
   <data name="SaleText" xml:space="preserve">
     <value>Sprzedaż</value>
   </data>
+  <data name="SoundsPlayingPlural" xml:space="preserve">
+    <value>{0} dźwięki grają</value>
+  </data>
+  <data name="SoundsPlayingSingular" xml:space="preserve">
+    <value>Odtwarzanie 1 dźwięku</value>
+  </data>
 </root>

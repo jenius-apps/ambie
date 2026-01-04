@@ -76,6 +76,14 @@ public partial class ActiveTrackListViewModel : ObservableObject
     /// </summary>
     public bool IsPlaceholderVisible => ActiveTracks.Count == 0 && _loaded;
 
+    public string NowPlayingText => ActiveTracks.Count == 1
+        ? _localizer.GetString("SoundsPlayingSingular")
+        : _localizer.FormatString("SoundsPlayingPlural", ActiveTracks.Count.ToString());
+
+    public string NowPlayingCount => ActiveTracks.Count == 0
+        ? string.Empty
+        : ActiveTracks.Count.ToString();
+
     /// <summary>
     /// Loads prevoius state of the active track list.
     /// </summary>
@@ -146,6 +154,8 @@ public partial class ActiveTrackListViewModel : ObservableObject
         TrackListChanged?.Invoke(this, EventArgs.Empty);
         OnPropertyChanged(nameof(IsClearVisible));
         OnPropertyChanged(nameof(IsPlaceholderVisible));
+        OnPropertyChanged(nameof(NowPlayingText));
+        OnPropertyChanged(nameof(NowPlayingCount));
     }
 
     private void OnSoundRemoved(object sender, SoundPausedArgs args)

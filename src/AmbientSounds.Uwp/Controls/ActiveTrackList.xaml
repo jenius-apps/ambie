@@ -10,6 +10,7 @@
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
@@ -23,6 +24,7 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="NowPlayingText.Visibility" Value="Visible" />
+                        <Setter Target="NowPlayingCount.Visibility" Value="Collapsed" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -99,11 +101,12 @@
             </StackPanel>
         </Grid>
 
-        <HyperlinkButton
+        <winui:DropDownButton
             HorizontalAlignment="Center"
-            AutomationProperties.Name="{x:Bind strings:Resources.NowPlayingText}"
+            AutomationProperties.Name="{x:Bind ViewModel.NowPlayingText, Mode=OneWay}"
+            Background="Transparent"
+            BorderBrush="Transparent"
             Click="OnPlaylistClicked"
-            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
             Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ShowList), Mode=OneWay}">
             <StackPanel Orientation="Horizontal">
                 <FontIcon
@@ -111,10 +114,16 @@
                     FontSize="16"
                     Glyph="{StaticResource GlyphPlaylist}" />
                 <TextBlock
+                    x:Name="NowPlayingCount"
+                    Margin="8,0,0,0"
+                    FontSize="12"
+                    Text="{x:Bind ViewModel.NowPlayingCount, Mode=OneWay}"
+                    Visibility="Visible" />
+                <TextBlock
                     x:Name="NowPlayingText"
                     Margin="8,0,0,0"
                     FontSize="12"
-                    Text="{x:Bind strings:Resources.NowPlayingText}"
+                    Text="{x:Bind ViewModel.NowPlayingText, Mode=OneWay}"
                     Visibility="Collapsed" />
             </StackPanel>
 
@@ -193,6 +202,6 @@
                     </Grid>
                 </Flyout>
             </FlyoutBase.AttachedFlyout>
-        </HyperlinkButton>
+        </winui:DropDownButton>
     </Grid>
 </UserControl>

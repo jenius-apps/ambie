@@ -1410,6 +1410,14 @@
           <source>Sale</source>
           <target state="translated">出售</target>
         </trans-unit>
+        <trans-unit id="SoundsPlayingPlural" translate="yes" xml:space="preserve">
+          <source>{0} sounds playing</source>
+          <target state="translated">{0}声音响起</target>
+        </trans-unit>
+        <trans-unit id="SoundsPlayingSingular" translate="yes" xml:space="preserve">
+          <source>1 sound playing</source>
+          <target state="translated">1个声音播放中</target>
+        </trans-unit>
       </group>
     </body>
   </file>

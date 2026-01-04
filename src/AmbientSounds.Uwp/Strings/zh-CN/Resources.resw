@@ -1065,4 +1065,10 @@
   <data name="SaleText" xml:space="preserve">
     <value>出售</value>
   </data>
+  <data name="SoundsPlayingPlural" xml:space="preserve">
+    <value>{0}声音响起</value>
+  </data>
+  <data name="SoundsPlayingSingular" xml:space="preserve">
+    <value>1个声音播放中</value>
+  </data>
 </root>
