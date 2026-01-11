@@ -334,9 +334,12 @@ public partial class ShellPageViewModel : BaseShellPageViewModel
         }
     }
 
-    private async void OnProductPurchased(object sender, string iapId)
+    private void OnProductPurchased(object sender, string iapId)
     {
-        await UpdatePremiumButtonAsync();
+        _dispatcherQueue.TryEnqueue(async () =>
+        {
+            await UpdatePremiumButtonAsync();
+        });
     }
 
     [RelayCommand]
