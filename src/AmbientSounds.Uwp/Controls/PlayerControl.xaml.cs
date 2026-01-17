@@ -1,11 +1,7 @@
 ﻿using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
-using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.System;
-using JeniusApps.Common.Telemetry;
-using AmbientSounds.Constants;
 
 #nullable enable
 
@@ -42,6 +38,8 @@ public sealed partial class PlayerControl : UserControl
     {
         this.InitializeComponent();
         this.DataContext = App.Services.GetRequiredService<PlayerViewModel>();
+        this.Loaded += (_, _) => { ViewModel.Initialize(); };
+        this.Unloaded += (_, _) => { ViewModel.Dispose(); };
     }
 
     public PlayerViewModel ViewModel => (PlayerViewModel)this.DataContext;
@@ -69,31 +67,4 @@ public sealed partial class PlayerControl : UserControl
     private bool IsXbox(DisplayMode mode) => mode is DisplayMode.Xbox;
 
     private bool IsDefault(DisplayMode mode) => mode is DisplayMode.Default;
-
-    private void OnLoaded(object sender, RoutedEventArgs e)
-    {
-        ViewModel.Initialize();
-
-        var coreWindow = CoreWindow.GetForCurrentThread();
-        coreWindow.KeyDown += CoreWindow_KeyDown;
-    }
-
-    private void OnUnloaded(object sender, RoutedEventArgs e)
-    {
-        ViewModel.Dispose();
-
-        var coreWindow = CoreWindow.GetForCurrentThread();
-        coreWindow.KeyDown -= CoreWindow_KeyDown;
-    }
-
-    private async void CoreWindow_KeyDown(CoreWindow sender, KeyEventArgs args)
-    {
-        if (sender.GetKeyState(VirtualKey.Control) == CoreVirtualKeyStates.Down
-            && args.VirtualKey is VirtualKey.Space)
-        {
-            args.Handled = true;
-            await ViewModel.TogglePlayStateCommand.ExecuteAsync(null);
-            App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.PlaybackToggledByKeyboardShortcut);
-        }
-    }
 }

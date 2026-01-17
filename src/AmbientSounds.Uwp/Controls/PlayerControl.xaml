@@ -11,8 +11,6 @@
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     d:DesignHeight="300"
     d:DesignWidth="400"
-    Loaded="OnLoaded"
-    Unloaded="OnUnloaded"
     mc:Ignorable="d">
 
     <Grid>
@@ -61,7 +59,7 @@
             AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertPlayerButtonState(ViewModel.IsPaused), Mode=OneWay}"
             Command="{x:Bind ViewModel.TogglePlayStateCommand}"
             Style="{StaticResource SubtleIconButton}"
-            ToolTipService.ToolTip="{x:Bind converters:LocalizationConverter.GetPlayerButtonTooltip(ViewModel.IsPaused), Mode=OneWay}"
+            ToolTipService.ToolTip="{x:Bind converters:LocalizationConverter.ConvertPlayerButtonState(ViewModel.IsPaused), Mode=OneWay}"
             Visibility="{x:Bind PlayButtonVisible, Mode=OneWay}">
             <Grid>
                 <!--  play  -->
