@@ -30,12 +30,6 @@ namespace AmbientSounds.Converters
             return isPaused ? _loader.GetString("PlayerPlayText") : _loader.GetString("PlayerPauseText");
         }
 
-        public static string GetPlayerButtonTooltip(bool isPaused)
-        {
-            string buttonState = ConvertPlayerButtonState(isPaused);
-            return $"{buttonState} (Ctrl+Space)";
-        }
-
         public static string SoundStatus(bool isCurrentlyPlaying)
         {
             InitializeLoader();
