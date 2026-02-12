@@ -222,7 +222,8 @@ public partial class MeditatePageViewModel : ObservableObject
             await _guideService.DownloadAsync(guideVm.OnlineGuide, guideVm.DownloadProgress);
             _telemetry.TrackEvent(TelemetryConstants.GuideDownloaded, new Dictionary<string, string>
             {
-                { "name", guideVm.Name }
+                { "name", guideVm.Name },
+                { "guideId", guideVm.OnlineGuide.Id }
             });
         }
         catch (TaskCanceledException)

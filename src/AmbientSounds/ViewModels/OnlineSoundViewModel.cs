@@ -236,6 +236,7 @@ public partial class OnlineSoundViewModel : ObservableObject
         _telemetry.TrackEvent(TelemetryConstants.PreviewPlayed, new Dictionary<string, string>
         {
             { "name", _sound.Name },
+            { "soundId", _sound.Id },
             { "isOwned", IsOwned.ToString() },
         });
     }
@@ -375,7 +376,9 @@ public partial class OnlineSoundViewModel : ObservableObject
         {
             _telemetry.TrackEvent(TelemetryConstants.DownloadClicked, new Dictionary<string, string>
             {
-                { "name", _sound.Name }
+                { "name", _sound.Name },
+                { "soundId", _sound.Id },
+                { "isPremium", _sound.IsPremium.ToString().ToLower() }
             });
 
             return _downloadManager.QueueAndDownloadAsync(_sound, _downloadProgress);

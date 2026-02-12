@@ -1056,4 +1056,7 @@
   <data name="SoundsPlayingSingular" xml:space="preserve">
     <value>1 αναπαραγωγή ήχου</value>
   </data>
+  <data name="MadeInCanadaText" xml:space="preserve">
+    <value>Κατασκευάζεται στο Βανκούβερ του Καναδά</value>
+  </data>
 </root>

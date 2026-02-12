@@ -1071,4 +1071,7 @@
   <data name="SoundsPlayingSingular" xml:space="preserve">
     <value>1 zvuk hraje</value>
   </data>
+  <data name="MadeInCanadaText" xml:space="preserve">
+    <value>Vyrobeno ve Vancouveru, Kanada</value>
+  </data>
 </root>

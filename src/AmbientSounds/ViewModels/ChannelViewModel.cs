@@ -227,7 +227,9 @@ public partial class ChannelViewModel : ObservableObject
         await _channelService.QueueInstallChannelAsync(_channel, _downloadProgress);
         _telemetry.TrackEvent(TelemetryConstants.ChannelDownloadClicked, new Dictionary<string, string>
         {
-            { "name", _channel.Name }
+            { "name", _channel.Name },
+            { "channelId", _channel.Id },
+            { "isPremium", _channel.IsPremium.ToString() }
         });
     }
 

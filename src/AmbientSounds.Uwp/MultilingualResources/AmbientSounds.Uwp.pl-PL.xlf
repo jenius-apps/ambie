@@ -1420,6 +1420,10 @@
           <source>1 sound playing</source>
           <target state="translated">Odtwarzanie 1 dźwięku</target>
         </trans-unit>
+        <trans-unit id="MadeInCanadaText" translate="yes" xml:space="preserve">
+          <source>Made in Vancouver, Canada</source>
+          <target state="translated">Wyprodukowane w Vancouver, Kanada</target>
+        </trans-unit>
       </group>
     </body>
   </file>

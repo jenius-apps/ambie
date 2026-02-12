@@ -1059,4 +1059,7 @@
   <data name="SoundsPlayingSingular" xml:space="preserve">
     <value>1 zvuk svira</value>
   </data>
+  <data name="MadeInCanadaText" xml:space="preserve">
+    <value>Proizvedeno u Vancouveru, Kanada</value>
+  </data>
 </root>

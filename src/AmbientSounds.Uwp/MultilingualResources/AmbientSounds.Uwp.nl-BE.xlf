@@ -1424,6 +1424,10 @@
           <source>1 sound playing</source>
           <target state="translated">1 geluid speelt</target>
         </trans-unit>
+        <trans-unit id="MadeInCanadaText" translate="yes" xml:space="preserve">
+          <source>Made in Vancouver, Canada</source>
+          <target state="translated">Gemaakt in Vancouver, Canada</target>
+        </trans-unit>
       </group>
     </body>
   </file>

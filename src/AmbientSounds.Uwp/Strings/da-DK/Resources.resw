@@ -1068,4 +1068,7 @@
   <data name="SoundsPlayingSingular" xml:space="preserve">
     <value>1 lyd spiller</value>
   </data>
+  <data name="MadeInCanadaText" xml:space="preserve">
+    <value>Fremstillet i Vancouver, Canada</value>
+  </data>
 </root>

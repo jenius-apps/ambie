@@ -1418,6 +1418,10 @@
           <source>1 sound playing</source>
           <target state="translated">צליל אחד מתנגן</target>
         </trans-unit>
+        <trans-unit id="MadeInCanadaText" translate="yes" xml:space="preserve">
+          <source>Made in Vancouver, Canada</source>
+          <target state="translated">תוצרת ונקובר, קנדה</target>
+        </trans-unit>
       </group>
     </body>
   </file>

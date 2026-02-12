@@ -1068,4 +1068,7 @@
   <data name="SoundsPlayingSingular" xml:space="preserve">
     <value>Odtwarzanie 1 dźwięku</value>
   </data>
+  <data name="MadeInCanadaText" xml:space="preserve">
+    <value>Wyprodukowane w Vancouver, Kanada</value>
+  </data>
 </root>
