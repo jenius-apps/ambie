@@ -1418,6 +1418,10 @@
           <source>1 sound playing</source>
           <target state="translated">1个声音播放中</target>
         </trans-unit>
+        <trans-unit id="MadeInCanadaText" translate="yes" xml:space="preserve">
+          <source>Made in Vancouver, Canada</source>
+          <target state="translated">加拿大温哥华制造</target>
+        </trans-unit>
       </group>
     </body>
   </file>

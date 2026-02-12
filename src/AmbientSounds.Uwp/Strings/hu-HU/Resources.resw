@@ -1062,4 +1062,7 @@
   <data name="SoundsPlayingSingular" xml:space="preserve">
     <value>1 hang lejátszása</value>
   </data>
+  <data name="MadeInCanadaText" xml:space="preserve">
+    <value>Vancouverben, Kanadában készült</value>
+  </data>
 </root>

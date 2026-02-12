@@ -1041,4 +1041,7 @@
   <data name="SoundsPlayingSingular" xml:space="preserve">
     <value>1 geluid speelt</value>
   </data>
+  <data name="MadeInCanadaText" xml:space="preserve">
+    <value>Gemaakt in Vancouver, Canada</value>
+  </data>
 </root>
