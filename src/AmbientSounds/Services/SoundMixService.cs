@@ -33,11 +33,11 @@ public class SoundMixService : ISoundMixService
     }
 
     /// <inheritdoc/>
-    public async Task<string> SaveCurrentMixAsync(string name = "", IReadOnlyList<string>? tags = null)
+    public async Task<(string MixId, IReadOnlyList<string> SoundIdList)> SaveCurrentMixAsync(string name = "", IReadOnlyList<string>? tags = null)
     {
         if (!CanSaveCurrentMix())
         {
-            return string.Empty;
+            return (string.Empty, []);
         }
 
         string[] activeTracks = _player.GetSoundIds();
@@ -49,7 +49,7 @@ public class SoundMixService : ISoundMixService
             _player.SetMixId(id);
         }
 
-        return id;
+        return (id, sounds.OrderBy(x => x.Id).Select(x => x.Id).ToArray());
     }
 
     /// <inheritdoc/>

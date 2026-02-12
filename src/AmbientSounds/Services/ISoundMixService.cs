@@ -51,7 +51,7 @@ public interface ISoundMixService
     /// <param name="name">Optional name for the mix.</param>
     /// <param name="tags">A list of tags to save along with the mix.</param>
     /// <returns>The string Id of the new sound mix.</returns>
-    Task<string> SaveCurrentMixAsync(string name = "", IReadOnlyList<string>? tags = null);
+    Task<(string MixId, IReadOnlyList<string> SoundIdList)> SaveCurrentMixAsync(string name = "", IReadOnlyList<string>? tags = null);
 
     /// <summary>
     /// Returns true if the current mix can be saved.

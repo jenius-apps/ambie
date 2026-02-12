@@ -71,6 +71,12 @@ public class Channel : IAsset
     /// </summary>
     [JsonConverter(typeof(JsonStringEnumConverter<ChannelType>))]
     public ChannelType Type { get; set; }
+
+    /// <summary>
+    /// Returns true if the channel is locked behind IAPs.
+    /// </summary>
+    [JsonIgnore]
+    public bool IsPremium => IapIds.Count > 0;
 }
 
 /// <summary>

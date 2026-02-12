@@ -280,7 +280,8 @@ public partial class SoundViewModel : ObservableObject
 
         _telemetry.TrackEvent(TelemetryConstants.SoundClicked, new Dictionary<string, string>
         {
-            { "name", _sound.Name ?? "" },
+            { "name", _sound.Name },
+            { "soundId", _sound.Id },
             { "mix", IsMix.ToString() }
         });
     }

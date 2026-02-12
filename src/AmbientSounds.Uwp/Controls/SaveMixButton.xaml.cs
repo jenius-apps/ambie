@@ -2,7 +2,6 @@
 using AmbientSounds.Services;
 using JeniusApps.Common.Settings;
 using JeniusApps.Common.Telemetry;
-using JeniusApps.Common.Tools;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -71,15 +70,16 @@ public sealed partial class SaveMixButton : UserControl
     {
         string[] tags = ShowInRelaxPage ? [AssetTagConstants.MeditatePageTag] : [];
 
-        var id = await App.Services.GetRequiredService<ISoundMixService>().SaveCurrentMixAsync(input, tags: tags);
+        var (MixId, SoundIdList) = await App.Services.GetRequiredService<ISoundMixService>().SaveCurrentMixAsync(input, tags: tags);
 
-        if (!string.IsNullOrEmpty(id))
+        if (!string.IsNullOrEmpty(MixId))
         {
             MixSaved?.Invoke(this, EventArgs.Empty);
             App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.MixSaved, new Dictionary<string, string>
             {
                 { "invokedBy", telemtrySource },
-                { "mixTags", string.Join(',', tags) }
+                { "mixTags", string.Join(',', tags) },
+                { "soundIds", string.Join(',', SoundIdList) },
             });
         }
     }
