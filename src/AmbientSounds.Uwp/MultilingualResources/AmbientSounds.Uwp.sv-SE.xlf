@@ -47,11 +47,11 @@
         </trans-unit>
         <trans-unit id="MoreButtonContact.Label" translate="yes" xml:space="preserve">
           <source>Contact the creator</source>
-          <target state="translated">Kontakta skaparen</target>
+          <target state="translated">Kontakta utvecklaren</target>
         </trans-unit>
         <trans-unit id="RateUsText" translate="yes" xml:space="preserve">
           <source>Rate us</source>
-          <target state="translated">Gradera oss</target>
+          <target state="translated">Betygsätt oss</target>
         </trans-unit>
         <trans-unit id="MoreButtonSettings.Label" translate="yes" xml:space="preserve">
           <source>Settings</source>
@@ -99,7 +99,7 @@
         </trans-unit>
         <trans-unit id="SettingsText" translate="yes" xml:space="preserve">
           <source>Settings</source>
-          <target state="translated">Inställingnar</target>
+          <target state="translated">Inställningnar</target>
         </trans-unit>
         <trans-unit id="SleepTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View sleep timer options</source>
@@ -841,7 +841,7 @@
         </trans-unit>
         <trans-unit id="SettingsTheme" translate="yes" xml:space="preserve">
           <source>Choose your mode</source>
-          <target state="translated">Välj ditt läge</target>
+          <target state="translated">Välj tema</target>
         </trans-unit>
         <trans-unit id="SettingsThemeDescription" translate="yes" xml:space="preserve">
           <source>Change the colours that appear in Ambie</source>
@@ -1029,7 +1029,7 @@
         </trans-unit>
         <trans-unit id="StreakReminderMessage" translate="yes" xml:space="preserve">
           <source>Keep your streak alive!</source>
-          <target state="translated">Håll din streak vid liv!</target>
+          <target state="translated">Behåll din streak!</target>
         </trans-unit>
         <trans-unit id="StreakReminderTitle" translate="yes" xml:space="preserve">
           <source>{0}-day streak</source>
@@ -1050,7 +1050,7 @@
         </trans-unit>
         <trans-unit id="SettingsStreakReminderHeader" translate="yes" xml:space="preserve">
           <source>Streak reminders</source>
-          <target state="translated">Påminnelser om streck</target>
+          <target state="translated">Påminnelser om streak</target>
         </trans-unit>
         <trans-unit id="SettingsBackgroundDescription" translate="yes" xml:space="preserve">
           <source>Your background is currently disabled to help you save battery!</source>
