@@ -40,10 +40,10 @@
     <value>Kompakt läge</value>
   </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
-    <value>Kontakta skaparen</value>
+    <value>Kontakta utvecklaren</value>
   </data>
   <data name="RateUsText" xml:space="preserve">
-    <value>Gradera oss</value>
+    <value>Betygsätt oss</value>
   </data>
   <data name="MoreButtonSettings.Label" xml:space="preserve">
     <value>Inställningar</value>
@@ -79,7 +79,7 @@
     <value>Telemetri</value>
   </data>
   <data name="SettingsText" xml:space="preserve">
-    <value>Inställingnar</value>
+    <value>Inställningnar</value>
   </data>
   <data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Visa alternativ för sömntimer</value>
@@ -638,7 +638,7 @@
     <value>Allmänna inställningar</value>
   </data>
   <data name="SettingsTheme" xml:space="preserve">
-    <value>Välj ditt läge</value>
+    <value>Välj tema</value>
   </data>
   <data name="SettingsThemeDescription" xml:space="preserve">
     <value>Ändra färgerna som visas i Ambie</value>
@@ -779,7 +779,7 @@
     <value>Min streak</value>
   </data>
   <data name="StreakReminderMessage" xml:space="preserve">
-    <value>Håll din streak vid liv!</value>
+    <value>Behåll din streak!</value>
   </data>
   <data name="StreakReminderTitle" xml:space="preserve">
     <value>{0} dagars svit</value>
@@ -795,7 +795,7 @@
     <value>Få påminnelser som hjälper dig att hålla din dagliga streak aktiv</value>
   </data>
   <data name="SettingsStreakReminderHeader" xml:space="preserve">
-    <value>Påminnelser om streck</value>
+    <value>Påminnelser om streak</value>
   </data>
   <data name="SettingsBackgroundDescription" xml:space="preserve">
     <value>Din bakgrund är för närvarande inaktiverad för att hjälpa dig att spara batteri!</value>
