@@ -15,6 +15,7 @@ public sealed class PushNotificationRegistrationService : IPushNotificationRegis
     private readonly IUserSettings _userSettings;
     private readonly IPushNotificationService _pushNotificationService; // used in release mode
     private readonly string _culture; // used in release mode
+    private bool _hasUpdatedThisSession = false;
 
     public PushNotificationRegistrationService(
         IUserSettings userSettings,
@@ -29,6 +30,13 @@ public sealed class PushNotificationRegistrationService : IPushNotificationRegis
     /// <inheritdoc/>
     public async Task<bool> TryRegisterPushNotificationsAsync(CancellationToken cancellationToken = default)
     {
+        if (_hasUpdatedThisSession)
+        {
+            return false;
+        }
+
+        _hasUpdatedThisSession = true;
+
         if (!_userSettings.Get<bool>(UserSettingsConstants.Notifications) ||
             _userSettings.Get<string>(UserSettingsConstants.LocalUserIdKey) is not { Length: > 0 } id)
         {
