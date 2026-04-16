@@ -47,7 +47,7 @@ public class BackgroundTaskService : IBackgroundTaskService
                 Name = taskType.Name,
                 TaskEntryPoint = taskType.FullName
             };
-            builder.SetTrigger(new TimeTrigger(20160, false)); // 14 days = 20160 minutes 
+            builder.SetTrigger(new TimeTrigger(10080, false)); // 7 days = 10080 minutes 
             builder.AddCondition(new SystemCondition(SystemConditionType.InternetAvailable));
             builder.Register();
         }
