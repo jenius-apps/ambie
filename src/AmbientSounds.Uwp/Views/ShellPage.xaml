@@ -405,6 +405,13 @@
             IsOpen="{x:Bind ViewModel.IsRatingMessageVisible, Mode=OneWay}"
             PreferredPlacement="BottomRight"
             Subtitle="{x:Bind strings:Resources.RateUsMessage}" />
+        localize!
+        <winui:TeachingTip
+            Title="Update Successful"
+            CloseButtonContent="{x:Bind strings:Resources.Dismiss}"
+            IsOpen="True"
+            PreferredPlacement="BottomRight"
+            Subtitle="You're now on the latest version of Ambie!" />
 
         <winui:TeachingTip
             Title="{x:Bind strings:Resources.MissingShareSoundsTitle}"

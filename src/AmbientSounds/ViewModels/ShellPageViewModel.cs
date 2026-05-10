@@ -125,6 +125,9 @@ public partial class ShellPageViewModel : BaseShellPageViewModel
     private bool _isPremiumTeachingTipVisible;
 
     [ObservableProperty]
+    private bool _isUpdateSuccessfulTipVisible;
+
+    [ObservableProperty]
     private bool _premiumButtonVisible;
 
     [ObservableProperty]
@@ -203,7 +206,22 @@ public partial class ShellPageViewModel : BaseShellPageViewModel
         _shareService.ShareFailed += OnShareFailed;
 
         _ = CheckForUpdatesAsync();
+        TryShowUpdateSuccessfulTip();
         await LoadPremiumContentAsync();
+    }
+
+    private void TryShowUpdateSuccessfulTip()
+    {
+        if (_systemInfoProvider.IsFirstRun())
+        {
+            return;
+        }
+
+        // Get previous version
+
+        // Get current version
+
+        // If current version > previous, show tip.
     }
 
     private async Task CheckForUpdatesAsync()
