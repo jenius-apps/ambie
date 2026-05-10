@@ -14,7 +14,8 @@ public class ChannelVmFactory(IServiceProvider serviceProvider)
     public ChannelViewModel Create(
         Channel channel,
         IRelayCommand<ChannelViewModel>? viewDetailsCommand = null,
-        IRelayCommand<ChannelViewModel>? playCommand = null)
+        IRelayCommand<ChannelViewModel>? playCommand = null,
+        bool isNew = false)
     {
         return new ChannelViewModel(
             channel,
@@ -24,6 +25,7 @@ public class ChannelVmFactory(IServiceProvider serviceProvider)
             serviceProvider.GetRequiredService<IIapService>(),
             serviceProvider.GetRequiredService<ITelemetry>(),
             viewDetailsCommand,
-            playCommand);
+            playCommand,
+            isNew);
     }
 }
