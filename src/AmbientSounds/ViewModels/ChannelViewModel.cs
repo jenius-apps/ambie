@@ -14,7 +14,6 @@ namespace AmbientSounds.ViewModels;
 
 public partial class ChannelViewModel : ObservableObject
 {
-    private readonly Channel _channel;
     private readonly IAssetLocalizer _assetLocalizer;
     private readonly IChannelService _channelService;
     private readonly IDialogService _dialogService;
@@ -31,9 +30,10 @@ public partial class ChannelViewModel : ObservableObject
         IIapService iapService,
         ITelemetry telemetry,
         IRelayCommand<ChannelViewModel>? viewDetailsCommand = null,
-        IRelayCommand<ChannelViewModel>? playCommand = null)
+        IRelayCommand<ChannelViewModel>? playCommand = null,
+        bool isNew = false)
     {
-        _channel = channel;
+        Channel = channel;
         _assetLocalizer = assetLocalizer;
         _channelService = channelService;
         _dialogService = dialogService;
@@ -41,21 +41,22 @@ public partial class ChannelViewModel : ObservableObject
         _telemetry = telemetry;
         ViewDetailsCommand = viewDetailsCommand ?? new RelayCommand<ChannelViewModel>(static (vm) => { });
         PlayCommand = playCommand ?? new RelayCommand<ChannelViewModel>(static (vm) => { });
+        _isNew = isNew;
     }
 
-    public string Id => _channel.Id;
+    public string Id => Channel.Id;
 
-    public Channel Channel => _channel;
+    public Channel Channel { get; }
 
     public IRelayCommand<ChannelViewModel> ViewDetailsCommand { get; }
 
     public IRelayCommand<ChannelViewModel> PlayCommand { get; }
 
-    public string Name => _assetLocalizer.GetLocalName(_channel);
+    public string Name => $"{(IsNew ? "✨ " : "")}{_assetLocalizer.GetLocalName(Channel)}";
 
-    public string Description => _assetLocalizer.GetLocalDescription(_channel);
+    public string Description => _assetLocalizer.GetLocalDescription(Channel);
 
-    public string ImagePath => _channel.ImagePath;
+    public string ImagePath => Channel.ImagePath;
 
     public bool DownloadButtonVisible => !ActionButtonLoading && IsOwned && !IsFullyDownloaded;
 
@@ -63,9 +64,12 @@ public partial class ChannelViewModel : ObservableObject
 
     public bool BuyButtonVisible => !ActionButtonLoading && !IsOwned;
 
-    public bool DeleteButtonVisible => _channel.Type is ChannelType.Videos && IsFullyDownloaded;
+    public bool DeleteButtonVisible => Channel.Type is ChannelType.Videos && IsFullyDownloaded;
 
     public bool ScreensaverBackplateVisible => BuyButtonVisible || DownloadButtonVisible || DownloadProgressVisible || DownloadLoading;
+
+    [ObservableProperty]
+    private bool _isNew;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
@@ -167,15 +171,15 @@ public partial class ChannelViewModel : ObservableObject
         {
             _eventsRegistered = true;
             _iapService.ProductPurchased += OnProductPurchased;
-            _downloadProgress = _channelService.TryGetActiveProgress(_channel);
+            _downloadProgress = _channelService.TryGetActiveProgress(Channel);
             if (_downloadProgress is not null)
             {
                 _downloadProgress.ProgressChanged += OnProgressChanged;
             }
         }
 
-        var isOwnedTask = _channelService.IsOwnedAsync(_channel);
-        var isFullyDownloadedTask = _channelService.IsFullyDownloadedAsync(_channel);
+        var isOwnedTask = _channelService.IsOwnedAsync(Channel);
+        var isFullyDownloadedTask = _channelService.IsFullyDownloadedAsync(Channel);
 
         IsOwned = await isOwnedTask;
         IsFullyDownloaded = await isFullyDownloadedTask;
@@ -202,7 +206,7 @@ public partial class ChannelViewModel : ObservableObject
         ActionButtonLoading = true;
         _telemetry.TrackEvent(TelemetryConstants.ChannelUnlockClicked, new Dictionary<string, string>
         {
-            { "name", _channel.Name }
+            { "name", Channel.Name }
         });
 
         await _dialogService.OpenPremiumAsync();
@@ -224,12 +228,12 @@ public partial class ChannelViewModel : ObservableObject
         DownloadLoading = true;
         ViewDetailsCommand.Execute(this);
         await Task.Delay(600);
-        await _channelService.QueueInstallChannelAsync(_channel, _downloadProgress);
+        await _channelService.QueueInstallChannelAsync(Channel, _downloadProgress);
         _telemetry.TrackEvent(TelemetryConstants.ChannelDownloadClicked, new Dictionary<string, string>
         {
-            { "name", _channel.Name },
-            { "channelId", _channel.Id },
-            { "isPremium", _channel.IsPremium.ToString() }
+            { "name", Channel.Name },
+            { "channelId", Channel.Id },
+            { "isPremium", Channel.IsPremium.ToString() }
         });
     }
 
@@ -237,8 +241,8 @@ public partial class ChannelViewModel : ObservableObject
     private async Task DeleteAsync()
     {
         ActionButtonLoading = true;
-        await _channelService.DeleteChannelAsync(_channel);
-        IsFullyDownloaded = await _channelService.IsFullyDownloadedAsync(_channel);
+        await _channelService.DeleteChannelAsync(Channel);
+        IsFullyDownloaded = await _channelService.IsFullyDownloadedAsync(Channel);
         await Task.Delay(300); // Delay to improve UX
         ActionButtonLoading = false;
     }
@@ -273,7 +277,7 @@ public partial class ChannelViewModel : ObservableObject
 
     private void OnProductPurchased(object sender, string iapId)
     {
-        if (_channel.IapIds.Contains(iapId))
+        if (Channel.IapIds.Contains(iapId))
         {
             IsOwned = true;
         }

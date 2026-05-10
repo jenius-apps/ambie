@@ -1,10 +1,13 @@
 ﻿using AmbientSounds.Services;
 using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Diagnostics.CodeAnalysis;
+using System.Web;
 
 namespace AmbientSounds.Constants;
 
-public class LaunchConstants
+public static class LaunchConstants
 {
     public const string QuickResumeArgument = "quickResume";
 
@@ -30,6 +33,12 @@ public class LaunchConstants
     /// <returns>A content page type if the argument is valid. Null, otherwise.</returns>
     public static ContentPageType? ToPageType(string toastLaunchArgument)
     {
+        if (toastLaunchArgument.Contains("?")
+            && toastLaunchArgument.Split('?') is [string pagePath, ..])
+        {
+            toastLaunchArgument = pagePath;
+        }
+
         return toastLaunchArgument switch
         {
             NewSoundArgument => ContentPageType.Catalogue,
@@ -40,6 +49,31 @@ public class LaunchConstants
             PromoCodeArgument => ContentPageType.Settings,
             _ => null
         };
+    }
+
+    public static IReadOnlyList<string> TryGetNewIds(this string? toastLaunchArgument)
+    {
+        if (toastLaunchArgument is not { Length: > 0 })
+        {
+            return [];
+        }
+
+        if (toastLaunchArgument.Contains("?")
+            && toastLaunchArgument.Split('?') is [.., string queryString])
+        {
+            NameValueCollection pairs = HttpUtility.ParseQueryString(queryString);
+
+            try
+            {
+                if (pairs["newIds"] is string newIds)
+                {
+                    return newIds.Split([','], StringSplitOptions.RemoveEmptyEntries);
+                }
+            }
+            catch { }
+        }
+
+        return [];
     }
 
     public static bool TryGetPromoCode(

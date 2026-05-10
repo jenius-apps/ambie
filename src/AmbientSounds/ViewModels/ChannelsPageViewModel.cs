@@ -8,6 +8,7 @@ using JeniusApps.Common.Telemetry;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -42,7 +43,9 @@ public partial class ChannelsPageViewModel : ObservableObject
     [ObservableProperty]
     private bool _loadingChannels;
 
-    public async Task InitializeAsync(CancellationToken ct)
+    /// <param name="newChannelIds">List of channel IDs that are deemed new. These channels will be highlighted on page navigation.</param>
+    /// <param name="ct">Cancellation token.</param>
+    public async Task InitializeAsync(IReadOnlyList<string> newChannelIds, CancellationToken ct)
     {
         LoadingChannels = true;
         ct.ThrowIfCancellationRequested();
@@ -55,7 +58,7 @@ public partial class ChannelsPageViewModel : ObservableObject
         {
             ct.ThrowIfCancellationRequested();
 
-            if (_channelFactory.Create(c, ViewDetailsCommand, PlayChannelCommand) is { } vm)
+            if (_channelFactory.Create(c, ViewDetailsCommand, PlayChannelCommand, newChannelIds.Contains(c.Id)) is { } vm)
             {
                 tasks.Add(vm.InitializeAsync());
                 Channels.Add(vm);
@@ -69,6 +72,13 @@ public partial class ChannelsPageViewModel : ObservableObject
         }
 
         ct.ThrowIfCancellationRequested();
+
+        if (SelectedChannel is null
+            && newChannelIds is [string id]
+            && Channels.FirstOrDefault(x => x.Id == id) is { } newChannel)
+        {
+            ViewDetails(newChannel);
+        }
 
         await Task.WhenAll(tasks);
     }

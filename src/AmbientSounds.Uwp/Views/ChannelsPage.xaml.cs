@@ -3,11 +3,13 @@ using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Uwp.UI;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using AmbientSounds.Constants;
 
 #nullable enable
 
@@ -33,9 +35,11 @@ public sealed partial class ChannelsPage : Page
 
         _cts ??= new();
 
+        IReadOnlyList<string> newIds = (e.Parameter as string).TryGetNewIds();
+
         try
         {
-            await ViewModel.InitializeAsync(_cts.Token);
+            await ViewModel.InitializeAsync(newIds, _cts.Token);
         }
         catch (OperationCanceledException)
         {
