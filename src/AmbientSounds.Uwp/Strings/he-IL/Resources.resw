@@ -1074,4 +1074,10 @@
   <data name="MadeInCanadaText" xml:space="preserve">
     <value>תוצרת ונקובר, קנדה</value>
   </data>
+  <data name="UpdateSuccessfulSubtitle" xml:space="preserve">
+    <value>אתה עכשיו על הגרסה האחרונה של Ambie!</value>
+  </data>
+  <data name="UpdateSuccessfulTitle" xml:space="preserve">
+    <value>עדכון הצליח</value>
+  </data>
 </root>

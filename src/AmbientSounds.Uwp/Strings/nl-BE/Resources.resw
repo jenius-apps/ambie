@@ -1044,4 +1044,10 @@
   <data name="MadeInCanadaText" xml:space="preserve">
     <value>Gemaakt in Vancouver, Canada</value>
   </data>
+  <data name="UpdateSuccessfulSubtitle" xml:space="preserve">
+    <value>Je zit nu op de nieuwste versie van Ambie!</value>
+  </data>
+  <data name="UpdateSuccessfulTitle" xml:space="preserve">
+    <value>Update succesvol</value>
+  </data>
 </root>

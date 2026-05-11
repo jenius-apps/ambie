@@ -1074,4 +1074,10 @@
   <data name="MadeInCanadaText" xml:space="preserve">
     <value>Виготовлено у Ванкувері, Канада</value>
   </data>
+  <data name="UpdateSuccessfulSubtitle" xml:space="preserve">
+    <value>Ви вже на останній версії Ambie!</value>
+  </data>
+  <data name="UpdateSuccessfulTitle" xml:space="preserve">
+    <value>Оновлення успішне</value>
+  </data>
 </root>

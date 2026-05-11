@@ -1059,4 +1059,10 @@
   <data name="MadeInCanadaText" xml:space="preserve">
     <value>Κατασκευάζεται στο Βανκούβερ του Καναδά</value>
   </data>
+  <data name="UpdateSuccessfulSubtitle" xml:space="preserve">
+    <value>Είστε τώρα στην πιο πρόσφατη έκδοση του Ambie!</value>
+  </data>
+  <data name="UpdateSuccessfulTitle" xml:space="preserve">
+    <value>Επιτυχής ενημέρωση</value>
+  </data>
 </root>

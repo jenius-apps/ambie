@@ -1074,4 +1074,10 @@
   <data name="MadeInCanadaText" xml:space="preserve">
     <value>加拿大温哥华制造</value>
   </data>
+  <data name="UpdateSuccessfulSubtitle" xml:space="preserve">
+    <value>你现在正在使用最新版本的Ambie！</value>
+  </data>
+  <data name="UpdateSuccessfulTitle" xml:space="preserve">
+    <value>更新成功</value>
+  </data>
 </root>

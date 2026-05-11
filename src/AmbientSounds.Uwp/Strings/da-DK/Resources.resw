@@ -1071,4 +1071,10 @@
   <data name="MadeInCanadaText" xml:space="preserve">
     <value>Fremstillet i Vancouver, Canada</value>
   </data>
+  <data name="UpdateSuccessfulSubtitle" xml:space="preserve">
+    <value>Du er nu på den nyeste version af Ambie!</value>
+  </data>
+  <data name="UpdateSuccessfulTitle" xml:space="preserve">
+    <value>Opdatering succesfuld</value>
+  </data>
 </root>

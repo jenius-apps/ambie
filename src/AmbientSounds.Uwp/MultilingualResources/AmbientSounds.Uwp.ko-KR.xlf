@@ -1423,6 +1423,14 @@
           <source>Made in Vancouver, Canada</source>
           <target state="translated">캐나다 밴쿠버에서 제작</target>
         </trans-unit>
+        <trans-unit id="UpdateSuccessfulSubtitle" translate="yes" xml:space="preserve">
+          <source>You're now on the latest version of Ambie!</source>
+          <target state="translated">이제 최신 버전의 Ambie를 플레이하고 계십니다!</target>
+        </trans-unit>
+        <trans-unit id="UpdateSuccessfulTitle" translate="yes" xml:space="preserve">
+          <source>Update Successful</source>
+          <target state="translated">업데이트 성공</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -1422,6 +1422,14 @@
           <source>Made in Vancouver, Canada</source>
           <target state="translated">加拿大温哥华制造</target>
         </trans-unit>
+        <trans-unit id="UpdateSuccessfulSubtitle" translate="yes" xml:space="preserve">
+          <source>You're now on the latest version of Ambie!</source>
+          <target state="translated">你现在正在使用最新版本的Ambie！</target>
+        </trans-unit>
+        <trans-unit id="UpdateSuccessfulTitle" translate="yes" xml:space="preserve">
+          <source>Update Successful</source>
+          <target state="translated">更新成功</target>
+        </trans-unit>
       </group>
     </body>
   </file>

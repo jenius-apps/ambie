@@ -1179,4 +1179,10 @@
   <data name="MadeInCanadaText" xml:space="preserve">
     <value>Made in Vancouver, Canada</value>
   </data>
+  <data name="UpdateSuccessfulSubtitle" xml:space="preserve">
+    <value>You're now on the latest version of Ambie!</value>
+  </data>
+  <data name="UpdateSuccessfulTitle" xml:space="preserve">
+    <value>Update Successful</value>
+  </data>
 </root>

@@ -1074,4 +1074,10 @@
   <data name="MadeInCanadaText" xml:space="preserve">
     <value>ساخت ونکوور، کانادا</value>
   </data>
+  <data name="UpdateSuccessfulSubtitle" xml:space="preserve">
+    <value>شما اکنون روی آخرین نسخه Ambie هستید!</value>
+  </data>
+  <data name="UpdateSuccessfulTitle" xml:space="preserve">
+    <value>به روزرسانی موفقیت آمیز بود</value>
+  </data>
 </root>

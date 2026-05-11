@@ -1062,4 +1062,10 @@
   <data name="MadeInCanadaText" xml:space="preserve">
     <value>Proizvedeno u Vancouveru, Kanada</value>
   </data>
+  <data name="UpdateSuccessfulSubtitle" xml:space="preserve">
+    <value>Sada ste na najnovijoj verziji Ambieja!</value>
+  </data>
+  <data name="UpdateSuccessfulTitle" xml:space="preserve">
+    <value>Ažuriranje uspješno</value>
+  </data>
 </root>
