@@ -118,7 +118,7 @@ public partial class PremiumControlViewModel : ObservableObject
         }
 
         ButtonLoading = true;
-        MonthlyPriceInfo = await _iapService.GetLatestPriceAsync(IapConstants.MsStoreAmbiePlusId);
+        MonthlyPriceInfo = await _iapService.GetPriceAsync(IapConstants.MsStoreAmbiePlusId);
 #if DEBUG
         MonthlyPriceInfo = new PriceInfo
         {
@@ -142,7 +142,7 @@ public partial class PremiumControlViewModel : ObservableObject
         }
 
         LifetimeButtonLoading = true;
-        LifetimePriceInfo = await _iapService.GetLatestPriceAsync(IapConstants.MsStoreAmbiePlusLifetimeId);
+        LifetimePriceInfo = await _iapService.GetPriceAsync(IapConstants.MsStoreAmbiePlusLifetimeId);
 #if DEBUG
         LifetimePriceInfo = new PriceInfo
         {
@@ -165,7 +165,7 @@ public partial class PremiumControlViewModel : ObservableObject
 
         ButtonLoading = true;
         _telemetry.TrackEvent(TelemetryConstants.SubscribeClicked);
-        bool purchaseSuccessful = await _iapService.BuyAsync(IapConstants.MsStoreAmbiePlusId, latest: true);
+        bool purchaseSuccessful = await _iapService.BuyAsync(IapConstants.MsStoreAmbiePlusId, isSubscriptionIdFormat: true);
         ThanksTextVisible = purchaseSuccessful;
 
         if (purchaseSuccessful)
@@ -249,7 +249,7 @@ public partial class PremiumControlViewModel : ObservableObject
             { "iapid", iapId },
         });
 
-        bool success = await _iapService.BuyAsync(iapId, latest: true, iapIdCacheOverride: IapConstants.MsStoreAmbiePlusId);
+        bool success = await _iapService.BuyAsync(iapId, isSubscriptionIdFormat: true, iapIdCacheOverride: IapConstants.MsStoreAmbiePlusId);
 
         if (success)
         {

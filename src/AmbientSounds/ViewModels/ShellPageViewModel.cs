@@ -348,7 +348,7 @@ public partial class ShellPageViewModel : BaseShellPageViewModel
 
         if (PremiumButtonVisible)
         {
-            IsSaleTagVisible = await _iapService.GetLatestPriceAsync(IapConstants.MsStoreAmbiePlusLifetimeId) is { IsOnSale: true };
+            IsSaleTagVisible = await _iapService.GetPriceAsync(IapConstants.MsStoreAmbiePlusLifetimeId) is { IsOnSale: true };
         }
     }
 
