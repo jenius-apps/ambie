@@ -1419,6 +1419,14 @@
           <source>Made in Vancouver, Canada</source>
           <target state="translated">ساخت ونکوور، کانادا</target>
         </trans-unit>
+        <trans-unit id="UpdateSuccessfulSubtitle" translate="yes" xml:space="preserve">
+          <source>You're now on the latest version of Ambie!</source>
+          <target state="translated">شما اکنون روی آخرین نسخه Ambie هستید!</target>
+        </trans-unit>
+        <trans-unit id="UpdateSuccessfulTitle" translate="yes" xml:space="preserve">
+          <source>Update Successful</source>
+          <target state="translated">به روزرسانی موفقیت آمیز بود</target>
+        </trans-unit>
       </group>
     </body>
   </file>

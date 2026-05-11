@@ -1419,6 +1419,14 @@
           <source>Made in Vancouver, Canada</source>
           <target state="translated">Κατασκευάζεται στο Βανκούβερ του Καναδά</target>
         </trans-unit>
+        <trans-unit id="UpdateSuccessfulSubtitle" translate="yes" xml:space="preserve">
+          <source>You're now on the latest version of Ambie!</source>
+          <target state="translated">Είστε τώρα στην πιο πρόσφατη έκδοση του Ambie!</target>
+        </trans-unit>
+        <trans-unit id="UpdateSuccessfulTitle" translate="yes" xml:space="preserve">
+          <source>Update Successful</source>
+          <target state="translated">Επιτυχής ενημέρωση</target>
+        </trans-unit>
       </group>
     </body>
   </file>

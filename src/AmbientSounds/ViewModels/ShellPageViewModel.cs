@@ -125,6 +125,9 @@ public partial class ShellPageViewModel : BaseShellPageViewModel
     private bool _isPremiumTeachingTipVisible;
 
     [ObservableProperty]
+    private bool _isUpdateSuccessfulTipVisible;
+
+    [ObservableProperty]
     private bool _premiumButtonVisible;
 
     [ObservableProperty]
@@ -203,7 +206,14 @@ public partial class ShellPageViewModel : BaseShellPageViewModel
         _shareService.ShareFailed += OnShareFailed;
 
         _ = CheckForUpdatesAsync();
+        _ = TryShowUpdateSuccessfulTipAsync();
         await LoadPremiumContentAsync();
+    }
+
+    private async Task TryShowUpdateSuccessfulTipAsync()
+    {
+        await Task.Delay(3000);
+        IsUpdateSuccessfulTipVisible = !_systemInfoProvider.IsFirstRun() && _systemInfoProvider.WasAppUpdated();
     }
 
     private async Task CheckForUpdatesAsync()
@@ -330,7 +340,7 @@ public partial class ShellPageViewModel : BaseShellPageViewModel
 
         if (PremiumButtonVisible)
         {
-            IsSaleTagVisible = await _iapService.GetLatestPriceAsync(IapConstants.MsStoreAmbiePlusLifetimeId) is { IsOnSale: true };
+            IsSaleTagVisible = await _iapService.GetPriceAsync(IapConstants.MsStoreAmbiePlusLifetimeId) is { IsOnSale: true };
         }
     }
 

@@ -1065,4 +1065,10 @@
   <data name="MadeInCanadaText" xml:space="preserve">
     <value>Vancouverben, Kanadában készült</value>
   </data>
+  <data name="UpdateSuccessfulSubtitle" xml:space="preserve">
+    <value>Most már az Ambie legújabb verzióján vagy!</value>
+  </data>
+  <data name="UpdateSuccessfulTitle" xml:space="preserve">
+    <value>Frissítés sikeres</value>
+  </data>
 </root>

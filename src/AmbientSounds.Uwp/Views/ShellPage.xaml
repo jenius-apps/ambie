@@ -405,6 +405,12 @@
             IsOpen="{x:Bind ViewModel.IsRatingMessageVisible, Mode=OneWay}"
             PreferredPlacement="BottomRight"
             Subtitle="{x:Bind strings:Resources.RateUsMessage}" />
+        <winui:TeachingTip
+            Title="{x:Bind strings:Resources.UpdateSuccessfulTitle}"
+            CloseButtonContent="{x:Bind strings:Resources.Dismiss}"
+            IsOpen="{x:Bind ViewModel.IsUpdateSuccessfulTipVisible, Mode=OneWay}"
+            PreferredPlacement="BottomRight"
+            Subtitle="{x:Bind strings:Resources.UpdateSuccessfulSubtitle}" />
 
         <winui:TeachingTip
             Title="{x:Bind strings:Resources.MissingShareSoundsTitle}"
