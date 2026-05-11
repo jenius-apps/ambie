@@ -206,22 +206,14 @@ public partial class ShellPageViewModel : BaseShellPageViewModel
         _shareService.ShareFailed += OnShareFailed;
 
         _ = CheckForUpdatesAsync();
-        TryShowUpdateSuccessfulTip();
+        _ = TryShowUpdateSuccessfulTipAsync();
         await LoadPremiumContentAsync();
     }
 
-    private void TryShowUpdateSuccessfulTip()
+    private async Task TryShowUpdateSuccessfulTipAsync()
     {
-        if (_systemInfoProvider.IsFirstRun())
-        {
-            return;
-        }
-
-        // Get previous version
-
-        // Get current version
-
-        // If current version > previous, show tip.
+        await Task.Delay(3000);
+        IsUpdateSuccessfulTipVisible = !_systemInfoProvider.IsFirstRun() && _systemInfoProvider.WasAppUpdated();
     }
 
     private async Task CheckForUpdatesAsync()
