@@ -25,7 +25,6 @@ public partial class SettingsViewModel : ObservableObject
     private readonly IUserSettings _userSettings;
     private readonly IPushNotificationService _notifications; // used in release mode, don't remove
     private readonly ITelemetry _telemetry;
-    private readonly IAppStoreRatings _appStoreRatings;
     private readonly IQuickResumeService _quickResumeService;
     private readonly IBackgroundTaskService _backgroundTaskService;
     private readonly IIapService _iapService;
@@ -41,7 +40,6 @@ public partial class SettingsViewModel : ObservableObject
         ITelemetry telemetry,
         IAssetsReader assetsReader,
         IImagePicker imagePicker,
-        IAppStoreRatings appStoreRatings,
         IQuickResumeService quickResumeService,
         IBackgroundTaskService backgroundTaskService,
         ISystemInfoProvider systemInfoProvider,
@@ -56,7 +54,6 @@ public partial class SettingsViewModel : ObservableObject
         _telemetry = telemetry;
         _assetsReader = assetsReader;
         _imagePicker = imagePicker;
-        _appStoreRatings = appStoreRatings;
         _quickResumeService = quickResumeService;
         _backgroundTaskService = backgroundTaskService;
         _iapService = iapService;
@@ -362,18 +359,6 @@ public partial class SettingsViewModel : ObservableObject
         }
 
         _userSettings.Set(UserSettingsConstants.BackgroundImage, imagePath);
-    }
-
-    [RelayCommand]
-    private async Task RequestRatingAsync()
-    {
-        bool result = await _appStoreRatings.RequestInAppRatingsAsync();
-        if (result)
-        {
-            _userSettings.Set(UserSettingsConstants.HasRated, true);
-        }
-
-        _telemetry.TrackEvent(TelemetryConstants.SettingsRateUsClicked);
     }
 
     [RelayCommand]

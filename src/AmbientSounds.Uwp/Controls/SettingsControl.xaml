@@ -317,7 +317,6 @@
                 </labs:SettingsCard>
                 <labs:SettingsCard ContentAlignment="Left">
                     <StackPanel Margin="-12,0,0,0" Orientation="Vertical">
-                        <HyperlinkButton Command="{x:Bind ViewModel.RequestRatingCommand}" Content="{x:Bind strings:Resources.RateUsText}" />
                         <HyperlinkButton x:Uid="PrivacyPolicyButton" NavigateUri="https://github.com/jenius-apps/ambie/blob/main/privacypolicy.md" />
                         <HyperlinkButton Content="{x:Bind strings:Resources.TermsOfUse}" NavigateUri="https://github.com/jenius-apps/ambie/blob/main/termsofuse.md" />
                     </StackPanel>
