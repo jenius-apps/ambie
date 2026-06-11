@@ -218,6 +218,11 @@ public static class UserSettingsConstants
     public const string LastKnownPremiumState = nameof(LastKnownPremiumState);
 
     /// <summary>
+    /// Represents the datetime of when some sort of premium was last purchased.
+    /// </summary>
+    public const string PremiumPurchaseUtcDateTicks = nameof(PremiumPurchaseUtcDateTicks);
+
+    /// <summary>
     ///  Settings defaults.
     /// </summary>
     public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -260,5 +265,6 @@ public static class UserSettingsConstants
         { ChannelSwitcherHidden, false },
         { ShowMixInRelaxPageKey, true },
         { LastKnownPremiumState, PremiumState.Unknown.ToString() },
+        { PremiumPurchaseUtcDateTicks, 0L },
     };
 }

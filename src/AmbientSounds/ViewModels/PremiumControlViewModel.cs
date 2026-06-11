@@ -3,6 +3,7 @@ using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Humanizer;
+using JeniusApps.Common.Settings;
 using JeniusApps.Common.Store;
 using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
@@ -19,6 +20,7 @@ public partial class PremiumControlViewModel : ObservableObject
     private readonly ILocalizer _localizer;
     private readonly ISystemInfoProvider _infoProvider;
     private readonly IPromoCodeService _promoCodeService;
+    private readonly IUserSettings _userSettings;
 
     public PremiumControlViewModel(
         IIapService iapService,
@@ -26,6 +28,7 @@ public partial class PremiumControlViewModel : ObservableObject
         ILocalizer localizer,
         ISystemInfoProvider infoProvider,
         IPromoCodeService promoCodeService,
+        IUserSettings userSettings,
         IExperimentationService experimentationService)
     {
         _iapService = iapService;
@@ -33,6 +36,7 @@ public partial class PremiumControlViewModel : ObservableObject
         _localizer = localizer;
         _infoProvider = infoProvider;
         _promoCodeService = promoCodeService;
+        _userSettings = userSettings;
         AnnualSubExperimentEnabled = false; // Disabling until further notice.
 
         PromoCodeHyperlinkVisible = false; // Disabling until promo codes are confirmed ready.
@@ -170,10 +174,7 @@ public partial class PremiumControlViewModel : ObservableObject
 
         if (purchaseSuccessful)
         {
-            _telemetry.TrackEvent(TelemetryConstants.Purchased, new Dictionary<string, string>
-            {
-                { "DaysSinceFirstUse", (DateTime.Now - _infoProvider.FirstUseDate()).Days.ToString() },
-            });
+            LogSuccessfulPurchaseTelemetry(TelemetryConstants.Purchased);
         }
         else
         {
@@ -197,10 +198,7 @@ public partial class PremiumControlViewModel : ObservableObject
 
         if (purchaseSuccessful)
         {
-            _telemetry.TrackEvent(TelemetryConstants.LifetimePurchased, new Dictionary<string, string>
-            {
-                { "DaysSinceFirstUse", (DateTime.Now - _infoProvider.FirstUseDate()).Days.ToString() },
-            });
+            LogSuccessfulPurchaseTelemetry(TelemetryConstants.LifetimePurchased);
         }
         else
         {
@@ -257,12 +255,7 @@ public partial class PremiumControlViewModel : ObservableObject
             ThanksTextVisible = true;
             PromoCodePageVisible = false;
 
-            _telemetry.TrackEvent(TelemetryConstants.PromoCodePurchased, new Dictionary<string, string>
-            {
-                { "DaysSinceFirstUse", (DateTime.Now - _infoProvider.FirstUseDate()).Days.ToString() },
-                { "code", input },
-                { "iapid", iapId },
-            });
+            LogSuccessfulPurchaseTelemetry(TelemetryConstants.PromoCodePurchased, code: input, iapId: iapId);
         }
         else
         {
@@ -272,5 +265,28 @@ public partial class PremiumControlViewModel : ObservableObject
                 { "iapid", iapId },
             });
         }
+    }
+
+    private void LogSuccessfulPurchaseTelemetry(string purchaseEventName, string? code = null, string? iapId = null)
+    {
+        DateTime? lastPurchaseDate = _userSettings.Get<long>(UserSettingsConstants.PremiumPurchaseUtcDateTicks) is long ticks && ticks > 0L
+            ? new DateTime(ticks, DateTimeKind.Utc)
+            : null;
+
+        Dictionary<string, string> payload = new()
+        {
+            { "DaysSinceFirstUse", (DateTime.Now - _infoProvider.FirstUseDate()).Days.ToString() },
+            { "LastPremiumPurhcaseUtcDate", lastPurchaseDate?.ToShortDateString() ?? "--" }
+        };
+
+        if (code is { Length: > 0 } && iapId is { Length: > 0 })
+        {
+            payload.Add("code", code);
+            payload.Add("iapid", iapId);
+        }
+
+        _telemetry.TrackEvent(purchaseEventName, payload);
+
+        _userSettings.Set(UserSettingsConstants.PremiumPurchaseUtcDateTicks, DateTime.UtcNow.Ticks);
     }
 }
