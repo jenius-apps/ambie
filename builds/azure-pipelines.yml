@@ -27,57 +27,98 @@ variables:
   - name: appxPackageDir
     value: '$(build.artifactStagingDirectory)\AppxPackages\\'
 
-steps:
+stages:
+- stage: Build
+  displayName: "Build stage"
+  jobs:
+  - job: BuildJob
+    steps:
+    - task: PowerShell@2
+      inputs:
+        targetType: 'inline'
+        script: |
+          [xml]$xmlDoc = Get-Content $(Build.SourcesDirectory)\src\AmbientSounds.Uwp\Package.appxmanifest
+          $xmlDoc.Package.Identity.Name="43891JeniusApps.Ambie"
+          $xmlDoc.Save('$(Build.SourcesDirectory)\src\AmbientSounds.Uwp\Package.appxmanifest')
+        failOnStderr: true
 
-- task: PowerShell@2
-  inputs:
-    targetType: 'inline'
-    script: |
-      [xml]$xmlDoc = Get-Content $(Build.SourcesDirectory)\src\AmbientSounds.Uwp\Package.appxmanifest
-      $xmlDoc.Package.Identity.Name="43891JeniusApps.Ambie"
-      $xmlDoc.Save('$(Build.SourcesDirectory)\src\AmbientSounds.Uwp\Package.appxmanifest')
-    failOnStderr: true
+    - task: PowerShell@2
+      inputs:
+        targetType: 'inline'
+        script: |
+          [xml]$xmlDoc = Get-Content $(Build.SourcesDirectory)\src\AmbientSounds.Uwp\appsettings.resw
+          $xmlDoc.SelectSingleNode("//root/data[@name='CatalogueUrl']").Value = "$(CatalogueUrl)"
+          $xmlDoc.SelectSingleNode("//root/data[@name='TelemetryApiKey']").Value = "$(TelemetryApiKey)"
+          $xmlDoc.SelectSingleNode("//root/data[@name='MsaClientId']").Value = "$(MsaClientId)"
+          $xmlDoc.SelectSingleNode("//root/data[@name='CloudSyncFileUrl']").Value = "$(CloudSyncFileUrl)"
+          $xmlDoc.SelectSingleNode("//root/data[@name='UploadUrl']").Value = "$(UploadUrl)"
+          $xmlDoc.SelectSingleNode("//root/data[@name='MySoundsUrl']").Value = "$(MySoundsUrl)"
+          $xmlDoc.SelectSingleNode("//root/data[@name='VideosUrl']").Value = "$(VideosUrl)"
+          $xmlDoc.SelectSingleNode("//root/data[@name='CatalogueScope']").Value = "$(CatalogueScope)"
+          $xmlDoc.SelectSingleNode("//root/data[@name='PresenceUrl']").Value = "$(PresenceUrl)"
+          $xmlDoc.SelectSingleNode("//root/data[@name='ShareUrl']").Value = "$(ShareUrl)"
+          $xmlDoc.SelectSingleNode("//root/data[@name='PagesUrl']").Value = "$(PagesUrl)"
+          $xmlDoc.SelectSingleNode("//root/data[@name='GuidesUrl']").Value = "$(GuidesUrl)"
+          $xmlDoc.SelectSingleNode("//root/data[@name='ChannelsUrl']").Value = "$(ChannelsUrl)"
+          $xmlDoc.SelectSingleNode("//root/data[@name='NotificationHubConnectionString']").Value = "$(NotificationHubConnectionString)"
+          $xmlDoc.SelectSingleNode("//root/data[@name='NotificationHubName']").Value = "$(NotificationHubName)"
+          $xmlDoc.SelectSingleNode("//root/data[@name='PromoCodesUrl']").Value = "$(PromoCodesUrl)"
+          $xmlDoc.Save('$(Build.SourcesDirectory)\src\AmbientSounds.Uwp\appsettings.resw')
+        failOnStderr: true
 
-- task: PowerShell@2
-  inputs:
-    targetType: 'inline'
-    script: |
-      [xml]$xmlDoc = Get-Content $(Build.SourcesDirectory)\src\AmbientSounds.Uwp\appsettings.resw
-      $xmlDoc.SelectSingleNode("//root/data[@name='CatalogueUrl']").Value = "$(CatalogueUrl)"
-      $xmlDoc.SelectSingleNode("//root/data[@name='TelemetryApiKey']").Value = "$(TelemetryApiKey)"
-      $xmlDoc.SelectSingleNode("//root/data[@name='MsaClientId']").Value = "$(MsaClientId)"
-      $xmlDoc.SelectSingleNode("//root/data[@name='CloudSyncFileUrl']").Value = "$(CloudSyncFileUrl)"
-      $xmlDoc.SelectSingleNode("//root/data[@name='UploadUrl']").Value = "$(UploadUrl)"
-      $xmlDoc.SelectSingleNode("//root/data[@name='MySoundsUrl']").Value = "$(MySoundsUrl)"
-      $xmlDoc.SelectSingleNode("//root/data[@name='VideosUrl']").Value = "$(VideosUrl)"
-      $xmlDoc.SelectSingleNode("//root/data[@name='CatalogueScope']").Value = "$(CatalogueScope)"
-      $xmlDoc.SelectSingleNode("//root/data[@name='PresenceUrl']").Value = "$(PresenceUrl)"
-      $xmlDoc.SelectSingleNode("//root/data[@name='ShareUrl']").Value = "$(ShareUrl)"
-      $xmlDoc.SelectSingleNode("//root/data[@name='PagesUrl']").Value = "$(PagesUrl)"
-      $xmlDoc.SelectSingleNode("//root/data[@name='GuidesUrl']").Value = "$(GuidesUrl)"
-      $xmlDoc.SelectSingleNode("//root/data[@name='ChannelsUrl']").Value = "$(ChannelsUrl)"
-      $xmlDoc.SelectSingleNode("//root/data[@name='NotificationHubConnectionString']").Value = "$(NotificationHubConnectionString)"
-      $xmlDoc.SelectSingleNode("//root/data[@name='NotificationHubName']").Value = "$(NotificationHubName)"
-      $xmlDoc.SelectSingleNode("//root/data[@name='PromoCodesUrl']").Value = "$(PromoCodesUrl)"
-      $xmlDoc.Save('$(Build.SourcesDirectory)\src\AmbientSounds.Uwp\appsettings.resw')
-    failOnStderr: true
+    - task: NuGetToolInstaller@1
 
-- task: NuGetToolInstaller@1
+    - task: NuGetCommand@2
+      inputs:
+        restoreSolution: '$(solution)'
+        nugetConfigPath: 'nuget.config'
+        feedsToUse: 'config'
 
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
-    nugetConfigPath: 'nuget.config'
-    feedsToUse: 'config'
+    - task: VSBuild@1
+      inputs:
+        platform: 'x64'
+        solution: '**/AmbientSounds.Uwp.csproj'
+        configuration: '$(buildConfiguration)'
+        msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=CI'
 
-- task: VSBuild@1
-  inputs:
-    platform: 'x64'
-    solution: '**/AmbientSounds.Uwp.csproj'
-    configuration: '$(buildConfiguration)'
-    msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=CI'
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact: drop'
+      inputs:
+        PathtoPublish: '$(build.artifactstagingdirectory)'
 
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: drop'
-  inputs:
-    PathtoPublish: '$(build.artifactstagingdirectory)'
+- stage: DeployInternal
+  displayName: "Deploy Internal"
+  jobs:
+  - job: DeployInternalJob
+    steps:
+    - download: current
+    - task: store-flight@0
+      displayName: 'Flight to Internal'
+      inputs:
+        serviceEndpoint: 'Partner Centre'
+        appId: 9P07XNM5CHP0
+        flightName: Internal
+        packagePath: '$(Pipeline.Workspace)\drop\AppxPackages\*.msixupload'
+        force: true
+        skipPolling: true
+        deletePackages: true
+        numberOfPackagesToKeep: 1
+        isMandatoryUpdate: true
+
+- stage: DeployProd
+  displayName: "Deploy Production"
+  trigger: manual
+  jobs:
+  - job: DeployProdJob
+    steps:
+    - download: current
+    - task: store-publish@0
+      displayName: 'Deploy to Production'
+      inputs:
+        serviceEndpoint: 'Partner Centre'
+        appId: 9P07XNM5CHP0
+        packagePath: '$(Pipeline.Workspace)\drop\AppxPackages\*.msixupload'
+        force: true
+        skipPolling: true
+        deletePackages: true
+        numberOfPackagesToKeep: 2
