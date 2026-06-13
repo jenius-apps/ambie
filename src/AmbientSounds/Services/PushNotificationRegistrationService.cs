@@ -55,7 +55,7 @@ public sealed class PushNotificationRegistrationService : IPushNotificationRegis
 
         Dictionary<string, string> deviceData = new()
         {
-            { nameof(PremiumState), lastKnownState.ToString() },
+            { nameof(PremiumState), lastKnownState.ToString() }
         };
 
         try
