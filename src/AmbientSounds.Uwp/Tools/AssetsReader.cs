@@ -54,7 +54,7 @@ public class AssetsReader : IAssetsReader
         StorageFolder assets = await appInstalledFolder.GetFolderAsync("Assets");
         StorageFile dataFile = await assets.GetFileAsync(DataFileName);
         using Stream dataStream = await dataFile.OpenStreamForReadAsync();
-        var sounds = await JsonSerializer.DeserializeAsync(dataStream, AmbieJsonSerializerContext.Default.ListSound);
+        var sounds = await JsonSerializer.DeserializeAsync(dataStream, AmbieJsonSerializerContext.CaseInsensitive.ListSound);
         if (sounds is null)
         {
             return Array.Empty<Sound>();

@@ -35,7 +35,7 @@ public class OfflineSoundRepository : IOfflineSoundRepository
 
         try
         {
-            var result = JsonSerializer.Deserialize(content, AmbieJsonSerializerContext.Default.SoundArray);
+            var result = JsonSerializer.Deserialize(content, AmbieJsonSerializerContext.CaseInsensitive.SoundArray);
             return result ?? Array.Empty<Sound>();
         }
         catch

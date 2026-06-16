@@ -79,7 +79,7 @@ public class Channel : IAsset
     public bool IsPremium => IapIds.Count > 0;
 
     /// <inheritdoc/>
-    public IReadOnlyList<string> CategoryIds { get; init; } = [];
+    public IReadOnlyList<string>? CategoryIds { get; init; } = [];
 }
 
 /// <summary>

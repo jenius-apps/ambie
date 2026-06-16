@@ -166,8 +166,8 @@ public class WindowsDownloadManager : IDownloadManager
     private Sound CopySound(Sound s, string localImagePath, string destinationFilePath)
     {
         Sound copy = s.DeepCopy();
-        s.FilePath = destinationFilePath;
-        s.ImagePath = localImagePath;
+        copy.FilePath = destinationFilePath;
+        copy.ImagePath = localImagePath;
         return copy;
     }
 

@@ -20,5 +20,5 @@ public interface IAsset : IHasLocalizations
     /// <summary>
     /// A list of categories associated with the asset.
     /// </summary>
-    IReadOnlyList<string> CategoryIds { get; init; }
+    IReadOnlyList<string>? CategoryIds { get; init; }
 }

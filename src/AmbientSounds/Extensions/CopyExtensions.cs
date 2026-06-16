@@ -27,7 +27,7 @@ public static class CopyExtensions
             FileVersion = sound.FileVersion,
             AssociatedVideoIds = [.. sound.AssociatedVideoIds],
             Tags = [.. sound.Tags],
-            CategoryIds = [.. sound.CategoryIds],
+            CategoryIds = sound.CategoryIds is null ? null : [.. sound.CategoryIds],
             SoundIds = [.. sound.SoundIds],
             UploadedBy = sound.UploadedBy,
             UploadUsername = sound.UploadUsername,

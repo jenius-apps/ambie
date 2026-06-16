@@ -29,7 +29,7 @@ public class OfflineGuideRepository : IOfflineGuideRepository
 
         try
         {
-            var result = JsonSerializer.Deserialize(content, AmbieJsonSerializerContext.Default.GuideArray);
+            var result = JsonSerializer.Deserialize(content, AmbieJsonSerializerContext.CaseInsensitive.GuideArray);
             return result ?? Array.Empty<Guide>();
         }
         catch
