@@ -122,7 +122,7 @@ public partial class PremiumControlViewModel : ObservableObject
         }
 
         ButtonLoading = true;
-        MonthlyPriceInfo = await _iapService.GetPriceAsync(IapConstants.MsStoreAmbiePlusId);
+        MonthlyPriceInfo = await _iapService.GetPriceAsync(IapConstants.MsStoreAmbiePlusId, isSubscriptionIdFormat: true);
 #if DEBUG
         MonthlyPriceInfo = new PriceInfo
         {
