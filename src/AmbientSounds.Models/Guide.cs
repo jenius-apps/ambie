@@ -9,6 +9,7 @@ public class Guide : IVersionedAsset, IEquatable<Guide>
     /// <summary>
     /// GUID for the guide object.
     /// </summary>
+    [JsonPropertyName("id")]
     public string Id { get; set; } = string.Empty;
 
     /// <inheritdoc/>

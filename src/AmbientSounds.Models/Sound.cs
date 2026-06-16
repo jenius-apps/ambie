@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace AmbientSounds.Models;
 
@@ -11,6 +12,7 @@ public class Sound : IVersionedAsset
     /// <summary>
     /// GUID.
     /// </summary>
+    [JsonPropertyName("id")]
     public string Id { get; set; } = string.Empty;
 
     /// <summary>

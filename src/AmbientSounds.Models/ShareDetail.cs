@@ -1,4 +1,6 @@
-﻿namespace AmbientSounds.Models;
+﻿using System.Text.Json.Serialization;
+
+namespace AmbientSounds.Models;
 
 /// <summary>
 /// Data transfer object representing details
@@ -9,6 +11,7 @@ public class ShareDetail
     /// <summary>
     /// Id representing these details.
     /// </summary>
+    [JsonPropertyName("id")]
     public string Id { get; set; } = "";
 
     /// <summary>

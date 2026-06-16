@@ -11,6 +11,7 @@ public class Video
     /// <summary>
     /// GUID to uniquely identify the video. Required by database.
     /// </summary>
+    [JsonPropertyName("id")]
     public string Id { get; set; } = string.Empty;
 
     /// <summary>
