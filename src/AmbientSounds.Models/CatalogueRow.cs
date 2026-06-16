@@ -20,5 +20,5 @@ public class CatalogueRow : IAsset
 
     /// <inheritdoc/>
     /// <inheritdoc/>
-    public IReadOnlyList<string> CategoryIds { get; } = [];
+    public IReadOnlyList<string> CategoryIds { get; init; } = [];
 }

@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Models;
+﻿using AmbientSounds.Extensions;
+using AmbientSounds.Models;
 using AmbientSounds.Tools;
 using CommunityToolkit.Diagnostics;
 using System;
@@ -164,24 +165,10 @@ public class WindowsDownloadManager : IDownloadManager
 
     private Sound CopySound(Sound s, string localImagePath, string destinationFilePath)
     {
-        return new Sound()
-        {
-            Id = s.Id,
-            ImagePath = localImagePath,
-            Name = s.Name,
-            FilePath = destinationFilePath,
-            Attribution = s.Attribution,
-            FileExtension = s.FileExtension,
-            ScreensaverImagePaths = s.ScreensaverImagePaths,
-            IsPremium = s.IsPremium,
-            IapIds = [.. s.IapIds],
-            ColourHex = s.ColourHex,
-            ImagePaths = s.ImagePaths,
-            Localizations = s.Localizations,
-            MetaDataVersion = s.MetaDataVersion,
-            FileVersion = s.FileVersion,
-            AssociatedVideoIds = [.. s.AssociatedVideoIds]
-        };
+        Sound copy = s.DeepCopy();
+        s.FilePath = destinationFilePath;
+        s.ImagePath = localImagePath;
+        return copy;
     }
 
     private async Task QueueFakeAsync(IProgress<double> progress)

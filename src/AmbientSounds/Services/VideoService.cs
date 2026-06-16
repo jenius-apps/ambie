@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Cache;
+using AmbientSounds.Extensions;
 using AmbientSounds.Models;
 using AmbientSounds.Repositories;
 using CommunityToolkit.Diagnostics;
@@ -111,17 +112,9 @@ namespace AmbientSounds.Services
 
             var destinationPath = await _downloadManager.QueueAndDownloadAsync(video, progress);
 
-            var newVideo = new Video
-            {
-                Id = video.Id,
-                FilePath = destinationPath,
-                Extension = video.Extension,
-                Name = video.Name,
-                IapIds = video.IapIds.ToArray(),
-                IsPremium = video.IsPremium,
-                MegaByteSize = video.MegaByteSize,
-                IsDownloaded = true
-            };
+            var newVideo = video.DeepCopy();
+            newVideo.IsDownloaded = true;
+            newVideo.FilePath = destinationPath;
 
             await _videoCache.AddOfflineVideoAsync(newVideo);
 
