@@ -146,7 +146,7 @@ public class Sound : IVersionedAsset
     public IReadOnlyList<string> Tags { get; set; } = [];
 
     /// <inheritdoc/>
-    public IReadOnlyList<string> Categories { get; } = [];
+    public IReadOnlyList<string> CategoryIds { get; } = [];
 
     /// <inheritdoc/>
     public override string ToString()

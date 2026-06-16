@@ -12,7 +12,7 @@ public class Guide : IVersionedAsset, IEquatable<Guide>
     public string Id { get; set; } = string.Empty;
 
     /// <inheritdoc/>
-    public IReadOnlyList<string> Categories { get; } = [];
+    public IReadOnlyList<string> CategoryIds { get; } = [];
 
     /// <summary>
     /// Represents the length of the guide in minutes.
