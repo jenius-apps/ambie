@@ -25,5 +25,5 @@ public interface IAsset
     /// <summary>
     /// A list of categories associated with the asset.
     /// </summary>
-    IReadOnlyList<string> Categories { get; set; }
+    IReadOnlyList<string> Categories { get; }
 }

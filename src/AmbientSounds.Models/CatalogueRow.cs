@@ -11,4 +11,7 @@ public class CatalogueRow : IAsset
     public IReadOnlyList<string> SoundIds { get; set; } = [];
 
     public IReadOnlyDictionary<string, DisplayInformation> Localizations { get; set; } = new Dictionary<string, DisplayInformation>();
+
+    /// <inheritdoc/>
+    public IReadOnlyList<string> Categories { get; } = [];
 }

@@ -77,6 +77,9 @@ public class Channel : IAsset
     /// </summary>
     [JsonIgnore]
     public bool IsPremium => IapIds.Count > 0;
+
+    /// <inheritdoc/>
+    public IReadOnlyList<string> Categories { get; } = [];
 }
 
 /// <summary>
