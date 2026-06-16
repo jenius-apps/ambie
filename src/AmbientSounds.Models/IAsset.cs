@@ -2,7 +2,10 @@
 
 namespace AmbientSounds.Models;
 
-public interface IAsset
+/// <summary>
+/// An interface for a downloadable asset from Ambie.
+/// </summary>
+public interface IAsset : IHasLocalizations
 {
     /// <summary>
     /// Name of asset.
@@ -15,7 +18,7 @@ public interface IAsset
     string Description { get; set; }
 
     /// <summary>
-    /// Localizations for this asset.
+    /// A list of categories associated with the asset.
     /// </summary>
-    IReadOnlyDictionary<string, DisplayInformation> Localizations { get; set; }
+    IReadOnlyList<string>? CategoryIds { get; init; }
 }

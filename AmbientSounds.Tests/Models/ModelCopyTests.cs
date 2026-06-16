@@ -3,20 +3,60 @@ using AmbientSounds.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text.Json;
 using Xunit;
 
 namespace AmbientSounds.Tests.Models;
 
-public class GuideTests
+public class ModelCopyTests
 {
     [Fact]
-    public void DeepCopy_IsMatching()
+    public void SoundDeepCopy_IsMatching()
     {
         // Arrange
-        var originalGuide = new Guide();
-        var properties = originalGuide.GetType().GetProperties();
-        foreach (var property in properties)
+        var original = new Sound();
+        PopulateProperties(original);
+
+        // Act
+        Sound copy = original.DeepCopy();
+
+        // Assert
+        Assert.Equal(JsonSerializer.Serialize(original), JsonSerializer.Serialize(copy));
+    }
+
+    [Fact]
+    public void GuideDeepCopy_IsMatching()
+    {
+        // Arrange
+        var original = new Guide();
+        PopulateProperties(original);
+
+        // Act
+        Guide copy = original.DeepCopy();
+
+        // Assert
+        Assert.Equal(JsonSerializer.Serialize(original), JsonSerializer.Serialize(copy));
+    }
+
+    [Fact]
+    public void VideoDeepCopy_IsMatching()
+    {
+        // Arrange
+        var original = new Video();
+        PopulateProperties(original);
+
+        // Act
+        Video copy = original.DeepCopy();
+
+        // Assert
+        Assert.Equal(JsonSerializer.Serialize(original), JsonSerializer.Serialize(copy));
+    }
+
+    private static void PopulateProperties(object targetObject)
+    {
+        PropertyInfo[] properties = targetObject.GetType().GetProperties();
+        foreach (PropertyInfo property in properties)
         {
             object? value = null;
             if (property.PropertyType == typeof(string))
@@ -47,21 +87,15 @@ public class GuideTests
                 {
                     Type dictToCreate = typeof(Dictionary<,>).MakeGenericType(arguments);
                     value = Activator.CreateInstance(dictToCreate);
-                    var add = dictToCreate.GetMethod("Add", new[] { arguments[0], arguments[1] });
-                    add?.Invoke(value, new object?[] { "key", null });
+                    MethodInfo? add = dictToCreate.GetMethod("Add", [arguments[0], arguments[1]]);
+                    _ = add?.Invoke(value, ["key", null]);
                 }
             }
 
             if (value is not null)
             {
-                property.SetValue(originalGuide, value);
+                property.SetValue(targetObject, value);
             }
         }
-
-        // Act
-        var copyGuide = originalGuide.DeepCopy();
-
-        // Assert
-        Assert.Equal(JsonSerializer.Serialize(originalGuide), JsonSerializer.Serialize(copyGuide));
     }
 }

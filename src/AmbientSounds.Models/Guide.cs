@@ -9,7 +9,11 @@ public class Guide : IVersionedAsset, IEquatable<Guide>
     /// <summary>
     /// GUID for the guide object.
     /// </summary>
+    [JsonPropertyName("id")]
     public string Id { get; set; } = string.Empty;
+
+    /// <inheritdoc/>
+    public IReadOnlyList<string>? CategoryIds { get; init; } = [];
 
     /// <summary>
     /// Represents the length of the guide in minutes.
@@ -35,7 +39,7 @@ public class Guide : IVersionedAsset, IEquatable<Guide>
     /// <remarks>
     /// E.g. "[ 'soundIdA', 'soundIdB;soundIdC', 'soundIdX' ]"
     /// </remarks>
-    public IReadOnlyList<string> SuggestedBackgroundSounds { get; set; } = Array.Empty<string>();
+    public IReadOnlyList<string> SuggestedBackgroundSounds { get; set; } = [];
 
     /// <summary>
     /// User-facing name for this asset.
@@ -66,7 +70,7 @@ public class Guide : IVersionedAsset, IEquatable<Guide>
     /// Ids used to identify the IAPs
     /// associated with this sound.
     /// </summary>
-    public IReadOnlyList<string> IapIds { get; set; } = Array.Empty<string>();
+    public IReadOnlyList<string> IapIds { get; set; } = [];
 
     /// <summary>
     /// True if guide is premium.

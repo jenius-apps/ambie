@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace AmbientSounds.Models;
 
@@ -12,6 +11,7 @@ public class Video
     /// <summary>
     /// GUID to uniquely identify the video. Required by database.
     /// </summary>
+    [JsonPropertyName("id")]
     public string Id { get; set; } = string.Empty;
 
     /// <summary>
@@ -64,5 +64,5 @@ public class Video
     /// Ids used to identify the IAPs
     /// associated with this video.
     /// </summary>
-    public string[] IapIds { get; set; } = Array.Empty<string>();
+    public string[] IapIds { get; set; } = [];
 }

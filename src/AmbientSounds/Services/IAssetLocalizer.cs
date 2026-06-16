@@ -1,9 +1,10 @@
 ﻿using AmbientSounds.Models;
 
-#nullable enable
-
 namespace AmbientSounds.Services;
 
+/// <summary>
+/// Interface for localizing an asset.
+/// </summary>
 public interface IAssetLocalizer
 {
     /// <summary>
@@ -28,4 +29,12 @@ public interface IAssetLocalizer
     /// <param name="nameQuery">The string name to search in the asset's name.</param>
     /// <returns>True if the name query is contained in the asset's name. False, otherwise.</returns>
     bool LocalNameContains(IAsset asset, string nameQuery);
+
+    /// <summary>
+    /// Extracts the appropriate display data based on the user's language code.
+    /// </summary>
+    /// <param name="asset">The object to extract the localizations from.</param>
+    /// <param name="customLanguageCode">Overrides the system language code with the given value.</param>
+    /// <returns>The display data for the object associated with the language code used.</returns>
+    DisplayInformation? GetLocalInfo(IHasLocalizations asset, string? customLanguageCode = null);
 }

@@ -3,8 +3,6 @@ using CommunityToolkit.Diagnostics;
 using JeniusApps.Common.Tools;
 using System.Globalization;
 
-#nullable enable
-
 namespace AmbientSounds.Services;
 
 public class AssetLocalizer : IAssetLocalizer
@@ -36,9 +34,10 @@ public class AssetLocalizer : IAssetLocalizer
         return GetLocalInfo(asset)?.Description ?? asset.Description;
     }
 
-    private DisplayInformation? GetLocalInfo(IAsset asset)
+    /// <inheritdoc/>
+    public DisplayInformation? GetLocalInfo(IHasLocalizations asset, string? customLanguageCode = null)
     {
-        string languageCode = _systemInfoProvider.GetCulture();
+        string languageCode = customLanguageCode ?? _systemInfoProvider.GetCulture();
 
         if (asset.Localizations.TryGetValue(languageCode, out DisplayInformation info))
         {
