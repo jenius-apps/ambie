@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace AmbientSounds.Models;
 
@@ -12,6 +13,7 @@ public class Category : IHasLocalizations
     /// The ID of the category. The intent is for this to be a lowercase, english word, such as
     /// 'lofi' or 'water'.
     /// </summary>
+    [JsonPropertyName("id")]
     public required string Id { get; init; }
 
     /// <inheritdoc/>
