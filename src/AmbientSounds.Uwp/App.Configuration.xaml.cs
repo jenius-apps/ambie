@@ -255,6 +255,9 @@ partial class App
     [Singleton(typeof(PromoCodeService), typeof(IPromoCodeService))]
     [Singleton(typeof(TimerFactory), typeof(ITimerFactory))]
     [Singleton(typeof(PushNotificationRegistrationService), typeof(IPushNotificationRegistrationService))]
+    [Singleton(typeof(CategoryRepository), typeof(ICategoryRepository))]
+    [Singleton(typeof(CategoryCache), typeof(ICategoryCache))]
+    [Singleton(typeof(CategoryService), typeof(ICategoryService))]
     [Transient(typeof(StatsPageViewModel))]
     private static partial void ConfigureServices(IServiceCollection services);
 }
