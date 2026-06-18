@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Cache;
 using AmbientSounds.Factories;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -18,18 +19,23 @@ public partial class CataloguePageViewModel : ObservableObject
     private readonly IPageCache _pageCache;
     private readonly ICatalogueRowVmFactory _vmFactory;
     private readonly IDialogService _dialogService;
+    private readonly ICategoryService _categoryService;
 
     public CataloguePageViewModel(
         IPageCache pageCache,
         ICatalogueRowVmFactory catalogueRowVmFactory,
-        IDialogService dialogService)
+        IDialogService dialogService,
+        ICategoryService categoryService)
     {
         _pageCache = pageCache;
         _vmFactory = catalogueRowVmFactory;
         _dialogService = dialogService;
+        _categoryService = categoryService;
     }
 
-    public ObservableCollection<CatalogueRowViewModel> Rows { get; } = new();
+    public ObservableCollection<CatalogueRowViewModel> Rows { get; } = [];
+
+    public ObservableCollection<Category> CategoryFilters { get; } = [];
 
     [ObservableProperty]
     private bool _loading;
@@ -40,12 +46,12 @@ public partial class CataloguePageViewModel : ObservableObject
         {
             Loading = true;
             ct.ThrowIfCancellationRequested();
-            List<Task> tasks = new();
+            List<Task> tasks = [];
             await Task.Delay(150, CancellationToken.None); // added to improve nav perf
             ct.ThrowIfCancellationRequested();
-            IReadOnlyList<Models.CatalogueRow> rows = await _pageCache.GetCatalogueRowsAsync();
+            IReadOnlyList<CatalogueRow> rows = await _pageCache.GetCatalogueRowsAsync();
             ct.ThrowIfCancellationRequested();
-            foreach (Models.CatalogueRow row in rows)
+            foreach (CatalogueRow row in rows)
             {
                 ct.ThrowIfCancellationRequested();
                 CatalogueRowViewModel vm = _vmFactory.Create(row);
@@ -57,6 +63,9 @@ public partial class CataloguePageViewModel : ObservableObject
                     Loading = false;
                 }
             }
+
+            var categories = await _categoryService.GetCategoriesAsync(ct);
+            foreach (Category category in categories) { CategoryFilters.Add(category); }
 
             await Task.WhenAll(tasks);
         }

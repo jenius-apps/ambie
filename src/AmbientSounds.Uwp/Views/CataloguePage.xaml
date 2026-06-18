@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="using:AmbientSounds.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:AmbientSounds.ViewModels"
@@ -13,7 +14,14 @@
     <Grid Margin="{StaticResource MainFramePageMargin}">
         <ScrollViewer CanContentRenderOutsideBounds="True">
             <Grid>
-                <ItemsControl ItemsSource="{x:Bind ViewModel.Rows}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <labs:TokenView ItemsSource="{x:Bind ViewModel.CategoryFilters}" />
+
+                <ItemsControl Grid.Row="1" ItemsSource="{x:Bind ViewModel.Rows}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate x:DataType="vm:CatalogueRowViewModel">
                             <controls:CatalogueRowControl
