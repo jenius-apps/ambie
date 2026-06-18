@@ -165,4 +165,7 @@
   <data name="PromoCodesUrl" xml:space="preserve">
     <value>http://localhost</value>
   </data>
+  <data name="CategoryUrl" xml:space="preserve">
+    <value>http://localhost</value>
+  </data>
 </root>
