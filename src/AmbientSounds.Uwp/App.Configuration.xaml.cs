@@ -186,6 +186,7 @@ partial class App
     [Singleton(typeof(ShareService), typeof(IShareService))]
     [Singleton(typeof(PresenceService), typeof(IPresenceService))]
     [Singleton(typeof(FileDownloader), typeof(IFileDownloader))]
+    [Singleton(typeof(CategoryVmFactory), typeof(ICategoryVmFactory))]
     [Singleton(typeof(SoundVmFactory), typeof(ISoundVmFactory))]
     [Singleton(typeof(GuideVmFactory), typeof(IGuideVmFactory))]
     [Singleton(typeof(CatalogueRowVmFactory), typeof(ICatalogueRowVmFactory))]
