@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Cache;
 using AmbientSounds.Factories;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -18,21 +19,44 @@ public partial class CataloguePageViewModel : ObservableObject
     private readonly IPageCache _pageCache;
     private readonly ICatalogueRowVmFactory _vmFactory;
     private readonly IDialogService _dialogService;
+    private readonly ICategoryService _categoryService;
+    private readonly ICategoryVmFactory _categoryVmFactory;
+    private readonly ICatalogueService _catalogueService;
+    private readonly ISoundVmFactory _soundVmFactory;
+    private readonly SemaphoreSlim _filteredSoundsLock = new(1, 1);
 
     public CataloguePageViewModel(
         IPageCache pageCache,
         ICatalogueRowVmFactory catalogueRowVmFactory,
-        IDialogService dialogService)
+        IDialogService dialogService,
+        ICategoryService categoryService,
+        ICategoryVmFactory categoryVmFactory,
+        ICatalogueService catalogueService,
+        ISoundVmFactory soundVmFactory)
     {
         _pageCache = pageCache;
         _vmFactory = catalogueRowVmFactory;
         _dialogService = dialogService;
+        _categoryService = categoryService;
+        _categoryVmFactory = categoryVmFactory;
+        _catalogueService = catalogueService;
+        _soundVmFactory = soundVmFactory;
     }
 
-    public ObservableCollection<CatalogueRowViewModel> Rows { get; } = new();
+    public ObservableCollection<CatalogueRowViewModel> Rows { get; } = [];
+
+    public ObservableCollection<CategoryViewModel> CategoryFilters { get; } = [];
+
+    public ObservableCollection<OnlineSoundViewModel> FilteredSounds { get; } = [];
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(FilteredListVisible))]
+    private CategoryViewModel? _selectedFilter;
 
     [ObservableProperty]
     private bool _loading;
+
+    public bool FilteredListVisible => SelectedFilter is not null;
 
     public async Task InitializeAsync(string? launchArgs, CancellationToken ct)
     {
@@ -40,12 +64,12 @@ public partial class CataloguePageViewModel : ObservableObject
         {
             Loading = true;
             ct.ThrowIfCancellationRequested();
-            List<Task> tasks = new();
+            List<Task> tasks = [];
             await Task.Delay(150, CancellationToken.None); // added to improve nav perf
             ct.ThrowIfCancellationRequested();
-            IReadOnlyList<Models.CatalogueRow> rows = await _pageCache.GetCatalogueRowsAsync();
+            IReadOnlyList<CatalogueRow> rows = await _pageCache.GetCatalogueRowsAsync();
             ct.ThrowIfCancellationRequested();
-            foreach (Models.CatalogueRow row in rows)
+            foreach (CatalogueRow row in rows)
             {
                 ct.ThrowIfCancellationRequested();
                 CatalogueRowViewModel vm = _vmFactory.Create(row);
@@ -56,6 +80,12 @@ public partial class CataloguePageViewModel : ObservableObject
                 {
                     Loading = false;
                 }
+            }
+
+            IReadOnlyList<Category> categories = await _categoryService.GetCategoriesAsync([CategorySupportedPage.Catalogue], ct);
+            foreach (Category category in categories)
+            {
+                CategoryFilters.Add(_categoryVmFactory.Create(category));
             }
 
             await Task.WhenAll(tasks);
@@ -103,5 +133,45 @@ public partial class CataloguePageViewModel : ObservableObject
         {
             _ = vm.DownloadCommand.ExecuteAsync(null);
         }
+    }
+
+    [RelayCommand]
+    private void ClearFilterSelection()
+    {
+        SelectedFilter = null;
+    }
+
+    async partial void OnSelectedFilterChanged(CategoryViewModel? oldValue, CategoryViewModel? newValue)
+    {
+        if (oldValue is { })
+        {
+            oldValue.IsSelected = false;
+        }
+
+        if (newValue is { })
+        {
+            newValue.IsSelected = true;
+            await UpdateFilteredSoundsAsync(newValue);
+        }
+    }
+
+    private async Task UpdateFilteredSoundsAsync(CategoryViewModel categoryVm)
+    {
+        await _filteredSoundsLock.WaitAsync();
+        FilteredSounds.Clear();
+        IReadOnlyList<Sound> newSounds = await _catalogueService.GetSoundsAsync(categoryVm.Model.Id);
+        List<Task> tasks = new(newSounds.Count);
+        foreach (Sound sound in newSounds)
+        {
+            OnlineSoundViewModel? soundVm = _soundVmFactory.GetOnlineSoundVm(sound);
+            if (soundVm is not null)
+            {
+                tasks.Add(soundVm.LoadCommand.ExecuteAsync(null));
+                FilteredSounds.Add(soundVm);
+            }
+        }
+
+        await Task.WhenAll(tasks);
+        _ = _filteredSoundsLock.Release();
     }
 }

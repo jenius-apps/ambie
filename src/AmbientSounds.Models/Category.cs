@@ -18,4 +18,34 @@ public class Category : IHasLocalizations
 
     /// <inheritdoc/>
     public IReadOnlyDictionary<string, DisplayInformation> Localizations { get; set; } = new Dictionary<string, DisplayInformation>();
+
+    /// <summary>
+    /// List of pages that the category works on.
+    /// </summary>
+    /// <remarks>
+    /// Maps to <see cref="CategorySupportedPage"/> enum, but we use a string for simple deserialization.
+    /// A null value means the category can work on all pages.
+    /// </remarks>
+    public IReadOnlyList<string>? SupportedPages { get; init; }
+}
+
+/// <summary>
+/// List of pages that a category can support.
+/// </summary>
+public enum CategorySupportedPage
+{
+    /// <summary>
+    /// Represents that the catalogue page is supported by the category.
+    /// </summary>
+    Catalogue,
+
+    /// <summary>
+    /// Represents that the channel page is supported by the category.
+    /// </summary>
+    Channel,
+
+    /// <summary>
+    /// Represents that the guide page is supported by the category.
+    /// </summary>
+    Guide,
 }

@@ -186,6 +186,7 @@ partial class App
     [Singleton(typeof(ShareService), typeof(IShareService))]
     [Singleton(typeof(PresenceService), typeof(IPresenceService))]
     [Singleton(typeof(FileDownloader), typeof(IFileDownloader))]
+    [Singleton(typeof(CategoryVmFactory), typeof(ICategoryVmFactory))]
     [Singleton(typeof(SoundVmFactory), typeof(ISoundVmFactory))]
     [Singleton(typeof(GuideVmFactory), typeof(IGuideVmFactory))]
     [Singleton(typeof(CatalogueRowVmFactory), typeof(ICatalogueRowVmFactory))]
@@ -255,6 +256,9 @@ partial class App
     [Singleton(typeof(PromoCodeService), typeof(IPromoCodeService))]
     [Singleton(typeof(TimerFactory), typeof(ITimerFactory))]
     [Singleton(typeof(PushNotificationRegistrationService), typeof(IPushNotificationRegistrationService))]
+    [Singleton(typeof(CategoryRepository), typeof(ICategoryRepository))]
+    [Singleton(typeof(CategoryCache), typeof(ICategoryCache))]
+    [Singleton(typeof(CategoryService), typeof(ICategoryService))]
     [Transient(typeof(StatsPageViewModel))]
     private static partial void ConfigureServices(IServiceCollection services);
 }

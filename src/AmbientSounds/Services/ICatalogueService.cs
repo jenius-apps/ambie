@@ -21,6 +21,11 @@ public interface ICatalogueService
     /// Gets list of sounds based on given IDs.
     /// </summary>
     /// <param name="soundIds">List of sounds to fetch.</param>
-    /// <returns>List of sounds.</returns>
     Task<IReadOnlyList<Sound>> GetSoundsAsync(IReadOnlyList<string> soundIds);
+
+    /// <summary>
+    /// Gets list of sounds based on the sound category.
+    /// </summary>
+    /// <param name="categoryId">The category to search for.</param>
+    Task<IReadOnlyList<Sound>> GetSoundsAsync(string categoryId);
 }

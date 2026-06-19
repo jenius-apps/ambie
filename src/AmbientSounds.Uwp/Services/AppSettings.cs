@@ -28,6 +28,7 @@ public class AppSettings : IAppSettings
         NotificationHubName = resourceLoader.GetString(nameof(NotificationHubName));
         NotificationHubConnectionString = resourceLoader.GetString(nameof(NotificationHubConnectionString));
         PromoCodesUrl = resourceLoader.GetString(nameof(PromoCodesUrl));
+        CategoryUrl = resourceLoader.GetString(nameof(CategoryUrl));
     }
 
     /// <inheritdoc/>
@@ -80,4 +81,7 @@ public class AppSettings : IAppSettings
 
     /// <inheritdoc/>
     public string PromoCodesUrl { get; }
+
+    /// <inheritdoc/>
+    public string CategoryUrl { get; }
 }

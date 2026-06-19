@@ -4,6 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="using:AmbientSounds.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ex="using:JeniusApps.Common.UI.Uwp"
+    xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:AmbientSounds.ViewModels"
@@ -13,7 +15,42 @@
     <Grid Margin="{StaticResource MainFramePageMargin}">
         <ScrollViewer CanContentRenderOutsideBounds="True">
             <Grid>
-                <ItemsControl ItemsSource="{x:Bind ViewModel.Rows}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid Margin="0,0,16,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <labs:TokenView
+                        Margin="-4,0,0,0"
+                        ItemsSource="{x:Bind ViewModel.CategoryFilters}"
+                        ScrollViewer.VerticalScrollMode="Disabled"
+                        SelectedItem="{x:Bind ViewModel.SelectedFilter, Mode=TwoWay}">
+                        <labs:TokenView.ItemTemplate>
+                            <DataTemplate x:DataType="vm:CategoryViewModel">
+                                <TextBlock VerticalAlignment="Center" Text="{x:Bind Name}" />
+                            </DataTemplate>
+                        </labs:TokenView.ItemTemplate>
+                    </labs:TokenView>
+
+                    <HyperlinkButton
+                        Grid.Column="1"
+                        Margin="4,0,0,0"
+                        Command="{x:Bind ViewModel.ClearFilterSelectionCommand}"
+                        Content="Clear"
+                        Visibility="{x:Bind ViewModel.FilteredListVisible, Mode=OneWay}" />
+                </Grid>
+
+                <ItemsControl
+                    Grid.Row="1"
+                    Margin="0,12,0,0"
+                    ItemsSource="{x:Bind ViewModel.Rows}"
+                    Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.FilteredListVisible), Mode=OneWay}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate x:DataType="vm:CatalogueRowViewModel">
                             <controls:CatalogueRowControl
@@ -25,6 +62,14 @@
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
+
+                <controls:CatalogueRowControl
+                    Grid.Row="1"
+                    Margin="0,12,0,0"
+                    ItemsSource="{x:Bind ViewModel.FilteredSounds}"
+                    SoundsVisible="True"
+                    TitleText="{x:Bind ViewModel.SelectedFilter.Name, Mode=OneWay}"
+                    Visibility="{x:Bind ViewModel.FilteredListVisible, Mode=OneWay}" />
             </Grid>
         </ScrollViewer>
 

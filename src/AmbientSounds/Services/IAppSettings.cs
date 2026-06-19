@@ -90,4 +90,9 @@ public interface IAppSettings
     /// The URL for the promo codes API.
     /// </summary>
     string PromoCodesUrl { get; }
+
+    /// <summary>
+    /// The URL for the categories API.
+    /// </summary>
+    string CategoryUrl { get; }
 }
