@@ -17,10 +17,19 @@ public sealed class CategoryService : ICategoryService
     }
 
     /// <inheritdoc/>
-    public async Task<IReadOnlyList<Category>> GetCategoriesAsync(CancellationToken ct = default)
+    public async Task<IReadOnlyList<Category>> GetCategoriesAsync(
+        IReadOnlyList<CategorySupportedPage>? requestedPages = null,
+        CancellationToken ct = default)
     {
         ct.ThrowIfCancellationRequested();
-        IReadOnlyList<Category> result = await _cache.GetItemsAsync(ct);
-        return [.. result.OrderBy(x => x.Id)];
+        IEnumerable<Category> categories = await _cache.GetItemsAsync(ct);
+
+        if (requestedPages is { Count: > 0 })
+        {
+            IEnumerable<string> requestedPageStrings = requestedPages.Select(x => x.ToString());
+            categories = categories.Where(x => x.SupportedPages is null || x.SupportedPages.Intersect(requestedPageStrings).Any());
+        }
+
+        return [.. categories.OrderBy(x => x.Id)];
     }
 }

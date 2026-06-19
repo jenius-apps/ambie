@@ -44,7 +44,7 @@ public class CatalogueService : ICatalogueService
     public async Task<IReadOnlyList<Sound>> GetSoundsAsync(string categoryId)
     {
         IReadOnlyList<Sound> sounds = await GetSoundsAsync();
-        return [.. sounds.Where(x => x.CategoryIds.Contains(categoryId))];
+        return [.. sounds.Where(x => x.CategoryIds?.Contains(categoryId) ?? false)];
     }
 
     /// <inheritdoc/>

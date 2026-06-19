@@ -21,24 +21,33 @@ public partial class CataloguePageViewModel : ObservableObject
     private readonly IDialogService _dialogService;
     private readonly ICategoryService _categoryService;
     private readonly ICategoryVmFactory _categoryVmFactory;
+    private readonly ICatalogueService _catalogueService;
+    private readonly ISoundVmFactory _soundVmFactory;
+    private readonly SemaphoreSlim _filteredSoundsLock = new(1, 1);
 
     public CataloguePageViewModel(
         IPageCache pageCache,
         ICatalogueRowVmFactory catalogueRowVmFactory,
         IDialogService dialogService,
         ICategoryService categoryService,
-        ICategoryVmFactory categoryVmFactory)
+        ICategoryVmFactory categoryVmFactory,
+        ICatalogueService catalogueService,
+        ISoundVmFactory soundVmFactory)
     {
         _pageCache = pageCache;
         _vmFactory = catalogueRowVmFactory;
         _dialogService = dialogService;
         _categoryService = categoryService;
         _categoryVmFactory = categoryVmFactory;
+        _catalogueService = catalogueService;
+        _soundVmFactory = soundVmFactory;
     }
 
     public ObservableCollection<CatalogueRowViewModel> Rows { get; } = [];
 
     public ObservableCollection<CategoryViewModel> CategoryFilters { get; } = [];
+
+    public ObservableCollection<OnlineSoundViewModel> FilteredSounds { get; } = [];
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(FilteredListVisible))]
@@ -73,7 +82,7 @@ public partial class CataloguePageViewModel : ObservableObject
                 }
             }
 
-            IReadOnlyList<Category> categories = await _categoryService.GetCategoriesAsync(ct);
+            IReadOnlyList<Category> categories = await _categoryService.GetCategoriesAsync([CategorySupportedPage.Catalogue], ct);
             foreach (Category category in categories)
             {
                 CategoryFilters.Add(_categoryVmFactory.Create(category));
@@ -132,7 +141,7 @@ public partial class CataloguePageViewModel : ObservableObject
         SelectedFilter = null;
     }
 
-    partial void OnSelectedFilterChanged(CategoryViewModel? oldValue, CategoryViewModel? newValue)
+    async partial void OnSelectedFilterChanged(CategoryViewModel? oldValue, CategoryViewModel? newValue)
     {
         if (oldValue is { })
         {
@@ -142,6 +151,27 @@ public partial class CataloguePageViewModel : ObservableObject
         if (newValue is { })
         {
             newValue.IsSelected = true;
+            await UpdateFilteredSoundsAsync(newValue);
         }
+    }
+
+    private async Task UpdateFilteredSoundsAsync(CategoryViewModel categoryVm)
+    {
+        await _filteredSoundsLock.WaitAsync();
+        FilteredSounds.Clear();
+        IReadOnlyList<Sound> newSounds = await _catalogueService.GetSoundsAsync(categoryVm.Model.Id);
+        List<Task> tasks = new(newSounds.Count);
+        foreach (Sound sound in newSounds)
+        {
+            OnlineSoundViewModel? soundVm = _soundVmFactory.GetOnlineSoundVm(sound);
+            if (soundVm is not null)
+            {
+                tasks.Add(soundVm.LoadCommand.ExecuteAsync(null));
+                FilteredSounds.Add(soundVm);
+            }
+        }
+
+        await Task.WhenAll(tasks);
+        _ = _filteredSoundsLock.Release();
     }
 }
