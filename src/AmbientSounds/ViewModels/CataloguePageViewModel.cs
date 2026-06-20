@@ -69,9 +69,16 @@ public partial class CataloguePageViewModel : ObservableObject
         {
             Loading = true;
             ct.ThrowIfCancellationRequested();
+
             List<Task> tasks = [];
-            await Task.Delay(150, CancellationToken.None); // added to improve nav perf
-            ct.ThrowIfCancellationRequested();
+            await Task.Delay(150, ct); // added to improve nav perf
+
+            IReadOnlyList<Category> categories = await _categoryService.GetCategoriesAsync([CategorySupportedPage.Catalogue], ct);
+            foreach (Category category in categories)
+            {
+                CategoryFilters.Add(_categoryVmFactory.Create(category));
+            }
+
             IReadOnlyList<CatalogueRow> rows = await _pageCache.GetCatalogueRowsAsync();
             ct.ThrowIfCancellationRequested();
             foreach (CatalogueRow row in rows)
@@ -85,12 +92,6 @@ public partial class CataloguePageViewModel : ObservableObject
                 {
                     Loading = false;
                 }
-            }
-
-            IReadOnlyList<Category> categories = await _categoryService.GetCategoriesAsync([CategorySupportedPage.Catalogue], ct);
-            foreach (Category category in categories)
-            {
-                CategoryFilters.Add(_categoryVmFactory.Create(category));
             }
 
             await Task.WhenAll(tasks);
