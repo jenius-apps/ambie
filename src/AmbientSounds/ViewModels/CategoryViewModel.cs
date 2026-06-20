@@ -29,4 +29,9 @@ public partial class CategoryViewModel : ObservableObject
     /// </summary>
     [ObservableProperty]
     private bool _isSelected;
+
+    public override string ToString()
+    {
+        return Name;
+    }
 }
