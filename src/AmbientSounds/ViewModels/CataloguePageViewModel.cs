@@ -104,6 +104,7 @@ public partial class CataloguePageViewModel : ObservableObject
         }
 
         Rows.Clear();
+        CategoryFilters.Clear();
     }
 
     [RelayCommand]
