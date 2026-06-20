@@ -1431,6 +1431,10 @@
           <source>Update Successful</source>
           <target state="translated">업데이트 성공</target>
         </trans-unit>
+        <trans-unit id="ClearText" translate="yes" xml:space="preserve">
+          <source>Clear</source>
+          <target state="translated">비켜</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -1068,4 +1068,7 @@
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>Ažuriranje uspješno</value>
   </data>
+  <data name="ClearText" xml:space="preserve">
+    <value>Čisto</value>
+  </data>
 </root>

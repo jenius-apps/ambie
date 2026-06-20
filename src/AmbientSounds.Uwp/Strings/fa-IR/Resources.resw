@@ -1080,4 +1080,7 @@
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>به روزرسانی موفقیت آمیز بود</value>
   </data>
+  <data name="ClearText" xml:space="preserve">
+    <value>پاک است</value>
+  </data>
 </root>

@@ -1077,4 +1077,7 @@
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>Aktualizacja zakończona</value>
   </data>
+  <data name="ClearText" xml:space="preserve">
+    <value>Czyste</value>
+  </data>
 </root>

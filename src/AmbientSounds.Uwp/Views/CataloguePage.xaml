@@ -8,6 +8,7 @@
     xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
     xmlns:vm="using:AmbientSounds.ViewModels"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
@@ -42,7 +43,7 @@
                         Grid.Column="1"
                         Margin="4,0,0,0"
                         Command="{x:Bind ViewModel.ClearFilterSelectionCommand}"
-                        Content="Clear"
+                        Content="{x:Bind strings:Resources.ClearText}"
                         Visibility="{x:Bind ViewModel.FilteredListVisible, Mode=OneWay}" />
                 </Grid>
 

@@ -1185,4 +1185,7 @@
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>Update Successful</value>
   </data>
+  <data name="ClearText" xml:space="preserve">
+    <value>Clear</value>
+  </data>
 </root>
