@@ -1,9 +1,11 @@
 ﻿using AmbientSounds.Cache;
+using AmbientSounds.Constants;
 using AmbientSounds.Factories;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.Telemetry;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading;
@@ -23,6 +25,7 @@ public partial class CataloguePageViewModel : ObservableObject
     private readonly ICategoryVmFactory _categoryVmFactory;
     private readonly ICatalogueService _catalogueService;
     private readonly ISoundVmFactory _soundVmFactory;
+    private readonly ITelemetry _telemetry;
     private readonly SemaphoreSlim _filteredSoundsLock = new(1, 1);
 
     public CataloguePageViewModel(
@@ -32,7 +35,8 @@ public partial class CataloguePageViewModel : ObservableObject
         ICategoryService categoryService,
         ICategoryVmFactory categoryVmFactory,
         ICatalogueService catalogueService,
-        ISoundVmFactory soundVmFactory)
+        ISoundVmFactory soundVmFactory,
+        ITelemetry telemetry)
     {
         _pageCache = pageCache;
         _vmFactory = catalogueRowVmFactory;
@@ -41,6 +45,7 @@ public partial class CataloguePageViewModel : ObservableObject
         _categoryVmFactory = categoryVmFactory;
         _catalogueService = catalogueService;
         _soundVmFactory = soundVmFactory;
+        _telemetry = telemetry;
     }
 
     public ObservableCollection<CatalogueRowViewModel> Rows { get; } = [];
@@ -64,9 +69,16 @@ public partial class CataloguePageViewModel : ObservableObject
         {
             Loading = true;
             ct.ThrowIfCancellationRequested();
+
             List<Task> tasks = [];
-            await Task.Delay(150, CancellationToken.None); // added to improve nav perf
-            ct.ThrowIfCancellationRequested();
+            await Task.Delay(150, ct); // added to improve nav perf
+
+            IReadOnlyList<Category> categories = await _categoryService.GetCategoriesAsync([CategorySupportedPage.Catalogue], ct);
+            foreach (Category category in categories)
+            {
+                CategoryFilters.Add(_categoryVmFactory.Create(category));
+            }
+
             IReadOnlyList<CatalogueRow> rows = await _pageCache.GetCatalogueRowsAsync();
             ct.ThrowIfCancellationRequested();
             foreach (CatalogueRow row in rows)
@@ -80,12 +92,6 @@ public partial class CataloguePageViewModel : ObservableObject
                 {
                     Loading = false;
                 }
-            }
-
-            IReadOnlyList<Category> categories = await _categoryService.GetCategoriesAsync([CategorySupportedPage.Catalogue], ct);
-            foreach (Category category in categories)
-            {
-                CategoryFilters.Add(_categoryVmFactory.Create(category));
             }
 
             await Task.WhenAll(tasks);
@@ -104,6 +110,7 @@ public partial class CataloguePageViewModel : ObservableObject
         }
 
         Rows.Clear();
+        CategoryFilters.Clear();
     }
 
     [RelayCommand]
@@ -139,6 +146,7 @@ public partial class CataloguePageViewModel : ObservableObject
     private void ClearFilterSelection()
     {
         SelectedFilter = null;
+        _telemetry.TrackEvent(TelemetryConstants.CatalogueFilterCleared);
     }
 
     async partial void OnSelectedFilterChanged(CategoryViewModel? oldValue, CategoryViewModel? newValue)
@@ -152,6 +160,10 @@ public partial class CataloguePageViewModel : ObservableObject
         {
             newValue.IsSelected = true;
             await UpdateFilteredSoundsAsync(newValue);
+            _telemetry.TrackEvent(TelemetryConstants.CatalogueFilterClicked, new Dictionary<string, string>
+            {
+                { "filter", newValue.Name }
+            });
         }
     }
 

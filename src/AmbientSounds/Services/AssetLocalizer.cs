@@ -2,6 +2,7 @@
 using CommunityToolkit.Diagnostics;
 using JeniusApps.Common.Tools;
 using System.Globalization;
+using System.Linq;
 
 namespace AmbientSounds.Services;
 
@@ -46,10 +47,15 @@ public class AssetLocalizer : IAssetLocalizer
 
         if (languageCode.Contains("-"))
         {
-            var split = languageCode.Split('-');
-            if (asset.Localizations.TryGetValue(split[0], out info))
+            string prefix = languageCode.Split('-')[0];
+            if (asset.Localizations.TryGetValue(prefix, out info))
             {
                 return info;
+            }
+
+            if (asset.Localizations.FirstOrDefault(x => x.Key.StartsWith(prefix)) is { } match)
+            {
+                return match.Value;
             }
         }
 

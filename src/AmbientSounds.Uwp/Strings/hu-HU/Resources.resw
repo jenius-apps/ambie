@@ -1071,4 +1071,7 @@
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>Frissítés sikeres</value>
   </data>
+  <data name="ClearText" xml:space="preserve">
+    <value>Tiszta</value>
+  </data>
 </root>

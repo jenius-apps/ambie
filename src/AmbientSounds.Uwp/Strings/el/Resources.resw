@@ -1065,4 +1065,7 @@
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>Επιτυχής ενημέρωση</value>
   </data>
+  <data name="ClearText" xml:space="preserve">
+    <value>Εκκαθάριση</value>
+  </data>
 </root>

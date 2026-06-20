@@ -1430,6 +1430,10 @@
           <source>Update Successful</source>
           <target state="translated">עדכון הצליח</target>
         </trans-unit>
+        <trans-unit id="ClearText" translate="yes" xml:space="preserve">
+          <source>Clear</source>
+          <target state="translated">נקי</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -1440,6 +1440,10 @@
           <source>Update Successful</source>
           <target state="translated">Mise à jour réussie</target>
         </trans-unit>
+        <trans-unit id="ClearText" translate="yes" xml:space="preserve">
+          <source>Clear</source>
+          <target state="translated">Clair</target>
+        </trans-unit>
       </group>
     </body>
   </file>
