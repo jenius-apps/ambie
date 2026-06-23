@@ -4,6 +4,7 @@ using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -79,7 +80,12 @@ public partial class CatalogueRowViewModel : ObservableObject
                 }
             }
 
-            foreach (OnlineSoundViewModel vm in vmList.OrderBy(x => x.Name))
+            // We only want to sort if the row is NOT the "new" group.
+            IEnumerable<OnlineSoundViewModel> sortedVmList = _row.Name.Equals("new", StringComparison.OrdinalIgnoreCase)
+                ? vmList
+                : vmList.OrderBy(x => x.Name);
+
+            foreach (OnlineSoundViewModel vm in sortedVmList)
             {
                 Sounds.Add(vm);
                 RowVisible = true;
