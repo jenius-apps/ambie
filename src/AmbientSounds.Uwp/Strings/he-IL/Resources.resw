@@ -1080,7 +1080,4 @@
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>עדכון הצליח</value>
   </data>
-  <data name="ClearText" xml:space="preserve">
-    <value>נקי</value>
-  </data>
 </root>

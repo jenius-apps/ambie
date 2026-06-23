@@ -1427,10 +1427,6 @@
           <source>Update Successful</source>
           <target state="translated">به روزرسانی موفقیت آمیز بود</target>
         </trans-unit>
-        <trans-unit id="ClearText" translate="yes" xml:space="preserve">
-          <source>Clear</source>
-          <target state="translated">پاک است</target>
-        </trans-unit>
       </group>
     </body>
   </file>
