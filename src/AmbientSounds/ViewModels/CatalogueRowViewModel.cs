@@ -6,6 +6,7 @@ using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -61,6 +62,8 @@ public partial class CatalogueRowViewModel : ObservableObject
         catch { }
 
         ct.ThrowIfCancellationRequested();
+
+        List<OnlineSoundViewModel> vmList = [];
         if (sounds is not null)
         {
             Sounds.Clear();
@@ -72,9 +75,14 @@ public partial class CatalogueRowViewModel : ObservableObject
                 if (vm is not null)
                 {
                     tasks.Add(vm.LoadCommand.ExecuteAsync(null));
-                    Sounds.Add(vm);
-                    RowVisible = true;
+                    vmList.Add(vm);
                 }
+            }
+
+            foreach (OnlineSoundViewModel vm in vmList.OrderBy(x => x.Name))
+            {
+                Sounds.Add(vm);
+                RowVisible = true;
             }
 
             await Task.WhenAll(tasks);

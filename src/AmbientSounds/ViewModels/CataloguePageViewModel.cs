@@ -9,6 +9,7 @@ using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -182,14 +183,20 @@ public partial class CataloguePageViewModel : ObservableObject
         FilteredSounds.Clear();
         IReadOnlyList<Sound> newSounds = await _catalogueService.GetSoundsAsync(categoryVm.Model.Id);
         List<Task> tasks = new(newSounds.Count);
+        List<OnlineSoundViewModel> vmList = [];
         foreach (Sound sound in newSounds)
         {
             OnlineSoundViewModel? soundVm = _soundVmFactory.GetOnlineSoundVm(sound);
             if (soundVm is not null)
             {
                 tasks.Add(soundVm.LoadCommand.ExecuteAsync(null));
-                FilteredSounds.Add(soundVm);
+                vmList.Add(soundVm);
             }
+        }
+
+        foreach (OnlineSoundViewModel vm in vmList.OrderBy(x => x.Name))
+        {
+            FilteredSounds.Add(vm);
         }
 
         await Task.WhenAll(tasks);
