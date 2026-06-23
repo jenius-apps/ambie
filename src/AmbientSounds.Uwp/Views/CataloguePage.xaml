@@ -22,7 +22,7 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <Grid Margin="0,0,16,0">
+                <Grid Margin="0,0,16,0" Visibility="{x:Bind ViewModel.FiltersEnabled}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="auto" />
@@ -54,7 +54,7 @@
                         Grid.Column="1"
                         Margin="4,0,0,0"
                         Command="{x:Bind ViewModel.ClearFilterSelectionCommand}"
-                        Content="{x:Bind strings:Resources.ClearText}"
+                        Content="{x:Bind strings:Resources.Reset}"
                         Visibility="{x:Bind ViewModel.FilteredListVisible, Mode=OneWay}">
                         <ani:Implicit.ShowAnimations>
                             <ani:OpacityAnimation
@@ -88,7 +88,7 @@
 
                 <controls:CatalogueRowControl
                     Grid.Row="1"
-                    Margin="0,12,0,0"
+                    Margin="0,12,0,24"
                     ItemsSource="{x:Bind ViewModel.FilteredSounds}"
                     SoundsVisible="True"
                     TitleText="{x:Bind ViewModel.SelectedFilter.Name, Mode=OneWay}"

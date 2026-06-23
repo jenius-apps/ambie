@@ -1427,10 +1427,6 @@
           <source>Update Successful</source>
           <target state="translated">تحديث ناجح</target>
         </trans-unit>
-        <trans-unit id="ClearText" translate="yes" xml:space="preserve">
-          <source>Clear</source>
-          <target state="translated">واضح</target>
-        </trans-unit>
       </group>
     </body>
   </file>

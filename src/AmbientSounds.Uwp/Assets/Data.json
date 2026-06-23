@@ -2,6 +2,7 @@
   {
     "Id": "9947a323-8223-4593-8a82-04d9edfd4d4a",
     "MetaDataVersion": 6,
+    "CategoryIds": ["nature","free"],
     "Name": "beach",
     "ColourHex": "#c59758",
     "ImagePath": "ms-appx:///Assets/Images/beach.png",
@@ -98,6 +99,7 @@
   {
     "Id": "19a43ab7-c964-4ab5-90f9-26c8a17d4f34",
     "MetaDataVersion": 6,
+    "CategoryIds": [ "animals", "free" ],
     "Name": "birds",
     "ColourHex": "#5a8391",
     "ImagePath": "ms-appx:///Assets/Images/birds.png",
@@ -190,6 +192,7 @@
   {
     "Id": "f2940c11-0510-4db5-a0ea-5cb27d453bb2",
     "MetaDataVersion": 7,
+    "CategoryIds": [ "urban", "free" ],
     "Name": "citystreet",
     "ColourHex": "#a2775c",
     "ImagePath": "ms-appx:///Assets/Images/citystreet.png",
@@ -284,6 +287,7 @@
   {
     "Id": "17b2af89-1008-4259-b545-dc8ca4ee473f",
     "MetaDataVersion": 7,
+    "CategoryIds": [ "urban", "free" ],
     "Name": "coffeeshop",
     "ColourHex": "#636252",
     "PreviewFilePath": "https://ambiecataloguestorage.blob.core.windows.net/soundpreviews/CoffeeshopPreview6Sec.mp3",
@@ -380,6 +384,7 @@
     "Id": "f32edd85-871e-4349-9e45-42b14fd5449b",
     "MetaDataVersion": 6,
     "Name": "creek",
+    "CategoryIds": [ "nature", "free" ],
     "ColourHex": "#27281c",
     "ImagePath": "ms-appx:///Assets/Images/creek.png",
     "PreviewFilePath": "https://ambiecataloguestorage.blob.core.windows.net/soundpreviews/CreekPreview5Sec.mp3",
@@ -471,6 +476,7 @@
   {
     "Id": "b22901eb-2269-4b3f-80ab-af2722e68ff1",
     "MetaDataVersion": 8,
+    "CategoryIds": [ "nature", "free" ],
     "Name": "fireplace",
     "AssociatedVideoIds": [ "59c3b21c-3df1-44d0-a2f7-096bf55728c3" ],
     "ColourHex": "#442f12",
@@ -567,6 +573,7 @@
   {
     "Id": "61ae9b16-8254-40f4-b4ae-eff4791f6a80",
     "MetaDataVersion": 6,
+    "CategoryIds": [ "water", "free" ],
     "Name": "rain",
     "ColourHex": "#334337",
     "ImagePath": "ms-appx:///Assets/Images/rain.png",
@@ -663,6 +670,7 @@
   {
     "Id": "37988c11-b601-417b-9bb4-bb59fe939641",
     "MetaDataVersion": 6,
+    "CategoryIds": [ "nature", "free" ],
     "Name": "rainforest",
     "ColourHex": "#152d0c",
     "ImagePath": "ms-appx:///Assets/Images/rainforest.png",
@@ -759,6 +767,7 @@
     "Id": "1628a20d-744e-4f99-b7e3-24088cba5090",
     "MetaDataVersion": 6,
     "Name": "thunder",
+    "CategoryIds": [ "nature", "free" ],
     "ColourHex": "#00266f",
     "ImagePath": "ms-appx:///Assets/Images/thunder.png",
     "FilePath": "ms-appx:///Assets/Sounds/thunder.mp3",
@@ -854,6 +863,7 @@
   {
     "Id": "f8424751-d150-41bc-b4ab-c22c41b4b339",
     "MetaDataVersion": 8,
+    "CategoryIds": [ "water", "free" ],
     "Name": "underwater",
     "AssociatedVideoIds": [ "b80f1e29-3649-4c59-8cbf-817ce6466e3f" ],
     "ColourHex": "#00c3d0",
@@ -951,6 +961,7 @@
   {
     "Id": "e0df152b-7166-402a-902d-c69d3a9f96bb",
     "MetaDataVersion": 6,
+    "CategoryIds": [ "water", "free" ],
     "Name": "waterfall",
     "ColourHex": "#8bbdd4",
     "ImagePath": "ms-appx:///Assets/Images/waterfall.png",
@@ -1047,6 +1058,7 @@
   {
     "Id": "aada6607-5dbe-42ff-934d-d5917e597284",
     "MetaDataVersion": 6,
+    "CategoryIds": [ "white noise", "free" ],
     "Name": "whitenoise",
     "ColourHex": "#5e5b49",
     "ImagePath": "ms-appx:///Assets/Images/whitenoise.png",
@@ -1142,6 +1154,7 @@
   {
     "Id": "38c73d89-6c2c-445b-8beb-52b2f72689a2",
     "MetaDataVersion": 7,
+    "CategoryIds": [ "nature", "free" ],
     "Name": "wind",
     "AssociatedVideoIds": [ "04233954-8997-4ed0-8b6e-1a52643fbf67" ],
     "ColourHex": "#0b2354",
