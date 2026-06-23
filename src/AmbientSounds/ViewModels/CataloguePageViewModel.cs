@@ -49,7 +49,7 @@ public partial class CataloguePageViewModel : ObservableObject
         _soundVmFactory = soundVmFactory;
         _telemetry = telemetry;
 
-        //FiltersEnabled = experimentationService.IsEnabled(ExperimentConstants.CataloguePageFilter);
+        FiltersEnabled = experimentationService.IsEnabled(ExperimentConstants.CataloguePageFilter);
     }
 
     public bool FiltersEnabled { get; }
