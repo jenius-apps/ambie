@@ -22,7 +22,7 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <Grid Margin="0,0,16,0">
+                <Grid Margin="0,0,16,0" Visibility="{x:Bind ViewModel.FiltersEnabled}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="auto" />

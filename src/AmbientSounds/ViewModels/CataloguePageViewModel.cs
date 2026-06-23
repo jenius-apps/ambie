@@ -6,6 +6,7 @@ using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using JeniusApps.Common.Telemetry;
+using JeniusApps.Common.Tools;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading;
@@ -36,7 +37,8 @@ public partial class CataloguePageViewModel : ObservableObject
         ICategoryVmFactory categoryVmFactory,
         ICatalogueService catalogueService,
         ISoundVmFactory soundVmFactory,
-        ITelemetry telemetry)
+        ITelemetry telemetry,
+        IExperimentationService experimentationService)
     {
         _pageCache = pageCache;
         _vmFactory = catalogueRowVmFactory;
@@ -46,7 +48,11 @@ public partial class CataloguePageViewModel : ObservableObject
         _catalogueService = catalogueService;
         _soundVmFactory = soundVmFactory;
         _telemetry = telemetry;
+
+        //FiltersEnabled = experimentationService.IsEnabled(ExperimentConstants.CataloguePageFilter);
     }
+
+    public bool FiltersEnabled { get; }
 
     public ObservableCollection<CatalogueRowViewModel> Rows { get; } = [];
 
@@ -73,10 +79,13 @@ public partial class CataloguePageViewModel : ObservableObject
             List<Task> tasks = [];
             await Task.Delay(150, ct); // added to improve nav perf
 
-            IReadOnlyList<Category> categories = await _categoryService.GetCategoriesAsync([CategorySupportedPage.Catalogue], ct);
-            foreach (Category category in categories)
+            if (FiltersEnabled)
             {
-                CategoryFilters.Add(_categoryVmFactory.Create(category));
+                IReadOnlyList<Category> categories = await _categoryService.GetCategoriesAsync([CategorySupportedPage.Catalogue], ct);
+                foreach (Category category in categories)
+                {
+                    CategoryFilters.Add(_categoryVmFactory.Create(category));
+                }
             }
 
             IReadOnlyList<CatalogueRow> rows = await _pageCache.GetCatalogueRowsAsync();
