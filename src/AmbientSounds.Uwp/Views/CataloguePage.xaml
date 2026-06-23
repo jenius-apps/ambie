@@ -54,7 +54,7 @@
                         Grid.Column="1"
                         Margin="4,0,0,0"
                         Command="{x:Bind ViewModel.ClearFilterSelectionCommand}"
-                        Content="{x:Bind strings:Resources.ClearText}"
+                        Content="{x:Bind strings:Resources.Reset}"
                         Visibility="{x:Bind ViewModel.FilteredListVisible, Mode=OneWay}">
                         <ani:Implicit.ShowAnimations>
                             <ani:OpacityAnimation
