@@ -19,6 +19,5 @@ public class CatalogueRow : IAsset
     public IReadOnlyDictionary<string, DisplayInformation> Localizations { get; set; } = new Dictionary<string, DisplayInformation>();
 
     /// <inheritdoc/>
-    /// <inheritdoc/>
     public IReadOnlyList<string>? CategoryIds { get; init; } = [];
 }

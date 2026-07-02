@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-
-namespace AmbientSounds.Models;
+﻿namespace AmbientSounds.Models;
 
 /// <summary>
 /// An interface for a downloadable asset from Ambie.
 /// </summary>
-public interface IAsset : IHasLocalizations
+public interface IAsset : IHasLocalizations, IHasCategories
 {
     /// <summary>
     /// Name of asset.
@@ -16,9 +14,4 @@ public interface IAsset : IHasLocalizations
     /// Description of asset.
     /// </summary>
     string Description { get; set; }
-
-    /// <summary>
-    /// A list of categories associated with the asset.
-    /// </summary>
-    IReadOnlyList<string>? CategoryIds { get; init; }
 }
