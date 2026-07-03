@@ -33,11 +33,40 @@ public class PagesRepository : IPagesRepository
         return await GetCatalogueRowsAsync(url);
     }
 
+    /// <inheritdoc/>
     public async Task<IReadOnlyList<CatalogueRow>> GetMeditatePageAsync(CancellationToken ct)
     {
         ct.ThrowIfCancellationRequested();
         string url = _pagesUrl + "/meditate";
-        return await GetCatalogueRowsAsync(url);
+        return await GetCatalogueRowsAsync(url, ct);
+    }
+
+    /// <inheritdoc/>
+    public async Task<IReadOnlyList<AssetRow>> GetChannelsPageAsync(CancellationToken ct = default)
+    {
+        ct.ThrowIfCancellationRequested();
+        string url = _pagesUrl + "/channel";
+        return await GetAssetRowsAsync(url, ct);
+    }
+
+    private async Task<IReadOnlyList<AssetRow>> GetAssetRowsAsync(string url, CancellationToken ct)
+    {
+        ct.ThrowIfCancellationRequested();
+
+        try
+        {
+            using Stream result = await _client.GetStreamAsync(url);
+            AssetRow[]? results = await JsonSerializer.DeserializeAsync(result, AmbieJsonSerializerContext.CaseInsensitive.AssetRowArray, ct);
+            return results ?? [];
+        }
+        catch (OperationCanceledException)
+        {
+            throw;
+        }
+        catch
+        {
+            return [];
+        }
     }
 
     private async Task<IReadOnlyList<CatalogueRow>> GetCatalogueRowsAsync(string url, CancellationToken ct = default)

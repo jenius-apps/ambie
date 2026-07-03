@@ -17,6 +17,12 @@ public interface IPagesRepository
     Task<IReadOnlyList<CatalogueRow>> GetCataloguePageAsync();
 
     /// <summary>
+    /// Retrieves data for channels page.
+    /// </summary>
+    /// <param name="ct">A cancellation token.</param>
+    Task<IReadOnlyList<AssetRow>> GetChannelsPageAsync(CancellationToken ct = default);
+
+    /// <summary>
     /// Retrieves data for the meditate page.
     /// </summary>
     /// <returns>List of catalogue rows taht define the page.</returns>

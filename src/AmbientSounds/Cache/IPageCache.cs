@@ -17,8 +17,14 @@ public interface IPageCache
     Task<IReadOnlyList<CatalogueRow>> GetCatalogueRowsAsync();
 
     /// <summary>
+    /// Retrieves list of channel page data. 
+    /// </summary>
+    /// <param name="ct">A cancellation token</param>
+    Task<IReadOnlyList<AssetRow>> GetChannelPageRowsAsync(CancellationToken ct = default);
+
+    /// <summary>
     /// Retrieves list of meditate page data.
     /// </summary>
     /// <returns>List of meditate rows that define the page.</returns>
-    Task<IReadOnlyList<CatalogueRow>> GetMeditatePageRowsAsync(CancellationToken ct);
+    Task<IReadOnlyList<CatalogueRow>> GetMeditatePageRowsAsync(CancellationToken ct = default);
 }

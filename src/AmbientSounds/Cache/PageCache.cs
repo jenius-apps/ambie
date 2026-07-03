@@ -12,6 +12,8 @@ public class PageCache : IPageCache
     private readonly List<CatalogueRow> _catalogueRowsCache = [];
     private readonly SemaphoreSlim _meditatePageCacheLock = new(1, 1);
     private readonly List<CatalogueRow> _meditatePageRowsCache = [];
+    private readonly SemaphoreSlim _channelPageCacheLock = new(1, 1);
+    private readonly List<AssetRow> _channelPageRowsCache = [];
     private readonly IPagesRepository _pagesRepository;
 
     public PageCache(IPagesRepository pagesRepository)
@@ -34,7 +36,7 @@ public class PageCache : IPageCache
     }
 
     /// <inheritdoc/>
-    public async Task<IReadOnlyList<CatalogueRow>> GetMeditatePageRowsAsync(CancellationToken ct)
+    public async Task<IReadOnlyList<CatalogueRow>> GetMeditatePageRowsAsync(CancellationToken ct = default)
     {
         ct.ThrowIfCancellationRequested();
         await _meditatePageCacheLock.WaitAsync(ct);
@@ -46,5 +48,20 @@ public class PageCache : IPageCache
 
         _ = _meditatePageCacheLock.Release();
         return _meditatePageRowsCache;
+    }
+
+    /// <inheritdoc/>
+    public async Task<IReadOnlyList<AssetRow>> GetChannelPageRowsAsync(CancellationToken ct = default)
+    {
+        ct.ThrowIfCancellationRequested();
+        await _channelPageCacheLock.WaitAsync(ct);
+        if (_channelPageRowsCache.Count == 0)
+        {
+            IReadOnlyList<AssetRow> rowsData = await _pagesRepository.GetChannelsPageAsync(ct);
+            _channelPageRowsCache.AddRange(rowsData);
+        }
+
+        _ = _channelPageCacheLock.Release();
+        return _channelPageRowsCache;
     }
 }
