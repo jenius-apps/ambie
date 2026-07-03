@@ -38,6 +38,7 @@ namespace AmbientSounds.Models;
 /// That is, pass the generated <see cref="System.Text.Json.Serialization.Metadata.JsonTypeInfo{T}"/> property that matches that model type. Same to deserialize.
 /// </para>
 /// </remarks>
+[JsonSerializable(typeof(AssetRow[]), GenerationMode = JsonSourceGenerationMode.Metadata)] // Only used to deserialize
 [JsonSerializable(typeof(Category[]), GenerationMode = JsonSourceGenerationMode.Metadata)] // Only used to deserialize
 [JsonSerializable(typeof(Category))]
 [JsonSerializable(typeof(CatalogueRow))]

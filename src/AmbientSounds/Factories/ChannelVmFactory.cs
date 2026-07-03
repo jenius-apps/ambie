@@ -9,8 +9,9 @@ using System;
 
 namespace AmbientSounds.Factories;
 
-public class ChannelVmFactory(IServiceProvider serviceProvider)
+public class ChannelVmFactory(IServiceProvider serviceProvider) : IChannelVmFactory
 {
+    /// <inheritdoc/>
     public ChannelViewModel Create(
         Channel channel,
         IRelayCommand<ChannelViewModel>? viewDetailsCommand = null,

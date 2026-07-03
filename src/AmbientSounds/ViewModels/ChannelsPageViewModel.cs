@@ -17,14 +17,14 @@ namespace AmbientSounds.ViewModels;
 public partial class ChannelsPageViewModel : ObservableObject
 {
     private readonly IChannelService _channelService;
-    private readonly ChannelVmFactory _channelFactory;
+    private readonly IChannelVmFactory _channelFactory;
     private readonly ITelemetry _telemetry;
 
     public EventHandler<ChannelViewModel>? GridVideoPlayed;
 
     public ChannelsPageViewModel(
         IChannelService channelService,
-        ChannelVmFactory channelFactory,
+        IChannelVmFactory channelFactory,
         ITelemetry telemetry)
     {
         _channelService = channelService;

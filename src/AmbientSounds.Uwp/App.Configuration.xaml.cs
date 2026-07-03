@@ -190,7 +190,7 @@ partial class App
     [Singleton(typeof(SoundVmFactory), typeof(ISoundVmFactory))]
     [Singleton(typeof(GuideVmFactory), typeof(IGuideVmFactory))]
     [Singleton(typeof(CatalogueRowVmFactory), typeof(ICatalogueRowVmFactory))]
-    [Singleton(typeof(ChannelVmFactory))]
+    [Singleton(typeof(ChannelVmFactory), typeof(IChannelVmFactory))]
     [Singleton(typeof(SoundVolumeService), typeof(ISoundVolumeService))]
     [Singleton(typeof(CatalogueService), typeof(ICatalogueService))]
     [Singleton(typeof(VideoService), typeof(IVideoService))]
