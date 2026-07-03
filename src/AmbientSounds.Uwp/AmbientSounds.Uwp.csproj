@@ -335,6 +335,9 @@
     <Compile Include="Views\ChannelsPage.xaml.cs">
       <DependentUpon>ChannelsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ChannelsPage2.xaml.cs">
+      <DependentUpon>ChannelsPage2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CompactFocusPage.xaml.cs">
       <DependentUpon>CompactFocusPage.xaml</DependentUpon>
     </Compile>
@@ -731,6 +734,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ChannelsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChannelsPage2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
