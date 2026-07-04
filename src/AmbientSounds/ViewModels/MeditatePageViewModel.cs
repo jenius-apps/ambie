@@ -28,7 +28,7 @@ public partial class MeditatePageViewModel : ObservableObject
     private readonly IDispatcherQueue _dispatcherQueue;
     private readonly ITelemetry _telemetry;
     private readonly IPageCache _pageCache;
-    private readonly ICatalogueRowVmFactory _catalogueRowVmFactory;
+    private readonly IAssetRowVmFactory _catalogueRowVmFactory;
     private readonly ISoundService _soundService;
     private readonly ISoundVmFactory _soundVmFactory;
 
@@ -41,7 +41,7 @@ public partial class MeditatePageViewModel : ObservableObject
         IDispatcherQueue dispatcherQueue,
         ITelemetry telemetry,
         IPageCache pageCache,
-        ICatalogueRowVmFactory catalogueRowVmFactory,
+        IAssetRowVmFactory catalogueRowVmFactory,
         ISoundService soundService,
         ISoundVmFactory soundVmFactory)
     {
