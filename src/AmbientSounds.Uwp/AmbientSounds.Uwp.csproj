@@ -139,11 +139,11 @@
     <Compile Include="Controls\ActiveTrackList.xaml.cs">
       <DependentUpon>ActiveTrackList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\AssetRowControl.xaml.cs">
+      <DependentUpon>AssetRowControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\AuthDialog.xaml.cs">
       <DependentUpon>AuthDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\CatalogueRowControl.xaml.cs">
-      <DependentUpon>CatalogueRowControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ChannelViewerSettingsDialog.xaml.cs">
       <DependentUpon>ChannelViewerSettingsDialog.xaml</DependentUpon>
@@ -506,11 +506,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\AuthDialog.xaml">
+    <Page Include="Controls\AssetRowControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\CatalogueRowControl.xaml">
+    <Page Include="Controls\AuthDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

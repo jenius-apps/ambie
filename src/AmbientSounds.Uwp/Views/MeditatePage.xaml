@@ -316,10 +316,12 @@
                     <ItemsControl ItemsSource="{x:Bind ViewModel.Rows}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate x:DataType="vm:CatalogueRowViewModel">
-                                <controls:CatalogueRowControl
+                                <controls:AssetRowControl
                                     Margin="0,0,0,24"
+                                    ItemTemplate="{StaticResource OnlineSoundDataTemplate}"
+                                    ItemsPanel="{StaticResource OnlineSoundPanelTemplate}"
                                     ItemsSource="{x:Bind Sounds, Mode=OneWay}"
-                                    SoundsVisible="{x:Bind RowVisible, Mode=OneWay}"
+                                    ItemsVisible="{x:Bind RowVisible, Mode=OneWay}"
                                     TitleText="{x:Bind Title, Mode=OneWay}" />
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
