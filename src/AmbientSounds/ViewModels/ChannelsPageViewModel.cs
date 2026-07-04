@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Constants;
+﻿using AmbientSounds.Cache;
+using AmbientSounds.Constants;
 using AmbientSounds.Factories;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
@@ -17,19 +18,22 @@ namespace AmbientSounds.ViewModels;
 public partial class ChannelsPageViewModel : ObservableObject
 {
     private readonly IChannelService _channelService;
-    private readonly IChannelVmFactory _channelFactory;
     private readonly ITelemetry _telemetry;
+    private readonly IPageCache _pageCache;
+    private readonly IAssetRowVmFactory _assetRowVmFactory;
 
     public EventHandler<ChannelViewModel>? GridVideoPlayed;
 
     public ChannelsPageViewModel(
         IChannelService channelService,
-        IChannelVmFactory channelFactory,
-        ITelemetry telemetry)
+        ITelemetry telemetry,
+        IPageCache pageCache,
+        IAssetRowVmFactory assetRowVmFactory)
     {
         _channelService = channelService;
-        _channelFactory = channelFactory;
         _telemetry = telemetry;
+        _pageCache = pageCache;
+        _assetRowVmFactory = assetRowVmFactory;
     }
 
     [ObservableProperty]
@@ -38,59 +42,50 @@ public partial class ChannelsPageViewModel : ObservableObject
 
     public bool DetailsPaneVisible => SelectedChannel is not null;
 
-    public ObservableCollection<ChannelViewModel> Channels { get; } = [];
+    public ObservableCollection<ChannelRowViewModel> Rows { get; } = [];
 
     [ObservableProperty]
     private bool _loadingChannels;
 
-    /// <param name="newChannelIds">List of channel IDs that are deemed new. These channels will be highlighted on page navigation.</param>
-    /// <param name="ct">Cancellation token.</param>
     public async Task InitializeAsync(IReadOnlyList<string> newChannelIds, CancellationToken ct)
     {
         LoadingChannels = true;
         ct.ThrowIfCancellationRequested();
 
-        var channels = await _channelService.GetChannelsAsync();
+        IReadOnlyList<AssetRow> channelRows = await _pageCache.GetChannelPageRowsAsync(ct);
 
-        ct.ThrowIfCancellationRequested();
-        var tasks = new List<Task>();
-        foreach (var c in channels)
+        foreach (AssetRow row in channelRows)
         {
             ct.ThrowIfCancellationRequested();
-
-            if (_channelFactory.Create(c, ViewDetailsCommand, PlayChannelCommand, newChannelIds.Contains(c.Id)) is { } vm)
+            if (_assetRowVmFactory.CreateChannelRowVm(row, ViewDetailsCommand, PlayChannelCommand) is not ChannelRowViewModel vm)
             {
-                tasks.Add(vm.InitializeAsync());
-                Channels.Add(vm);
-                LoadingChannels = false;
+                continue;
+            }
 
-                if (vm.Id == _channelService.MostRecentChannelDetailsViewed)
-                {
-                    SelectedChannel = vm;
-                }
+            await vm.LoadAsync(ct);
+            Rows.Add(vm);
+
+            if (LoadingChannels)
+            {
+                LoadingChannels = false;
+            }
+
+            if (SelectedChannel is null
+                && vm.Channels.FirstOrDefault(x => x.Id == _channelService.MostRecentChannelDetailsViewed) is { } selectedChannel)
+            {
+                SelectedChannel = selectedChannel;
             }
         }
-
-        ct.ThrowIfCancellationRequested();
-
-        if (SelectedChannel is null
-            && newChannelIds is [string id]
-            && Channels.FirstOrDefault(x => x.Id == id) is { } newChannel)
-        {
-            ViewDetails(newChannel);
-        }
-
-        await Task.WhenAll(tasks);
     }
 
     public void Uninitialize()
     {
-        foreach (var channel in Channels)
+        foreach (ChannelRowViewModel row in Rows)
         {
-            channel.Uninitialize();
+            row.Uninitialize();
         }
 
-        Channels.Clear();
+        Rows.Clear();
     }
 
     [RelayCommand]

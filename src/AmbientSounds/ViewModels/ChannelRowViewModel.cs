@@ -2,6 +2,7 @@
 using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -16,14 +17,20 @@ public partial class ChannelRowViewModel : ObservableObject
     private readonly IChannelService _channelService;
     private readonly IChannelVmFactory _vmFactory;
     private readonly AssetRow _row;
+    private readonly IRelayCommand<ChannelViewModel>? _viewDetailsCommand;
+    private readonly IRelayCommand<ChannelViewModel>? _playCommand;
 
     public ChannelRowViewModel(
         AssetRow row,
+        IRelayCommand<ChannelViewModel>? viewDetailsCommand,
+        IRelayCommand<ChannelViewModel>? playCommand,
         IAssetLocalizer assetLocalizer,
         IChannelService channelService,
         IChannelVmFactory vmFactory)
     {
         _row = row;
+        _viewDetailsCommand = viewDetailsCommand;
+        _playCommand = playCommand;
         _channelService = channelService;
         _vmFactory = vmFactory;
         _assetLocalizer = assetLocalizer;
@@ -59,7 +66,7 @@ public partial class ChannelRowViewModel : ObservableObject
             foreach (Channel channel in channels)
             {
                 ct.ThrowIfCancellationRequested();
-                ChannelViewModel? vm = _vmFactory.Create(channel);
+                ChannelViewModel? vm = _vmFactory.Create(channel, _viewDetailsCommand, _playCommand);
                 if (vm is not null)
                 {
                     tasks.Add(vm.InitializeAsync());
@@ -79,7 +86,7 @@ public partial class ChannelRowViewModel : ObservableObject
         }
     }
 
-    public void Unitialize()
+    public void Uninitialize()
     {
         RowVisible = false;
 
