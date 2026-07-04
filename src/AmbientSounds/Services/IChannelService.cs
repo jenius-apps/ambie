@@ -34,6 +34,12 @@ public interface IChannelService
     Task<IReadOnlyList<Channel>> GetChannelsAsync();
 
     /// <summary>
+    /// Fetches the given channels.
+    /// </summary>
+    /// <param name="channelIds">Channel IDs to fetch.</param>
+    Task<IReadOnlyList<Channel>> GetChannelsAsync(IReadOnlyList<string> channelIds);
+
+    /// <summary>
     /// Determines if the channel's components are fully downloaded.
     /// </summary>
     Task<bool> IsFullyDownloadedAsync(Channel channel);
