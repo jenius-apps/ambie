@@ -405,11 +405,7 @@
     </DataTemplate>
 
     <DataTemplate x:Key="ChannelDataTemplate" x:DataType="viewmodels:ChannelViewModel">
-        <GridViewItem
-            Width="220"
-            Height="192"
-            HorizontalContentAlignment="Stretch"
-            VerticalContentAlignment="Stretch">
+        <Grid Width="220" Height="192">
 
             <Grid>
                 <Grid.RowDefinitions>
@@ -533,7 +529,7 @@
                     </Button>
                 </Grid>
             </Grid>
-        </GridViewItem>
+        </Grid>
     </DataTemplate>
 
 </ResourceDictionary>
