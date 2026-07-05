@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Factories;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Factories;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -43,9 +44,12 @@ public partial class ChannelRowViewModel : ObservableObject
     [ObservableProperty]
     private bool _rowVisible;
 
+    [ObservableProperty]
+    private bool _newAnimationVisible;
+
     public ObservableCollection<ChannelViewModel> Channels { get; } = [];
 
-    public async Task LoadAsync(CancellationToken ct = default)
+    public async Task LoadAsync(string? launchArgs, CancellationToken ct = default)
     {
         ct.ThrowIfCancellationRequested();
         IReadOnlyList<Channel>? channels = null;
@@ -84,6 +88,18 @@ public partial class ChannelRowViewModel : ObservableObject
 
             await Task.WhenAll(tasks);
         }
+
+        HandleLaunchArgs(launchArgs);
+    }
+
+    private void HandleLaunchArgs(string? launchArgs)
+    {
+        if (launchArgs == LaunchConstants.NewSoundArgument && _row.Id.ToLower() == "new")
+        {
+            NewAnimationVisible = true;
+        }
+
+        // TODO handle individual new channel IDs (maybe)
     }
 
     public void Uninitialize()

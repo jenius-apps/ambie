@@ -47,7 +47,7 @@ public partial class ChannelsPageViewModel : ObservableObject
     [ObservableProperty]
     private bool _loadingChannels;
 
-    public async Task InitializeAsync(IReadOnlyList<string> newChannelIds, CancellationToken ct)
+    public async Task InitializeAsync(string? launchArgs, CancellationToken ct)
     {
         LoadingChannels = true;
         ct.ThrowIfCancellationRequested();
@@ -62,7 +62,7 @@ public partial class ChannelsPageViewModel : ObservableObject
                 continue;
             }
 
-            await vm.LoadAsync(ct);
+            await vm.LoadAsync(launchArgs, ct);
             Rows.Add(vm);
 
             if (LoadingChannels)
