@@ -108,6 +108,11 @@ public sealed partial class ScreensaverPage : Page
             await VideoPlaceholderHide.StartAsync();
             VideoPlaceholderImage.Visibility = Visibility.Collapsed;
         }
+        else
+        {
+            VideoPlaceholderImage.Visibility = Visibility.Collapsed;
+            await VideoShow.StartAsync();
+        }
     }
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)
