@@ -24,6 +24,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <TextBlock
+                Margin="{x:Bind TitleMargin, Mode=OneWay}"
                 VerticalAlignment="Center"
                 FontSize="14"
                 FontWeight="SemiBold"

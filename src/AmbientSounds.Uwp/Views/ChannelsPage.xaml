@@ -29,7 +29,7 @@
             <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
 
-        <ScrollViewer Margin="{StaticResource MainFramePageMargin}" CanContentRenderOutsideBounds="True">
+        <ScrollViewer Margin="12,20,0,0" CanContentRenderOutsideBounds="True">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
@@ -94,6 +94,7 @@
                                 ItemsSource="{x:Bind Channels, Mode=OneWay}"
                                 ItemsVisible="{x:Bind RowVisible, Mode=OneWay}"
                                 SparkleIconVisible="{x:Bind NewAnimationVisible, Mode=OneWay}"
+                                TitleMargin="12,0,0,-12"
                                 TitleText="{x:Bind Title, Mode=OneWay}" />
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>

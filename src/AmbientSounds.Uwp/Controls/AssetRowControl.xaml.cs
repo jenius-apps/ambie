@@ -7,6 +7,13 @@ namespace AmbientSounds.Controls;
 
 public sealed partial class AssetRowControl : UserControl
 {
+    public static readonly DependencyProperty TitleMarginProperty =
+        DependencyProperty.Register(
+            nameof(TitleMargin),
+            typeof(Thickness),
+            typeof(AssetRowControl),
+            new PropertyMetadata(new Thickness(0)));
+
     public static readonly DependencyProperty TitleTextProperty =
         DependencyProperty.Register(
             nameof(TitleText),
@@ -65,6 +72,12 @@ public sealed partial class AssetRowControl : UserControl
     {
         get => (string)GetValue(TitleTextProperty);
         set => SetValue(TitleTextProperty, value);
+    }
+
+    public Thickness TitleMargin
+    {
+        get => (Thickness)GetValue(TitleMarginProperty);
+        set => SetValue(TitleMarginProperty, value);
     }
 
     public object? ItemsSource
