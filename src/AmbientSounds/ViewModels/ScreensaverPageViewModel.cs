@@ -33,7 +33,7 @@ public partial class ScreensaverPageViewModel : ObservableObject
     private readonly IUserSettings _userSettings;
     private readonly IChannelService _channelService;
     private readonly IFocusService _focusService;
-    private readonly ChannelVmFactory _channelFactory;
+    private readonly IChannelVmFactory _channelFactory;
     private Uri _videoSource = new(DefaultVideoSource);
     private string _activeScreensaverId = string.Empty;
 
@@ -52,7 +52,7 @@ public partial class ScreensaverPageViewModel : ObservableObject
         ISystemInfoProvider systemInfoProvider,
         IUserSettings userSettings,
         IChannelService channelService,
-        ChannelVmFactory channelVmFactory,
+        IChannelVmFactory channelVmFactory,
         IExperimentationService experimentationService,
         IFocusService focusService)
     {

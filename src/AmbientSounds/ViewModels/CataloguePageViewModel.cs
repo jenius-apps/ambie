@@ -21,7 +21,7 @@ namespace AmbientSounds.ViewModels;
 public partial class CataloguePageViewModel : ObservableObject
 {
     private readonly IPageCache _pageCache;
-    private readonly ICatalogueRowVmFactory _vmFactory;
+    private readonly IAssetRowVmFactory _vmFactory;
     private readonly IDialogService _dialogService;
     private readonly ICategoryService _categoryService;
     private readonly ICategoryVmFactory _categoryVmFactory;
@@ -32,7 +32,7 @@ public partial class CataloguePageViewModel : ObservableObject
 
     public CataloguePageViewModel(
         IPageCache pageCache,
-        ICatalogueRowVmFactory catalogueRowVmFactory,
+        IAssetRowVmFactory catalogueRowVmFactory,
         IDialogService dialogService,
         ICategoryService categoryService,
         ICategoryVmFactory categoryVmFactory,
