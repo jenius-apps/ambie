@@ -104,6 +104,13 @@ public sealed class ChannelService : IChannelService
     }
 
     /// <inheritdoc/>
+    public async Task<IReadOnlyList<Channel>> GetChannelsAsync(string categoryId)
+    {
+        IReadOnlyDictionary<string, Channel> cache = await _channelCache.GetItemsAsync().ConfigureAwait(false);
+        return [.. cache.Where(x => x.Value.CategoryIds?.Contains(categoryId) is true).Select(x => x.Value)];
+    }
+
+    /// <inheritdoc/>
     public Progress<double>? TryGetActiveProgress(Channel c)
     {
         if (_activeChannelProgress.TryGetValue(c.Id, out IProgress<double> activeProgress) &&

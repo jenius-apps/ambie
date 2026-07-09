@@ -23,6 +23,8 @@ public partial class ChannelsPageViewModel : ObservableObject
     private readonly IAssetRowVmFactory _assetRowVmFactory;
     private readonly ICategoryService _categoryService;
     private readonly ICategoryVmFactory _categoryVmFactory;
+    private readonly IChannelVmFactory _channelVmFactory;
+    private readonly SemaphoreSlim _filteredChannelsLock = new(1, 1);
 
     public EventHandler<ChannelViewModel>? GridVideoPlayed;
 
@@ -32,7 +34,8 @@ public partial class ChannelsPageViewModel : ObservableObject
         IPageCache pageCache,
         IAssetRowVmFactory assetRowVmFactory,
         ICategoryService categoryService,
-        ICategoryVmFactory categoryVmFactory)
+        ICategoryVmFactory categoryVmFactory,
+        IChannelVmFactory channelVmFactory)
     {
         _channelService = channelService;
         _telemetry = telemetry;
@@ -40,6 +43,7 @@ public partial class ChannelsPageViewModel : ObservableObject
         _assetRowVmFactory = assetRowVmFactory;
         _categoryService = categoryService;
         _categoryVmFactory = categoryVmFactory;
+        _channelVmFactory = channelVmFactory;
     }
 
     [ObservableProperty]
@@ -52,7 +56,7 @@ public partial class ChannelsPageViewModel : ObservableObject
 
     public ObservableCollection<CategoryViewModel> CategoryFilters { get; } = [];
 
-    public ObservableCollection<ChannelRowViewModel> FilteredChannels { get; } = [];
+    public ObservableCollection<ChannelViewModel> FilteredChannels { get; } = [];
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(FilteredListVisible))]
@@ -157,6 +161,51 @@ public partial class ChannelsPageViewModel : ObservableObject
     {
         _channelService.MostRecentChannelDetailsViewed = value?.Id;
     }
+
+    async partial void OnSelectedFilterChanged(CategoryViewModel? oldValue, CategoryViewModel? newValue)
+    {
+        if (oldValue is { })
+        {
+            oldValue.IsSelected = false;
+        }
+
+        if (newValue is { })
+        {
+            newValue.IsSelected = true;
+            await UpdateFilteredSoundsAsync(newValue);
+            //_telemetry.TrackEvent(TelemetryConstants.CatalogueFilterClicked, new Dictionary<string, string>
+            //{
+            //    { "filter", newValue.Name }
+            //});
+        }
+    }
+
+    private async Task UpdateFilteredSoundsAsync(CategoryViewModel categoryVm)
+    {
+        await _filteredChannelsLock.WaitAsync();
+        FilteredChannels.Clear();
+        IReadOnlyList<Channel> newSounds = await _channelService.GetChannelsAsync(categoryId: categoryVm.Model.Id);
+        List<Task> tasks = new(newSounds.Count);
+        List<ChannelViewModel> vmList = [];
+        foreach (Channel sound in newSounds)
+        {
+            ChannelViewModel? channelVm = _channelVmFactory.Create(sound, ViewDetailsCommand, PlayChannelCommand);
+            if (channelVm is not null)
+            {
+                tasks.Add(channelVm.InitializeAsync());
+                vmList.Add(channelVm);
+            }
+        }
+
+        foreach (ChannelViewModel vm in vmList.OrderBy(x => x.Name))
+        {
+            FilteredChannels.Add(vm);
+        }
+
+        await Task.WhenAll(tasks);
+        _ = _filteredChannelsLock.Release();
+    }
+
 
     [RelayCommand]
     private void ClearFilterSelection()
