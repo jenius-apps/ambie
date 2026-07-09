@@ -21,6 +21,8 @@ public partial class ChannelsPageViewModel : ObservableObject
     private readonly ITelemetry _telemetry;
     private readonly IPageCache _pageCache;
     private readonly IAssetRowVmFactory _assetRowVmFactory;
+    private readonly ICategoryService _categoryService;
+    private readonly ICategoryVmFactory _categoryVmFactory;
 
     public EventHandler<ChannelViewModel>? GridVideoPlayed;
 
@@ -28,12 +30,16 @@ public partial class ChannelsPageViewModel : ObservableObject
         IChannelService channelService,
         ITelemetry telemetry,
         IPageCache pageCache,
-        IAssetRowVmFactory assetRowVmFactory)
+        IAssetRowVmFactory assetRowVmFactory,
+        ICategoryService categoryService,
+        ICategoryVmFactory categoryVmFactory)
     {
         _channelService = channelService;
         _telemetry = telemetry;
         _pageCache = pageCache;
         _assetRowVmFactory = assetRowVmFactory;
+        _categoryService = categoryService;
+        _categoryVmFactory = categoryVmFactory;
     }
 
     [ObservableProperty]
@@ -44,6 +50,16 @@ public partial class ChannelsPageViewModel : ObservableObject
 
     public ObservableCollection<ChannelRowViewModel> Rows { get; } = [];
 
+    public ObservableCollection<CategoryViewModel> CategoryFilters { get; } = [];
+
+    public ObservableCollection<ChannelRowViewModel> FilteredChannels { get; } = [];
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(FilteredListVisible))]
+    private CategoryViewModel? _selectedFilter;
+
+    public bool FilteredListVisible => SelectedFilter is not null;
+
     [ObservableProperty]
     private bool _loadingChannels;
 
@@ -51,6 +67,12 @@ public partial class ChannelsPageViewModel : ObservableObject
     {
         LoadingChannels = true;
         ct.ThrowIfCancellationRequested();
+
+        IReadOnlyList<Category> categories = await _categoryService.GetCategoriesAsync([CategorySupportedPage.Channel], ct);
+        foreach (Category category in categories)
+        {
+            CategoryFilters.Add(_categoryVmFactory.Create(category));
+        }
 
         IReadOnlyList<AssetRow> channelRows = await _pageCache.GetChannelPageRowsAsync(ct);
 
@@ -86,6 +108,7 @@ public partial class ChannelsPageViewModel : ObservableObject
         }
 
         Rows.Clear();
+        CategoryFilters.Clear();
     }
 
     [RelayCommand]
@@ -133,5 +156,12 @@ public partial class ChannelsPageViewModel : ObservableObject
     partial void OnSelectedChannelChanged(ChannelViewModel? value)
     {
         _channelService.MostRecentChannelDetailsViewed = value?.Id;
+    }
+
+    [RelayCommand]
+    private void ClearFilterSelection()
+    {
+        SelectedFilter = null;
+        //_telemetry.TrackEvent(TelemetryConstants.ChannelFilterCleared);
     }
 }

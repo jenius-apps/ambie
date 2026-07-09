@@ -36,7 +36,7 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <!--<Grid Margin="0,0,16,12" Visibility="{x:Bind ViewModel.FiltersEnabled}">
+                <Grid Margin="8,0,16,12">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="auto" />
@@ -81,10 +81,12 @@
                                 Duration="0:0:0.3" />
                         </ani:Implicit.ShowAnimations>
                     </HyperlinkButton>
-                </Grid>-->
+                </Grid>
 
-                <!--  Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.FilteredListVisible), Mode=OneWay}"  -->
-                <ItemsControl Grid.Row="1" ItemsSource="{x:Bind ViewModel.Rows}">
+                <ItemsControl
+                    Grid.Row="1"
+                    ItemsSource="{x:Bind ViewModel.Rows}"
+                    Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.FilteredListVisible), Mode=OneWay}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate x:DataType="vm:ChannelRowViewModel">
                             <controls:AssetRowControl
