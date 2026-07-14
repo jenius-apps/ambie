@@ -172,7 +172,7 @@ public partial class CataloguePageViewModel : ObservableObject
             await UpdateFilteredSoundsAsync(newValue);
             _telemetry.TrackEvent(TelemetryConstants.CatalogueFilterClicked, new Dictionary<string, string>
             {
-                { "filter", newValue.Name }
+                { "filter", newValue.Model.Id }
             });
         }
     }

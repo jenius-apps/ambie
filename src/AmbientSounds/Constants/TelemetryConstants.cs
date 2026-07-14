@@ -60,6 +60,8 @@ public class TelemetryConstants
     public const string ChannelPlayed = Channel + "played";
     public const string ChannelDownloadClicked = Channel + "downloadClicked";
     public const string ChannelUnlockClicked = Channel + "unlockClicked";
+    public const string ChannelFilterClicked = $"{Channel}filterClicked";
+    public const string ChannelFilterCleared = $"{Channel}filterCleared";
 
     // channel viewer
     private const string ChannelViewer = "channelViewer:";

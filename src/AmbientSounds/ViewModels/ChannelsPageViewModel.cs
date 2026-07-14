@@ -185,10 +185,10 @@ public partial class ChannelsPageViewModel : ObservableObject
             newValue.IsSelected = true;
             _runtimeMemoryStore.Set(LastUsedChannelFilterThisSession, newValue.Model.Id);
             await UpdateFilteredSoundsAsync(newValue);
-            //_telemetry.TrackEvent(TelemetryConstants.CatalogueFilterClicked, new Dictionary<string, string>
-            //{
-            //    { "filter", newValue.Name }
-            //});
+            _telemetry.TrackEvent(TelemetryConstants.ChannelFilterClicked, new Dictionary<string, string>
+            {
+                { "filter", newValue.Model.Id }
+            });
         }
     }
 
@@ -229,6 +229,6 @@ public partial class ChannelsPageViewModel : ObservableObject
     {
         SelectedFilter = null;
         _runtimeMemoryStore.Set<string?>(LastUsedChannelFilterThisSession, null);
-        //_telemetry.TrackEvent(TelemetryConstants.ChannelFilterCleared);
+        _telemetry.TrackEvent(TelemetryConstants.ChannelFilterCleared);
     }
 }
