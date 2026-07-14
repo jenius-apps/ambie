@@ -8,6 +8,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:ext="using:JeniusApps.Common.UI.Uwp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
     xmlns:models="using:JeniusApps.Common.Models"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
@@ -104,7 +105,7 @@
             <controls:TitleBarLogo
                 x:Name="TitleLogo"
                 Grid.Column="1"
-                Margin="14,14,0,0"
+                Margin="20,20,0,0"
                 UsePremiumTitle="{x:Bind ext:UIExtensions.Not(ViewModel.PremiumButtonVisible), Mode=OneWay}">
                 <animations:Implicit.Animations>
                     <animations:OffsetAnimation />
@@ -242,74 +243,76 @@
 
         <controls:SplitView
             x:Name="RootSplitView"
-            BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}"
-            BorderThickness="0,0,1,0"
             OpenPaneLength="72"
             PaneBackground="{ThemeResource AltHostBrush}">
             <controls:SplitView.Pane>
                 <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="auto" />
-                    </Grid.RowDefinitions>
+                    <Grid
+                        Margin="8"
+                        CornerRadius="12"
+                        Style="{StaticResource CardStyle}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
 
-                    <Grid Margin="0,48,0,0">
-                        <AutoSuggestBox
-                            x:Name="SearchBox"
-                            Margin="12,0,12,0"
-                            VerticalContentAlignment="Center"
-                            DisplayMemberPath="Name"
-                            FontSize="12"
-                            ItemsSource="{x:Bind ViewModel.SearchAutosuggestItems, Mode=OneWay}"
-                            PlaceholderText="{x:Bind strings:Resources.SearchText}"
-                            QueryIcon="Find"
-                            QuerySubmitted="OnQuerySubmitted"
-                            TextChanged="OnTextChanged" />
+                        <Grid Margin="0,48,0,0">
+                            <AutoSuggestBox
+                                x:Name="SearchBox"
+                                Margin="8,0,8,0"
+                                VerticalContentAlignment="Center"
+                                DisplayMemberPath="Name"
+                                FontSize="12"
+                                ItemsSource="{x:Bind ViewModel.SearchAutosuggestItems, Mode=OneWay}"
+                                PlaceholderText="{x:Bind strings:Resources.SearchText}"
+                                QueryIcon="Find"
+                                QuerySubmitted="OnQuerySubmitted"
+                                TextChanged="OnTextChanged" />
 
-                        <Button
-                            x:Name="SearchButton"
-                            Height="32"
-                            Margin="12,0,12,0"
-                            HorizontalAlignment="Stretch"
-                            Background="Transparent"
-                            BorderBrush="Transparent"
-                            Visibility="Collapsed">
-                            <FontIcon
-                                FontFamily="{StaticResource FluentUIGlyphs}"
-                                FontSize="16"
-                                Glyph="{StaticResource GlyphFind}" />
-                            <Button.Flyout>
-                                <Flyout x:Name="SearchFlyout" Placement="Right">
-                                    <AutoSuggestBox
-                                        Width="200"
-                                        VerticalContentAlignment="Center"
-                                        FontSize="12"
-                                        PlaceholderText="{x:Bind strings:Resources.SearchText}"
-                                        QueryIcon="Find"
-                                        QuerySubmitted="OnQuerySubmitted" />
-                                </Flyout>
-                            </Button.Flyout>
-                        </Button>
-                    </Grid>
+                            <Button
+                                x:Name="SearchButton"
+                                Height="32"
+                                Margin="8,0,8,0"
+                                HorizontalAlignment="Stretch"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                Visibility="Collapsed">
+                                <FontIcon
+                                    FontFamily="{StaticResource FluentUIGlyphs}"
+                                    FontSize="16"
+                                    Glyph="{StaticResource GlyphFind}" />
+                                <Button.Flyout>
+                                    <Flyout x:Name="SearchFlyout" Placement="Right">
+                                        <AutoSuggestBox
+                                            Width="200"
+                                            VerticalContentAlignment="Center"
+                                            FontSize="12"
+                                            PlaceholderText="{x:Bind strings:Resources.SearchText}"
+                                            QueryIcon="Find"
+                                            QuerySubmitted="OnQuerySubmitted" />
+                                    </Flyout>
+                                </Button.Flyout>
+                            </Button>
+                        </Grid>
 
-                    <ItemsControl
-                        Grid.Row="1"
-                        Margin="0,12,0,0"
-                        ItemsSource="{x:Bind ViewModel.MenuItems}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate x:DataType="models:MenuItem">
-                                <controls:MenuItemControl
-                                    Command="{x:Bind ActionCommand}"
-                                    CommandParameter="{x:Bind}"
-                                    Glyph="{x:Bind Glyph}"
-                                    IsSelected="{x:Bind IsSelected, Mode=OneWay}"
-                                    Text="{x:Bind Text}"
-                                    ToolTipSubtitle="{x:Bind ToolTipSubtitle}"
-                                    ToolTipText="{x:Bind ToolTipText}" />
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
+                        <ItemsControl
+                            Grid.Row="1"
+                            Margin="0,8,0,0"
+                            ItemsSource="{x:Bind ViewModel.MenuItems}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="models:MenuItem">
+                                    <controls:MenuItemControl
+                                        Command="{x:Bind ActionCommand}"
+                                        CommandParameter="{x:Bind}"
+                                        Glyph="{x:Bind Glyph}"
+                                        IsSelected="{x:Bind IsSelected, Mode=OneWay}"
+                                        Text="{x:Bind Text}"
+                                        ToolTipSubtitle="{x:Bind ToolTipSubtitle}"
+                                        ToolTipText="{x:Bind ToolTipText}" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
 
                     <StackPanel Grid.Row="2" Margin="0,12">
                         <HyperlinkButton
@@ -468,30 +471,31 @@
                                             Text="{x:Bind strings:Resources.SaleText.ToUpper()}" />
                                     </Border>
 
+                                    </StackPanel>
                                 </StackPanel>
-                            </StackPanel>
-                        </HyperlinkButton>
+                            </HyperlinkButton>
 
-                        <ItemsControl ItemsSource="{x:Bind ViewModel.FooterItems}">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate x:DataType="models:MenuItem">
-                                    <controls:MenuItemControl
-                                        Command="{x:Bind ActionCommand}"
-                                        CommandParameter="{x:Bind}"
-                                        Glyph="{x:Bind Glyph}"
-                                        IsSelected="{x:Bind IsSelected, Mode=OneWay}"
-                                        Text="{x:Bind Text}"
-                                        ToolTipSubtitle="{x:Bind ToolTipSubtitle}"
-                                        ToolTipText="{x:Bind ToolTipText}" />
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-                    </StackPanel>
+                            <ItemsControl ItemsSource="{x:Bind ViewModel.FooterItems}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate x:DataType="models:MenuItem">
+                                        <controls:MenuItemControl
+                                            Command="{x:Bind ActionCommand}"
+                                            CommandParameter="{x:Bind}"
+                                            Glyph="{x:Bind Glyph}"
+                                            IsSelected="{x:Bind IsSelected, Mode=OneWay}"
+                                            Text="{x:Bind Text}"
+                                            ToolTipSubtitle="{x:Bind ToolTipSubtitle}"
+                                            ToolTipText="{x:Bind ToolTipText}" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </Grid>
                 </Grid>
             </controls:SplitView.Pane>
 
             <controls:SplitView.MainContent>
-                <Grid x:Name="MainFrameBorder" Background="{ThemeResource DefaultPageBackgroundBrush}">
+                <Grid x:Name="MainFrameBorder">
                     <toolkit:ImageEx
                         x:Name="BackgroundImage"
                         x:Load="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}"
