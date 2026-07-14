@@ -112,7 +112,6 @@ public class TelemetryConstants
     // playback
     private const string Playback = "playback:";
     public const string PlaybackRandom = Playback + "randomClicked";
-    public const string PlaybackTime = Playback + "time";
     public const string PlaybackAutoResume = Playback + "autoResumeTriggered";
 
     // mix
