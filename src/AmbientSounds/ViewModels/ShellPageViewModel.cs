@@ -23,6 +23,7 @@ namespace AmbientSounds.ViewModels;
 /// </summary>
 public partial class ShellPageViewModel : BaseShellPageViewModel
 {
+    private const string HasUpdateTooltipBeenShown = nameof(HasUpdateTooltipBeenShown);
     private const int RatingsTimerInterval = 1800000; // 30 minutes
     private readonly ITimerService _ratingTimer;
     private readonly ITelemetry _telemetry;
@@ -40,6 +41,7 @@ public partial class ShellPageViewModel : BaseShellPageViewModel
     private readonly ISystemInfoProvider _systemInfoProvider;
     private readonly ILocalizer _localizer;
     private readonly IExperimentationService _experimentationService;
+    private readonly IRuntimeMemoryStore _runtimeMemoryStore;
 
     public ShellPageViewModel(
         IUserSettings userSettings,
@@ -59,7 +61,8 @@ public partial class ShellPageViewModel : BaseShellPageViewModel
         ISearchService searchService,
         IAppStoreUpdater appStoreUpdater,
         IExperimentationService experimentationService,
-        IPushNotificationRegistrationService pushService)
+        IPushNotificationRegistrationService pushService,
+        IRuntimeMemoryStore runtimeMemoryStore)
         : base(userSettings, pushService)
     {
         IsWin11 = systemInfoProvider.IsWin11();
@@ -80,6 +83,7 @@ public partial class ShellPageViewModel : BaseShellPageViewModel
         _systemInfoProvider = systemInfoProvider;
         _localizer = localizer;
         _experimentationService = experimentationService;
+        _runtimeMemoryStore = runtimeMemoryStore;
 
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Home"), "\uE10F", ContentPageType.Home.ToString(), tooltipSubtitle: localizer.GetString("HomeSubtitle")));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Catalogue"), "\uEC4F", ContentPageType.Catalogue.ToString(), tooltipSubtitle: localizer.GetString("CatalogueSubtitle")));
@@ -212,8 +216,17 @@ public partial class ShellPageViewModel : BaseShellPageViewModel
 
     private async Task TryShowUpdateSuccessfulTipAsync()
     {
+        if (_runtimeMemoryStore.Get<bool>(HasUpdateTooltipBeenShown))
+        {
+            return;
+        }
+
         await Task.Delay(3000);
         IsUpdateSuccessfulTipVisible = !_systemInfoProvider.IsFirstRun() && _systemInfoProvider.WasAppUpdated();
+        if (IsUpdateSuccessfulTipVisible)
+        {
+            _runtimeMemoryStore.Set(HasUpdateTooltipBeenShown, true);
+        }
     }
 
     private async Task CheckForUpdatesAsync()

@@ -1,7 +1,5 @@
-﻿using AmbientSounds.Constants;
-using JeniusApps.Common.Telemetry;
+﻿using JeniusApps.Common.Telemetry;
 using System;
-using System.Collections.Generic;
 
 namespace AmbientSounds.Services;
 
@@ -11,7 +9,6 @@ namespace AmbientSounds.Services;
 public class PlayerTelemetryTracker
 {
     private readonly IMixMediaPlayerService _mixMediaPlayerService;
-    private readonly ITelemetry _telemetry;
     private MediaPlaybackState _currentState;
 
     public PlayerTelemetryTracker(
@@ -19,7 +16,6 @@ public class PlayerTelemetryTracker
         ITelemetry telemetry)
     {
         _mixMediaPlayerService = mixMediaPlayerService;
-        _telemetry = telemetry;
 
         _mixMediaPlayerService.PlaybackStateChanged += OnPlaybackchanged;
     }
@@ -31,71 +27,6 @@ public class PlayerTelemetryTracker
     /// </summary>
     public DateTimeOffset PlayStart { get; private set; }
 
-    /// <summary>
-    /// Converts diff to telemetry-friendly rounded
-    /// string.
-    /// </summary>
-    public static string GetRoundedDiff(TimeSpan diff)
-    {
-        if (diff > TimeSpan.Zero)
-        {
-            string roundedDiff;
-            if (diff < TimeSpan.FromMinutes(1))
-            {
-                roundedDiff = "<1 min";
-            }
-            else if (diff < TimeSpan.FromMinutes(5))
-            {
-                roundedDiff = "<5 min";
-            }
-            else if (diff < TimeSpan.FromMinutes(10))
-            {
-                roundedDiff = "<10 min";
-            }
-            else if (diff <= TimeSpan.FromHours(1))
-            {
-                roundedDiff = $"{((int)Math.Round(diff.TotalMinutes / 10.0)) * 10} min";
-            }
-            else if (diff < TimeSpan.FromDays(2))
-            {
-                roundedDiff = $"{Math.Round(diff.TotalHours)} hrs";
-            }
-            else
-            {
-                roundedDiff = ">48 hrs";
-            }
-
-            return roundedDiff;
-        }
-
-        return string.Empty;
-    }
-
-    /// <summary>
-    /// Tracks duration between given pause time
-    /// and the internally stored start time.
-    /// </summary>
-    /// <returns>The string formatted duration that was calculated.</returns>
-    public string TrackDuration(DateTimeOffset pauseTime)
-    {
-        if (pauseTime < PlayStart || PlayStart == default)
-        {
-            return string.Empty;
-        }
-
-        TimeSpan diff = pauseTime - PlayStart;
-
-        if (diff.TotalMinutes >= 1)
-        {
-            _telemetry.TrackEvent(TelemetryConstants.PlaybackTime, metrics: new Dictionary<string, double>
-            {
-                { "playbackMinutes", diff.TotalMinutes }
-            });
-        }
-
-        return GetRoundedDiff(diff);
-    }
-
     public void HandleNewState(MediaPlaybackState newState)
     {
         if (_currentState != newState)
@@ -106,7 +37,6 @@ public class PlayerTelemetryTracker
             }
             else if (newState == MediaPlaybackState.Paused)
             {
-                _ = TrackDuration(DateTimeOffset.Now);
                 PlayStart = default; // reset
             }
 

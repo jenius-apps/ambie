@@ -15,5 +15,5 @@ public interface IMediaPlayerFactory
     /// the system controls wouldn't be automatically enabled.
     /// </param>
     /// <returns>Returns wrapper for media player.</returns>
-    public IMediaPlayer CreatePlayer(bool disableDefaultSystemControls = false);
+    IMediaPlayer CreatePlayer(bool disableDefaultSystemControls = false);
 }

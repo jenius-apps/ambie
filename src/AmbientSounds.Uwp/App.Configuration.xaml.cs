@@ -260,5 +260,6 @@ partial class App
     [Singleton(typeof(CategoryCache), typeof(ICategoryCache))]
     [Singleton(typeof(CategoryService), typeof(ICategoryService))]
     [Transient(typeof(StatsPageViewModel))]
+    [Singleton(typeof(RuntimeMemoryStore), typeof(IRuntimeMemoryStore))]
     private static partial void ConfigureServices(IServiceCollection services);
 }

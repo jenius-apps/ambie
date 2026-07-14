@@ -3,6 +3,7 @@ using AmbientSounds.Constants;
 using AmbientSounds.Factories;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
+using AmbientSounds.Tools;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using JeniusApps.Common.Telemetry;
@@ -17,6 +18,7 @@ namespace AmbientSounds.ViewModels;
 
 public partial class ChannelsPageViewModel : ObservableObject
 {
+    private readonly string LastUsedChannelFilterThisSession = nameof(LastUsedChannelFilterThisSession);
     private readonly IChannelService _channelService;
     private readonly ITelemetry _telemetry;
     private readonly IPageCache _pageCache;
@@ -24,6 +26,7 @@ public partial class ChannelsPageViewModel : ObservableObject
     private readonly ICategoryService _categoryService;
     private readonly ICategoryVmFactory _categoryVmFactory;
     private readonly IChannelVmFactory _channelVmFactory;
+    private readonly IRuntimeMemoryStore _runtimeMemoryStore;
     private readonly SemaphoreSlim _filteredChannelsLock = new(1, 1);
 
     public EventHandler<ChannelViewModel>? GridVideoPlayed;
@@ -35,7 +38,8 @@ public partial class ChannelsPageViewModel : ObservableObject
         IAssetRowVmFactory assetRowVmFactory,
         ICategoryService categoryService,
         ICategoryVmFactory categoryVmFactory,
-        IChannelVmFactory channelVmFactory)
+        IChannelVmFactory channelVmFactory,
+        IRuntimeMemoryStore runtimeMemoryStore)
     {
         _channelService = channelService;
         _telemetry = telemetry;
@@ -44,6 +48,7 @@ public partial class ChannelsPageViewModel : ObservableObject
         _categoryService = categoryService;
         _categoryVmFactory = categoryVmFactory;
         _channelVmFactory = channelVmFactory;
+        _runtimeMemoryStore = runtimeMemoryStore;
     }
 
     [ObservableProperty]
@@ -72,10 +77,16 @@ public partial class ChannelsPageViewModel : ObservableObject
         LoadingChannels = true;
         ct.ThrowIfCancellationRequested();
 
+        string? lastUsedFilter = _runtimeMemoryStore.Get<string>(LastUsedChannelFilterThisSession);
         IReadOnlyList<Category> categories = await _categoryService.GetCategoriesAsync([CategorySupportedPage.Channel], ct);
         foreach (Category category in categories)
         {
-            CategoryFilters.Add(_categoryVmFactory.Create(category));
+            CategoryViewModel categoryVm = _categoryVmFactory.Create(category);
+            CategoryFilters.Add(categoryVm);
+            if (lastUsedFilter == categoryVm.Model.Id)
+            {
+                SelectedFilter = categoryVm;
+            }
         }
 
         IReadOnlyList<AssetRow> channelRows = await _pageCache.GetChannelPageRowsAsync(ct);
@@ -172,11 +183,12 @@ public partial class ChannelsPageViewModel : ObservableObject
         if (newValue is { })
         {
             newValue.IsSelected = true;
+            _runtimeMemoryStore.Set(LastUsedChannelFilterThisSession, newValue.Model.Id);
             await UpdateFilteredSoundsAsync(newValue);
-            //_telemetry.TrackEvent(TelemetryConstants.CatalogueFilterClicked, new Dictionary<string, string>
-            //{
-            //    { "filter", newValue.Name }
-            //});
+            _telemetry.TrackEvent(TelemetryConstants.ChannelFilterClicked, new Dictionary<string, string>
+            {
+                { "filter", newValue.Model.Id }
+            });
         }
     }
 
@@ -194,6 +206,11 @@ public partial class ChannelsPageViewModel : ObservableObject
             {
                 tasks.Add(channelVm.InitializeAsync());
                 vmList.Add(channelVm);
+
+                if (LoadingChannels)
+                {
+                    LoadingChannels = false;
+                }
             }
         }
 
@@ -211,6 +228,7 @@ public partial class ChannelsPageViewModel : ObservableObject
     private void ClearFilterSelection()
     {
         SelectedFilter = null;
-        //_telemetry.TrackEvent(TelemetryConstants.ChannelFilterCleared);
+        _runtimeMemoryStore.Set<string?>(LastUsedChannelFilterThisSession, null);
+        _telemetry.TrackEvent(TelemetryConstants.ChannelFilterCleared);
     }
 }

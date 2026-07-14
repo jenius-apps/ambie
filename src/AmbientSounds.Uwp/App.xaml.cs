@@ -89,7 +89,6 @@ sealed partial class App : Application
     private async void OnSuspension(object sender, SuspendingEventArgs e)
     {
         var deferral = e.SuspendingOperation.GetDeferral();
-        _playerTracker?.TrackDuration(DateTimeOffset.Now);
         if (_serviceProvider is { } serviceProvider)
         {
             var flushTask = serviceProvider.GetRequiredService<ITelemetry>().FlushAsync();

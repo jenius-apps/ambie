@@ -83,6 +83,12 @@
                     Grid.Row="1"
                     ItemsSource="{x:Bind ViewModel.Rows}"
                     Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.FilteredListVisible), Mode=OneWay}">
+                    <ani:Implicit.ShowAnimations>
+                        <ani:OpacityAnimation
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.3" />
+                    </ani:Implicit.ShowAnimations>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate x:DataType="vm:ChannelRowViewModel">
                             <controls:AssetRowControl
@@ -106,15 +112,23 @@
                     ItemsVisible="True"
                     TitleMargin="12,0,0,-12"
                     TitleText="{x:Bind ViewModel.SelectedFilter.Name, Mode=OneWay}"
-                    Visibility="{x:Bind ViewModel.FilteredListVisible, Mode=OneWay}" />
+                    Visibility="{x:Bind ViewModel.FilteredListVisible, Mode=OneWay}">
+                    <ani:Implicit.ShowAnimations>
+                        <ani:OpacityAnimation
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.3" />
+                    </ani:Implicit.ShowAnimations>
+                </controls:AssetRowControl>
 
             </Grid>
         </ScrollViewer>
 
+        <!--  placeholder  -->
         <StackPanel
-            Padding="40,30"
+            Padding="20,88"
             Orientation="Horizontal"
-            Spacing="26"
+            Spacing="16"
             Visibility="{x:Bind ViewModel.LoadingChannels, Mode=OneWay}">
             <StackPanel>
                 <labs:Shimmer Width="200" Height="120" />
