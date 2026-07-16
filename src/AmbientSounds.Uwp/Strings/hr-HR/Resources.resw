@@ -75,9 +75,6 @@
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>Spremno za pokretanje</value>
   </data>
-  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
-    <value>Telemetrija</value>
-  </data>
   <data name="SettingsText" xml:space="preserve">
     <value>Postavke</value>
   </data>
@@ -859,9 +856,6 @@
   </data>
   <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
     <value>Obavijest o novim zvukovima</value>
-  </data>
-  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
-    <value>Telemetrija</value>
   </data>
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>Preuzimanje videozapisa. Uskoro ćemo biti spremni.</value>

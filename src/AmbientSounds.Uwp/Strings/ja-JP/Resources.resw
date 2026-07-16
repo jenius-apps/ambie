@@ -75,9 +75,6 @@
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>再生可</value>
   </data>
-  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
-    <value>テレメトリー</value>
-  </data>
   <data name="SettingsText" xml:space="preserve">
     <value>設定</value>
   </data>
@@ -871,9 +868,6 @@
   </data>
   <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
     <value>新しい音の通知</value>
-  </data>
-  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
-    <value>テレメトリー</value>
   </data>
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>ビデオをダウンロードします。すぐに準備が整います。</value>

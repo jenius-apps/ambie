@@ -72,9 +72,6 @@
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>Kész a lejátszásra</value>
   </data>
-  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
-    <value>Telemetria</value>
-  </data>
   <data name="SettingsText" xml:space="preserve">
     <value>Beállítások</value>
   </data>
@@ -862,9 +859,6 @@
   </data>
   <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
     <value>Értesítés új hangokról</value>
-  </data>
-  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
-    <value>Telemetria</value>
   </data>
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>A videó letöltése. Hamarosan készen állunk.</value>

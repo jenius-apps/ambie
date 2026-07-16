@@ -75,9 +75,6 @@
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>مستعد للبدء</value>
   </data>
-  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
-    <value>القياس عن بعد</value>
-  </data>
   <data name="SettingsText" xml:space="preserve">
     <value>إعدادات</value>
   </data>
@@ -871,9 +868,6 @@
   </data>
   <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
     <value>إعلام للأصوات الجديدة</value>
-  </data>
-  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
-    <value>قياس البعد</value>
   </data>
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>تنزيل الفيديو الخاص بك. سنكون مستعدين قريبا.</value>

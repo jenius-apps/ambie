@@ -75,9 +75,6 @@
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>Bereit zum Abspielen</value>
   </data>
-  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
-    <value>Telemetrie</value>
-  </data>
   <data name="SettingsText" xml:space="preserve">
     <value>Einstellungen</value>
   </data>
@@ -868,9 +865,6 @@
   </data>
   <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
     <value>Benachrichtigung über neue Töne</value>
-  </data>
-  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
-    <value>Telemetrie</value>
   </data>
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>Herunterladen Ihres Videos. Wir werden bald bereit sein.</value>

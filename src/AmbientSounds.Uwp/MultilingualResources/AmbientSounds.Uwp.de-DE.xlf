@@ -93,10 +93,6 @@
           <source>Ready to play</source>
           <target state="translated">Bereit zum Abspielen</target>
         </trans-unit>
-        <trans-unit id="SettingsTelemetrySwitch.Header" translate="yes" xml:space="preserve">
-          <source>Telemetry</source>
-          <target state="translated">Telemetrie</target>
-        </trans-unit>
         <trans-unit id="SettingsText" translate="yes" xml:space="preserve">
           <source>Settings</source>
           <target state="translated">Einstellungen</target>
@@ -1153,10 +1149,6 @@
         <trans-unit id="SettingsNotificationsSwitchHeader" translate="yes" xml:space="preserve">
           <source>Notification for new sounds</source>
           <target state="translated">Benachrichtigung über neue Töne</target>
-        </trans-unit>
-        <trans-unit id="SettingsTelemetrySwitchHeader" translate="yes" xml:space="preserve">
-          <source>Telemetry</source>
-          <target state="translated">Telemetrie</target>
         </trans-unit>
         <trans-unit id="DownloadingVideoMessage" translate="yes" xml:space="preserve">
           <source>Downloading your video. We'll be ready soon.</source>

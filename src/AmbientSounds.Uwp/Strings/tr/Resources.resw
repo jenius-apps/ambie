@@ -72,9 +72,6 @@
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>Oynatmaya hazır</value>
   </data>
-  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
-    <value>Telemetri</value>
-  </data>
   <data name="SettingsText" xml:space="preserve">
     <value>Ayarlar</value>
   </data>
@@ -868,9 +865,6 @@
   </data>
   <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
     <value>Yeni sesler için bildirim</value>
-  </data>
-  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
-    <value>Telemetri</value>
   </data>
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>Videonuzu indirme. Yakında hazır olacağız.</value>

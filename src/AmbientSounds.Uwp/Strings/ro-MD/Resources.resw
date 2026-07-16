@@ -75,9 +75,6 @@
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>Pregatit pentru redare</value>
   </data>
-  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
-    <value>Telemetrie</value>
-  </data>
   <data name="SettingsText" xml:space="preserve">
     <value>Setari</value>
   </data>
@@ -871,9 +868,6 @@
   </data>
   <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
     <value>Notificare pentru sunete noi</value>
-  </data>
-  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
-    <value>Telemetrie</value>
   </data>
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>Descărcarea videoclipului. Vom fi gata în curând.</value>

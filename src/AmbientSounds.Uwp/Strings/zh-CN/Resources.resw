@@ -75,9 +75,6 @@
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>可以播放</value>
   </data>
-  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
-    <value>遥测</value>
-  </data>
   <data name="SettingsText" xml:space="preserve">
     <value>设置</value>
   </data>
@@ -871,9 +868,6 @@
   </data>
   <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
     <value>新声音通知</value>
-  </data>
-  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
-    <value>遥测</value>
   </data>
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>下载您的视频。我们很快就会准备好的。</value>

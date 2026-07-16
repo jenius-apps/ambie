@@ -180,9 +180,6 @@
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>Ready to play</value>
   </data>
-  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
-    <value>Telemetry</value>
-  </data>
   <data name="SettingsText" xml:space="preserve">
     <value>Settings</value>
   </data>
@@ -991,9 +988,6 @@
   </data>
   <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
     <value>Notification for new sounds</value>
-  </data>
-  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
-    <value>Telemetry</value>
   </data>
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>Downloading your video. We'll be ready soon.</value>

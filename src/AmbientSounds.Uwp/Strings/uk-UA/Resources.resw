@@ -75,9 +75,6 @@
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>Готовий</value>
   </data>
-  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
-    <value>Телеметрія</value>
-  </data>
   <data name="SettingsText" xml:space="preserve">
     <value>Налаштування</value>
   </data>
@@ -871,9 +868,6 @@
   </data>
   <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
     <value>Сповіщення про нові звуки</value>
-  </data>
-  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
-    <value>Телеметрії</value>
   </data>
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>Завантаження відео. Скоро ми будемо готові.</value>
