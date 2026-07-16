@@ -72,9 +72,6 @@
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>Oynatmaya hazır</value>
   </data>
-  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
-    <value>Telemetri</value>
-  </data>
   <data name="SettingsText" xml:space="preserve">
     <value>Ayarlar</value>
   </data>
@@ -869,9 +866,6 @@
   <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
     <value>Yeni sesler için bildirim</value>
   </data>
-  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
-    <value>Telemetri</value>
-  </data>
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>Videonuzu indirme. Yakında hazır olacağız.</value>
   </data>
@@ -1076,5 +1070,14 @@
   </data>
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>Güncelleme Başarılı</value>
+  </data>
+  <data name="LogLevelCriticalAndBasic" xml:space="preserve">
+    <value>Kritik ve temel</value>
+  </data>
+  <data name="LogLevelCriticalOnly" xml:space="preserve">
+    <value>Sadece kritik</value>
+  </data>
+  <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
+    <value>Telemetri seviyesi</value>
   </data>
 </root>

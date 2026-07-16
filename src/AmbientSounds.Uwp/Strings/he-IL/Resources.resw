@@ -72,9 +72,6 @@
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>מוכן לנגן</value>
   </data>
-  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
-    <value>טלמטריה</value>
-  </data>
   <data name="SettingsText" xml:space="preserve">
     <value>הגדרות</value>
   </data>
@@ -872,9 +869,6 @@
   <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
     <value>הודעה על צלילים חדשים</value>
   </data>
-  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
-    <value>טלמטריה</value>
-  </data>
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>הורדת הסרטון שלך. אנחנו נהיה מוכנים בקרוב.</value>
   </data>
@@ -1079,5 +1073,14 @@
   </data>
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>עדכון הצליח</value>
+  </data>
+  <data name="LogLevelCriticalAndBasic" xml:space="preserve">
+    <value>קריטי ובסיסי</value>
+  </data>
+  <data name="LogLevelCriticalOnly" xml:space="preserve">
+    <value>ביקורתי בלבד</value>
+  </data>
+  <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
+    <value>רמת טלמטריה</value>
   </data>
 </root>

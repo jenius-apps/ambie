@@ -93,10 +93,6 @@
           <source>Ready to play</source>
           <target state="translated">Listo para reproducir</target>
         </trans-unit>
-        <trans-unit id="SettingsTelemetrySwitch.Header" translate="yes" xml:space="preserve">
-          <source>Telemetry</source>
-          <target state="translated">Telemetría</target>
-        </trans-unit>
         <trans-unit id="SettingsText" translate="yes" xml:space="preserve">
           <source>Settings</source>
           <target state="translated">Configuración</target>
@@ -1155,10 +1151,6 @@
           <source>Notification for new sounds</source>
           <target state="translated">Notificación de nuevos sonidos</target>
         </trans-unit>
-        <trans-unit id="SettingsTelemetrySwitchHeader" translate="yes" xml:space="preserve">
-          <source>Telemetry</source>
-          <target state="translated">Telemetría</target>
-        </trans-unit>
         <trans-unit id="DownloadingVideoMessage" translate="yes" xml:space="preserve">
           <source>Downloading your video. We'll be ready soon.</source>
           <target state="translated">Descargando tu video. Pronto estaremos listos.</target>
@@ -1432,6 +1424,18 @@
         <trans-unit id="UpdateSuccessfulTitle" translate="yes" xml:space="preserve">
           <source>Update Successful</source>
           <target state="translated">Actualización exitosa</target>
+        </trans-unit>
+        <trans-unit id="LogLevelCriticalAndBasic" translate="yes" xml:space="preserve">
+          <source>Critical and basic</source>
+          <target state="translated">Crítica y básica</target>
+        </trans-unit>
+        <trans-unit id="LogLevelCriticalOnly" translate="yes" xml:space="preserve">
+          <source>Critical only</source>
+          <target state="translated">Solo críticas</target>
+        </trans-unit>
+        <trans-unit id="SettingsTelemetryLogLevelSwitchHeader" translate="yes" xml:space="preserve">
+          <source>Telemetry level</source>
+          <target state="translated">Nivel de telemetría</target>
         </trans-unit>
       </group>
     </body>

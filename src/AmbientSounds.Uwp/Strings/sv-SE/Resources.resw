@@ -75,9 +75,6 @@
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>Redo att spela</value>
   </data>
-  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
-    <value>Telemetri</value>
-  </data>
   <data name="SettingsText" xml:space="preserve">
     <value>Inställningnar</value>
   </data>
@@ -872,9 +869,6 @@
   <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
     <value>Meddelande om nya ljud</value>
   </data>
-  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
-    <value>Telemetri</value>
-  </data>
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>Ladda ner din video. Vi är snart klara.</value>
   </data>
@@ -1076,5 +1070,14 @@
   </data>
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>Uppdatering lyckad</value>
+  </data>
+  <data name="LogLevelCriticalAndBasic" xml:space="preserve">
+    <value>Kritiskt och grundläggande</value>
+  </data>
+  <data name="LogLevelCriticalOnly" xml:space="preserve">
+    <value>Endast kritisk</value>
+  </data>
+  <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
+    <value>Telemetrinivå</value>
   </data>
 </root>

@@ -93,10 +93,6 @@
           <source>Ready to play</source>
           <target state="translated">Spremno za pokretanje</target>
         </trans-unit>
-        <trans-unit id="SettingsTelemetrySwitch.Header" translate="yes" xml:space="preserve">
-          <source>Telemetry</source>
-          <target state="translated">Telemetrija</target>
-        </trans-unit>
         <trans-unit id="SettingsText" translate="yes" xml:space="preserve">
           <source>Settings</source>
           <target state="translated">Postavke</target>
@@ -1153,10 +1149,6 @@
           <source>Notification for new sounds</source>
           <target state="translated">Obavijest o novim zvukovima</target>
         </trans-unit>
-        <trans-unit id="SettingsTelemetrySwitchHeader" translate="yes" xml:space="preserve">
-          <source>Telemetry</source>
-          <target state="translated">Telemetrija</target>
-        </trans-unit>
         <trans-unit id="DownloadingVideoMessage" translate="yes" xml:space="preserve">
           <source>Downloading your video. We'll be ready soon.</source>
           <target state="translated">Preuzimanje videozapisa. Uskoro ćemo biti spremni.</target>
@@ -1430,6 +1422,18 @@
         <trans-unit id="UpdateSuccessfulTitle" translate="yes" xml:space="preserve">
           <source>Update Successful</source>
           <target state="translated">Ažuriranje uspješno</target>
+        </trans-unit>
+        <trans-unit id="LogLevelCriticalAndBasic" translate="yes" xml:space="preserve">
+          <source>Critical and basic</source>
+          <target state="translated">Kritički i osnovni</target>
+        </trans-unit>
+        <trans-unit id="LogLevelCriticalOnly" translate="yes" xml:space="preserve">
+          <source>Critical only</source>
+          <target state="translated">Samo kritički</target>
+        </trans-unit>
+        <trans-unit id="SettingsTelemetryLogLevelSwitchHeader" translate="yes" xml:space="preserve">
+          <source>Telemetry level</source>
+          <target state="translated">Razina telemetrije</target>
         </trans-unit>
       </group>
     </body>

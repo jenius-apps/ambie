@@ -92,10 +92,6 @@
           <source>Ready to play</source>
           <target state="translated">Oynatmaya hazır</target>
         </trans-unit>
-        <trans-unit id="SettingsTelemetrySwitch.Header" translate="yes" xml:space="preserve">
-          <source>Telemetry</source>
-          <target state="translated">Telemetri</target>
-        </trans-unit>
         <trans-unit id="SettingsText" translate="yes" xml:space="preserve">
           <source>Settings</source>
           <target state="translated">Ayarlar</target>
@@ -1163,10 +1159,6 @@
           <source>Notification for new sounds</source>
           <target state="translated">Yeni sesler için bildirim</target>
         </trans-unit>
-        <trans-unit id="SettingsTelemetrySwitchHeader" translate="yes" xml:space="preserve">
-          <source>Telemetry</source>
-          <target state="translated">Telemetri</target>
-        </trans-unit>
         <trans-unit id="DownloadingVideoMessage" translate="yes" xml:space="preserve">
           <source>Downloading your video. We'll be ready soon.</source>
           <target state="translated">Videonuzu indirme. Yakında hazır olacağız.</target>
@@ -1440,6 +1432,18 @@
         <trans-unit id="UpdateSuccessfulTitle" translate="yes" xml:space="preserve">
           <source>Update Successful</source>
           <target state="translated">Güncelleme Başarılı</target>
+        </trans-unit>
+        <trans-unit id="LogLevelCriticalAndBasic" translate="yes" xml:space="preserve">
+          <source>Critical and basic</source>
+          <target state="translated">Kritik ve temel</target>
+        </trans-unit>
+        <trans-unit id="LogLevelCriticalOnly" translate="yes" xml:space="preserve">
+          <source>Critical only</source>
+          <target state="translated">Sadece kritik</target>
+        </trans-unit>
+        <trans-unit id="SettingsTelemetryLogLevelSwitchHeader" translate="yes" xml:space="preserve">
+          <source>Telemetry level</source>
+          <target state="translated">Telemetri seviyesi</target>
         </trans-unit>
       </group>
     </body>

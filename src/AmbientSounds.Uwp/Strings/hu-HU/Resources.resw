@@ -72,9 +72,6 @@
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>Kész a lejátszásra</value>
   </data>
-  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
-    <value>Telemetria</value>
-  </data>
   <data name="SettingsText" xml:space="preserve">
     <value>Beállítások</value>
   </data>
@@ -863,9 +860,6 @@
   <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
     <value>Értesítés új hangokról</value>
   </data>
-  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
-    <value>Telemetria</value>
-  </data>
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>A videó letöltése. Hamarosan készen állunk.</value>
   </data>
@@ -1070,5 +1064,14 @@
   </data>
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>Frissítés sikeres</value>
+  </data>
+  <data name="LogLevelCriticalAndBasic" xml:space="preserve">
+    <value>Kritikus és alapvető</value>
+  </data>
+  <data name="LogLevelCriticalOnly" xml:space="preserve">
+    <value>Csak kritikus</value>
+  </data>
+  <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
+    <value>Telemetriai szint</value>
   </data>
 </root>

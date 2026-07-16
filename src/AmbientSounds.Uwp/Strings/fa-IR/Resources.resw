@@ -75,9 +75,6 @@
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>آماده پخش</value>
   </data>
-  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
-    <value>دور سنجی</value>
-  </data>
   <data name="SettingsText" xml:space="preserve">
     <value>تنظیمات</value>
   </data>
@@ -872,9 +869,6 @@
   <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
     <value>اعلان برای صداهای جدید</value>
   </data>
-  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
-    <value>تله متری</value>
-  </data>
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>دانلود ویدئو شما. به زودی اماده میشیم</value>
   </data>
@@ -1079,5 +1073,14 @@
   </data>
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>به روزرسانی موفقیت آمیز بود</value>
+  </data>
+  <data name="LogLevelCriticalAndBasic" xml:space="preserve">
+    <value>بحرانی و پایه</value>
+  </data>
+  <data name="LogLevelCriticalOnly" xml:space="preserve">
+    <value>فقط انتقادی</value>
+  </data>
+  <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
+    <value>سطح تله متری</value>
   </data>
 </root>

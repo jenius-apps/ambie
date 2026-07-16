@@ -75,9 +75,6 @@
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>可以播放</value>
   </data>
-  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
-    <value>診斷資料</value>
-  </data>
   <data name="SettingsText" xml:space="preserve">
     <value>設定</value>
   </data>
@@ -872,9 +869,6 @@
   <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
     <value>新聲音通知</value>
   </data>
-  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
-    <value>遙測</value>
-  </data>
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>下載您的視頻。我們很快就會準備好的。</value>
   </data>
@@ -1079,5 +1073,14 @@
   </data>
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>更新成功</value>
+  </data>
+  <data name="LogLevelCriticalAndBasic" xml:space="preserve">
+    <value>批判與基礎</value>
+  </data>
+  <data name="LogLevelCriticalOnly" xml:space="preserve">
+    <value>只有關鍵</value>
+  </data>
+  <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
+    <value>遙測層級</value>
   </data>
 </root>

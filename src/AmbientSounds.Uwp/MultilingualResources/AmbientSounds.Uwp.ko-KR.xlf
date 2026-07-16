@@ -88,10 +88,6 @@
           <source>Ready to play</source>
           <target state="translated">재생 준비 완료</target>
         </trans-unit>
-        <trans-unit id="SettingsTelemetrySwitch.Header" translate="yes" xml:space="preserve">
-          <source>Telemetry</source>
-          <target state="translated">텔레메트리</target>
-        </trans-unit>
         <trans-unit id="SettingsText" translate="yes" xml:space="preserve">
           <source>Settings</source>
           <target state="translated">설정</target>
@@ -1153,10 +1149,6 @@
           <source>Notification for new sounds</source>
           <target state="translated">새로운 소리에 대한 알림</target>
         </trans-unit>
-        <trans-unit id="SettingsTelemetrySwitchHeader" translate="yes" xml:space="preserve">
-          <source>Telemetry</source>
-          <target state="translated">원격</target>
-        </trans-unit>
         <trans-unit id="DownloadingVideoMessage" translate="yes" xml:space="preserve">
           <source>Downloading your video. We'll be ready soon.</source>
           <target state="translated">동영상 다운로드. 곧 준비하겠습니다.</target>
@@ -1430,6 +1422,18 @@
         <trans-unit id="UpdateSuccessfulTitle" translate="yes" xml:space="preserve">
           <source>Update Successful</source>
           <target state="translated">업데이트 성공</target>
+        </trans-unit>
+        <trans-unit id="LogLevelCriticalAndBasic" translate="yes" xml:space="preserve">
+          <source>Critical and basic</source>
+          <target state="translated">크리티컬과 기본</target>
+        </trans-unit>
+        <trans-unit id="LogLevelCriticalOnly" translate="yes" xml:space="preserve">
+          <source>Critical only</source>
+          <target state="translated">비판적으로만</target>
+        </trans-unit>
+        <trans-unit id="SettingsTelemetryLogLevelSwitchHeader" translate="yes" xml:space="preserve">
+          <source>Telemetry level</source>
+          <target state="translated">원격 측정 수준</target>
         </trans-unit>
       </group>
     </body>

@@ -75,9 +75,6 @@
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>Έτοιμο για έναρξη</value>
   </data>
-  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
-    <value>Τηλεμετρία</value>
-  </data>
   <data name="SettingsText" xml:space="preserve">
     <value>Ρυθμίσεις</value>
   </data>
@@ -857,9 +854,6 @@
   <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
     <value>Ειδοποίηση για νέους ήχους</value>
   </data>
-  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
-    <value>Τηλεμετρία</value>
-  </data>
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>Λήψη του βίντεό σας. Θα είμαστε έτοιμοι σύντομα.</value>
   </data>
@@ -1064,5 +1058,14 @@
   </data>
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>Επιτυχής ενημέρωση</value>
+  </data>
+  <data name="LogLevelCriticalAndBasic" xml:space="preserve">
+    <value>Κριτικό και βασικό</value>
+  </data>
+  <data name="LogLevelCriticalOnly" xml:space="preserve">
+    <value>Μόνο κρίσιμο</value>
+  </data>
+  <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
+    <value>Επίπεδο τηλεμετρίας</value>
   </data>
 </root>

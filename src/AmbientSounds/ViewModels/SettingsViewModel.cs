@@ -134,7 +134,7 @@ public partial class SettingsViewModel : ObservableObject
         set
         {
             _userSettings.Set(UserSettingsConstants.TelemetryOn, value);
-            _telemetry.SetEnabled(value);
+            _telemetry.SetMinimumLogLevel(value ? LogLevel.Basic : LogLevel.Critical);
         }
     }
 

@@ -93,10 +93,6 @@
           <source>Ready to play</source>
           <target state="translated">可以播放</target>
         </trans-unit>
-        <trans-unit id="SettingsTelemetrySwitch.Header" translate="yes" xml:space="preserve">
-          <source>Telemetry</source>
-          <target state="translated">診斷資料</target>
-        </trans-unit>
         <trans-unit id="SettingsText" translate="yes" xml:space="preserve">
           <source>Settings</source>
           <target state="translated">設定</target>
@@ -1152,10 +1148,6 @@
           <source>Notification for new sounds</source>
           <target state="translated">新聲音通知</target>
         </trans-unit>
-        <trans-unit id="SettingsTelemetrySwitchHeader" translate="yes" xml:space="preserve">
-          <source>Telemetry</source>
-          <target state="translated">遙測</target>
-        </trans-unit>
         <trans-unit id="DownloadingVideoMessage" translate="yes" xml:space="preserve">
           <source>Downloading your video. We'll be ready soon.</source>
           <target state="translated">下載您的視頻。我們很快就會準備好的。</target>
@@ -1429,6 +1421,18 @@
         <trans-unit id="UpdateSuccessfulTitle" translate="yes" xml:space="preserve">
           <source>Update Successful</source>
           <target state="translated">更新成功</target>
+        </trans-unit>
+        <trans-unit id="LogLevelCriticalAndBasic" translate="yes" xml:space="preserve">
+          <source>Critical and basic</source>
+          <target state="translated">批判與基礎</target>
+        </trans-unit>
+        <trans-unit id="LogLevelCriticalOnly" translate="yes" xml:space="preserve">
+          <source>Critical only</source>
+          <target state="translated">只有關鍵</target>
+        </trans-unit>
+        <trans-unit id="SettingsTelemetryLogLevelSwitchHeader" translate="yes" xml:space="preserve">
+          <source>Telemetry level</source>
+          <target state="translated">遙測層級</target>
         </trans-unit>
       </group>
     </body>

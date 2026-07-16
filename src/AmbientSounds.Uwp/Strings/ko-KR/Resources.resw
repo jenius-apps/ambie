@@ -72,9 +72,6 @@
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>재생 준비 완료</value>
   </data>
-  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
-    <value>텔레메트리</value>
-  </data>
   <data name="SettingsText" xml:space="preserve">
     <value>설정</value>
   </data>
@@ -872,9 +869,6 @@
   <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
     <value>새로운 소리에 대한 알림</value>
   </data>
-  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
-    <value>원격</value>
-  </data>
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>동영상 다운로드. 곧 준비하겠습니다.</value>
   </data>
@@ -1079,5 +1073,14 @@
   </data>
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>업데이트 성공</value>
+  </data>
+  <data name="LogLevelCriticalAndBasic" xml:space="preserve">
+    <value>크리티컬과 기본</value>
+  </data>
+  <data name="LogLevelCriticalOnly" xml:space="preserve">
+    <value>비판적으로만</value>
+  </data>
+  <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
+    <value>원격 측정 수준</value>
   </data>
 </root>

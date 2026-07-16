@@ -75,9 +75,6 @@
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>Gotowe</value>
   </data>
-  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
-    <value>Telemetria</value>
-  </data>
   <data name="SettingsText" xml:space="preserve">
     <value>Ustawienia</value>
   </data>
@@ -869,9 +866,6 @@
   <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
     <value>Powiadomienia o nowych dźwiękach</value>
   </data>
-  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
-    <value>Telemetria</value>
-  </data>
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>Pobieranie filmu. Wkrótce będziemy gotowi.</value>
   </data>
@@ -1076,5 +1070,14 @@
   </data>
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>Aktualizacja zakończona</value>
+  </data>
+  <data name="LogLevelCriticalAndBasic" xml:space="preserve">
+    <value>Krytyczne i podstawowe</value>
+  </data>
+  <data name="LogLevelCriticalOnly" xml:space="preserve">
+    <value>Tylko krytyczne</value>
+  </data>
+  <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
+    <value>Poziom telemetrii</value>
   </data>
 </root>

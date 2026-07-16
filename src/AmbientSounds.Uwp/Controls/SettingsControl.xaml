@@ -150,20 +150,20 @@
         </labs:SettingsCard>
 
         <!--  Telemetry  -->
-        <labs:SettingsCard
-            x:Uid="SettingsTelemetrySwitch"
-            Margin="0,3,0,0"
-            Description="{x:Bind strings:Resources.SettingsTelemetrySwitchDescription}">
+        <labs:SettingsCard Margin="0,3,0,0" Description="{x:Bind strings:Resources.SettingsTelemetrySwitchDescription}">
+            <labs:SettingsCard.Header>
+                <TextBlock Text="{x:Bind strings:Resources.SettingsTelemetryLogLevelSwitchHeader}" />
+            </labs:SettingsCard.Header>
             <labs:SettingsCard.HeaderIcon>
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDiagnostics}" />
             </labs:SettingsCard.HeaderIcon>
 
             <ToggleSwitch IsOn="{x:Bind ViewModel.TelemetryEnabled, Mode=TwoWay}">
                 <ToggleSwitch.OffContent>
-                    <TextBlock x:Uid="OffTextBlock" />
+                    <TextBlock Text="{x:Bind strings:Resources.LogLevelCriticalOnly}" />
                 </ToggleSwitch.OffContent>
                 <ToggleSwitch.OnContent>
-                    <TextBlock x:Uid="OnTextBlock" />
+                    <TextBlock Text="{x:Bind strings:Resources.LogLevelCriticalAndBasic}" />
                 </ToggleSwitch.OnContent>
             </ToggleSwitch>
         </labs:SettingsCard>

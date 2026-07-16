@@ -104,7 +104,7 @@
                 <ToggleSwitch IsOn="{x:Bind ViewModel.TelemetryEnabled, Mode=TwoWay}">
                     <ToggleSwitch.Header>
                         <StackPanel Spacing="4">
-                            <TextBlock Text="{x:Bind strings:Resources.SettingsTelemetrySwitchHeader}" />
+                            <TextBlock Text="{x:Bind strings:Resources.SettingsTelemetryLogLevelSwitchHeader}" />
                             <TextBlock
                                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                 Text="{x:Bind strings:Resources.SettingsTelemetrySwitchDescription}"
@@ -112,10 +112,10 @@
                         </StackPanel>
                     </ToggleSwitch.Header>
                     <ToggleSwitch.OffContent>
-                        <TextBlock x:Uid="OffTextBlock" />
+                        <TextBlock Text="{x:Bind strings:Resources.LogLevelCriticalOnly}" />
                     </ToggleSwitch.OffContent>
                     <ToggleSwitch.OnContent>
-                        <TextBlock x:Uid="OnTextBlock" />
+                        <TextBlock Text="{x:Bind strings:Resources.LogLevelCriticalAndBasic}" />
                     </ToggleSwitch.OnContent>
                 </ToggleSwitch>
 

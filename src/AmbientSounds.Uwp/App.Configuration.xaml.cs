@@ -66,13 +66,13 @@ partial class App
         collection.AddSingleton<ITelemetry, AppInsightsTelemetry>(s =>
         {
             var apiKey = s.GetRequiredService<IAppSettings>().TelemetryApiKey;
-            var isEnabled = s.GetRequiredService<IUserSettings>().Get<bool>(UserSettingsConstants.TelemetryOn);
+            var allowBasic = s.GetRequiredService<IUserSettings>().Get<bool>(UserSettingsConstants.TelemetryOn);
             var context = GetContext();
             foreach (var experiment in s.GetRequiredService<IExperimentationService>().GetAllExperiments())
             {
                 context?.GlobalProperties.Add(experiment.Key, experiment.Value.ToString());
             }
-            return new AppInsightsTelemetry(apiKey, isEnabled: isEnabled, context: context);
+            return new AppInsightsTelemetry(apiKey, context: context, minimumLogLevel: allowBasic ? LogLevel.Basic : LogLevel.Critical);
         });
 
         collection.AddSingleton<IPushNotificationStorage, AzureServiceBusPushNotificationStorage>(s =>

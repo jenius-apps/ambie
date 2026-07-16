@@ -813,7 +813,7 @@
       <Version>0.1.250828-build.2223</Version>
     </PackageReference>
     <PackageReference Include="JeniusApps.Common.Uwp">
-      <Version>0.0.66-preview</Version>
+      <Version>0.0.67-preview</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection">
       <Version>7.0.0</Version>
