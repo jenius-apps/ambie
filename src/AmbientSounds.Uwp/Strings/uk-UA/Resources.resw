@@ -1080,4 +1080,13 @@
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>Оновлення успішне</value>
   </data>
+  <data name="LogLevelCriticalAndBasic" xml:space="preserve">
+    <value>Критичні та базові</value>
+  </data>
+  <data name="LogLevelCriticalOnly" xml:space="preserve">
+    <value>Лише критично</value>
+  </data>
+  <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
+    <value>Рівень телеметрії</value>
+  </data>
 </root>

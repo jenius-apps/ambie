@@ -1077,4 +1077,13 @@
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>Actualizare reușită</value>
   </data>
+  <data name="LogLevelCriticalAndBasic" xml:space="preserve">
+    <value>Critic și de bază</value>
+  </data>
+  <data name="LogLevelCriticalOnly" xml:space="preserve">
+    <value>Doar critice</value>
+  </data>
+  <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
+    <value>Nivel de telemetrie</value>
+  </data>
 </root>

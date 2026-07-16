@@ -1427,6 +1427,18 @@
           <source>Update Successful</source>
           <target state="translated">Актуализацията е успешна</target>
         </trans-unit>
+        <trans-unit id="LogLevelCriticalAndBasic" translate="yes" xml:space="preserve">
+          <source>Critical and basic</source>
+          <target state="translated">Критично и основно</target>
+        </trans-unit>
+        <trans-unit id="LogLevelCriticalOnly" translate="yes" xml:space="preserve">
+          <source>Critical only</source>
+          <target state="translated">Само критично</target>
+        </trans-unit>
+        <trans-unit id="SettingsTelemetryLogLevelSwitchHeader" translate="yes" xml:space="preserve">
+          <source>Telemetry level</source>
+          <target state="translated">Ниво на телеметрия</target>
+        </trans-unit>
       </group>
     </body>
   </file>

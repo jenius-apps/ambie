@@ -1432,6 +1432,18 @@
           <source>Update Successful</source>
           <target state="translated">Update erfolgreich</target>
         </trans-unit>
+        <trans-unit id="LogLevelCriticalAndBasic" translate="yes" xml:space="preserve">
+          <source>Critical and basic</source>
+          <target state="translated">Kritisch und grundlegend</target>
+        </trans-unit>
+        <trans-unit id="LogLevelCriticalOnly" translate="yes" xml:space="preserve">
+          <source>Critical only</source>
+          <target state="translated">Nur kritisch</target>
+        </trans-unit>
+        <trans-unit id="SettingsTelemetryLogLevelSwitchHeader" translate="yes" xml:space="preserve">
+          <source>Telemetry level</source>
+          <target state="translated">Telemetrieniveau</target>
+        </trans-unit>
       </group>
     </body>
   </file>

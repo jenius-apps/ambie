@@ -1080,4 +1080,13 @@
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>更新成功</value>
   </data>
+  <data name="LogLevelCriticalAndBasic" xml:space="preserve">
+    <value>批判與基礎</value>
+  </data>
+  <data name="LogLevelCriticalOnly" xml:space="preserve">
+    <value>只有關鍵</value>
+  </data>
+  <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
+    <value>遙測層級</value>
+  </data>
 </root>

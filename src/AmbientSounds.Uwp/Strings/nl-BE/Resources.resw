@@ -1050,4 +1050,13 @@
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>Update succesvol</value>
   </data>
+  <data name="LogLevelCriticalAndBasic" xml:space="preserve">
+    <value>Kritisch en basisprincipe</value>
+  </data>
+  <data name="LogLevelCriticalOnly" xml:space="preserve">
+    <value>Alleen kritisch</value>
+  </data>
+  <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
+    <value>Telemetrieniveau</value>
+  </data>
 </root>

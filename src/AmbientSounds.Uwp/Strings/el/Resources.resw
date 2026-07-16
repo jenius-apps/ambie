@@ -1065,4 +1065,13 @@
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>Επιτυχής ενημέρωση</value>
   </data>
+  <data name="LogLevelCriticalAndBasic" xml:space="preserve">
+    <value>Κριτικό και βασικό</value>
+  </data>
+  <data name="LogLevelCriticalOnly" xml:space="preserve">
+    <value>Μόνο κρίσιμο</value>
+  </data>
+  <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
+    <value>Επίπεδο τηλεμετρίας</value>
+  </data>
 </root>

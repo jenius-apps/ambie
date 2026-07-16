@@ -1430,6 +1430,18 @@
           <source>Update Successful</source>
           <target state="translated">更新成功</target>
         </trans-unit>
+        <trans-unit id="LogLevelCriticalAndBasic" translate="yes" xml:space="preserve">
+          <source>Critical and basic</source>
+          <target state="translated">批判與基礎</target>
+        </trans-unit>
+        <trans-unit id="LogLevelCriticalOnly" translate="yes" xml:space="preserve">
+          <source>Critical only</source>
+          <target state="translated">只有關鍵</target>
+        </trans-unit>
+        <trans-unit id="SettingsTelemetryLogLevelSwitchHeader" translate="yes" xml:space="preserve">
+          <source>Telemetry level</source>
+          <target state="translated">遙測層級</target>
+        </trans-unit>
       </group>
     </body>
   </file>

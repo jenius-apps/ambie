@@ -1068,4 +1068,13 @@
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>Ažuriranje uspješno</value>
   </data>
+  <data name="LogLevelCriticalAndBasic" xml:space="preserve">
+    <value>Kritički i osnovni</value>
+  </data>
+  <data name="LogLevelCriticalOnly" xml:space="preserve">
+    <value>Samo kritički</value>
+  </data>
+  <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
+    <value>Razina telemetrije</value>
+  </data>
 </root>

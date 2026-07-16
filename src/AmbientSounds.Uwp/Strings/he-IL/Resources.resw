@@ -1080,4 +1080,13 @@
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>עדכון הצליח</value>
   </data>
+  <data name="LogLevelCriticalAndBasic" xml:space="preserve">
+    <value>קריטי ובסיסי</value>
+  </data>
+  <data name="LogLevelCriticalOnly" xml:space="preserve">
+    <value>ביקורתי בלבד</value>
+  </data>
+  <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
+    <value>רמת טלמטריה</value>
+  </data>
 </root>

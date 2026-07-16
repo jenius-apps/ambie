@@ -1436,6 +1436,18 @@
           <source>Update Successful</source>
           <target state="translated">Opdatering succesfuld</target>
         </trans-unit>
+        <trans-unit id="LogLevelCriticalAndBasic" translate="yes" xml:space="preserve">
+          <source>Critical and basic</source>
+          <target state="translated">Kritisk og grundlæggende</target>
+        </trans-unit>
+        <trans-unit id="LogLevelCriticalOnly" translate="yes" xml:space="preserve">
+          <source>Critical only</source>
+          <target state="translated">Kun kritisk</target>
+        </trans-unit>
+        <trans-unit id="SettingsTelemetryLogLevelSwitchHeader" translate="yes" xml:space="preserve">
+          <source>Telemetry level</source>
+          <target state="translated">Telemetriniveau</target>
+        </trans-unit>
       </group>
     </body>
   </file>

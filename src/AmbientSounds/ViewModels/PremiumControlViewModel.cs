@@ -285,7 +285,7 @@ public partial class PremiumControlViewModel : ObservableObject
             payload.Add("iapid", iapId);
         }
 
-        _telemetry.TrackEvent(purchaseEventName, payload);
+        _telemetry.TrackEvent(purchaseEventName, payload, logLevel: LogLevel.Critical);
 
         _userSettings.Set(UserSettingsConstants.PremiumPurchaseUtcDateTicks, DateTime.UtcNow.Ticks);
     }

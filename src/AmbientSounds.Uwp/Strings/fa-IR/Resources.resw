@@ -1080,4 +1080,13 @@
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>به روزرسانی موفقیت آمیز بود</value>
   </data>
+  <data name="LogLevelCriticalAndBasic" xml:space="preserve">
+    <value>بحرانی و پایه</value>
+  </data>
+  <data name="LogLevelCriticalOnly" xml:space="preserve">
+    <value>فقط انتقادی</value>
+  </data>
+  <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
+    <value>سطح تله متری</value>
+  </data>
 </root>

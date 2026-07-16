@@ -1427,6 +1427,18 @@
           <source>Update Successful</source>
           <target state="translated">Actualizare reușită</target>
         </trans-unit>
+        <trans-unit id="LogLevelCriticalAndBasic" translate="yes" xml:space="preserve">
+          <source>Critical and basic</source>
+          <target state="translated">Critic și de bază</target>
+        </trans-unit>
+        <trans-unit id="LogLevelCriticalOnly" translate="yes" xml:space="preserve">
+          <source>Critical only</source>
+          <target state="translated">Doar critice</target>
+        </trans-unit>
+        <trans-unit id="SettingsTelemetryLogLevelSwitchHeader" translate="yes" xml:space="preserve">
+          <source>Telemetry level</source>
+          <target state="translated">Nivel de telemetrie</target>
+        </trans-unit>
       </group>
     </body>
   </file>

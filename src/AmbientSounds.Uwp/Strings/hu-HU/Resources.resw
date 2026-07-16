@@ -1071,4 +1071,13 @@
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>Frissítés sikeres</value>
   </data>
+  <data name="LogLevelCriticalAndBasic" xml:space="preserve">
+    <value>Kritikus és alapvető</value>
+  </data>
+  <data name="LogLevelCriticalOnly" xml:space="preserve">
+    <value>Csak kritikus</value>
+  </data>
+  <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
+    <value>Telemetriai szint</value>
+  </data>
 </root>

@@ -1430,6 +1430,18 @@
           <source>Update Successful</source>
           <target state="translated">עדכון הצליח</target>
         </trans-unit>
+        <trans-unit id="LogLevelCriticalAndBasic" translate="yes" xml:space="preserve">
+          <source>Critical and basic</source>
+          <target state="translated">קריטי ובסיסי</target>
+        </trans-unit>
+        <trans-unit id="LogLevelCriticalOnly" translate="yes" xml:space="preserve">
+          <source>Critical only</source>
+          <target state="translated">ביקורתי בלבד</target>
+        </trans-unit>
+        <trans-unit id="SettingsTelemetryLogLevelSwitchHeader" translate="yes" xml:space="preserve">
+          <source>Telemetry level</source>
+          <target state="translated">רמת טלמטריה</target>
+        </trans-unit>
       </group>
     </body>
   </file>

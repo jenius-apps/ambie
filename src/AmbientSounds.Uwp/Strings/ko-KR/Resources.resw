@@ -1080,4 +1080,13 @@
   <data name="UpdateSuccessfulTitle" xml:space="preserve">
     <value>업데이트 성공</value>
   </data>
+  <data name="LogLevelCriticalAndBasic" xml:space="preserve">
+    <value>크리티컬과 기본</value>
+  </data>
+  <data name="LogLevelCriticalOnly" xml:space="preserve">
+    <value>비판적으로만</value>
+  </data>
+  <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
+    <value>원격 측정 수준</value>
+  </data>
 </root>

@@ -1431,6 +1431,18 @@
           <source>Update Successful</source>
           <target state="translated">Ažuriranje uspješno</target>
         </trans-unit>
+        <trans-unit id="LogLevelCriticalAndBasic" translate="yes" xml:space="preserve">
+          <source>Critical and basic</source>
+          <target state="translated">Kritički i osnovni</target>
+        </trans-unit>
+        <trans-unit id="LogLevelCriticalOnly" translate="yes" xml:space="preserve">
+          <source>Critical only</source>
+          <target state="translated">Samo kritički</target>
+        </trans-unit>
+        <trans-unit id="SettingsTelemetryLogLevelSwitchHeader" translate="yes" xml:space="preserve">
+          <source>Telemetry level</source>
+          <target state="translated">Razina telemetrije</target>
+        </trans-unit>
       </group>
     </body>
   </file>
