@@ -20,6 +20,7 @@ namespace AmbientSounds.ViewModels
         private readonly ITelemetry _telemetry;
         private readonly ILocalizer _localizer;
         private readonly IIapService _iapService;
+        private readonly IDispatcherQueue _dispatcherQueue;
 
         [ObservableProperty]
         private bool _loading;
@@ -28,7 +29,8 @@ namespace AmbientSounds.ViewModels
             IVideoService videoService,
             ITelemetry telemetry,
             ILocalizer localizer,
-            IIapService iapService)
+            IIapService iapService,
+            IDispatcherQueue dispatcherQueue)
         {
             Guard.IsNotNull(videoService, nameof(videoService));
             Guard.IsNotNull(telemetry, nameof(telemetry));
@@ -40,6 +42,7 @@ namespace AmbientSounds.ViewModels
             _localizer = localizer;
             _iapService = iapService;
             _iapService.ProductPurchased += OnIapPurchased;
+            _dispatcherQueue = dispatcherQueue;
         }
 
         public ObservableCollection<VideoViewModel> Videos { get; } = new();
@@ -75,7 +78,10 @@ namespace AmbientSounds.ViewModels
             {
                 if (v.Video.IapIds.Contains(e))
                 {
-                    v.IsOwned = true;
+                    _dispatcherQueue.TryEnqueue(() =>
+                    {
+                        v.IsOwned = true;
+                    });
                 }
             }
         }

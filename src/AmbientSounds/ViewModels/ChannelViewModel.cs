@@ -5,6 +5,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using JeniusApps.Common.Store;
 using JeniusApps.Common.Telemetry;
+using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ public partial class ChannelViewModel : ObservableObject
     private readonly IDialogService _dialogService;
     private readonly IIapService _iapService;
     private readonly ITelemetry _telemetry;
+    private readonly IDispatcherQueue _dispatcherQueue;
     private bool _eventsRegistered;
     private Progress<double>? _downloadProgress;
 
@@ -29,6 +31,7 @@ public partial class ChannelViewModel : ObservableObject
         IDialogService dialogService,
         IIapService iapService,
         ITelemetry telemetry,
+        IDispatcherQueue dispatcherQueue,
         IRelayCommand<ChannelViewModel>? viewDetailsCommand = null,
         IRelayCommand<ChannelViewModel>? playCommand = null,
         bool isNew = false)
@@ -39,6 +42,7 @@ public partial class ChannelViewModel : ObservableObject
         _dialogService = dialogService;
         _iapService = iapService;
         _telemetry = telemetry;
+        _dispatcherQueue = dispatcherQueue;
         ViewDetailsCommand = viewDetailsCommand ?? new RelayCommand<ChannelViewModel>(static (vm) => { });
         PlayCommand = playCommand ?? new RelayCommand<ChannelViewModel>(static (vm) => { });
         _isNew = isNew;
@@ -279,7 +283,10 @@ public partial class ChannelViewModel : ObservableObject
     {
         if (Channel.IapIds.Contains(iapId))
         {
-            IsOwned = true;
+            _dispatcherQueue.TryEnqueue(() =>
+            {
+                IsOwned = true;
+            });
         }
     }
 }

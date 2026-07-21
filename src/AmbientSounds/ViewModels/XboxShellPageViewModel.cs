@@ -110,14 +110,20 @@ public partial class XboxShellPageViewModel : BaseShellPageViewModel
         var preferredMode = _xboxSlideshowService.GetPreferredModeFromSettings();
         if (preferredMode is not SlideshowMode.Video)
         {
-            VideoUpsellVisible = false;
+            _dispatcherQueue.TryEnqueue(() =>
+            {
+                VideoUpsellVisible = false;
+            });
             return;
         }
 
         var canPremiumButtonsBeDisplayed = await _iapService.CanShowPremiumButtonsAsync();
         if (!canPremiumButtonsBeDisplayed)
         {
-            VideoUpsellVisible = false;
+            _dispatcherQueue.TryEnqueue(() =>
+            {
+                VideoUpsellVisible = false;
+            });
             return;
         }
 
@@ -126,7 +132,11 @@ public partial class XboxShellPageViewModel : BaseShellPageViewModel
         _ = UpdateLastKnownPremiumStateAsync(canPremiumButtonsBeDisplayed);
 
         var (_, AssociatedVideoIds) = await _xboxSlideshowService.GetSlideshowDataAsync(_mixMediaPlayerService);
-        VideoUpsellVisible = AssociatedVideoIds.Count > 0;
+
+        _dispatcherQueue.TryEnqueue(() =>
+        {
+            VideoUpsellVisible = AssociatedVideoIds.Count > 0;
+        });
     }
 
     partial void OnVideoUpsellVisibleChanged(bool value)

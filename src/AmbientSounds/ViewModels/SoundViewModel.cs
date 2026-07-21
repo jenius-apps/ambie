@@ -200,7 +200,10 @@ public partial class SoundViewModel : ObservableObject
             : await _iapService.IsOwnedAsync(_sound.IapId); // backwards compatibility
 #pragma warning restore CS0618
 
-        LockIconVisible = !owned;
+        _dispatcherQueue.TryEnqueue(() =>
+        {
+            LockIconVisible = !owned;
+        });
     }
 
     private void RegisterProgress(IProgress<double> progress)
