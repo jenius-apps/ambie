@@ -4,6 +4,7 @@ using AmbientSounds.ViewModels;
 using CommunityToolkit.Mvvm.Input;
 using JeniusApps.Common.Store;
 using JeniusApps.Common.Telemetry;
+using JeniusApps.Common.Tools;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
@@ -25,6 +26,7 @@ public class ChannelVmFactory(IServiceProvider serviceProvider) : IChannelVmFact
             serviceProvider.GetRequiredService<IDialogService>(),
             serviceProvider.GetRequiredService<IIapService>(),
             serviceProvider.GetRequiredService<ITelemetry>(),
+            serviceProvider.GetRequiredService<IDispatcherQueue>(),
             viewDetailsCommand,
             playCommand,
             isNew);

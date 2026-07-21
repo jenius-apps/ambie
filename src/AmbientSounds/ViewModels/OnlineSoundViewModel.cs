@@ -28,12 +28,13 @@ public partial class OnlineSoundViewModel : ObservableObject
     private readonly IMixMediaPlayerService _mixMediaPlayerService;
     private readonly IUpdateService _updateService;
     private readonly ILocalizer _localizer;
+    private readonly IDispatcherQueue _dispatcherQueue;
     private Progress<double> _downloadProgress;
     private bool _loading;
     private bool _initialized;
 
     public OnlineSoundViewModel(
-        Sound s, 
+        Sound s,
         IDownloadManager downloadManager,
         ISoundService soundService,
         ITelemetry telemetry,
@@ -44,7 +45,8 @@ public partial class OnlineSoundViewModel : ObservableObject
         IMixMediaPlayerService mixMediaPlayerService,
         IUpdateService updateService,
         ILocalizer localizer,
-        IExperimentationService experimentationService)
+        IExperimentationService experimentationService,
+        IDispatcherQueue dispatcherQueue)
     {
         _sound = s;
         _downloadManager = downloadManager;
@@ -59,6 +61,7 @@ public partial class OnlineSoundViewModel : ObservableObject
         _localizer = localizer;
 
         _downloadProgress = new Progress<double>();
+        _dispatcherQueue = dispatcherQueue;
     }
 
     public event EventHandler? DownloadCompleted;
@@ -412,23 +415,27 @@ public partial class OnlineSoundViewModel : ObservableObject
 
     private async Task UpdateIsOwnedAsync(string? newlyPurchasedIapId = null)
     {
+        bool result;
         if (!_sound.IsPremium)
         {
             // a non premium sound is always treated as "owned"
-            IsOwned = true;
-            return;
+            result = true;
         }
-
-        if (newlyPurchasedIapId is { Length: > 0 })
+        else if (newlyPurchasedIapId is { Length: > 0 })
         {
             // New IAP was just purchased, so we perform
             // a local check to see if the sound gets unlocked.
-            IsOwned = _sound.IapIds.Contains(newlyPurchasedIapId) || (_iapService.ContainsSubscriptionPrefix(newlyPurchasedIapId) && _iapService.ContainsSubscriptionPrefix(_sound.IapIds));
+            result = _sound.IapIds.Contains(newlyPurchasedIapId) || (_iapService.ContainsSubscriptionPrefix(newlyPurchasedIapId) && _iapService.ContainsSubscriptionPrefix(_sound.IapIds));
         }
         else
         {
             // New IAP is null, meaning that we're just checking if the user already owns the product.
-            IsOwned = await _iapService.IsAnyOwnedAsync(_sound.IapIds);
+            result = await _iapService.IsAnyOwnedAsync(_sound.IapIds);
         }
+
+        _dispatcherQueue.TryEnqueue(() =>
+        {
+            IsOwned = result;
+        });
     }
 }

@@ -302,7 +302,10 @@ public partial class MeditatePageViewModel : ObservableObject
         {
             if (guideVm.OnlineGuide.IapIds.Contains(purchasedIapId))
             {
-                guideVm.IsOwned = true;
+                _dispatcherQueue.TryEnqueue(() =>
+                {
+                    guideVm.IsOwned = true;
+                });
             }
         }
     }

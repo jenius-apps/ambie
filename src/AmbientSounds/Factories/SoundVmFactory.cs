@@ -48,7 +48,8 @@ public class SoundVmFactory : ISoundVmFactory
             _serviceProvider.GetRequiredService<IMixMediaPlayerService>(),
             _serviceProvider.GetRequiredService<IUpdateService>(),
             _serviceProvider.GetRequiredService<ILocalizer>(),
-            _serviceProvider.GetRequiredService<IExperimentationService>());
+            _serviceProvider.GetRequiredService<IExperimentationService>(),
+            _serviceProvider.GetRequiredService<IDispatcherQueue>());
 
         _onlineSoundVmCache.TryAdd(s.Id, newVm);
         return newVm;
