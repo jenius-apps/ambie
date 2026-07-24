@@ -28,6 +28,8 @@ public class TelemetryConstants
     public const string FreeTrialTipShown = ShellPage + "freeTrialTipShown";
     public const string MoreSoundsTipShown = ShellPage + "moreSoundsTipShown";
     public const string ShellPlaySlideshow = $"{ShellPage}playSlideshow";
+    public const string ShellInAppShareOpened = $"{ShellPage}inAppShareOpened";
+    public const string ShellInAppShareCopied = $"{ShellPage}inAppShareCopied";
 
     private const string HomePage = "homepage:";
     public const string DownloadMessageShown = HomePage + "downloadMessageShown";

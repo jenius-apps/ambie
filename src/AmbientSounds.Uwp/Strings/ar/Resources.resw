@@ -1086,4 +1086,10 @@
   <data name="PlaySlideshowText" xml:space="preserve">
     <value>عرض الشرائح</value>
   </data>
+  <data name="InAppShareDescription" xml:space="preserve">
+    <value>شكرا لقضاء وقتك مع أمبي. إذا كان ذلك يساعدك، ادع أصدقائك للاستمتاع به أيضا.</value>
+  </data>
+  <data name="InAppShareTitle" xml:space="preserve">
+    <value>انشر الأخبار السارة</value>
+  </data>
 </root>

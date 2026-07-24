@@ -1086,4 +1086,10 @@
   <data name="PlaySlideshowText" xml:space="preserve">
     <value>Pusťte si slideshow</value>
   </data>
+  <data name="InAppShareDescription" xml:space="preserve">
+    <value>Díky, že jste strávili čas s Ambie. Pokud vám to pomáhá, pozvěte i své přátele, aby si to užili.</value>
+  </data>
+  <data name="InAppShareTitle" xml:space="preserve">
+    <value>Šiřte dobrou zprávu</value>
+  </data>
 </root>

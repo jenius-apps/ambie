@@ -7,11 +7,13 @@ using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Windows.Services.Store;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Navigation;
 
 #nullable enable
@@ -23,6 +25,8 @@ namespace AmbientSounds.Views;
 /// </summary>
 public sealed partial class ShellPage : Page
 {
+    private readonly SemaphoreSlim _copyLock = new(1, 1);
+
     public ShellPage()
     {
         this.InitializeComponent();
@@ -122,5 +126,30 @@ public sealed partial class ShellPage : Page
         {
             ViewModel.Search(query);
         }
+    }
+
+    private void InAppShareOpened(object sender, RoutedEventArgs e)
+    {
+        if (sender is FrameworkElement fe)
+        {
+            App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.ShellInAppShareOpened);
+            FlyoutBase.ShowAttachedFlyout(fe);
+        }
+    }
+
+    private async void InAppShareCopyClicked(object sender, RoutedEventArgs e)
+    {
+        if (_copyLock.CurrentCount == 0)
+        {
+            return;
+        }
+
+        await _copyLock.WaitAsync();
+        InAppShareCopySucceededIcon.Visibility = Visibility.Visible;
+        InAppShareCopyIcon.Visibility = Visibility.Collapsed;
+        await Task.Delay(3000);
+        InAppShareCopyIcon.Visibility = Visibility.Visible;
+        InAppShareCopySucceededIcon.Visibility = Visibility.Collapsed;
+        _copyLock.Release();
     }
 }

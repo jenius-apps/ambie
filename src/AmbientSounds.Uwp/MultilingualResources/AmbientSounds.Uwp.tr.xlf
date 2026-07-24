@@ -1449,6 +1449,14 @@
           <source>Play slideshow</source>
           <target state="translated">Slayt gösterisi oynat</target>
         </trans-unit>
+        <trans-unit id="InAppShareDescription" translate="yes" xml:space="preserve">
+          <source>Thanks for spending time with Ambie. If it’s helping you, invite your friends to enjoy it too.</source>
+          <target state="translated">Ambie ile vakit geçirdiğiniz için teşekkürler. Eğer size yardımcı oluyorsa, arkadaşlarınızı da davet et edin.</target>
+        </trans-unit>
+        <trans-unit id="InAppShareTitle" translate="yes" xml:space="preserve">
+          <source>Spread the good vibes</source>
+          <target state="translated">İyi haberi yay</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -1077,4 +1077,10 @@
   <data name="PlaySlideshowText" xml:space="preserve">
     <value>Játssz diavetítést</value>
   </data>
+  <data name="InAppShareDescription" xml:space="preserve">
+    <value>Köszönöm, hogy időt töltöttél Ambie-val. Ha segít, hívd meg a barátaidat is, hogy élvezzék.</value>
+  </data>
+  <data name="InAppShareTitle" xml:space="preserve">
+    <value>Terjesszük a jó hírt</value>
+  </data>
 </root>

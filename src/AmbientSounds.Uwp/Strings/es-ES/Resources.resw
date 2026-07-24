@@ -1086,4 +1086,10 @@
   <data name="PlaySlideshowText" xml:space="preserve">
     <value>Reproducir la presentación de diapositivas</value>
   </data>
+  <data name="InAppShareDescription" xml:space="preserve">
+    <value>Gracias por pasar tiempo con Ambie. Si te está ayudando, invita a tus amigos a disfrutarlo también.</value>
+  </data>
+  <data name="InAppShareTitle" xml:space="preserve">
+    <value>Difunde la buena noticia</value>
+  </data>
 </root>

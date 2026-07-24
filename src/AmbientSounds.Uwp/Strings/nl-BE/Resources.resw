@@ -1056,4 +1056,10 @@
   <data name="PlaySlideshowText" xml:space="preserve">
     <value>Speel diavoorstelling af</value>
   </data>
+  <data name="InAppShareDescription" xml:space="preserve">
+    <value>Bedankt dat je tijd met Ambie hebt doorgebracht. Als het je helpt, nodig dan je vrienden uit om er ook van te genieten.</value>
+  </data>
+  <data name="InAppShareTitle" xml:space="preserve">
+    <value>Verspreid het goede nieuws</value>
+  </data>
 </root>
