@@ -399,6 +399,7 @@ public partial class ShellPageViewModel : BaseShellPageViewModel
     [RelayCommand]
     private void InAppShareCopy()
     {
+        _telemetry.TrackEvent(TelemetryConstants.ShellInAppShareCopied);
         _ = _clipboard.CopyToClipboard(AppConstants.InAppShareUrl);
     }
 

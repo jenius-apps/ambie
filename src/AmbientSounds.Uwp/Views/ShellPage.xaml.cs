@@ -125,10 +125,11 @@ public sealed partial class ShellPage : Page
         }
     }
 
-    private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+    private void InAppShareOpened(object sender, RoutedEventArgs e)
     {
         if (sender is FrameworkElement fe)
         {
+            App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.ShellInAppShareOpened);
             FlyoutBase.ShowAttachedFlyout(fe);
         }
     }
