@@ -12,6 +12,7 @@ using Windows.Services.Store;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Navigation;
 
 #nullable enable
@@ -121,6 +122,14 @@ public sealed partial class ShellPage : Page
         else if (args.QueryText is { Length: > 0 } query)
         {
             ViewModel.Search(query);
+        }
+    }
+
+    private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+    {
+        if (sender is FrameworkElement fe)
+        {
+            FlyoutBase.ShowAttachedFlyout(fe);
         }
     }
 }

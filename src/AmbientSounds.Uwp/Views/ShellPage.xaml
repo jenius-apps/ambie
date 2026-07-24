@@ -61,6 +61,9 @@
                         <Setter Target="PremiumIcon.Visibility" Value="Visible" />
                         <Setter Target="PremiumText.Visibility" Value="Collapsed" />
                         <Setter Target="PremiumButton.HorizontalContentAlignment" Value="Center" />
+                        <Setter Target="InAppShareIcon.Visibility" Value="Visible" />
+                        <Setter Target="InAppShareText.Visibility" Value="Collapsed" />
+                        <Setter Target="InAppShareButton.HorizontalContentAlignment" Value="Center" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -310,6 +313,78 @@
                     </ItemsControl>
 
                     <StackPanel Grid.Row="2" Margin="0,12">
+                        <HyperlinkButton
+                            x:Name="InAppShareButton"
+                            Margin="12,0"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Left"
+                            Click="HyperlinkButton_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <FontIcon
+                                    x:Name="InAppShareIcon"
+                                    FontFamily="Segoe Fluent Icons"
+                                    Glyph="&#xE1D7;"
+                                    Visibility="Collapsed">
+                                    <animations:Implicit.ShowAnimations>
+                                        <animations:OpacityAnimation
+                                            From="0"
+                                            To="1"
+                                            Duration="0:0:0.6" />
+                                    </animations:Implicit.ShowAnimations>
+                                </FontIcon>
+                                <TextBlock
+                                    x:Name="InAppShareText"
+                                    VerticalAlignment="Center"
+                                    Text="Share">
+                                    <animations:Implicit.ShowAnimations>
+                                        <animations:OpacityAnimation
+                                            From="0"
+                                            To="1"
+                                            Duration="0:0:0.6" />
+                                    </animations:Implicit.ShowAnimations>
+                                </TextBlock>
+                            </StackPanel>
+
+                            <FlyoutBase.AttachedFlyout>
+                                <Flyout Placement="TopEdgeAlignedLeft">
+                                    <Flyout.FlyoutPresenterStyle>
+                                        <Style BasedOn="{StaticResource DefaultFlyoutPresenterStyle}" TargetType="FlyoutPresenter">
+                                            <Setter Property="Padding" Value="0,0,0,8" />
+                                        </Style>
+                                    </Flyout.FlyoutPresenterStyle>
+                                    <StackPanel Width="300" Padding="12,12,12,4">
+                                        <TextBlock
+                                            Margin="2,0,0,0"
+                                            FontSize="12"
+                                            Text="Spread the good vibes" />
+                                        <TextBlock
+                                            Margin="2,4,0,0"
+                                            FontSize="12"
+                                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                            Text="Thanks for spending time with Ambie. If it’s helping you, invite your friends to enjoy it too."
+                                            TextWrapping="WrapWholeWords" />
+                                        <Grid Margin="0,8,0,0" ColumnSpacing="4">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBox
+                                                VerticalContentAlignment="Center"
+                                                FontSize="12"
+                                                IsReadOnly="True"
+                                                Text="https://apps.microsoft.com/detail/9p07xnm5chp0?cid=inappshare" />
+                                            <Button Grid.Column="1" Style="{StaticResource SmallSubtleIconButton}">
+                                                <FontIcon
+                                                    FontFamily="{StaticResource FluentUIGlyphs}"
+                                                    FontSize="{StaticResource SmallIconSize}"
+                                                    Glyph="{StaticResource GlyphCopy}" />
+                                            </Button>
+                                        </Grid>
+                                    </StackPanel>
+                                </Flyout>
+                            </FlyoutBase.AttachedFlyout>
+                        </HyperlinkButton>
+
                         <HyperlinkButton
                             x:Name="PremiumButton"
                             Margin="12,0,12,4"
