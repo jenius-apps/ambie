@@ -1450,7 +1450,7 @@
           <target state="translated">Grazie per aver passato del tempo con Ambie. Se ti sta aiutando, invita anche i tuoi amici a godersela.</target>
         </trans-unit>
         <trans-unit id="InAppShareTitle" translate="yes" xml:space="preserve">
-          <source>Spread the good news</source>
+          <source>Spread the good vibes</source>
           <target state="translated">Diffondi la buona notizia</target>
         </trans-unit>
       </group>

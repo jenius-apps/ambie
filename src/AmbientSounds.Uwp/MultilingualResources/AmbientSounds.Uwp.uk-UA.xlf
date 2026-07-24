@@ -1445,7 +1445,7 @@
           <target state="translated">Дякую, що провели час з Амбі. Якщо це допомагає тобі, запроси друзів теж насолоджуватися ним.</target>
         </trans-unit>
         <trans-unit id="InAppShareTitle" translate="yes" xml:space="preserve">
-          <source>Spread the good news</source>
+          <source>Spread the good vibes</source>
           <target state="translated">Поширюйте добрі новини</target>
         </trans-unit>
       </group>

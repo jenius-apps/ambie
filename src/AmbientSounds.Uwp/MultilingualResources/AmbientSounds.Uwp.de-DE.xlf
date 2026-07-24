@@ -1445,7 +1445,7 @@
           <target state="translated">Danke, dass du Zeit mit Ambie verbringst. Wenn es dir hilft, lade deine Freunde ein, es auch zu genießen.</target>
         </trans-unit>
         <trans-unit id="InAppShareTitle" translate="yes" xml:space="preserve">
-          <source>Spread the good news</source>
+          <source>Spread the good vibes</source>
           <target state="translated">Verbreite die frohe Botschaft</target>
         </trans-unit>
       </group>

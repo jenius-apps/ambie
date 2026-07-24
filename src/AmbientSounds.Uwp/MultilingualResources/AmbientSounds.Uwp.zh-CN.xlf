@@ -1443,7 +1443,7 @@
           <target state="translated">感谢你花时间陪伴安比。如果它对你有帮助，邀请你的朋友们一起享受。</target>
         </trans-unit>
         <trans-unit id="InAppShareTitle" translate="yes" xml:space="preserve">
-          <source>Spread the good news</source>
+          <source>Spread the good vibes</source>
           <target state="translated">传播好消息</target>
         </trans-unit>
       </group>

@@ -1454,7 +1454,7 @@
           <target state="translated">Ambie ile vakit geçirdiğiniz için teşekkürler. Eğer size yardımcı oluyorsa, arkadaşlarınızı da davet et edin.</target>
         </trans-unit>
         <trans-unit id="InAppShareTitle" translate="yes" xml:space="preserve">
-          <source>Spread the good news</source>
+          <source>Spread the good vibes</source>
           <target state="translated">İyi haberi yay</target>
         </trans-unit>
       </group>

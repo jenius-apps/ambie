@@ -1440,7 +1440,7 @@
           <target state="translated">شكرا لقضاء وقتك مع أمبي. إذا كان ذلك يساعدك، ادع أصدقائك للاستمتاع به أيضا.</target>
         </trans-unit>
         <trans-unit id="InAppShareTitle" translate="yes" xml:space="preserve">
-          <source>Spread the good news</source>
+          <source>Spread the good vibes</source>
           <target state="translated">انشر الأخبار السارة</target>
         </trans-unit>
       </group>

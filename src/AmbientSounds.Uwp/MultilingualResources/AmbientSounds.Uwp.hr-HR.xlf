@@ -1444,7 +1444,7 @@
           <target state="translated">Hvala što ste proveli vrijeme s Ambiejem. Ako vam pomaže, pozovite i prijatelje da uživaju.</target>
         </trans-unit>
         <trans-unit id="InAppShareTitle" translate="yes" xml:space="preserve">
-          <source>Spread the good news</source>
+          <source>Spread the good vibes</source>
           <target state="translated">Širite dobre vijesti</target>
         </trans-unit>
       </group>

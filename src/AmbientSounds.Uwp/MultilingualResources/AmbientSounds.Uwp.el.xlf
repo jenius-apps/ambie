@@ -1440,7 +1440,7 @@
           <target state="translated">Ευχαριστούμε που περάσατε χρόνο με το Ambie. Εάν σας βοηθάει, προσκαλέστε τους φίλους σας να το απολαύσουν επίσης.</target>
         </trans-unit>
         <trans-unit id="InAppShareTitle" translate="yes" xml:space="preserve">
-          <source>Spread the good news</source>
+          <source>Spread the good vibes</source>
           <target state="translated">Διαδώστε τα καλά νέα</target>
         </trans-unit>
       </group>
