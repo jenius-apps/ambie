@@ -1436,6 +1436,10 @@
           <source>Telemetry level</source>
           <target state="translated">Рівень телеметрії</target>
         </trans-unit>
+        <trans-unit id="PlaySlideshowText" translate="yes" xml:space="preserve">
+          <source>Play slideshow</source>
+          <target state="translated">Відтворити слайдшоу</target>
+        </trans-unit>
       </group>
     </body>
   </file>

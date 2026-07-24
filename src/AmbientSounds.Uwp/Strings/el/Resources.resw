@@ -1068,4 +1068,7 @@
   <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
     <value>Επίπεδο τηλεμετρίας</value>
   </data>
+  <data name="PlaySlideshowText" xml:space="preserve">
+    <value>Αναπαραγωγή παρουσίασης</value>
+  </data>
 </root>

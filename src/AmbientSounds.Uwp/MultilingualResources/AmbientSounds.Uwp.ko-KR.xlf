@@ -1435,6 +1435,10 @@
           <source>Telemetry level</source>
           <target state="translated">원격 측정 수준</target>
         </trans-unit>
+        <trans-unit id="PlaySlideshowText" translate="yes" xml:space="preserve">
+          <source>Play slideshow</source>
+          <target state="translated">슬라이드쇼 재생</target>
+        </trans-unit>
       </group>
     </body>
   </file>

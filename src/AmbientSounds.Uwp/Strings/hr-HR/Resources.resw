@@ -1071,4 +1071,7 @@
   <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
     <value>Razina telemetrije</value>
   </data>
+  <data name="PlaySlideshowText" xml:space="preserve">
+    <value>Pusti slideshow</value>
+  </data>
 </root>

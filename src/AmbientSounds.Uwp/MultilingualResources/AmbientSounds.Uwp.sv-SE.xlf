@@ -1434,6 +1434,10 @@
           <source>Telemetry level</source>
           <target state="translated">Telemetrinivå</target>
         </trans-unit>
+        <trans-unit id="PlaySlideshowText" translate="yes" xml:space="preserve">
+          <source>Play slideshow</source>
+          <target state="translated">Spela upp bildspel</target>
+        </trans-unit>
       </group>
     </body>
   </file>
