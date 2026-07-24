@@ -375,12 +375,43 @@
                                                 Text="{x:Bind constants:AppConstants.InAppShareUrl}" />
                                             <Button
                                                 Grid.Column="1"
+                                                AutomationProperties.Name="{x:Bind strings:Resources.CopyText}"
+                                                Click="InAppShareCopyClicked"
                                                 Command="{x:Bind ViewModel.InAppShareCopyCommand}"
-                                                Style="{StaticResource SmallSubtleIconButton}">
-                                                <FontIcon
-                                                    FontFamily="{StaticResource FluentUIGlyphs}"
-                                                    FontSize="{StaticResource SmallIconSize}"
-                                                    Glyph="{StaticResource GlyphCopy}" />
+                                                Style="{StaticResource SmallSubtleIconButton}"
+                                                ToolTipService.ToolTip="{x:Bind strings:Resources.CopyText}">
+                                                <Grid>
+                                                    <FontIcon
+                                                        x:Name="InAppShareCopySucceededIcon"
+                                                        FontFamily="{StaticResource FluentUIGlyphs}"
+                                                        FontSize="{StaticResource SmallIconSize}"
+                                                        Glyph="{StaticResource GlyphCheckMark}"
+                                                        Visibility="Collapsed">
+                                                        <animations:Implicit.ShowAnimations>
+                                                            <animations:OpacityAnimation
+                                                                From="0"
+                                                                To="1"
+                                                                Duration="0:0:0.6" />
+                                                            <animations:TranslationAnimation
+                                                                From="0,4,0"
+                                                                To="0"
+                                                                Duration="0:0:0.6" />
+                                                        </animations:Implicit.ShowAnimations>
+                                                    </FontIcon>
+
+                                                    <FontIcon
+                                                        x:Name="InAppShareCopyIcon"
+                                                        FontFamily="{StaticResource FluentUIGlyphs}"
+                                                        FontSize="{StaticResource SmallIconSize}"
+                                                        Glyph="{StaticResource GlyphCopy}">
+                                                        <animations:Implicit.ShowAnimations>
+                                                            <animations:OpacityAnimation
+                                                                From="0"
+                                                                To="1"
+                                                                Duration="0:0:0.3" />
+                                                        </animations:Implicit.ShowAnimations>
+                                                    </FontIcon>
+                                                </Grid>
                                             </Button>
                                         </Grid>
                                     </StackPanel>
