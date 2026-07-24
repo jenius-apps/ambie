@@ -1188,4 +1188,7 @@
   <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
     <value>Telemetry level</value>
   </data>
+  <data name="PlaySlideshowText" xml:space="preserve">
+    <value>Play slideshow</value>
+  </data>
 </root>

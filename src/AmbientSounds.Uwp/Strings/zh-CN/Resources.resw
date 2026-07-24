@@ -1083,4 +1083,7 @@
   <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
     <value>遥测电平</value>
   </data>
+  <data name="PlaySlideshowText" xml:space="preserve">
+    <value>幻灯片播放</value>
+  </data>
 </root>

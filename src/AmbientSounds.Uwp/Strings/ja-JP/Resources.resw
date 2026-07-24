@@ -1083,4 +1083,7 @@
   <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
     <value>テレメトリーレベル</value>
   </data>
+  <data name="PlaySlideshowText" xml:space="preserve">
+    <value>スライドショーをプレイ</value>
+  </data>
 </root>

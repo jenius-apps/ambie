@@ -1083,4 +1083,7 @@
   <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
     <value>원격 측정 수준</value>
   </data>
+  <data name="PlaySlideshowText" xml:space="preserve">
+    <value>슬라이드쇼 재생</value>
+  </data>
 </root>

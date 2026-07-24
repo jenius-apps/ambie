@@ -1053,4 +1053,7 @@
   <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
     <value>Telemetrieniveau</value>
   </data>
+  <data name="PlaySlideshowText" xml:space="preserve">
+    <value>Speel diavoorstelling af</value>
+  </data>
 </root>

@@ -1442,6 +1442,10 @@
           <source>Telemetry level</source>
           <target state="translated">Telemetriai szint</target>
         </trans-unit>
+        <trans-unit id="PlaySlideshowText" translate="yes" xml:space="preserve">
+          <source>Play slideshow</source>
+          <target state="translated">Játssz diavetítést</target>
+        </trans-unit>
       </group>
     </body>
   </file>

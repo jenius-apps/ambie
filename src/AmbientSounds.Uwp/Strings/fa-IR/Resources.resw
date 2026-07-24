@@ -1083,4 +1083,7 @@
   <data name="SettingsTelemetryLogLevelSwitchHeader" xml:space="preserve">
     <value>سطح تله متری</value>
   </data>
+  <data name="PlaySlideshowText" xml:space="preserve">
+    <value>نمایش اسلایدشو را پخش کنید</value>
+  </data>
 </root>

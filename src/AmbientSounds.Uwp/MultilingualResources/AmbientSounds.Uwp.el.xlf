@@ -1431,6 +1431,10 @@
           <source>Telemetry level</source>
           <target state="translated">Επίπεδο τηλεμετρίας</target>
         </trans-unit>
+        <trans-unit id="PlaySlideshowText" translate="yes" xml:space="preserve">
+          <source>Play slideshow</source>
+          <target state="translated">Αναπαραγωγή παρουσίασης</target>
+        </trans-unit>
       </group>
     </body>
   </file>

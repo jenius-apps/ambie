@@ -215,6 +215,16 @@
                         Glyph="{StaticResource GlyphShuffle}" />
                 </Button>
                 <Button
+                    AutomationProperties.Name="{x:Bind strings:Resources.PlaySlideshowText}"
+                    Command="{x:Bind ViewModel.PlaySlideshowCommand}"
+                    Style="{StaticResource SmallSubtleIconButton}"
+                    ToolTipService.ToolTip="{x:Bind strings:Resources.PlaySlideshowText}">
+                    <FontIcon
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="14"
+                        Glyph="{StaticResource GlyphPlaySlideshow}" />
+                </Button>
+                <Button
                     x:Name="ShareButton"
                     AutomationProperties.Name="{x:Bind strings:Resources.ShareMessage}"
                     Command="{x:Bind ViewModel.OpenShareCommand}"

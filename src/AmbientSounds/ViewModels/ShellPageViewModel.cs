@@ -386,6 +386,13 @@ public partial class ShellPageViewModel : BaseShellPageViewModel
         }
     }
 
+    [RelayCommand]
+    private void PlaySlideshow()
+    {
+        _telemetry.TrackEvent(TelemetryConstants.ShellPlaySlideshow);
+        _navigator.ToScreensaver(new Events.ScreensaverArgs { RequestedType = ChannelType.Slideshow });
+    }
+
     private void UpdateSelectedMenu(ContentPageType pageType)
     {
         foreach (var item in MenuItems)
