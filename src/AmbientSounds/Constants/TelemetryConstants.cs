@@ -27,6 +27,7 @@ public class TelemetryConstants
     public const string UpdateClicked = ShellPage + "updateClicked";
     public const string FreeTrialTipShown = ShellPage + "freeTrialTipShown";
     public const string MoreSoundsTipShown = ShellPage + "moreSoundsTipShown";
+    public const string ShellPlaySlideshow = $"{ShellPage}playSlideshow";
 
     private const string HomePage = "homepage:";
     public const string DownloadMessageShown = HomePage + "downloadMessageShown";
