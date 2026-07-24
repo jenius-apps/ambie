@@ -1086,4 +1086,10 @@
   <data name="PlaySlideshowText" xml:space="preserve">
     <value>슬라이드쇼 재생</value>
   </data>
+  <data name="InAppShareDescription" xml:space="preserve">
+    <value>앰비와 함께 시간을 보내줘서 고마워. 도움이 된다면 친구들도 초대해서 즐기게 해.</value>
+  </data>
+  <data name="InAppShareTitle" xml:space="preserve">
+    <value>좋은 소식을 전파하세요</value>
+  </data>
 </root>

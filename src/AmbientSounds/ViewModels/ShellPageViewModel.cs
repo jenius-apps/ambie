@@ -42,6 +42,7 @@ public partial class ShellPageViewModel : BaseShellPageViewModel
     private readonly ILocalizer _localizer;
     private readonly IExperimentationService _experimentationService;
     private readonly IRuntimeMemoryStore _runtimeMemoryStore;
+    private readonly IClipboard _clipboard;
 
     public ShellPageViewModel(
         IUserSettings userSettings,
@@ -62,7 +63,8 @@ public partial class ShellPageViewModel : BaseShellPageViewModel
         IAppStoreUpdater appStoreUpdater,
         IExperimentationService experimentationService,
         IPushNotificationRegistrationService pushService,
-        IRuntimeMemoryStore runtimeMemoryStore)
+        IRuntimeMemoryStore runtimeMemoryStore,
+        IClipboard clipboard)
         : base(userSettings, pushService)
     {
         IsWin11 = systemInfoProvider.IsWin11();
@@ -84,6 +86,7 @@ public partial class ShellPageViewModel : BaseShellPageViewModel
         _localizer = localizer;
         _experimentationService = experimentationService;
         _runtimeMemoryStore = runtimeMemoryStore;
+        _clipboard = clipboard;
 
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Home"), "\uE10F", ContentPageType.Home.ToString(), tooltipSubtitle: localizer.GetString("HomeSubtitle")));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Catalogue"), "\uEC4F", ContentPageType.Catalogue.ToString(), tooltipSubtitle: localizer.GetString("CatalogueSubtitle")));
@@ -391,6 +394,12 @@ public partial class ShellPageViewModel : BaseShellPageViewModel
     {
         _telemetry.TrackEvent(TelemetryConstants.ShellPlaySlideshow);
         _navigator.ToScreensaver(new Events.ScreensaverArgs { RequestedType = ChannelType.Slideshow });
+    }
+
+    [RelayCommand]
+    private void InAppShareCopy()
+    {
+        _ = _clipboard.CopyToClipboard(AppConstants.InAppShareUrl);
     }
 
     private void UpdateSelectedMenu(ContentPageType pageType)

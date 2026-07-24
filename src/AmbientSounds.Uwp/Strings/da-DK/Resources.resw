@@ -1083,4 +1083,10 @@
   <data name="PlaySlideshowText" xml:space="preserve">
     <value>Afspil slideshow</value>
   </data>
+  <data name="InAppShareDescription" xml:space="preserve">
+    <value>Tak fordi du bruger tid sammen med Ambie. Hvis det hjælper dig, så inviter dine venner til også at nyde det.</value>
+  </data>
+  <data name="InAppShareTitle" xml:space="preserve">
+    <value>Spred de gode nyheder</value>
+  </data>
 </root>

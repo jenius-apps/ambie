@@ -1083,4 +1083,10 @@
   <data name="PlaySlideshowText" xml:space="preserve">
     <value>Redă slideshow</value>
   </data>
+  <data name="InAppShareDescription" xml:space="preserve">
+    <value>Mulțumesc că ai petrecut timp cu Ambie. Dacă te ajută, invită-ți și prietenii să se bucure de el.</value>
+  </data>
+  <data name="InAppShareTitle" xml:space="preserve">
+    <value>Răspândește vestea bună</value>
+  </data>
 </root>

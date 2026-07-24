@@ -1083,4 +1083,10 @@
   <data name="PlaySlideshowText" xml:space="preserve">
     <value>Slayt gösterisi oynat</value>
   </data>
+  <data name="InAppShareDescription" xml:space="preserve">
+    <value>Ambie ile vakit geçirdiğiniz için teşekkürler. Eğer size yardımcı oluyorsa, arkadaşlarınızı da davet et edin.</value>
+  </data>
+  <data name="InAppShareTitle" xml:space="preserve">
+    <value>İyi haberi yay</value>
+  </data>
 </root>

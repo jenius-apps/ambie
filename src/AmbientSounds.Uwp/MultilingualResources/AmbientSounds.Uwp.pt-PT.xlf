@@ -1439,6 +1439,14 @@
           <source>Play slideshow</source>
           <target state="translated">Assistir slideshow</target>
         </trans-unit>
+        <trans-unit id="InAppShareDescription" translate="yes" xml:space="preserve">
+          <source>Thanks for spending time with Ambie. If it’s helping you, invite your friends to enjoy it too.</source>
+          <target state="translated">Obrigado por passar um tempo com o Ambie. Se está te ajudando, convide seus amigos para aproveitarem também.</target>
+        </trans-unit>
+        <trans-unit id="InAppShareTitle" translate="yes" xml:space="preserve">
+          <source>Spread the good news</source>
+          <target state="translated">Espalhe a boa notícia</target>
+        </trans-unit>
       </group>
     </body>
   </file>

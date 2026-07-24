@@ -1086,4 +1086,10 @@
   <data name="PlaySlideshowText" xml:space="preserve">
     <value>Відтворити слайдшоу</value>
   </data>
+  <data name="InAppShareDescription" xml:space="preserve">
+    <value>Дякую, що провели час з Амбі. Якщо це допомагає тобі, запроси друзів теж насолоджуватися ним.</value>
+  </data>
+  <data name="InAppShareTitle" xml:space="preserve">
+    <value>Поширюйте добрі новини</value>
+  </data>
 </root>

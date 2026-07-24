@@ -1086,4 +1086,10 @@
   <data name="PlaySlideshowText" xml:space="preserve">
     <value>نمایش اسلایدشو را پخش کنید</value>
   </data>
+  <data name="InAppShareDescription" xml:space="preserve">
+    <value>ممنون که وقت گذاشتی با امبی. اگر کمکت می کند، دوستانت را هم دعوت کن که از آن لذت ببرند.</value>
+  </data>
+  <data name="InAppShareTitle" xml:space="preserve">
+    <value>خبر خوش را پخش کن</value>
+  </data>
 </root>

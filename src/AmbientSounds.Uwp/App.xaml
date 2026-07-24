@@ -329,6 +329,7 @@
             <x:String x:Key="GlyphLanguage">&#xF2B7;</x:String>
             <x:String x:Key="GlyphPlaySlideshow">&#xE786;</x:String>
             <x:String x:Key="GlyphCopy">&#xE8C8;</x:String>
+            <x:String x:Key="GlyphInAppShare">&#xE1D7;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>

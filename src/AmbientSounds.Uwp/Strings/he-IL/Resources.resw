@@ -1086,4 +1086,10 @@
   <data name="PlaySlideshowText" xml:space="preserve">
     <value>נגן מצגת</value>
   </data>
+  <data name="InAppShareDescription" xml:space="preserve">
+    <value>תודה שבילית זמן עם אמבי. אם זה עוזר לך, תזמיני גם את החברים שלך ליהנות מזה.</value>
+  </data>
+  <data name="InAppShareTitle" xml:space="preserve">
+    <value>הפיצו את החדשות הטובות</value>
+  </data>
 </root>

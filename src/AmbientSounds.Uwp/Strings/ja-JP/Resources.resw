@@ -1086,4 +1086,10 @@
   <data name="PlaySlideshowText" xml:space="preserve">
     <value>スライドショーをプレイ</value>
   </data>
+  <data name="InAppShareDescription" xml:space="preserve">
+    <value>アンビーと時間を過ごしてくれてありがとう。もしそれが役立っているなら、友達も誘って楽しんでほしい。</value>
+  </data>
+  <data name="InAppShareTitle" xml:space="preserve">
+    <value>良い知らせを広めましょう</value>
+  </data>
 </root>

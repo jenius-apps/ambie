@@ -1086,4 +1086,10 @@
   <data name="PlaySlideshowText" xml:space="preserve">
     <value>幻灯片播放</value>
   </data>
+  <data name="InAppShareDescription" xml:space="preserve">
+    <value>感谢你花时间陪伴安比。如果它对你有帮助，邀请你的朋友们一起享受。</value>
+  </data>
+  <data name="InAppShareTitle" xml:space="preserve">
+    <value>传播好消息</value>
+  </data>
 </root>
