@@ -146,6 +146,8 @@ public partial class ShellPageViewModel : BaseShellPageViewModel
     [ObservableProperty]
     private bool _isSaleTagVisible;
 
+    public bool ShareLinkVisible => !_userSettings.Get<bool>(UserSettingsConstants.ShareLinkHidden);
+
     public ObservableCollection<MenuItem> MenuItems { get; } = [];
 
     public ObservableCollection<MenuItem> FooterItems { get; } = [];
@@ -338,12 +340,19 @@ public partial class ShellPageViewModel : BaseShellPageViewModel
 
     private void OnSettingSet(object sender, string settingsKey)
     {
-        if (settingsKey == UserSettingsConstants.BackgroundImage)
+        _dispatcherQueue.TryEnqueue(() =>
         {
-            OnPropertyChanged(nameof(ShowBackgroundImage));
-            OnPropertyChanged(nameof(BackgroundImagePath));
-            OnPropertyChanged(nameof(SidePanelMica));
-        }
+            if (settingsKey == UserSettingsConstants.BackgroundImage)
+            {
+                OnPropertyChanged(nameof(ShowBackgroundImage));
+                OnPropertyChanged(nameof(BackgroundImagePath));
+                OnPropertyChanged(nameof(SidePanelMica));
+            }
+            else if (settingsKey == UserSettingsConstants.ShareLinkHidden)
+            {
+                OnPropertyChanged(nameof(ShareLinkVisible));
+            }
+        });
     }
 
     private async Task UpdatePremiumButtonAsync()

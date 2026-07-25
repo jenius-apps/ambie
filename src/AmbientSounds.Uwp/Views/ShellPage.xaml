@@ -318,7 +318,8 @@
                             HorizontalAlignment="Stretch"
                             HorizontalContentAlignment="Left"
                             AutomationProperties.Name="{x:Bind strings:Resources.ShareText}"
-                            Click="InAppShareOpened">
+                            Click="InAppShareOpened"
+                            Visibility="{x:Bind ViewModel.ShareLinkVisible, Mode=OneWay}">
                             <StackPanel Orientation="Horizontal">
                                 <FontIcon
                                     x:Name="InAppShareIcon"

@@ -252,6 +252,19 @@ public partial class SettingsViewModel : ObservableObject
         set => _userSettings.Set(UserSettingsConstants.PlayAfterFocusKey, value);
     }
 
+    public bool ShareLinkHidden
+    {
+        get => _userSettings.Get<bool>(UserSettingsConstants.ShareLinkHidden);
+        set
+        {
+            _userSettings.Set(UserSettingsConstants.ShareLinkHidden, value);
+            if (!value)
+            {
+                _telemetry.TrackEvent(TelemetryConstants.ShellInAppShareHidden);
+            }
+        }
+    }
+
     /// <summary>
     /// Settings flag for notifications.
     /// </summary>
