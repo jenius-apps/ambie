@@ -1089,4 +1089,10 @@
   <data name="InAppShareTitle" xml:space="preserve">
     <value>Sprid de goda nyheterna</value>
   </data>
+  <data name="SettingsHideShareDescription" xml:space="preserve">
+    <value>Dölj delningslänken från startskärmen</value>
+  </data>
+  <data name="SettingsHideShareHeader" xml:space="preserve">
+    <value>Dela-länk</value>
+  </data>
 </root>

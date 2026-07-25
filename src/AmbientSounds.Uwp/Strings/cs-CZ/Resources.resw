@@ -1092,4 +1092,10 @@
   <data name="InAppShareTitle" xml:space="preserve">
     <value>Šiřte dobrou zprávu</value>
   </data>
+  <data name="SettingsHideShareDescription" xml:space="preserve">
+    <value>Skrýt odkaz na sdílení z domovské obrazovky</value>
+  </data>
+  <data name="SettingsHideShareHeader" xml:space="preserve">
+    <value>Sdílet odkaz</value>
+  </data>
 </root>

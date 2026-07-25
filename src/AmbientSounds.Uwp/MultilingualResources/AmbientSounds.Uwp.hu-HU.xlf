@@ -1454,6 +1454,14 @@
           <source>Spread the good vibes</source>
           <target state="translated">Terjesszük a jó hírt</target>
         </trans-unit>
+        <trans-unit id="SettingsHideShareDescription" translate="yes" xml:space="preserve">
+          <source>Hide the share link from home screen</source>
+          <target state="translated">Rejtsd el a megosztási linket a kezdőképernyőről</target>
+        </trans-unit>
+        <trans-unit id="SettingsHideShareHeader" translate="yes" xml:space="preserve">
+          <source>Share link</source>
+          <target state="translated">Megosztás linkje</target>
+        </trans-unit>
       </group>
     </body>
   </file>

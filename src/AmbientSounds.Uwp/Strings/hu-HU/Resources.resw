@@ -1083,4 +1083,10 @@
   <data name="InAppShareTitle" xml:space="preserve">
     <value>Terjesszük a jó hírt</value>
   </data>
+  <data name="SettingsHideShareDescription" xml:space="preserve">
+    <value>Rejtsd el a megosztási linket a kezdőképernyőről</value>
+  </data>
+  <data name="SettingsHideShareHeader" xml:space="preserve">
+    <value>Megosztás linkje</value>
+  </data>
 </root>

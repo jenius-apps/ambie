@@ -1080,4 +1080,10 @@
   <data name="InAppShareTitle" xml:space="preserve">
     <value>Širite dobre vijesti</value>
   </data>
+  <data name="SettingsHideShareDescription" xml:space="preserve">
+    <value>Sakrij poveznicu za dijeljenje s početnog zaslona</value>
+  </data>
+  <data name="SettingsHideShareHeader" xml:space="preserve">
+    <value>Podijeli poveznicu</value>
+  </data>
 </root>

@@ -1077,4 +1077,10 @@
   <data name="InAppShareTitle" xml:space="preserve">
     <value>Διαδώστε τα καλά νέα</value>
   </data>
+  <data name="SettingsHideShareDescription" xml:space="preserve">
+    <value>Απόκρυψη του συνδέσμου κοινής χρήσης από την αρχική οθόνη</value>
+  </data>
+  <data name="SettingsHideShareHeader" xml:space="preserve">
+    <value>Κοινή χρήση συνδέσμου</value>
+  </data>
 </root>

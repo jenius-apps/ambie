@@ -1443,6 +1443,14 @@
           <source>Spread the good vibes</source>
           <target state="translated">خبر خوش را پخش کن</target>
         </trans-unit>
+        <trans-unit id="SettingsHideShareDescription" translate="yes" xml:space="preserve">
+          <source>Hide the share link from home screen</source>
+          <target state="translated">لینک اشتراک گذاری را از صفحه اصلی مخفی کنید</target>
+        </trans-unit>
+        <trans-unit id="SettingsHideShareHeader" translate="yes" xml:space="preserve">
+          <source>Share link</source>
+          <target state="translated">اشتراک گذاری لینک</target>
+        </trans-unit>
       </group>
     </body>
   </file>

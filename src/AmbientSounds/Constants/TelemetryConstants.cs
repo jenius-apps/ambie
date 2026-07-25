@@ -30,6 +30,7 @@ public class TelemetryConstants
     public const string ShellPlaySlideshow = $"{ShellPage}playSlideshow";
     public const string ShellInAppShareOpened = $"{ShellPage}inAppShareOpened";
     public const string ShellInAppShareCopied = $"{ShellPage}inAppShareCopied";
+    public const string ShellInAppShareHidden = $"{ShellPage}inAppShareHidden";
 
     private const string HomePage = "homepage:";
     public const string DownloadMessageShown = HomePage + "downloadMessageShown";

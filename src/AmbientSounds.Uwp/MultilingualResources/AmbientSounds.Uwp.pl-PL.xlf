@@ -1448,6 +1448,14 @@
           <source>Spread the good vibes</source>
           <target state="translated">Rozgłoś dobre wieści</target>
         </trans-unit>
+        <trans-unit id="SettingsHideShareDescription" translate="yes" xml:space="preserve">
+          <source>Hide the share link from home screen</source>
+          <target state="translated">Ukryj link do udostępniania na ekranie głównym</target>
+        </trans-unit>
+        <trans-unit id="SettingsHideShareHeader" translate="yes" xml:space="preserve">
+          <source>Share link</source>
+          <target state="translated">Udostępnij link</target>
+        </trans-unit>
       </group>
     </body>
   </file>

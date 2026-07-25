@@ -223,6 +223,11 @@ public static class UserSettingsConstants
     public const string PremiumPurchaseUtcDateTicks = nameof(PremiumPurchaseUtcDateTicks);
 
     /// <summary>
+    /// Remembers if the user has hidden the share link.
+    /// </summary>
+    public const string ShareLinkHidden = nameof(ShareLinkHidden);
+
+    /// <summary>
     ///  Settings defaults.
     /// </summary>
     public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -266,5 +271,6 @@ public static class UserSettingsConstants
         { ShowMixInRelaxPageKey, true },
         { LastKnownPremiumState, PremiumState.Unknown.ToString() },
         { PremiumPurchaseUtcDateTicks, 0L },
+        { ShareLinkHidden, false },
     };
 }

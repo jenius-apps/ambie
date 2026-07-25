@@ -1197,4 +1197,10 @@
   <data name="InAppShareTitle" xml:space="preserve">
     <value>Spread the good vibes</value>
   </data>
+  <data name="SettingsHideShareDescription" xml:space="preserve">
+    <value>Hide the share link from home screen</value>
+  </data>
+  <data name="SettingsHideShareHeader" xml:space="preserve">
+    <value>Share link</value>
+  </data>
 </root>

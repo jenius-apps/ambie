@@ -244,7 +244,7 @@
             </ToggleSwitch>
         </labs:SettingsCard>
 
-        <!--  Launch on PC startup  -->
+        <!--  quick resume  -->
         <labs:SettingsCard
             Margin="0,3,0,0"
             Description="{x:Bind strings:Resources.QuickResumeDescription}"
@@ -254,6 +254,24 @@
             </labs:SettingsCard.HeaderIcon>
 
             <ToggleSwitch IsOn="{x:Bind ViewModel.QuickResumeEnabled, Mode=TwoWay}">
+                <ToggleSwitch.OffContent>
+                    <TextBlock x:Uid="OffTextBlock" />
+                </ToggleSwitch.OffContent>
+                <ToggleSwitch.OnContent>
+                    <TextBlock x:Uid="OnTextBlock" />
+                </ToggleSwitch.OnContent>
+            </ToggleSwitch>
+        </labs:SettingsCard>
+
+        <labs:SettingsCard
+            Margin="0,3,0,0"
+            Description="{x:Bind strings:Resources.SettingsHideShareDescription}"
+            Header="{x:Bind strings:Resources.SettingsHideShareHeader}">
+            <labs:SettingsCard.HeaderIcon>
+                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphInAppShare}" />
+            </labs:SettingsCard.HeaderIcon>
+
+            <ToggleSwitch IsOn="{x:Bind ViewModel.ShareLinkHidden, Mode=TwoWay}">
                 <ToggleSwitch.OffContent>
                     <TextBlock x:Uid="OffTextBlock" />
                 </ToggleSwitch.OffContent>

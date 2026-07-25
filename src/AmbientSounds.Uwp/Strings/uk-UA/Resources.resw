@@ -1092,4 +1092,10 @@
   <data name="InAppShareTitle" xml:space="preserve">
     <value>Поширюйте добрі новини</value>
   </data>
+  <data name="SettingsHideShareDescription" xml:space="preserve">
+    <value>Приховати посилання на поділитися з головного екрану</value>
+  </data>
+  <data name="SettingsHideShareHeader" xml:space="preserve">
+    <value>Поділитися посиланням</value>
+  </data>
 </root>
