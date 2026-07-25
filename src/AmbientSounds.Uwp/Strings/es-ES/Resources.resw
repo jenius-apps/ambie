@@ -1092,4 +1092,10 @@
   <data name="InAppShareTitle" xml:space="preserve">
     <value>Difunde la buena noticia</value>
   </data>
+  <data name="SettingsHideShareDescription" xml:space="preserve">
+    <value>Ocultar el enlace de compartir desde la pantalla de inicio</value>
+  </data>
+  <data name="SettingsHideShareHeader" xml:space="preserve">
+    <value>Compartir enlace</value>
+  </data>
 </root>

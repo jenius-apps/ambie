@@ -1089,4 +1089,10 @@
   <data name="InAppShareTitle" xml:space="preserve">
     <value>Spred de gode nyheder</value>
   </data>
+  <data name="SettingsHideShareDescription" xml:space="preserve">
+    <value>Skjul delingslinket fra startskærmen</value>
+  </data>
+  <data name="SettingsHideShareHeader" xml:space="preserve">
+    <value>Del link</value>
+  </data>
 </root>

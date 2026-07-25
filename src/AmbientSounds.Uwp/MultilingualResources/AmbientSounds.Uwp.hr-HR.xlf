@@ -1447,6 +1447,14 @@
           <source>Spread the good vibes</source>
           <target state="translated">Širite dobre vijesti</target>
         </trans-unit>
+        <trans-unit id="SettingsHideShareDescription" translate="yes" xml:space="preserve">
+          <source>Hide the share link from home screen</source>
+          <target state="translated">Sakrij poveznicu za dijeljenje s početnog zaslona</target>
+        </trans-unit>
+        <trans-unit id="SettingsHideShareHeader" translate="yes" xml:space="preserve">
+          <source>Share link</source>
+          <target state="translated">Podijeli poveznicu</target>
+        </trans-unit>
       </group>
     </body>
   </file>

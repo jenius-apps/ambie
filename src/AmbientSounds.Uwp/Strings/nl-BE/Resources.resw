@@ -1062,4 +1062,10 @@
   <data name="InAppShareTitle" xml:space="preserve">
     <value>Verspreid het goede nieuws</value>
   </data>
+  <data name="SettingsHideShareDescription" xml:space="preserve">
+    <value>Verberg de deellink van het startscherm</value>
+  </data>
+  <data name="SettingsHideShareHeader" xml:space="preserve">
+    <value>Deel link</value>
+  </data>
 </root>

@@ -1443,6 +1443,14 @@
           <source>Spread the good vibes</source>
           <target state="translated">良い知らせを広めましょう</target>
         </trans-unit>
+        <trans-unit id="SettingsHideShareDescription" translate="yes" xml:space="preserve">
+          <source>Hide the share link from home screen</source>
+          <target state="translated">ホーム画面から共有リンクを非表示にしてください</target>
+        </trans-unit>
+        <trans-unit id="SettingsHideShareHeader" translate="yes" xml:space="preserve">
+          <source>Share link</source>
+          <target state="translated">リンクを共有する</target>
+        </trans-unit>
       </group>
     </body>
   </file>

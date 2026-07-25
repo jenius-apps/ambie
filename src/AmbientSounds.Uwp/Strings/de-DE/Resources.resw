@@ -1086,4 +1086,10 @@
   <data name="InAppShareTitle" xml:space="preserve">
     <value>Verbreite die frohe Botschaft</value>
   </data>
+  <data name="SettingsHideShareDescription" xml:space="preserve">
+    <value>Verstecken Sie den Share-Link vom Startbildschirm aus</value>
+  </data>
+  <data name="SettingsHideShareHeader" xml:space="preserve">
+    <value>Link teilen</value>
+  </data>
 </root>

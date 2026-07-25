@@ -265,8 +265,8 @@
 
         <labs:SettingsCard
             Margin="0,3,0,0"
-            Description="Hide share link from home screen"
-            Header="Share link">
+            Description="{x:Bind strings:Resources.SettingsHideShareDescription}"
+            Header="{x:Bind strings:Resources.SettingsHideShareHeader}">
             <labs:SettingsCard.HeaderIcon>
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphInAppShare}" />
             </labs:SettingsCard.HeaderIcon>

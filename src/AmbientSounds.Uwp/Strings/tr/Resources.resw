@@ -1089,4 +1089,10 @@
   <data name="InAppShareTitle" xml:space="preserve">
     <value>İyi haberi yay</value>
   </data>
+  <data name="SettingsHideShareDescription" xml:space="preserve">
+    <value>Paylaşma bağlantısını ana ekrandan gizle</value>
+  </data>
+  <data name="SettingsHideShareHeader" xml:space="preserve">
+    <value>Paylaş bağlantısı</value>
+  </data>
 </root>

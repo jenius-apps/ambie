@@ -1089,4 +1089,10 @@
   <data name="InAppShareTitle" xml:space="preserve">
     <value>Răspândește vestea bună</value>
   </data>
+  <data name="SettingsHideShareDescription" xml:space="preserve">
+    <value>Ascunde linkul de partajare de pe ecranul principal</value>
+  </data>
+  <data name="SettingsHideShareHeader" xml:space="preserve">
+    <value>Distribuie link</value>
+  </data>
 </root>
