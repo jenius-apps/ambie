@@ -1,0 +1,98 @@
+﻿<ContentDialog
+    x:Class="AmbientSounds.Controls.MarkerpadDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
+    Style="{StaticResource DefaultContentDialogStyle}"
+    mc:Ignorable="d">
+
+    <ContentDialog.Resources>
+        <Thickness x:Key="ContentDialogPadding">0</Thickness>
+        <Thickness x:Key="ContentDialogBorderThickness">0</Thickness>
+    </ContentDialog.Resources>
+
+    <Grid Width="440" Height="560">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Border>
+            <Border.Background>
+                <ImageBrush
+                    x:Name="BackgroundImage"
+                    ImageFailed="OnImageFailed"
+                    ImageSource="ms-appx:///Assets/markerpadHero.png"
+                    Stretch="UniformToFill" />
+            </Border.Background>
+        </Border>
+
+        <Rectangle Fill="{ThemeResource ContentDialogBackdropGradientBrush}" Stretch="Fill" />
+
+        <Button
+            Margin="0,6,6,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            AutomationProperties.Name="{x:Bind strings:Resources.CloseText}"
+            Click="CloseClick"
+            Style="{StaticResource TinySubtleIconButton}"
+            ToolTipService.ToolTip="{x:Bind strings:Resources.CloseText}">
+            <FontIcon
+                FontFamily="{StaticResource FluentUIGlyphs}"
+                FontSize="{StaticResource SmallIconSize}"
+                Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
+                Glyph="{StaticResource GlyphCancelSemiBold}" />
+        </Button>
+
+        <Grid Padding="0,0,0,24">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Border
+                Margin="24,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                CornerRadius="8">
+                <Image Width="80" Source="/Assets/markerpadPlatedIcon.png" />
+            </Border>
+
+            <TextBlock
+                Grid.Column="1"
+                Margin="12,0,0,0"
+                VerticalAlignment="Bottom"
+                FontSize="24"
+                FontWeight="SemiBold"
+                Text="Markerpad" />
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="48,12,48,0">
+            <StackPanel Spacing="12">
+                <local:FeatureItem
+                    Title="Your digital whiteboard"
+                    Glyph="{StaticResource GlyphClock}"
+                    Text="Use Markerpad for drawings, diagrams, ideas, or small notes. Anything you can imagine." />
+                <local:FeatureItem
+                    Title="Faster than light"
+                    Glyph="{StaticResource GlyphClock}"
+                    Text="Markerpad is designed for performance to keep you focused." />
+                <local:FeatureItem
+                    Title="Cloud backup"
+                    Glyph="{StaticResource GlyphClock}"
+                    Text="Never lose your notes with available hassle-free backup." />
+            </StackPanel>
+        </Grid>
+
+        <Button
+            Grid.Row="2"
+            Height="48"
+            Margin="24,0,24,12"
+            HorizontalAlignment="Stretch"
+            Click="OnStoreLinkClicked"
+            Content="Download from the Microsoft Store" />
+    </Grid>
+</ContentDialog>

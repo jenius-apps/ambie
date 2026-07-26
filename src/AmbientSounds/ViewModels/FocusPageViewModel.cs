@@ -3,6 +3,7 @@ using JeniusApps.Common.Tools;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Threading.Tasks;
+using CommunityToolkit.Mvvm.Input;
 
 namespace AmbientSounds.ViewModels;
 
@@ -11,6 +12,7 @@ public partial class FocusPageViewModel : ObservableObject
     private readonly IFocusNotesService _focusNotesService;
     private readonly IFocusService _focusService;
     private readonly IDispatcherQueue _dispatcherQueue;
+    private readonly IDialogService _dialogService;
 
     [ObservableProperty]
     private string _notes = string.Empty;
@@ -18,15 +20,13 @@ public partial class FocusPageViewModel : ObservableObject
     public FocusPageViewModel(
         IFocusNotesService focusNotesService,
         IFocusService focusService,
-        IDispatcherQueue dispatcherQueue)
+        IDispatcherQueue dispatcherQueue,
+        IDialogService dialogService)
     {
-        Guard.IsNotNull(focusNotesService);
-        Guard.IsNotNull(focusService);
-        Guard.IsNotNull(dispatcherQueue);
-
         _focusNotesService = focusNotesService;
         _focusService = focusService;
         _dispatcherQueue = dispatcherQueue;
+        _dialogService = dialogService;
     }
 
     /// <summary>
@@ -69,5 +69,11 @@ public partial class FocusPageViewModel : ObservableObject
         {
             OnPropertyChanged(nameof(TaskModuleVisible));
         });
+    }
+
+    [RelayCommand]
+    private async Task MarkerpadDialogAsync()
+    {
+        await _dialogService.OpenMarkerpadDialogAsync();
     }
 }

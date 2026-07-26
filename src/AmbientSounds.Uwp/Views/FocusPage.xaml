@@ -31,9 +31,9 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Grid x:Name="RootPanel" Margin="{StaticResource ContentColumnMarginSmall}">
-            <Grid.ChildrenTransitions>
+            <!--<Grid.ChildrenTransitions>
                 <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
-            </Grid.ChildrenTransitions>
+            </Grid.ChildrenTransitions>-->
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition x:Name="LeftGutter" Width="auto" />
@@ -84,6 +84,40 @@
                 </Grid>
 
                 <controls:FocusHistoryModule x:Name="HistoryModule" Margin="0,24,0,0" />
+
+                <HyperlinkButton
+                    Margin="0,24,0,0"
+                    HorizontalAlignment="Center"
+                    Command="{x:Bind ViewModel.MarkerpadDialogCommand}"
+                    Visibility="{x:Bind MessageVisible}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image Height="40" Source="https://markerpadapp.com/assets/appicon.png" />
+
+                        <Grid Grid.Column="1" Margin="12,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <TextBlock
+                                VerticalAlignment="Bottom"
+                                FontSize="12"
+                                Text="Turn focus into progress"
+                                TextTrimming="CharacterEllipsis" />
+                            <TextBlock
+                                Grid.Row="1"
+                                VerticalAlignment="Top"
+                                FontSize="12"
+                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                Text="Discover Markerpad, a whiteboard app made for thinkers."
+                                TextWrapping="WrapWholeWords" />
+                        </Grid>
+                    </Grid>
+                </HyperlinkButton>
             </StackPanel>
         </Grid>
     </ScrollViewer>

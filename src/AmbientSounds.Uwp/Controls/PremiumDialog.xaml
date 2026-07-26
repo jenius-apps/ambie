@@ -16,39 +16,24 @@
         <ResourceDictionary>
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="HighContrast">
-                    <SolidColorBrush x:Key="ImageGradientBrush" Color="{StaticResource SystemColorWindowColor}" />
-
                     <Style x:Key="IconBackdrop" TargetType="Ellipse">
                         <Setter Property="Width" Value="40" />
                         <Setter Property="Height" Value="40" />
                     </Style>
-
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="Dark">
-                    <LinearGradientBrush x:Key="ImageGradientBrush" StartPoint="0.5,1" EndPoint="0.5,0">
-                        <GradientStop Offset="0" Color="#FF2B2B2B" />
-                        <GradientStop Offset="0.3" Color="#002B2B2B" />
-                    </LinearGradientBrush>
-
                     <Style x:Key="IconBackdrop" TargetType="Ellipse">
                         <Setter Property="Width" Value="40" />
                         <Setter Property="Height" Value="40" />
                         <Setter Property="Opacity" Value="1" />
                     </Style>
-
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="Light">
-                    <LinearGradientBrush x:Key="ImageGradientBrush" StartPoint="0.5,1" EndPoint="0.5,0">
-                        <GradientStop Offset="0.0" Color="#FFFFFFFF" />
-                        <GradientStop Offset="0.3" Color="#00FFFFFF" />
-                    </LinearGradientBrush>
-
                     <Style x:Key="IconBackdrop" TargetType="Ellipse">
                         <Setter Property="Width" Value="40" />
                         <Setter Property="Height" Value="40" />
                         <Setter Property="Opacity" Value="0.5" />
                     </Style>
-
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
 
@@ -80,7 +65,7 @@
             </Border.Background>
         </Border>
 
-        <Rectangle Fill="{ThemeResource ImageGradientBrush}" Stretch="Fill" />
+        <Rectangle Fill="{ThemeResource ContentDialogBackdropGradientBrush}" Stretch="Fill" />
 
         <Button
             Margin="0,6,6,0"

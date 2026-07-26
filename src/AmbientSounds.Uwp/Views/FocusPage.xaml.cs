@@ -1,32 +1,35 @@
-﻿using AmbientSounds.ViewModels;
-using Microsoft.Extensions.DependencyInjection;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Navigation;
-using AmbientSounds.Constants;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using AmbientSounds.Controls;
-using System.Linq;
+﻿using AmbientSounds.Controls;
+using AmbientSounds.ViewModels;
 using JeniusApps.Common.Telemetry;
+using Microsoft.Extensions.DependencyInjection;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Windows.System.Profile;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 
 namespace AmbientSounds.Views
 {
     public sealed partial class FocusPage : Page
     {
         private readonly ICanInitialize[] _controlsToInitialize;
+        private static readonly IReadOnlyList<string> _tabletStyleDevices = ["Detachable", "Convertible", "Tablet"];
 
         public FocusPage()
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<FocusPageViewModel>();
-            _controlsToInitialize = new ICanInitialize[]
-            {
+            _controlsToInitialize =
+            [
                 TimerModule,
                 HistoryModule,
                 TaskModule
-            };
+            ];
         }
+
+        public bool MessageVisible => _tabletStyleDevices.Contains(AnalyticsInfo.DeviceForm);
 
         public FocusPageViewModel ViewModel => (FocusPageViewModel)this.DataContext;
 
