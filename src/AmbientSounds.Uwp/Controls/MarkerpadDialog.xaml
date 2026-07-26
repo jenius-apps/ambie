@@ -25,7 +25,6 @@
             <Border.Background>
                 <ImageBrush
                     x:Name="BackgroundImage"
-                    ImageFailed="OnImageFailed"
                     ImageSource="ms-appx:///Assets/markerpadHero.png"
                     Stretch="UniformToFill" />
             </Border.Background>
@@ -61,28 +60,34 @@
                 <Image Width="80" Source="/Assets/markerpadPlatedIcon.png" />
             </Border>
 
-            <TextBlock
+            <StackPanel
                 Grid.Column="1"
                 Margin="12,0,0,0"
-                VerticalAlignment="Bottom"
-                FontSize="24"
-                FontWeight="SemiBold"
-                Text="Markerpad" />
+                VerticalAlignment="Bottom">
+                <TextBlock
+                    FontSize="24"
+                    FontWeight="SemiBold"
+                    Text="Markerpad" />
+                <TextBlock
+                    FontSize="12"
+                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                    Text="From the creator of Ambie" />
+            </StackPanel>
         </Grid>
 
         <Grid Grid.Row="1" Margin="48,12,48,0">
             <StackPanel Spacing="12">
                 <local:FeatureItem
                     Title="Your digital whiteboard"
-                    Glyph="{StaticResource GlyphClock}"
+                    Glyph="{StaticResource GlyphLightbulb}"
                     Text="Use Markerpad for drawings, diagrams, ideas, or small notes. Anything you can imagine." />
                 <local:FeatureItem
                     Title="Faster than light"
-                    Glyph="{StaticResource GlyphClock}"
+                    Glyph="{StaticResource GlyphLightning}"
                     Text="Markerpad is designed for performance to keep you focused." />
                 <local:FeatureItem
                     Title="Cloud backup"
-                    Glyph="{StaticResource GlyphClock}"
+                    Glyph="{StaticResource GlyphCloud}"
                     Text="Never lose your notes with available hassle-free backup." />
             </StackPanel>
         </Grid>

@@ -1,20 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text.Json;
-using System.Threading.Tasks;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Services.Store;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 namespace AmbientSounds.Controls;
 
@@ -25,17 +13,12 @@ public sealed partial class MarkerpadDialog : ContentDialog
         this.InitializeComponent();
     }
 
-    private void OnImageFailed(object sender, ExceptionRoutedEventArgs e)
-    {
-
-    }
-
     private void CloseClick(object sender, RoutedEventArgs e)
     {
         Hide();
     }
 
-    private async Task OnStoreLinkClicked(object sender, RoutedEventArgs e)
+    private async void OnStoreLinkClicked(object sender, RoutedEventArgs e)
     {
         var storecontext = StoreContext.GetDefault();
         if (storecontext is null)

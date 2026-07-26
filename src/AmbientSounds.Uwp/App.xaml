@@ -341,6 +341,9 @@
             <x:String x:Key="GlyphPlaySlideshow">&#xE786;</x:String>
             <x:String x:Key="GlyphCopy">&#xE8C8;</x:String>
             <x:String x:Key="GlyphInAppShare">&#xE1D7;</x:String>
+            <x:String x:Key="GlyphLightbulb">&#xEA80;</x:String>
+            <x:String x:Key="GlyphLightning">&#xE945;</x:String>
+            <x:String x:Key="GlyphCloud">&#xE753;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>
