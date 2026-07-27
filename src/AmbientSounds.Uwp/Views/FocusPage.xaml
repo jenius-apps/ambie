@@ -88,6 +88,7 @@
                 <HyperlinkButton
                     Margin="0,24,0,0"
                     HorizontalAlignment="Center"
+                    AutomationProperties.Name="{x:Bind strings:Resources.MarkerpadHyperlinkSubtitle}"
                     Command="{x:Bind ViewModel.MarkerpadDialogCommand}"
                     Visibility="{x:Bind MessageVisible, Mode=OneWay}">
                     <Grid>
@@ -106,14 +107,14 @@
                             <TextBlock
                                 VerticalAlignment="Bottom"
                                 FontSize="12"
-                                Text="Turn focus into progress"
+                                Text="{x:Bind strings:Resources.MarkerpadHyperlinkTitle}"
                                 TextTrimming="CharacterEllipsis" />
                             <TextBlock
                                 Grid.Row="1"
                                 VerticalAlignment="Top"
                                 FontSize="12"
                                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                Text="Discover Markerpad, a whiteboard app made for thinkers."
+                                Text="{x:Bind strings:Resources.MarkerpadHyperlinkSubtitle}"
                                 TextWrapping="WrapWholeWords" />
                         </Grid>
                     </Grid>

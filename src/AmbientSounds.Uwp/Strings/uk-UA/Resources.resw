@@ -1098,4 +1098,34 @@
   <data name="SettingsHideShareHeader" xml:space="preserve">
     <value>Поділитися посиланням</value>
   </data>
+  <data name="MarkerpadDialogDownloadTitle" xml:space="preserve">
+    <value>Завантажити безкоштовно</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Subtitle" xml:space="preserve">
+    <value>Використовуйте Markerpad для малюнків, діаграм, ідей або невеликих нотаток.</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Title" xml:space="preserve">
+    <value>Ваша цифрова дошка</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Subtitle" xml:space="preserve">
+    <value>Markerpad створений для продуктивності, щоб ви залишалися зосередженими.</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Title" xml:space="preserve">
+    <value>Швидше за світло</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Subtitle" xml:space="preserve">
+    <value>Ніколи не втрачайте свої нотатки з доступною безпроблемною резервною копією.</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Title" xml:space="preserve">
+    <value>Резервне копіювання в хмарі</value>
+  </data>
+  <data name="MarkerpadDialogSubtitle" xml:space="preserve">
+    <value>Від творця Амбі</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>Відкрийте для себе Markerpad — додаток для whileboard, створений для мислителів</value>
+  </data>
+  <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
+    <value>Перетворіть увагу на прогрес</value>
+  </data>
 </root>

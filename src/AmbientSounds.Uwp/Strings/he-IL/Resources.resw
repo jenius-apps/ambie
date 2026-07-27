@@ -1098,4 +1098,37 @@
   <data name="SettingsHideShareHeader" xml:space="preserve">
     <value>שיתוף קישור</value>
   </data>
+  <data name="MarkerpadDialogDownloadSubtitle" xml:space="preserve">
+    <value>חנות מיקרוסופט</value>
+  </data>
+  <data name="MarkerpadDialogDownloadTitle" xml:space="preserve">
+    <value>הורדה בחינם</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Subtitle" xml:space="preserve">
+    <value>השתמש ב-Markerpad לציורים, דיאגרמות, רעיונות או הערות קטנות.</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Title" xml:space="preserve">
+    <value>הלוח הלבן הדיגיטלי שלך</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Subtitle" xml:space="preserve">
+    <value>Markerpad נועד לביצועים כדי לשמור על ריכוז.</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Title" xml:space="preserve">
+    <value>מהיר מהאור</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Subtitle" xml:space="preserve">
+    <value>לעולם אל תאבד את ההערות שלך עם גיבוי נטול טרחה.</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Title" xml:space="preserve">
+    <value>גיבוי ענן</value>
+  </data>
+  <data name="MarkerpadDialogSubtitle" xml:space="preserve">
+    <value>מהיוצר של אמבי</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>גלו את Markerpad, אפליקציית טיילבורד שמיועדת לחושבים</value>
+  </data>
+  <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
+    <value>להפוך את המיקוד להתקדמות</value>
+  </data>
 </root>

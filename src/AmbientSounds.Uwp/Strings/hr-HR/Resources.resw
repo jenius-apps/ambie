@@ -1086,4 +1086,34 @@
   <data name="SettingsHideShareHeader" xml:space="preserve">
     <value>Podijeli poveznicu</value>
   </data>
+  <data name="MarkerpadDialogDownloadTitle" xml:space="preserve">
+    <value>Preuzmite besplatno</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Subtitle" xml:space="preserve">
+    <value>Koristite Markerpad za crteže, dijagrame, ideje ili male bilješke.</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Title" xml:space="preserve">
+    <value>Vaša digitalna ploča</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Subtitle" xml:space="preserve">
+    <value>Markerpad je dizajniran za performanse kako bi vas održao fokusiranima.</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Title" xml:space="preserve">
+    <value>Brži od svjetlosti</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Subtitle" xml:space="preserve">
+    <value>Nikada ne gubite svoje bilješke s dostupnom sigurnosnom kopijom bez problema.</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Title" xml:space="preserve">
+    <value>Sigurnosna kopija u oblaku</value>
+  </data>
+  <data name="MarkerpadDialogSubtitle" xml:space="preserve">
+    <value>Od tvorca Ambie</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>Otkrijte Markerpad, aplikaciju za whileboard namijenjenu misliocima</value>
+  </data>
+  <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
+    <value>Pretvorite fokus u napredak</value>
+  </data>
 </root>

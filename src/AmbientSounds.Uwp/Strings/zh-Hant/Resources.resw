@@ -1098,4 +1098,37 @@
   <data name="SettingsHideShareHeader" xml:space="preserve">
     <value>分享連結</value>
   </data>
+  <data name="MarkerpadDialogDownloadSubtitle" xml:space="preserve">
+    <value>Microsoft 商店</value>
+  </data>
+  <data name="MarkerpadDialogDownloadTitle" xml:space="preserve">
+    <value>免費下載</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Subtitle" xml:space="preserve">
+    <value>使用標記板來記錄圖畫、圖表、點子或小筆記。</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Title" xml:space="preserve">
+    <value>你的數位白板</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Subtitle" xml:space="preserve">
+    <value>Markerpad 設計上是為了讓你保持專注而設計的效能。</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Title" xml:space="preserve">
+    <value>超光速</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Subtitle" xml:space="preserve">
+    <value>只要有無麻煩的備份，就永遠不要遺失你的筆記。</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Title" xml:space="preserve">
+    <value>雲端備份</value>
+  </data>
+  <data name="MarkerpadDialogSubtitle" xml:space="preserve">
+    <value>來自 Ambie 創作者</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>發掘 Markerpad，一款專為思考者打造的 whileboard 應用程式</value>
+  </data>
+  <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
+    <value>將專注轉化為進步</value>
+  </data>
 </root>

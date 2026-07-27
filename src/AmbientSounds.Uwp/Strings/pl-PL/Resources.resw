@@ -1095,4 +1095,34 @@
   <data name="SettingsHideShareHeader" xml:space="preserve">
     <value>Udostępnij link</value>
   </data>
+  <data name="MarkerpadDialogDownloadTitle" xml:space="preserve">
+    <value>Pobierz za darmo</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Subtitle" xml:space="preserve">
+    <value>Używaj markerpada do rysunków, diagramów, pomysłów lub drobnych notatek.</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Title" xml:space="preserve">
+    <value>Twoja cyfrowa tablica suchościeralna</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Subtitle" xml:space="preserve">
+    <value>Markerpad jest zaprojektowany z myślą o wydajności, by utrzymać koncentrację.</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Title" xml:space="preserve">
+    <value>Szybszy niż światło</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Subtitle" xml:space="preserve">
+    <value>Nigdy nie trać notatek przy dostępnej, bezproblemowej kopii zapasowej.</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Title" xml:space="preserve">
+    <value>Kopia zapasowa w chmurze</value>
+  </data>
+  <data name="MarkerpadDialogSubtitle" xml:space="preserve">
+    <value>Od twórcy Ambie</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>Odkryj Markerpad, aplikację do tablicy dla myślicieli</value>
+  </data>
+  <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
+    <value>Zamień skupienie w postęp</value>
+  </data>
 </root>

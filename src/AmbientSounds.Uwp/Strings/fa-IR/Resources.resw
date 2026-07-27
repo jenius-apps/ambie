@@ -1098,4 +1098,37 @@
   <data name="SettingsHideShareHeader" xml:space="preserve">
     <value>اشتراک گذاری لینک</value>
   </data>
+  <data name="MarkerpadDialogDownloadSubtitle" xml:space="preserve">
+    <value>فروشگاه مایکروسافت</value>
+  </data>
+  <data name="MarkerpadDialogDownloadTitle" xml:space="preserve">
+    <value>دانلود رایگان</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Subtitle" xml:space="preserve">
+    <value>از Markerpad برای طراحی ها، نمودارها، ایده ها یا یادداشت های کوچک استفاده کنید.</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Title" xml:space="preserve">
+    <value>تخته سفید دیجیتال شما</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Subtitle" xml:space="preserve">
+    <value>Markerpad برای عملکرد طراحی شده تا تمرکز شما را حفظ کند.</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Title" xml:space="preserve">
+    <value>سریع تر از نور</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Subtitle" xml:space="preserve">
+    <value>هرگز یادداشت های خود را با پشتیبان گیری بدون دردسر از دست ندهید.</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Title" xml:space="preserve">
+    <value>پشتیبان گیری ابری</value>
+  </data>
+  <data name="MarkerpadDialogSubtitle" xml:space="preserve">
+    <value>از خالق آمبی</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>Markerpad را کشف کنید، یک اپلیکیشن در حالی که برای اندیشمندان ساخته شده است</value>
+  </data>
+  <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
+    <value>تمرکز را به پیشرفت تبدیل کن</value>
+  </data>
 </root>

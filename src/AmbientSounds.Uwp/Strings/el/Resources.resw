@@ -1083,4 +1083,37 @@
   <data name="SettingsHideShareHeader" xml:space="preserve">
     <value>Κοινή χρήση συνδέσμου</value>
   </data>
+  <data name="MarkerpadDialogDownloadSubtitle" xml:space="preserve">
+    <value>Κατάστημα Microsoft</value>
+  </data>
+  <data name="MarkerpadDialogDownloadTitle" xml:space="preserve">
+    <value>Κατεβάστε δωρεάν</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Subtitle" xml:space="preserve">
+    <value>Χρησιμοποιήστε το Markerpad για σχέδια, διαγράμματα, ιδέες ή μικρές σημειώσεις.</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Title" xml:space="preserve">
+    <value>Ο ψηφιακός σας πίνακας</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Subtitle" xml:space="preserve">
+    <value>Το Markerpad έχει σχεδιαστεί για απόδοση για να σας κρατά συγκεντρωμένους.</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Title" xml:space="preserve">
+    <value>Πιο γρήγορα από το φως</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Subtitle" xml:space="preserve">
+    <value>Μην χάνετε ποτέ τις σημειώσεις σας με το διαθέσιμο αντίγραφο ασφαλείας χωρίς προβλήματα.</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Title" xml:space="preserve">
+    <value>Δημιουργία αντιγράφων ασφαλείας στο cloud</value>
+  </data>
+  <data name="MarkerpadDialogSubtitle" xml:space="preserve">
+    <value>Από τον δημιουργό του Ambie</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>Ανακαλύψτε το Markerpad, μια εφαρμογή whileboard που δημιουργήθηκε για στοχαστές</value>
+  </data>
+  <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
+    <value>Μετατρέψτε την εστίαση σε πρόοδο</value>
+  </data>
 </root>

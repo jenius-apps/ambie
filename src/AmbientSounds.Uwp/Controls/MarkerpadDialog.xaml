@@ -73,24 +73,24 @@
                 <TextBlock
                     FontSize="12"
                     Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                    Text="From the creator of Ambie" />
+                    Text="{x:Bind strings:Resources.MarkerpadDialogSubtitle}" />
             </StackPanel>
         </Grid>
 
         <ScrollViewer Grid.Row="1">
             <StackPanel Margin="48,12,48,0" Spacing="12">
                 <local:FeatureItem
-                    Title="Your digital whiteboard"
+                    Title="{x:Bind strings:Resources.MarkerpadDialogFeature1Title}"
                     Glyph="{StaticResource GlyphLightbulb}"
-                    Text="Use Markerpad for drawings, diagrams, ideas, or small notes. Anything you can imagine." />
+                    Text="{x:Bind strings:Resources.MarkerpadDialogFeature1Subtitle}" />
                 <local:FeatureItem
-                    Title="Faster than light"
+                    Title="{x:Bind strings:Resources.MarkerpadDialogFeature2Title}"
                     Glyph="{StaticResource GlyphLightning}"
-                    Text="Markerpad is designed for performance to keep you focused." />
+                    Text="{x:Bind strings:Resources.MarkerpadDialogFeature2Subtitle}" />
                 <local:FeatureItem
-                    Title="Cloud backup"
+                    Title="{x:Bind strings:Resources.MarkerpadDialogFeature3Title}"
                     Glyph="{StaticResource GlyphCloud}"
-                    Text="Never lose your notes with available hassle-free backup." />
+                    Text="{x:Bind strings:Resources.MarkerpadDialogFeature3Subtitle}" />
             </StackPanel>
         </ScrollViewer>
 
@@ -99,13 +99,14 @@
             Height="48"
             Margin="24,0,24,12"
             HorizontalAlignment="Stretch"
+            AutomationProperties.Name="{x:Bind strings:Resources.MarkerpadDialogDownloadTitle}"
             Click="OnStoreLinkClicked">
             <StackPanel>
-                <TextBlock Text="Download for free" TextAlignment="Center" />
+                <TextBlock Text="{x:Bind strings:Resources.MarkerpadDialogDownloadTitle}" TextAlignment="Center" />
                 <TextBlock
                     FontSize="10"
                     Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                    Text="Microsoft Store"
+                    Text="{x:Bind strings:Resources.MarkerpadDialogDownloadSubtitle}"
                     TextAlignment="Center" />
             </StackPanel>
         </Button>
