@@ -114,6 +114,7 @@ partial class App
         context.Session.Id = Guid.NewGuid().ToString();
         context.Component.Version = SystemInformation.Instance.ApplicationVersion.ToFormattedString();
         context.GlobalProperties.Add("isFirstRun", SystemInformation.Instance.IsFirstRun.ToString());
+        context.GlobalProperties.Add("deviceForm", AnalyticsInfo.DeviceForm);
 
         if (ApplicationData.Current.LocalSettings.Values[UserSettingsConstants.LocalUserIdKey] is string { Length: > 0 } id)
         {
