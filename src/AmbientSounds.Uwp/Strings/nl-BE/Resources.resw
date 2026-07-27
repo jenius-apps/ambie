@@ -1068,4 +1068,34 @@
   <data name="SettingsHideShareHeader" xml:space="preserve">
     <value>Deel link</value>
   </data>
+  <data name="MarkerpadDialogDownloadTitle" xml:space="preserve">
+    <value>Download gratis</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Subtitle" xml:space="preserve">
+    <value>Gebruik Markerpad voor tekeningen, diagrammen, ideeën of kleine notities.</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Title" xml:space="preserve">
+    <value>Je digitale whiteboard</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Subtitle" xml:space="preserve">
+    <value>Markerpad is ontworpen voor prestaties om je gefocust te houden.</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Title" xml:space="preserve">
+    <value>Sneller dan het licht</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Subtitle" xml:space="preserve">
+    <value>Verlies je notities nooit met een probleemloze back-up.</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Title" xml:space="preserve">
+    <value>Cloudback-up</value>
+  </data>
+  <data name="MarkerpadDialogSubtitle" xml:space="preserve">
+    <value>Van de maker van Ambie</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>Ontdek Markerpad, een whileboard-app gemaakt voor denkers</value>
+  </data>
+  <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
+    <value>Focus omzetten in vooruitgang</value>
+  </data>
 </root>

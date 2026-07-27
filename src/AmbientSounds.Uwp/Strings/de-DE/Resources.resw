@@ -1092,4 +1092,34 @@
   <data name="SettingsHideShareHeader" xml:space="preserve">
     <value>Link teilen</value>
   </data>
+  <data name="MarkerpadDialogDownloadTitle" xml:space="preserve">
+    <value>Kostenloser Download</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Subtitle" xml:space="preserve">
+    <value>Verwenden Sie das Markerpad für Zeichnungen, Diagramme, Ideen oder kleine Notizen.</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Title" xml:space="preserve">
+    <value>Dein digitales Whiteboard</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Subtitle" xml:space="preserve">
+    <value>Der Marker ist für die Performance konzipiert, um dich fokussiert zu halten.</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Title" xml:space="preserve">
+    <value>Schneller als das Licht</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Subtitle" xml:space="preserve">
+    <value>Verlieren Sie Ihre Notizen niemals mit einer unkomplizierten Sicherung.</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Title" xml:space="preserve">
+    <value>Cloud-Backup</value>
+  </data>
+  <data name="MarkerpadDialogSubtitle" xml:space="preserve">
+    <value>Vom Schöpfer von Ambie</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>Discover Markerpad, eine Whileboard-App für Denker</value>
+  </data>
+  <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
+    <value>Fokus in Fortschritt umwandeln</value>
+  </data>
 </root>

@@ -1095,4 +1095,34 @@
   <data name="SettingsHideShareHeader" xml:space="preserve">
     <value>Partager le lien</value>
   </data>
+  <data name="MarkerpadDialogDownloadTitle" xml:space="preserve">
+    <value>Téléchargez gratuitement</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Subtitle" xml:space="preserve">
+    <value>Utilisez Markerpad pour les dessins, schémas, idées ou petites notes.</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Title" xml:space="preserve">
+    <value>Votre tableau blanc numérique</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Subtitle" xml:space="preserve">
+    <value>Markerpad est conçu pour la performance afin de vous garder concentré.</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Title" xml:space="preserve">
+    <value>Plus rapide que la lumière</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Subtitle" xml:space="preserve">
+    <value>Ne perdez jamais vos notes avec une sauvegarde disponible sans tracas.</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Title" xml:space="preserve">
+    <value>Sauvegarde cloud</value>
+  </data>
+  <data name="MarkerpadDialogSubtitle" xml:space="preserve">
+    <value>De la part du créateur d’Ambie</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>Discover Markerpad, une application de Stickboard conçue pour les penseurs</value>
+  </data>
+  <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
+    <value>Transformer la concentration en progrès</value>
+  </data>
 </root>

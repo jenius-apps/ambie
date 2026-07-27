@@ -341,4 +341,23 @@ public class DialogService : IDialogService
         await dialog.ShowAsync();
         IsDialogOpen = false;
     }
+
+    /// <inheritdoc/>
+    public async Task OpenMarkerpadDialogAsync()
+    {
+        if (IsDialogOpen)
+        {
+            return;
+        }
+
+        IsDialogOpen = true;
+        var dialog = new MarkerpadDialog()
+        {
+            FlowDirection = GetFlowDirection(),
+            RequestedTheme = GetTheme(),
+        };
+
+        await dialog.ShowAsync();
+        IsDialogOpen = false;
+    }
 }

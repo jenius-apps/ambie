@@ -161,6 +161,12 @@ public class TelemetryConstants
     public const string FocusHistoryClicked = Focus + "historyClicked";
     public const string FocusSkipClicked = Focus + "skipClicked";
 
+    // markerpad
+    private const string Markerpad = "markerpad:";
+    public const string MarkerpadDialogOpened = $"{Markerpad}dialogOpened";
+    public const string MarkerpadDialogClosed = $"{Markerpad}dialogClosed";
+    public const string MarkerpadDownloadClicked = $"{Markerpad}downoadClicked";
+
     // mini
     private const string Mini = "mini:";
     public const string MiniBack = Mini + "back";

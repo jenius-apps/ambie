@@ -1089,4 +1089,34 @@
   <data name="SettingsHideShareHeader" xml:space="preserve">
     <value>Megosztás linkje</value>
   </data>
+  <data name="MarkerpadDialogDownloadTitle" xml:space="preserve">
+    <value>Ingyen töltsd le</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Subtitle" xml:space="preserve">
+    <value>Használd a Markerpadet rajzokhoz, diagramokhoz, ötletekhez vagy apró jegyzetekhez.</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Title" xml:space="preserve">
+    <value>A digitális fehértáblád</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Subtitle" xml:space="preserve">
+    <value>A Markerpad teljesítményre van tervezve, hogy fókuszáljon a fejed.</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Title" xml:space="preserve">
+    <value>Gyorsabb, mint a fény</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Subtitle" xml:space="preserve">
+    <value>Soha ne veszítsd el a jegyzeteidet a problémamentes biztonsági mentéssel.</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Title" xml:space="preserve">
+    <value>Felhőalapú mentés</value>
+  </data>
+  <data name="MarkerpadDialogSubtitle" xml:space="preserve">
+    <value>Az Ambie alkotójától</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>Fedezd fel a Markerpad-et, egy gondolkodóknak készült whileboard alkalmazást</value>
+  </data>
+  <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
+    <value>A fókuszt fejlődésre fordítani</value>
+  </data>
 </root>

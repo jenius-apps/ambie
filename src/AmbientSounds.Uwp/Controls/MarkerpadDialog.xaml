@@ -1,0 +1,115 @@
+﻿<ContentDialog
+    x:Class="AmbientSounds.Controls.MarkerpadDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
+    Closing="OnClosing"
+    Opened="OnOpened"
+    Style="{StaticResource DefaultContentDialogStyle}"
+    mc:Ignorable="d">
+
+    <ContentDialog.Resources>
+        <Thickness x:Key="ContentDialogPadding">0</Thickness>
+        <Thickness x:Key="ContentDialogBorderThickness">0</Thickness>
+    </ContentDialog.Resources>
+
+    <Grid Width="440" Height="560">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Border>
+            <Border.Background>
+                <ImageBrush
+                    x:Name="BackgroundImage"
+                    ImageSource="ms-appx:///Assets/markerpadHero.png"
+                    Stretch="UniformToFill" />
+            </Border.Background>
+        </Border>
+
+        <Rectangle Fill="{ThemeResource ContentDialogBackdropGradientBrush}" Stretch="Fill" />
+
+        <Button
+            Margin="0,6,6,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            AutomationProperties.Name="{x:Bind strings:Resources.CloseText}"
+            Click="CloseClick"
+            Style="{StaticResource TinySubtleIconButton}"
+            ToolTipService.ToolTip="{x:Bind strings:Resources.CloseText}">
+            <FontIcon
+                FontFamily="{StaticResource FluentUIGlyphs}"
+                FontSize="{StaticResource SmallIconSize}"
+                Foreground="White"
+                Glyph="{StaticResource GlyphCancelSemiBold}" />
+        </Button>
+
+        <Grid Padding="0,0,0,24">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Border
+                Margin="24,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                CornerRadius="8">
+                <Image Width="80" Source="/Assets/markerpadPlatedIcon.png" />
+            </Border>
+
+            <StackPanel
+                Grid.Column="1"
+                Margin="12,0,0,0"
+                VerticalAlignment="Bottom">
+                <TextBlock
+                    FontSize="24"
+                    FontWeight="SemiBold"
+                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                    Text="Markerpad" />
+                <TextBlock
+                    FontSize="12"
+                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                    Text="{x:Bind strings:Resources.MarkerpadDialogSubtitle}" />
+            </StackPanel>
+        </Grid>
+
+        <ScrollViewer Grid.Row="1">
+            <StackPanel Margin="48,12,48,0" Spacing="12">
+                <local:FeatureItem
+                    Title="{x:Bind strings:Resources.MarkerpadDialogFeature1Title}"
+                    Glyph="{StaticResource GlyphLightbulb}"
+                    Text="{x:Bind strings:Resources.MarkerpadDialogFeature1Subtitle}" />
+                <local:FeatureItem
+                    Title="{x:Bind strings:Resources.MarkerpadDialogFeature2Title}"
+                    Glyph="{StaticResource GlyphLightning}"
+                    Text="{x:Bind strings:Resources.MarkerpadDialogFeature2Subtitle}" />
+                <local:FeatureItem
+                    Title="{x:Bind strings:Resources.MarkerpadDialogFeature3Title}"
+                    Glyph="{StaticResource GlyphCloud}"
+                    Text="{x:Bind strings:Resources.MarkerpadDialogFeature3Subtitle}" />
+            </StackPanel>
+        </ScrollViewer>
+
+        <Button
+            Grid.Row="2"
+            Height="48"
+            Margin="24,0,24,12"
+            HorizontalAlignment="Stretch"
+            AutomationProperties.Name="{x:Bind strings:Resources.MarkerpadDialogDownloadTitle}"
+            Click="OnStoreLinkClicked">
+            <StackPanel>
+                <TextBlock Text="{x:Bind strings:Resources.MarkerpadDialogDownloadTitle}" TextAlignment="Center" />
+                <TextBlock
+                    FontSize="10"
+                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                    Text="{x:Bind strings:Resources.MarkerpadDialogDownloadSubtitle}"
+                    TextAlignment="Center" />
+            </StackPanel>
+        </Button>
+    </Grid>
+</ContentDialog>

@@ -1451,6 +1451,50 @@
           <source>Share link</source>
           <target state="translated">リンクを共有する</target>
         </trans-unit>
+        <trans-unit id="MarkerpadDialogDownloadSubtitle" translate="yes" xml:space="preserve">
+          <source>Microsoft Store</source>
+          <target state="translated">マイクロソフトストア</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogDownloadTitle" translate="yes" xml:space="preserve">
+          <source>Download for free</source>
+          <target state="translated">無料でダウンロード</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature1Subtitle" translate="yes" xml:space="preserve">
+          <source>Use Markerpad for drawings, diagrams, ideas, or small notes.</source>
+          <target state="translated">絵や図、アイデア、小さなメモにはマーカーパッドを使いましょう。</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature1Title" translate="yes" xml:space="preserve">
+          <source>Your digital whiteboard</source>
+          <target state="translated">あなたのデジタルホワイトボード</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature2Subtitle" translate="yes" xml:space="preserve">
+          <source>Markerpad is designed for performance to keep you focused.</source>
+          <target state="translated">Markerpadは集中力を保つためにパフォーマンス重視で設計されています。</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature2Title" translate="yes" xml:space="preserve">
+          <source>Faster than light</source>
+          <target state="translated">光速を超える</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature3Subtitle" translate="yes" xml:space="preserve">
+          <source>Never lose your notes with available hassle-free backup.</source>
+          <target state="translated">利用可能な手間のかからないバックアップがあれば、ノートを失くすことはありません。</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature3Title" translate="yes" xml:space="preserve">
+          <source>Cloud backup</source>
+          <target state="translated">クラウドバックアップ</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogSubtitle" translate="yes" xml:space="preserve">
+          <source>From the creator of Ambie</source>
+          <target state="translated">アンビエのクリエイターより</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadHyperlinkSubtitle" translate="yes" xml:space="preserve">
+          <source>Discover Markerpad, a whileboard app made for thinkers</source>
+          <target state="translated">考える人のためのwhileboardアプリ、Markerpadを発見しましょう</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadHyperlinkTitle" translate="yes" xml:space="preserve">
+          <source>Turn focus into progress</source>
+          <target state="translated">集中を進歩に変えましょう</target>
+        </trans-unit>
       </group>
     </body>
   </file>

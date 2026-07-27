@@ -1451,6 +1451,50 @@
           <source>Share link</source>
           <target state="translated">اشتراک گذاری لینک</target>
         </trans-unit>
+        <trans-unit id="MarkerpadDialogDownloadSubtitle" translate="yes" xml:space="preserve">
+          <source>Microsoft Store</source>
+          <target state="translated">فروشگاه مایکروسافت</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogDownloadTitle" translate="yes" xml:space="preserve">
+          <source>Download for free</source>
+          <target state="translated">دانلود رایگان</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature1Subtitle" translate="yes" xml:space="preserve">
+          <source>Use Markerpad for drawings, diagrams, ideas, or small notes.</source>
+          <target state="translated">از Markerpad برای طراحی ها، نمودارها، ایده ها یا یادداشت های کوچک استفاده کنید.</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature1Title" translate="yes" xml:space="preserve">
+          <source>Your digital whiteboard</source>
+          <target state="translated">تخته سفید دیجیتال شما</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature2Subtitle" translate="yes" xml:space="preserve">
+          <source>Markerpad is designed for performance to keep you focused.</source>
+          <target state="translated">Markerpad برای عملکرد طراحی شده تا تمرکز شما را حفظ کند.</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature2Title" translate="yes" xml:space="preserve">
+          <source>Faster than light</source>
+          <target state="translated">سریع تر از نور</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature3Subtitle" translate="yes" xml:space="preserve">
+          <source>Never lose your notes with available hassle-free backup.</source>
+          <target state="translated">هرگز یادداشت های خود را با پشتیبان گیری بدون دردسر از دست ندهید.</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature3Title" translate="yes" xml:space="preserve">
+          <source>Cloud backup</source>
+          <target state="translated">پشتیبان گیری ابری</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogSubtitle" translate="yes" xml:space="preserve">
+          <source>From the creator of Ambie</source>
+          <target state="translated">از خالق آمبی</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadHyperlinkSubtitle" translate="yes" xml:space="preserve">
+          <source>Discover Markerpad, a whileboard app made for thinkers</source>
+          <target state="translated">Markerpad را کشف کنید، یک اپلیکیشن در حالی که برای اندیشمندان ساخته شده است</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadHyperlinkTitle" translate="yes" xml:space="preserve">
+          <source>Turn focus into progress</source>
+          <target state="translated">تمرکز را به پیشرفت تبدیل کن</target>
+        </trans-unit>
       </group>
     </body>
   </file>

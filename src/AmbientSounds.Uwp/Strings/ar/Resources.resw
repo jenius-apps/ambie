@@ -1098,4 +1098,37 @@
   <data name="SettingsHideShareHeader" xml:space="preserve">
     <value>مشاركة رابط</value>
   </data>
+  <data name="MarkerpadDialogDownloadSubtitle" xml:space="preserve">
+    <value>متجر مايكروسوفت</value>
+  </data>
+  <data name="MarkerpadDialogDownloadTitle" xml:space="preserve">
+    <value>تحميل مجاني</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Subtitle" xml:space="preserve">
+    <value>استخدم Markerpad للرسومات أو الرسوم التوضيحية أو الأفكار أو الملاحظات الصغيرة.</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Title" xml:space="preserve">
+    <value>سبورتك الرقمية البيضاء</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Subtitle" xml:space="preserve">
+    <value>تم تصميم ماركر باد للأداء للحفاظ على تركيزك.</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Title" xml:space="preserve">
+    <value>أسرع من الضوء</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Subtitle" xml:space="preserve">
+    <value>لا تفقد ملاحظاتك أبدا مع توفر نسخة احتياطية خالية من المتاعب.</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Title" xml:space="preserve">
+    <value>النسخ الاحتياطي السحابي</value>
+  </data>
+  <data name="MarkerpadDialogSubtitle" xml:space="preserve">
+    <value>من مبتكر أمبي</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>اكتشف ماركرباد، تطبيق لوحة الطيران المصمم للمفكرين</value>
+  </data>
+  <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
+    <value>حول التركيز إلى تقدم</value>
+  </data>
 </root>

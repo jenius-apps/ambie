@@ -1098,4 +1098,37 @@
   <data name="SettingsHideShareHeader" xml:space="preserve">
     <value>リンクを共有する</value>
   </data>
+  <data name="MarkerpadDialogDownloadSubtitle" xml:space="preserve">
+    <value>マイクロソフトストア</value>
+  </data>
+  <data name="MarkerpadDialogDownloadTitle" xml:space="preserve">
+    <value>無料でダウンロード</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Subtitle" xml:space="preserve">
+    <value>絵や図、アイデア、小さなメモにはマーカーパッドを使いましょう。</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Title" xml:space="preserve">
+    <value>あなたのデジタルホワイトボード</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Subtitle" xml:space="preserve">
+    <value>Markerpadは集中力を保つためにパフォーマンス重視で設計されています。</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Title" xml:space="preserve">
+    <value>光速を超える</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Subtitle" xml:space="preserve">
+    <value>利用可能な手間のかからないバックアップがあれば、ノートを失くすことはありません。</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Title" xml:space="preserve">
+    <value>クラウドバックアップ</value>
+  </data>
+  <data name="MarkerpadDialogSubtitle" xml:space="preserve">
+    <value>アンビエのクリエイターより</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>考える人のためのwhileboardアプリ、Markerpadを発見しましょう</value>
+  </data>
+  <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
+    <value>集中を進歩に変えましょう</value>
+  </data>
 </root>

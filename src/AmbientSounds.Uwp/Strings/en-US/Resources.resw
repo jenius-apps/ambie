@@ -1203,4 +1203,37 @@
   <data name="SettingsHideShareHeader" xml:space="preserve">
     <value>Share link</value>
   </data>
+  <data name="MarkerpadDialogDownloadSubtitle" xml:space="preserve">
+    <value>Microsoft Store</value>
+  </data>
+  <data name="MarkerpadDialogDownloadTitle" xml:space="preserve">
+    <value>Download for free</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Subtitle" xml:space="preserve">
+    <value>Use Markerpad for drawings, diagrams, ideas, or small notes.</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Title" xml:space="preserve">
+    <value>Your digital whiteboard</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Subtitle" xml:space="preserve">
+    <value>Markerpad is designed for performance to keep you focused.</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Title" xml:space="preserve">
+    <value>Faster than light</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Subtitle" xml:space="preserve">
+    <value>Never lose your notes with available hassle-free backup.</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Title" xml:space="preserve">
+    <value>Cloud backup</value>
+  </data>
+  <data name="MarkerpadDialogSubtitle" xml:space="preserve">
+    <value>From the creator of Ambie</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>Discover Markerpad, a whileboard app made for thinkers</value>
+  </data>
+  <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
+    <value>Turn focus into progress</value>
+  </data>
 </root>

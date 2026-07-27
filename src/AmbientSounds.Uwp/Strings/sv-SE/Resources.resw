@@ -1095,4 +1095,34 @@
   <data name="SettingsHideShareHeader" xml:space="preserve">
     <value>Dela-länk</value>
   </data>
+  <data name="MarkerpadDialogDownloadTitle" xml:space="preserve">
+    <value>Ladda ner gratis</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Subtitle" xml:space="preserve">
+    <value>Använd Markerpad för teckningar, diagram, idéer eller små anteckningar.</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Title" xml:space="preserve">
+    <value>Din digitala whiteboard</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Subtitle" xml:space="preserve">
+    <value>Markerpad är designat för att framföra och hålla dig fokuserad.</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Title" xml:space="preserve">
+    <value>Snabbare än ljuset</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Subtitle" xml:space="preserve">
+    <value>Tappa aldrig bort dina anteckningar med tillgänglig och problemfri backup.</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Title" xml:space="preserve">
+    <value>Molnbackup</value>
+  </data>
+  <data name="MarkerpadDialogSubtitle" xml:space="preserve">
+    <value>Från skaparen av Ambie</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>Upptäck Markerpad, en whileboard-app gjord för tänkare</value>
+  </data>
+  <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
+    <value>Vänd fokus till framsteg</value>
+  </data>
 </root>

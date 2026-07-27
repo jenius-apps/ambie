@@ -1456,6 +1456,50 @@
           <source>Share link</source>
           <target state="translated">Udostępnij link</target>
         </trans-unit>
+        <trans-unit id="MarkerpadDialogDownloadSubtitle" translate="yes" xml:space="preserve">
+          <source>Microsoft Store</source>
+          <target state="new">Microsoft Store</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogDownloadTitle" translate="yes" xml:space="preserve">
+          <source>Download for free</source>
+          <target state="translated">Pobierz za darmo</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature1Subtitle" translate="yes" xml:space="preserve">
+          <source>Use Markerpad for drawings, diagrams, ideas, or small notes.</source>
+          <target state="translated">Używaj markerpada do rysunków, diagramów, pomysłów lub drobnych notatek.</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature1Title" translate="yes" xml:space="preserve">
+          <source>Your digital whiteboard</source>
+          <target state="translated">Twoja cyfrowa tablica suchościeralna</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature2Subtitle" translate="yes" xml:space="preserve">
+          <source>Markerpad is designed for performance to keep you focused.</source>
+          <target state="translated">Markerpad jest zaprojektowany z myślą o wydajności, by utrzymać koncentrację.</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature2Title" translate="yes" xml:space="preserve">
+          <source>Faster than light</source>
+          <target state="translated">Szybszy niż światło</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature3Subtitle" translate="yes" xml:space="preserve">
+          <source>Never lose your notes with available hassle-free backup.</source>
+          <target state="translated">Nigdy nie trać notatek przy dostępnej, bezproblemowej kopii zapasowej.</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature3Title" translate="yes" xml:space="preserve">
+          <source>Cloud backup</source>
+          <target state="translated">Kopia zapasowa w chmurze</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogSubtitle" translate="yes" xml:space="preserve">
+          <source>From the creator of Ambie</source>
+          <target state="translated">Od twórcy Ambie</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadHyperlinkSubtitle" translate="yes" xml:space="preserve">
+          <source>Discover Markerpad, a whileboard app made for thinkers</source>
+          <target state="translated">Odkryj Markerpad, aplikację do tablicy dla myślicieli</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadHyperlinkTitle" translate="yes" xml:space="preserve">
+          <source>Turn focus into progress</source>
+          <target state="translated">Zamień skupienie w postęp</target>
+        </trans-unit>
       </group>
     </body>
   </file>

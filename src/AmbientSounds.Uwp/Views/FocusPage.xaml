@@ -84,6 +84,41 @@
                 </Grid>
 
                 <controls:FocusHistoryModule x:Name="HistoryModule" Margin="0,24,0,0" />
+
+                <HyperlinkButton
+                    Margin="0,24,0,0"
+                    HorizontalAlignment="Center"
+                    AutomationProperties.Name="{x:Bind strings:Resources.MarkerpadHyperlinkSubtitle}"
+                    Command="{x:Bind ViewModel.MarkerpadDialogCommand}"
+                    Visibility="{x:Bind MessageVisible, Mode=OneWay}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image Height="40" Source="https://markerpadapp.com/assets/appicon.png" />
+
+                        <Grid Grid.Column="1" Margin="12,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <TextBlock
+                                VerticalAlignment="Bottom"
+                                FontSize="12"
+                                Text="{x:Bind strings:Resources.MarkerpadHyperlinkTitle}"
+                                TextTrimming="CharacterEllipsis" />
+                            <TextBlock
+                                Grid.Row="1"
+                                VerticalAlignment="Top"
+                                FontSize="12"
+                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                Text="{x:Bind strings:Resources.MarkerpadHyperlinkSubtitle}"
+                                TextWrapping="WrapWholeWords" />
+                        </Grid>
+                    </Grid>
+                </HyperlinkButton>
             </StackPanel>
         </Grid>
     </ScrollViewer>

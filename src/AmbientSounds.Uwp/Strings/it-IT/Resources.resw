@@ -1098,4 +1098,34 @@
   <data name="SettingsHideShareHeader" xml:space="preserve">
     <value>Condividi link</value>
   </data>
+  <data name="MarkerpadDialogDownloadTitle" xml:space="preserve">
+    <value>Scarica gratuitamente</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Subtitle" xml:space="preserve">
+    <value>Usa il Markerpad per disegni, diagrammi, idee o piccoli appunti.</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Title" xml:space="preserve">
+    <value>La tua lavagna digitale</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Subtitle" xml:space="preserve">
+    <value>Markerpad è pensato per le prestazioni e mantenerti concentrato.</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Title" xml:space="preserve">
+    <value>Più veloce della luce</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Subtitle" xml:space="preserve">
+    <value>Non perdere mai le tue note con un backup disponibile e senza complicazioni.</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Title" xml:space="preserve">
+    <value>Backup cloud</value>
+  </data>
+  <data name="MarkerpadDialogSubtitle" xml:space="preserve">
+    <value>Dal creatore di Ambie</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>Discover Markerpad, un'app di whileboard pensata per i pensatori</value>
+  </data>
+  <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
+    <value>Trasforma la concentrazione in progresso</value>
+  </data>
 </root>

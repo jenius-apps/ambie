@@ -1454,6 +1454,50 @@
           <source>Share link</source>
           <target state="translated">分享链接</target>
         </trans-unit>
+        <trans-unit id="MarkerpadDialogDownloadSubtitle" translate="yes" xml:space="preserve">
+          <source>Microsoft Store</source>
+          <target state="new">Microsoft Store</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogDownloadTitle" translate="yes" xml:space="preserve">
+          <source>Download for free</source>
+          <target state="translated">免费下载</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature1Subtitle" translate="yes" xml:space="preserve">
+          <source>Use Markerpad for drawings, diagrams, ideas, or small notes.</source>
+          <target state="translated">使用标记板记录图纸、图表、想法或小笔记。</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature1Title" translate="yes" xml:space="preserve">
+          <source>Your digital whiteboard</source>
+          <target state="translated">你的数字白板</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature2Subtitle" translate="yes" xml:space="preserve">
+          <source>Markerpad is designed for performance to keep you focused.</source>
+          <target state="translated">Markerpad 设计时注重表现，让你保持专注。</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature2Title" translate="yes" xml:space="preserve">
+          <source>Faster than light</source>
+          <target state="translated">超光速</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature3Subtitle" translate="yes" xml:space="preserve">
+          <source>Never lose your notes with available hassle-free backup.</source>
+          <target state="translated">有了无忧无虑的备份，绝不会丢失你的笔记。</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature3Title" translate="yes" xml:space="preserve">
+          <source>Cloud backup</source>
+          <target state="translated">云备份</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogSubtitle" translate="yes" xml:space="preserve">
+          <source>From the creator of Ambie</source>
+          <target state="translated">来自《Ambie》的创作者</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadHyperlinkSubtitle" translate="yes" xml:space="preserve">
+          <source>Discover Markerpad, a whileboard app made for thinkers</source>
+          <target state="translated">发现Markerpad，一款专为思考者设计的whileboard应用</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadHyperlinkTitle" translate="yes" xml:space="preserve">
+          <source>Turn focus into progress</source>
+          <target state="translated">将专注转化为进步</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -160,6 +160,9 @@
     <Compile Include="Controls\EditTextDialog.xaml.cs">
       <DependentUpon>EditTextDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\FeatureItem.xaml.cs">
+      <DependentUpon>FeatureItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\FocusHistoryDetails.xaml.cs">
       <DependentUpon>FocusHistoryDetails.xaml</DependentUpon>
     </Compile>
@@ -190,6 +193,9 @@
     </Compile>
     <Compile Include="Controls\LogoControl.xaml.cs">
       <DependentUpon>LogoControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MarkerpadDialog.xaml.cs">
+      <DependentUpon>MarkerpadDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\MenuItemControl.xaml.cs">
       <DependentUpon>MenuItemControl.xaml</DependentUpon>
@@ -419,6 +425,8 @@
     <Content Include="Assets\LargeTile.scale-150.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
     <Content Include="Assets\LargeTile.scale-400.png" />
+    <Content Include="Assets\markerpadHero.png" />
+    <Content Include="Assets\markerpadPlatedIcon.png" />
     <Content Include="Assets\SmallTile.scale-100.png" />
     <Content Include="Assets\SmallTile.scale-125.png" />
     <Content Include="Assets\SmallTile.scale-150.png" />
@@ -534,6 +542,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\FeatureItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\FocusHistoryDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -571,6 +583,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\LogoControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MarkerpadDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -813,7 +829,7 @@
       <Version>0.1.250828-build.2223</Version>
     </PackageReference>
     <PackageReference Include="JeniusApps.Common.Uwp">
-      <Version>0.0.67-preview</Version>
+      <Version>0.0.68-preview</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection">
       <Version>7.0.0</Version>

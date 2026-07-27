@@ -1095,4 +1095,34 @@
   <data name="SettingsHideShareHeader" xml:space="preserve">
     <value>Paylaş bağlantısı</value>
   </data>
+  <data name="MarkerpadDialogDownloadTitle" xml:space="preserve">
+    <value>Ücretsiz indir</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Subtitle" xml:space="preserve">
+    <value>Çizimler, diyagramlar, fikirler veya küçük notlar için Markerpad kullanın.</value>
+  </data>
+  <data name="MarkerpadDialogFeature1Title" xml:space="preserve">
+    <value>Dijital beyaz tahtan</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Subtitle" xml:space="preserve">
+    <value>Markerpad, odaklanmanızı sağlamak için performans için tasarlanmıştır.</value>
+  </data>
+  <data name="MarkerpadDialogFeature2Title" xml:space="preserve">
+    <value>Işık hızında</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Subtitle" xml:space="preserve">
+    <value>Notlarınızı asla kaybetmeyin, mevcut sorunsuz yedek ve yedek var.</value>
+  </data>
+  <data name="MarkerpadDialogFeature3Title" xml:space="preserve">
+    <value>Bulut yedeklemesi</value>
+  </data>
+  <data name="MarkerpadDialogSubtitle" xml:space="preserve">
+    <value>Ambie'nin yaratıcısından</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>Düşünürler için tasarlanmış bir whileboard uygulaması olan Markerpad'i keşfedin</value>
+  </data>
+  <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
+    <value>Odağı ilerlemeye dönüştürün</value>
+  </data>
 </root>

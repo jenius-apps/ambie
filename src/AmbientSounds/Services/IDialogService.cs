@@ -87,4 +87,9 @@ public interface IDialogService
     /// Opens dialog for recent interruptions.
     /// </summary>
     Task RecentInterruptionsAsync();
+
+    /// <summary>
+    /// Opens the dialog for markerpad.
+    /// </summary>
+    Task OpenMarkerpadDialogAsync();
 }

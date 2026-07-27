@@ -1455,6 +1455,50 @@
           <source>Share link</source>
           <target state="translated">Podijeli poveznicu</target>
         </trans-unit>
+        <trans-unit id="MarkerpadDialogDownloadSubtitle" translate="yes" xml:space="preserve">
+          <source>Microsoft Store</source>
+          <target state="new">Microsoft Store</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogDownloadTitle" translate="yes" xml:space="preserve">
+          <source>Download for free</source>
+          <target state="translated">Preuzmite besplatno</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature1Subtitle" translate="yes" xml:space="preserve">
+          <source>Use Markerpad for drawings, diagrams, ideas, or small notes.</source>
+          <target state="translated">Koristite Markerpad za crteže, dijagrame, ideje ili male bilješke.</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature1Title" translate="yes" xml:space="preserve">
+          <source>Your digital whiteboard</source>
+          <target state="translated">Vaša digitalna ploča</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature2Subtitle" translate="yes" xml:space="preserve">
+          <source>Markerpad is designed for performance to keep you focused.</source>
+          <target state="translated">Markerpad je dizajniran za performanse kako bi vas održao fokusiranima.</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature2Title" translate="yes" xml:space="preserve">
+          <source>Faster than light</source>
+          <target state="translated">Brži od svjetlosti</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature3Subtitle" translate="yes" xml:space="preserve">
+          <source>Never lose your notes with available hassle-free backup.</source>
+          <target state="translated">Nikada ne gubite svoje bilješke s dostupnom sigurnosnom kopijom bez problema.</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogFeature3Title" translate="yes" xml:space="preserve">
+          <source>Cloud backup</source>
+          <target state="translated">Sigurnosna kopija u oblaku</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadDialogSubtitle" translate="yes" xml:space="preserve">
+          <source>From the creator of Ambie</source>
+          <target state="translated">Od tvorca Ambie</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadHyperlinkSubtitle" translate="yes" xml:space="preserve">
+          <source>Discover Markerpad, a whileboard app made for thinkers</source>
+          <target state="translated">Otkrijte Markerpad, aplikaciju za whileboard namijenjenu misliocima</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadHyperlinkTitle" translate="yes" xml:space="preserve">
+          <source>Turn focus into progress</source>
+          <target state="translated">Pretvorite fokus u napredak</target>
+        </trans-unit>
       </group>
     </body>
   </file>
