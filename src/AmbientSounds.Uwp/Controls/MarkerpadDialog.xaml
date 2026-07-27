@@ -6,6 +6,8 @@
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
+    Closing="OnClosing"
+    Opened="OnOpened"
     Style="{StaticResource DefaultContentDialogStyle}"
     mc:Ignorable="d">
 
@@ -75,8 +77,8 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Row="1" Margin="48,12,48,0">
-            <StackPanel Spacing="12">
+        <ScrollViewer Grid.Row="1">
+            <StackPanel Margin="48,12,48,0" Spacing="12">
                 <local:FeatureItem
                     Title="Your digital whiteboard"
                     Glyph="{StaticResource GlyphLightbulb}"
@@ -90,14 +92,22 @@
                     Glyph="{StaticResource GlyphCloud}"
                     Text="Never lose your notes with available hassle-free backup." />
             </StackPanel>
-        </Grid>
+        </ScrollViewer>
 
         <Button
             Grid.Row="2"
             Height="48"
             Margin="24,0,24,12"
             HorizontalAlignment="Stretch"
-            Click="OnStoreLinkClicked"
-            Content="Download from the Microsoft Store" />
+            Click="OnStoreLinkClicked">
+            <StackPanel>
+                <TextBlock Text="Download for free" TextAlignment="Center" />
+                <TextBlock
+                    FontSize="10"
+                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                    Text="Microsoft Store"
+                    TextAlignment="Center" />
+            </StackPanel>
+        </Button>
     </Grid>
 </ContentDialog>
