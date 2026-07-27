@@ -31,9 +31,9 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Grid x:Name="RootPanel" Margin="{StaticResource ContentColumnMarginSmall}">
-            <!--<Grid.ChildrenTransitions>
+            <Grid.ChildrenTransitions>
                 <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
-            </Grid.ChildrenTransitions>-->
+            </Grid.ChildrenTransitions>
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition x:Name="LeftGutter" Width="auto" />
@@ -89,7 +89,7 @@
                     Margin="0,24,0,0"
                     HorizontalAlignment="Center"
                     Command="{x:Bind ViewModel.MarkerpadDialogCommand}"
-                    Visibility="{x:Bind MessageVisible}">
+                    Visibility="{x:Bind MessageVisible, Mode=OneWay}">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto" />
