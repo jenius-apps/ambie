@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AmbientSounds.Constants;
+using JeniusApps.Common.Telemetry;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Text.Json;
 using Windows.Services.Store;
 using Windows.UI.Xaml;
@@ -8,9 +11,12 @@ namespace AmbientSounds.Controls;
 
 public sealed partial class MarkerpadDialog : ContentDialog
 {
+    private readonly ITelemetry _telemetry;
+
     public MarkerpadDialog()
     {
         this.InitializeComponent();
+        _telemetry = App.Services.GetRequiredService<ITelemetry>();
     }
 
     private void CloseClick(object sender, RoutedEventArgs e)
@@ -20,6 +26,8 @@ public sealed partial class MarkerpadDialog : ContentDialog
 
     private async void OnStoreLinkClicked(object sender, RoutedEventArgs e)
     {
+        _telemetry.TrackEvent(TelemetryConstants.MarkerpadDownloadClicked, logLevel: LogLevel.Critical);
+
         var storecontext = StoreContext.GetDefault();
         if (storecontext is null)
         {
@@ -38,6 +46,16 @@ public sealed partial class MarkerpadDialog : ContentDialog
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase
         }));
+    }
+
+    private void OnClosing(ContentDialog sender, ContentDialogClosingEventArgs args)
+    {
+        _telemetry.TrackEvent(TelemetryConstants.MarkerpadDialogClosed);
+    }
+
+    private void OnOpened(ContentDialog sender, ContentDialogOpenedEventArgs args)
+    {
+        _telemetry.TrackEvent(TelemetryConstants.MarkerpadDialogOpened);
     }
 }
 
