@@ -45,7 +45,7 @@
             <FontIcon
                 FontFamily="{StaticResource FluentUIGlyphs}"
                 FontSize="{StaticResource SmallIconSize}"
-                Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
+                Foreground="White"
                 Glyph="{StaticResource GlyphCancelSemiBold}" />
         </Button>
 
@@ -69,6 +69,7 @@
                 <TextBlock
                     FontSize="24"
                     FontWeight="SemiBold"
+                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                     Text="Markerpad" />
                 <TextBlock
                     FontSize="12"
