@@ -410,7 +410,6 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
 
                 <!--  Image and the shadow  -->
@@ -492,41 +491,59 @@
                     </Border>
                 </Grid>
 
-                <TextBlock
+                <Button
                     Grid.Row="1"
-                    Margin="12,6,12,0"
-                    FontSize="12"
-                    Text="{x:Bind Name}"
-                    TextWrapping="WrapWholeWords" />
+                    Margin="8,2,8,0"
+                    Padding="4,2"
+                    HorizontalAlignment="Stretch"
+                    AutomationProperties.HelpText="{x:Bind strings:Resources.ViewDetailsText}"
+                    AutomationProperties.Name="{x:Bind Name}"
+                    Command="{x:Bind ViewDetailsCommand}"
+                    CommandParameter="{x:Bind}"
+                    Style="{StaticResource SubtleButton}">
 
-                <Grid Grid.Row="2" Margin="12,0,4,6">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="auto" />
-                    </Grid.ColumnDefinitions>
-                    <TextBlock
-                        Margin="0,0,1,0"
-                        FontSize="12"
-                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                        MaxLines="2"
-                        Text="{x:Bind Description}"
-                        TextTrimming="CharacterEllipsis"
-                        TextWrapping="WrapWholeWords" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
 
-                    <Button
-                        Grid.Column="1"
-                        AutomationProperties.Name="{x:Bind strings:Resources.ViewDetailsText}"
-                        Command="{x:Bind ViewDetailsCommand}"
-                        CommandParameter="{x:Bind}"
-                        Style="{StaticResource SmallSubtleIconButton}"
-                        ToolTipService.ToolTip="{x:Bind strings:Resources.ViewDetailsText}">
-                        <FontIcon
-                            FontFamily="{StaticResource FluentUIGlyphs}"
-                            FontSize="{StaticResource SmallIconSize}"
+                        <!--  Title  -->
+                        <TextBlock
+                            Grid.ColumnSpan="2"
+                            FontSize="12"
+                            Text="{x:Bind Name}"
+                            TextWrapping="WrapWholeWords" />
+
+                        <!--  Description  -->
+                        <TextBlock
+                            Grid.Row="1"
+                            FontSize="12"
                             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                            Glyph="{StaticResource GlyphThreeDots}" />
-                    </Button>
-                </Grid>
+                            MaxLines="2"
+                            Text="{x:Bind Description}"
+                            TextTrimming="CharacterEllipsis"
+                            TextWrapping="WrapWholeWords" />
+
+                        <!--  More icon  -->
+                        <Border
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="8,0,0,0"
+                            ToolTipService.ToolTip="{x:Bind strings:Resources.ViewDetailsText}">
+                            <FontIcon
+                                VerticalAlignment="Center"
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="{StaticResource SmallIconSize}"
+                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                Glyph="{StaticResource GlyphThreeDots}" />
+                        </Border>
+                    </Grid>
+                </Button>
             </Grid>
         </Grid>
     </DataTemplate>
