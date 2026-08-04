@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.Tools;
+using JeniusApps.Common.Settings;
 using JeniusApps.Common.Store;
 using JeniusApps.Common.Tools;
 using Moq;
@@ -31,7 +32,8 @@ public class MixMediaPlayerServiceTests
             Mock.Of<ISystemInfoProvider>(x => x.LocalFolderPath() == testPath),
             Mock.Of<ISystemMediaControls>(),
             Mock.Of<ISoundVolumeService>(),
-            Mock.Of<IIapService>(x => x.CanShowPremiumButtonsAsync() == Task.FromResult(true)))
+            Mock.Of<IIapService>(x => x.CanShowPremiumButtonsAsync() == Task.FromResult(true)),
+            Mock.Of<IUserSettings>())
         {
             GlobalVolume = 0.5
         };
