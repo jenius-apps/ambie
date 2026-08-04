@@ -75,6 +75,8 @@ public class TelemetryConstants
     public const string ChannelViewerCountdownStarted = $"{ChannelViewer}countdownStarted";
     public const string ChannelViewerClockEnabled = $"{ChannelViewer}clockEnabled";
     public const string ChannelViewerClockDisabled = $"{ChannelViewer}clockDisabled";
+    public const string ChannelViewerMuted = $"{ChannelViewer}muted";
+    public const string ChannelViewerUnmuted = $"{ChannelViewer}unmuted";
     public const string NavigatedToChannelViewer = $"{ChannelViewer}navigatedTo";
     public const string ChannelViewerFullScreen = $"{ChannelViewer}fullScreen";
 

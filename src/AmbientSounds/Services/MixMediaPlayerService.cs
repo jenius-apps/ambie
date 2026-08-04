@@ -1,6 +1,8 @@
-﻿using AmbientSounds.Events;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Events;
 using AmbientSounds.Models;
 using AmbientSounds.Tools;
+using JeniusApps.Common.Settings;
 using JeniusApps.Common.Store;
 using JeniusApps.Common.Tools;
 using System;
@@ -27,6 +29,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     private readonly IMediaPlayerFactory _mediaPlayerFactory;
     private readonly ISoundVolumeService _soundVolumeService;
     private readonly IIapService _iapService;
+    private readonly IUserSettings _userSettings;
     private readonly string _localDataFolderPath;
     private (string Id, IMediaPlayer Player, FeaturedSoundType Type)? _featureSoundData;
     private double _globalVolume;
@@ -62,7 +65,8 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         ISystemInfoProvider systemInfoProvider,
         ISystemMediaControls systemMediaControls,
         ISoundVolumeService soundVolumeService,
-        IIapService iapService)
+        IIapService iapService,
+        IUserSettings userSettings)
     {
         _soundDataProvider = soundDataProvider;
         _assetLocalizer = assetLocalizer;
@@ -73,6 +77,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         InitializeSmtc();
         _soundVolumeService = soundVolumeService;
         _iapService = iapService;
+        _userSettings = userSettings;
     }
 
     /// <inheritdoc/>
@@ -87,6 +92,8 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     /// <inheritdoc/>
     public string FeaturedSoundId => _featureSoundData?.Id ?? string.Empty;
 
+    public IMediaPlayer? FeaturedPlayer => _featureSoundData?.Player;
+
     /// <inheritdoc/>
     public FeaturedSoundType? FeaturedSoundType => _featureSoundData?.Type;
 
@@ -94,7 +101,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     public double GlobalVolume
     {
         get => _globalVolume;
-        set => UpdateAllVolumes(value);
+        set => ApplyGlobalVolume(value);
     }
 
     /// <inheritdoc/>
@@ -107,9 +114,13 @@ public class MixMediaPlayerService : IMixMediaPlayerService
             PlaybackStateChanged?.Invoke(this, value);
 
             if (value == MediaPlaybackState.Playing)
+            {
                 _smtc.PlaybackStatus = SystemMediaState.Playing;
+            }
             else if (value == MediaPlaybackState.Paused)
+            {
                 _smtc.PlaybackStatus = SystemMediaState.Paused;
+            }
         }
     }
 
@@ -136,7 +147,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         MixPlayed?.Invoke(this, new MixPlayedArgs(mixId, [.. _activePlayers.Keys]));
     }
 
-    private void UpdateAllVolumes(double value)
+    private void ApplyGlobalVolume(double value)
     {
         if (value < 0d || value > 1d)
         {
@@ -154,9 +165,13 @@ public class MixMediaPlayerService : IMixMediaPlayerService
             _activePlayers[soundId].Volume = GetVolume(soundId) * value;
         }
 
-        if (_featureSoundData?.Player is IMediaPlayer guidePlayer)
+        if (FeaturedPlayer is IMediaPlayer featuredSoundPlayer)
         {
-            guidePlayer.Volume = value;
+            featuredSoundPlayer.Volume = FeaturedSoundType switch
+            {
+                Models.FeaturedSoundType.Channel when _userSettings.Get<bool>(UserSettingsConstants.ChannelSoundMuted) => 0,
+                _ => value
+            };
         }
 
         // Must be set last since GetVolume
@@ -255,8 +270,17 @@ public class MixMediaPlayerService : IMixMediaPlayerService
 
             // Featured sound doesn't have
             // separate volume. Instead, its volume is
-            // always the same as the global volume for the app.
-            player.Volume = _globalVolume;
+            // always the same as the global volume for the app,
+            // or it's muted.
+            bool isFeaturedSoundMuted = type switch
+            {
+                Models.FeaturedSoundType.Channel => _userSettings.Get<bool>(UserSettingsConstants.ChannelSoundMuted),
+                _ => false
+            };
+
+            player.Volume = isFeaturedSoundMuted
+                ? 0
+                : _globalVolume;
 
             _featureSoundData = (id, player, type);
 
@@ -366,16 +390,32 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     {
         if (IsSoundPlaying(soundId) && value <= 1d && value >= 0d)
         {
-            _activePlayers[soundId].Volume = value * _globalVolume;
+            if (_activePlayers.TryGetValue(soundId, out IMediaPlayer player))
+            {
+                player.Volume = value * _globalVolume;
+            }
+            else if (_featureSoundData?.Id == soundId && FeaturedPlayer is IMediaPlayer featuredPlayer)
+            {
+                featuredPlayer.Volume = value * _globalVolume;
+            }
         }
     }
 
     /// <inheritdoc/>
     public double GetVolume(string soundId)
     {
-        if (IsSoundPlaying(soundId))
+        if (!IsSoundPlaying(soundId))
         {
-            return _activePlayers[soundId].Volume / _globalVolume;
+            return 0;
+        }
+
+        if (_activePlayers.TryGetValue(soundId, out IMediaPlayer player))
+        {
+            return player.Volume / _globalVolume;
+        }
+        else if (FeaturedSoundId == soundId && FeaturedPlayer is IMediaPlayer featuredPlayer)
+        {
+            return featuredPlayer.Volume / _globalVolume;
         }
 
         return 0;
@@ -401,7 +441,11 @@ public class MixMediaPlayerService : IMixMediaPlayerService
 
         if (fadeAll || _lastAddedSoundIds.Contains(_featureSoundData?.Id))
         {
-            _featureSoundData?.Player.Play(fadeInTargetVolume: 1.0 * _globalVolume, fadeDuration: DefaultFadeInDurationMs);
+            double targetVolume = _userSettings.Get<bool>(UserSettingsConstants.ChannelSoundMuted)
+                ? 0
+                : 1;
+
+            _featureSoundData?.Player.Play(fadeInTargetVolume: targetVolume * _globalVolume, fadeDuration: DefaultFadeInDurationMs);
         }
         else
         {

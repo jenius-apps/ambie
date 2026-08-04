@@ -56,6 +56,11 @@ public interface IChannelService
     Task<bool> IsOwnedAsync(Channel channel);
 
     /// <summary>
+    /// Mutes the channel sound.
+    /// </summary>
+    void MuteChannel();
+
+    /// <summary>
     /// Performs the necessary UX changes to play the channel.
     /// </summary>
     Task PlayChannelAsync(Channel channel, bool performNavigation = true);
@@ -69,4 +74,9 @@ public interface IChannelService
     /// Retrieves active progress for given channel.
     /// </summary>
     Progress<double>? TryGetActiveProgress(Channel c);
+
+    /// <summary>
+    /// Unmutes the channel sound.
+    /// </summary>
+    void UnmuteChannel();
 }

@@ -228,6 +228,11 @@ public static class UserSettingsConstants
     public const string ShareLinkHidden = nameof(ShareLinkHidden);
 
     /// <summary>
+    /// Remembers if the user muted the channel's sound.
+    /// </summary>
+    public const string ChannelSoundMuted = nameof(ChannelSoundMuted);
+
+    /// <summary>
     ///  Settings defaults.
     /// </summary>
     public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -272,5 +277,6 @@ public static class UserSettingsConstants
         { LastKnownPremiumState, PremiumState.Unknown.ToString() },
         { PremiumPurchaseUtcDateTicks, 0L },
         { ShareLinkHidden, false },
+        { ChannelSoundMuted, false },
     };
 }
