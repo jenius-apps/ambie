@@ -1487,10 +1487,6 @@
           <source>From the creator of Ambie</source>
           <target state="translated">アンビエのクリエイターより</target>
         </trans-unit>
-        <trans-unit id="MarkerpadHyperlinkSubtitle" translate="yes" xml:space="preserve">
-          <source>Discover Markerpad, a whileboard app made for thinkers</source>
-          <target state="translated">考える人のためのwhileboardアプリ、Markerpadを発見しましょう</target>
-        </trans-unit>
         <trans-unit id="MarkerpadHyperlinkTitle" translate="yes" xml:space="preserve">
           <source>Turn focus into progress</source>
           <target state="translated">集中を進歩に変えましょう</target>
@@ -1498,6 +1494,10 @@
         <trans-unit id="SettingsMuteChannelHeader" translate="yes" xml:space="preserve">
           <source>Mute video sound</source>
           <target state="translated">ビデオ音声がミュート</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadHyperlinkSubtitle" translate="yes" xml:space="preserve">
+          <source>Discover Markerpad, a whiteboard app made for thinkers</source>
+          <target state="translated">考える人のために作られたホワイトボードアプリ、Markerpadを発見してください</target>
         </trans-unit>
       </group>
     </body>

@@ -1119,13 +1119,13 @@
   <data name="MarkerpadDialogSubtitle" xml:space="preserve">
     <value>Fra skaberen af Ambie</value>
   </data>
-  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
-    <value>Opdag Markerpad, en whileboard-app lavet til tænkere</value>
-  </data>
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>Vend fokus til fremskridt</value>
   </data>
   <data name="SettingsMuteChannelHeader" xml:space="preserve">
     <value>Dæmpet videolyd</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>Opdag Markerpad, en whiteboard-app lavet til tænkere</value>
   </data>
 </root>

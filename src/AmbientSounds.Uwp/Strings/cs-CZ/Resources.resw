@@ -1122,13 +1122,13 @@
   <data name="MarkerpadDialogSubtitle" xml:space="preserve">
     <value>Od tvůrce Ambie</value>
   </data>
-  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
-    <value>Objevte Markerpad, aplikaci pro whileboard určenou pro myslitele</value>
-  </data>
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>Proměňte soustředění v pokrok</value>
   </data>
   <data name="SettingsMuteChannelHeader" xml:space="preserve">
     <value>Zvuk ztlumeného videa</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>Objevte Markerpad, aplikaci na tabuli určenou pro myslitele</value>
   </data>
 </root>

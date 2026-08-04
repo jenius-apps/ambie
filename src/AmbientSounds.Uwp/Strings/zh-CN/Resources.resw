@@ -1122,13 +1122,13 @@
   <data name="MarkerpadDialogSubtitle" xml:space="preserve">
     <value>来自《Ambie》的创作者</value>
   </data>
-  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
-    <value>发现Markerpad，一款专为思考者设计的whileboard应用</value>
-  </data>
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>将专注转化为进步</value>
   </data>
   <data name="SettingsMuteChannelHeader" xml:space="preserve">
     <value>静音视频声音</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>发现Markerpad，一款为思考者设计的白板应用</value>
   </data>
 </root>

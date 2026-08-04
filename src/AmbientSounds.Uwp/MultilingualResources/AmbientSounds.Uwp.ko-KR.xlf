@@ -1491,10 +1491,6 @@
           <source>From the creator of Ambie</source>
           <target state="translated">Ambie의 창작자로부터</target>
         </trans-unit>
-        <trans-unit id="MarkerpadHyperlinkSubtitle" translate="yes" xml:space="preserve">
-          <source>Discover Markerpad, a whileboard app made for thinkers</source>
-          <target state="translated">생각하는 사람들을 위한 whileboard 앱인 Markerpad를 발견해 보세요</target>
-        </trans-unit>
         <trans-unit id="MarkerpadHyperlinkTitle" translate="yes" xml:space="preserve">
           <source>Turn focus into progress</source>
           <target state="translated">집중을 진보로 바꾸세요</target>
@@ -1502,6 +1498,10 @@
         <trans-unit id="SettingsMuteChannelHeader" translate="yes" xml:space="preserve">
           <source>Mute video sound</source>
           <target state="translated">음소거 비디오 사운드</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadHyperlinkSubtitle" translate="yes" xml:space="preserve">
+          <source>Discover Markerpad, a whiteboard app made for thinkers</source>
+          <target state="translated">생각하는 사람들을 위한 화이트보드 앱인 Markerpad를 발견해 보세요</target>
         </trans-unit>
       </group>
     </body>

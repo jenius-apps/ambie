@@ -1119,13 +1119,13 @@
   <data name="MarkerpadDialogSubtitle" xml:space="preserve">
     <value>De la creatorul Ambie</value>
   </data>
-  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
-    <value>Descoperă Markerpad, o aplicație de tip whileboard creată pentru gânditori</value>
-  </data>
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>Transformă concentrarea în progres</value>
   </data>
   <data name="SettingsMuteChannelHeader" xml:space="preserve">
     <value>Sunet video mut</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>Descoperă Markerpad, o aplicație de tablă albă creată pentru gânditori</value>
   </data>
 </root>

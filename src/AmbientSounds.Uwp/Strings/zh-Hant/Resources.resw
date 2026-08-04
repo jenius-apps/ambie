@@ -1125,13 +1125,13 @@
   <data name="MarkerpadDialogSubtitle" xml:space="preserve">
     <value>來自 Ambie 創作者</value>
   </data>
-  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
-    <value>發掘 Markerpad，一款專為思考者打造的 whileboard 應用程式</value>
-  </data>
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>將專注轉化為進步</value>
   </data>
   <data name="SettingsMuteChannelHeader" xml:space="preserve">
     <value>靜音視訊音效</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>探索 Markerpad，一款專為思考者設計的白板應用程式</value>
   </data>
 </root>

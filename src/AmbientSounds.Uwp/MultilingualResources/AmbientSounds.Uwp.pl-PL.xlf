@@ -1492,10 +1492,6 @@
           <source>From the creator of Ambie</source>
           <target state="translated">Od twórcy Ambie</target>
         </trans-unit>
-        <trans-unit id="MarkerpadHyperlinkSubtitle" translate="yes" xml:space="preserve">
-          <source>Discover Markerpad, a whileboard app made for thinkers</source>
-          <target state="translated">Odkryj Markerpad, aplikację do tablicy dla myślicieli</target>
-        </trans-unit>
         <trans-unit id="MarkerpadHyperlinkTitle" translate="yes" xml:space="preserve">
           <source>Turn focus into progress</source>
           <target state="translated">Zamień skupienie w postęp</target>
@@ -1503,6 +1499,10 @@
         <trans-unit id="SettingsMuteChannelHeader" translate="yes" xml:space="preserve">
           <source>Mute video sound</source>
           <target state="translated">Dźwięk wyciszanego wideo</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadHyperlinkSubtitle" translate="yes" xml:space="preserve">
+          <source>Discover Markerpad, a whiteboard app made for thinkers</source>
+          <target state="translated">Odkryj Markerpad, aplikację do tablic suchościeralnych stworzoną dla myślicieli</target>
         </trans-unit>
       </group>
     </body>

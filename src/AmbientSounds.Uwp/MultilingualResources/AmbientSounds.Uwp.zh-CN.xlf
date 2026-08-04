@@ -1490,10 +1490,6 @@
           <source>From the creator of Ambie</source>
           <target state="translated">来自《Ambie》的创作者</target>
         </trans-unit>
-        <trans-unit id="MarkerpadHyperlinkSubtitle" translate="yes" xml:space="preserve">
-          <source>Discover Markerpad, a whileboard app made for thinkers</source>
-          <target state="translated">发现Markerpad，一款专为思考者设计的whileboard应用</target>
-        </trans-unit>
         <trans-unit id="MarkerpadHyperlinkTitle" translate="yes" xml:space="preserve">
           <source>Turn focus into progress</source>
           <target state="translated">将专注转化为进步</target>
@@ -1501,6 +1497,10 @@
         <trans-unit id="SettingsMuteChannelHeader" translate="yes" xml:space="preserve">
           <source>Mute video sound</source>
           <target state="translated">静音视频声音</target>
+        </trans-unit>
+        <trans-unit id="MarkerpadHyperlinkSubtitle" translate="yes" xml:space="preserve">
+          <source>Discover Markerpad, a whiteboard app made for thinkers</source>
+          <target state="translated">发现Markerpad，一款为思考者设计的白板应用</target>
         </trans-unit>
       </group>
     </body>
