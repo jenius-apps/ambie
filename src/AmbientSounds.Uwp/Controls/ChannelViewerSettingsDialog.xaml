@@ -19,6 +19,7 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
         <Grid>
@@ -100,8 +101,20 @@
             </ToggleSwitch.OnContent>
         </ToggleSwitch>
 
-        <ComboBox
+        <ToggleSwitch
             Grid.Row="2"
+            Header="{x:Bind strings:Resources.SettingsMuteChannelHeader}"
+            IsOn="{x:Bind ViewModel.IsChannelMuted, Mode=TwoWay}">
+            <ToggleSwitch.OffContent>
+                <TextBlock x:Uid="OffTextBlock" />
+            </ToggleSwitch.OffContent>
+            <ToggleSwitch.OnContent>
+                <TextBlock x:Uid="OnTextBlock" />
+            </ToggleSwitch.OnContent>
+        </ToggleSwitch>
+
+        <ComboBox
+            Grid.Row="3"
             HorizontalAlignment="Stretch"
             Header="{x:Bind strings:Resources.Timer}"
             IsEnabled="{x:Bind CanChangeTimerSettings}"
@@ -112,7 +125,7 @@
         </ComboBox>
 
         <winui:InfoBar
-            Grid.Row="3"
+            Grid.Row="4"
             Margin="0,12,0,0"
             IsClosable="False"
             IsOpen="{x:Bind ex:UIExtensions.Not(CanChangeTimerSettings)}"

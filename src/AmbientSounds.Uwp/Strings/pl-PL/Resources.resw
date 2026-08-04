@@ -1119,10 +1119,13 @@
   <data name="MarkerpadDialogSubtitle" xml:space="preserve">
     <value>Od twórcy Ambie</value>
   </data>
-  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
-    <value>Odkryj Markerpad, aplikację do tablicy dla myślicieli</value>
-  </data>
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>Zamień skupienie w postęp</value>
+  </data>
+  <data name="SettingsMuteChannelHeader" xml:space="preserve">
+    <value>Dźwięk wyciszanego wideo</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>Odkryj Markerpad, aplikację do tablic suchościeralnych stworzoną dla myślicieli</value>
   </data>
 </root>

@@ -1125,10 +1125,13 @@
   <data name="MarkerpadDialogSubtitle" xml:space="preserve">
     <value>アンビエのクリエイターより</value>
   </data>
-  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
-    <value>考える人のためのwhileboardアプリ、Markerpadを発見しましょう</value>
-  </data>
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>集中を進歩に変えましょう</value>
+  </data>
+  <data name="SettingsMuteChannelHeader" xml:space="preserve">
+    <value>ビデオ音声がミュート</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>考える人のために作られたホワイトボードアプリ、Markerpadを発見してください</value>
   </data>
 </root>

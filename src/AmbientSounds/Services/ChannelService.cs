@@ -370,4 +370,16 @@ public sealed class ChannelService : IChannelService
 
         await _videoService.UninstallVideoAsync(video);
     }
+
+    /// <inheritdoc/>
+    public void MuteChannel()
+    {
+        _player.SetVolume(_player.FeaturedSoundId, 0);
+    }
+
+    /// <inheritdoc/>
+    public void UnmuteChannel()
+    {
+        _player.SetVolume(_player.FeaturedSoundId, 1);
+    }
 }

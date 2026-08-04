@@ -1125,10 +1125,13 @@
   <data name="MarkerpadDialogSubtitle" xml:space="preserve">
     <value>Ambie의 창작자로부터</value>
   </data>
-  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
-    <value>생각하는 사람들을 위한 whileboard 앱인 Markerpad를 발견해 보세요</value>
-  </data>
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>집중을 진보로 바꾸세요</value>
+  </data>
+  <data name="SettingsMuteChannelHeader" xml:space="preserve">
+    <value>음소거 비디오 사운드</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>생각하는 사람들을 위한 화이트보드 앱인 Markerpad를 발견해 보세요</value>
   </data>
 </root>

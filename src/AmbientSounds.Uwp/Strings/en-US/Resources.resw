@@ -1230,10 +1230,13 @@
   <data name="MarkerpadDialogSubtitle" xml:space="preserve">
     <value>From the creator of Ambie</value>
   </data>
-  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
-    <value>Discover Markerpad, a whileboard app made for thinkers</value>
-  </data>
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>Turn focus into progress</value>
+  </data>
+  <data name="SettingsMuteChannelHeader" xml:space="preserve">
+    <value>Mute video sound</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>Discover Markerpad, a whiteboard app made for thinkers</value>
   </data>
 </root>

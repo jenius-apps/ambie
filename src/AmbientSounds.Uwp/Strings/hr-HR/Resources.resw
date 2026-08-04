@@ -1110,10 +1110,13 @@
   <data name="MarkerpadDialogSubtitle" xml:space="preserve">
     <value>Od tvorca Ambie</value>
   </data>
-  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
-    <value>Otkrijte Markerpad, aplikaciju za whileboard namijenjenu misliocima</value>
-  </data>
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>Pretvorite fokus u napredak</value>
+  </data>
+  <data name="SettingsMuteChannelHeader" xml:space="preserve">
+    <value>Prigušeni video zvuk</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>Otkrijte Markerpad, aplikaciju za bijelu ploču namijenjenu misliocima</value>
   </data>
 </root>

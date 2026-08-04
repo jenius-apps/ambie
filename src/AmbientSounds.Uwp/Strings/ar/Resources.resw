@@ -1125,10 +1125,13 @@
   <data name="MarkerpadDialogSubtitle" xml:space="preserve">
     <value>من مبتكر أمبي</value>
   </data>
-  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
-    <value>اكتشف ماركرباد، تطبيق لوحة الطيران المصمم للمفكرين</value>
-  </data>
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>حول التركيز إلى تقدم</value>
+  </data>
+  <data name="SettingsMuteChannelHeader" xml:space="preserve">
+    <value>صوت الفيديو الصامت</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>اكتشف ماركرباد، تطبيق سبورة بيضاء مصمم للمفكرين</value>
   </data>
 </root>

@@ -1122,10 +1122,13 @@
   <data name="MarkerpadDialogSubtitle" xml:space="preserve">
     <value>От създателя на Амби</value>
   </data>
-  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
-    <value>Открийте Markerpad, приложение за whileboard, създадено за мислители</value>
-  </data>
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>Превърнете фокуса в напредък</value>
+  </data>
+  <data name="SettingsMuteChannelHeader" xml:space="preserve">
+    <value>Заглушаване на звука на видео</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>Открийте Markerpad, приложение за бяла дъска, създадено за мислители</value>
   </data>
 </root>

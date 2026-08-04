@@ -1113,10 +1113,13 @@
   <data name="MarkerpadDialogSubtitle" xml:space="preserve">
     <value>Az Ambie alkotójától</value>
   </data>
-  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
-    <value>Fedezd fel a Markerpad-et, egy gondolkodóknak készült whileboard alkalmazást</value>
-  </data>
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>A fókuszt fejlődésre fordítani</value>
+  </data>
+  <data name="SettingsMuteChannelHeader" xml:space="preserve">
+    <value>Némítsd el a videóhangot</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>Fedezd fel a Markerpad-et, egy gondolkodóknak készült táblás alkalmazást</value>
   </data>
 </root>

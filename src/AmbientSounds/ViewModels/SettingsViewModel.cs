@@ -32,6 +32,7 @@ public partial class SettingsViewModel : ObservableObject
     private readonly IAppStoreUpdater _storeUpdater;
     private readonly ISystemInfoProvider _systemInfoProvider; // used in release mode, don't remove
     private readonly IDialogService _dialogService;
+    private readonly IChannelService _channelService;
     private bool _notificationsLoading;
 
     public SettingsViewModel(
@@ -47,7 +48,8 @@ public partial class SettingsViewModel : ObservableObject
         IIapService iapService,
         IUriLauncher uriLauncher,
         IAppStoreUpdater appStoreUpdater,
-        IDialogService dialogService)
+        IDialogService dialogService,
+        IChannelService channelService)
     {
         _userSettings = userSettings;
         _notifications = notifications;
@@ -61,6 +63,7 @@ public partial class SettingsViewModel : ObservableObject
         _storeUpdater = appStoreUpdater;
         _systemInfoProvider = systemInfoProvider;
         _dialogService = dialogService;
+        _channelService = channelService;
 
         if (systemInfoProvider.IsOnBatterySaver())
         {
@@ -176,6 +179,30 @@ public partial class SettingsViewModel : ObservableObject
             _telemetry.TrackEvent(value
                 ? TelemetryConstants.ChannelViewerClockEnabled
                 : TelemetryConstants.ChannelViewerClockDisabled);
+        }
+    }
+
+    /// <summary>
+    /// Determines if channel sound is muted.
+    /// </summary>
+    public bool IsChannelMuted
+    {
+        get => _userSettings.Get<bool>(UserSettingsConstants.ChannelSoundMuted);
+        set
+        {
+            _userSettings.Set(UserSettingsConstants.ChannelSoundMuted, value);
+            _telemetry.TrackEvent(value
+                ? TelemetryConstants.ChannelViewerMuted
+                : TelemetryConstants.ChannelViewerUnmuted);
+
+            if (value)
+            {
+                _channelService.MuteChannel();
+            }
+            else
+            {
+                _channelService.UnmuteChannel();
+            }
         }
     }
 

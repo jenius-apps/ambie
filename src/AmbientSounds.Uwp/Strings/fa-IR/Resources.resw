@@ -1125,10 +1125,13 @@
   <data name="MarkerpadDialogSubtitle" xml:space="preserve">
     <value>از خالق آمبی</value>
   </data>
-  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
-    <value>Markerpad را کشف کنید، یک اپلیکیشن در حالی که برای اندیشمندان ساخته شده است</value>
-  </data>
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>تمرکز را به پیشرفت تبدیل کن</value>
+  </data>
+  <data name="SettingsMuteChannelHeader" xml:space="preserve">
+    <value>صدای ویدئویی بی صدا</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>Markerpad را کشف کنید، یک اپلیکیشن تخته سفید ساخته شده برای اندیشمندان</value>
   </data>
 </root>

@@ -1119,10 +1119,13 @@
   <data name="MarkerpadDialogSubtitle" xml:space="preserve">
     <value>Ambie'nin yaratıcısından</value>
   </data>
-  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
-    <value>Düşünürler için tasarlanmış bir whileboard uygulaması olan Markerpad'i keşfedin</value>
-  </data>
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>Odağı ilerlemeye dönüştürün</value>
+  </data>
+  <data name="SettingsMuteChannelHeader" xml:space="preserve">
+    <value>Video sesini sustur</value>
+  </data>
+  <data name="MarkerpadHyperlinkSubtitle" xml:space="preserve">
+    <value>Düşünürler için tasarlanmış beyaz tahta uygulaması Markerpad'i keşfedin</value>
   </data>
 </root>
