@@ -60,16 +60,8 @@ namespace AmbientSounds.Views
 
         private async Task UpdateMessageVisibleAsync()
         {
-#if DEBUG
-            await Task.Delay(1);
-            MessageVisible = true;
-#else
-            if (_tabletStyleDevices.Contains(AnalyticsInfo.DeviceForm))
-            {
-                bool isAlreadyInstalled = await App.Services.GetRequiredService<ISystemInfoProvider>().IsAppInstalledAsync(AppConstants.MarkerpadPfn);
-                MessageVisible = !isAlreadyInstalled;
-            }
-#endif
+            bool isAlreadyInstalled = await App.Services.GetRequiredService<ISystemInfoProvider>().IsAppInstalledAsync(AppConstants.MarkerpadPfn);
+            MessageVisible = !isAlreadyInstalled;
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
