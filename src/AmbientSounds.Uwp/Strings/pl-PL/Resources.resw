@@ -1125,4 +1125,7 @@
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>Zamień skupienie w postęp</value>
   </data>
+  <data name="SettingsMuteChannelHeader" xml:space="preserve">
+    <value>Dźwięk wyciszanego wideo</value>
+  </data>
 </root>

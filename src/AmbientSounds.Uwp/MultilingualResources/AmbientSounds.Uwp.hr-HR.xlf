@@ -1499,6 +1499,10 @@
           <source>Turn focus into progress</source>
           <target state="translated">Pretvorite fokus u napredak</target>
         </trans-unit>
+        <trans-unit id="SettingsMuteChannelHeader" translate="yes" xml:space="preserve">
+          <source>Mute video sound</source>
+          <target state="translated">Prigušeni video zvuk</target>
+        </trans-unit>
       </group>
     </body>
   </file>

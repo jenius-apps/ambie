@@ -1128,4 +1128,7 @@
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>Перетворіть увагу на прогрес</value>
   </data>
+  <data name="SettingsMuteChannelHeader" xml:space="preserve">
+    <value>Вимкнення звуку відео</value>
+  </data>
 </root>

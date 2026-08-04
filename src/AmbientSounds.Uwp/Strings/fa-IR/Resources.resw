@@ -1131,4 +1131,7 @@
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>تمرکز را به پیشرفت تبدیل کن</value>
   </data>
+  <data name="SettingsMuteChannelHeader" xml:space="preserve">
+    <value>صدای ویدئویی بی صدا</value>
+  </data>
 </root>

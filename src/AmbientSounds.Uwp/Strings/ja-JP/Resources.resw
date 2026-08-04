@@ -1131,4 +1131,7 @@
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>集中を進歩に変えましょう</value>
   </data>
+  <data name="SettingsMuteChannelHeader" xml:space="preserve">
+    <value>ビデオ音声がミュート</value>
+  </data>
 </root>

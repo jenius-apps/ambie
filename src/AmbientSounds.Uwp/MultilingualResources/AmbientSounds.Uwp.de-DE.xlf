@@ -1500,6 +1500,10 @@
           <source>Turn focus into progress</source>
           <target state="translated">Fokus in Fortschritt umwandeln</target>
         </trans-unit>
+        <trans-unit id="SettingsMuteChannelHeader" translate="yes" xml:space="preserve">
+          <source>Mute video sound</source>
+          <target state="translated">Stummes Videoton</target>
+        </trans-unit>
       </group>
     </body>
   </file>

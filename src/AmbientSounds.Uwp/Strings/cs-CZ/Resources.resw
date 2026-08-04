@@ -1128,4 +1128,7 @@
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>Proměňte soustředění v pokrok</value>
   </data>
+  <data name="SettingsMuteChannelHeader" xml:space="preserve">
+    <value>Zvuk ztlumeného videa</value>
+  </data>
 </root>

@@ -1495,6 +1495,10 @@
           <source>Turn focus into progress</source>
           <target state="translated">集中を進歩に変えましょう</target>
         </trans-unit>
+        <trans-unit id="SettingsMuteChannelHeader" translate="yes" xml:space="preserve">
+          <source>Mute video sound</source>
+          <target state="translated">ビデオ音声がミュート</target>
+        </trans-unit>
       </group>
     </body>
   </file>

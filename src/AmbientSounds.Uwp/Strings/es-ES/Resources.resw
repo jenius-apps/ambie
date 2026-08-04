@@ -1128,4 +1128,7 @@
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>Convierte el enfoque en progreso</value>
   </data>
+  <data name="SettingsMuteChannelHeader" xml:space="preserve">
+    <value>Silencio del sonido de vídeo</value>
+  </data>
 </root>

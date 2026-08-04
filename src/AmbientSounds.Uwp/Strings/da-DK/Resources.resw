@@ -1125,4 +1125,7 @@
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>Vend fokus til fremskridt</value>
   </data>
+  <data name="SettingsMuteChannelHeader" xml:space="preserve">
+    <value>Dæmpet videolyd</value>
+  </data>
 </root>

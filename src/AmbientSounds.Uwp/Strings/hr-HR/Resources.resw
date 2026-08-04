@@ -1116,4 +1116,7 @@
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>Pretvorite fokus u napredak</value>
   </data>
+  <data name="SettingsMuteChannelHeader" xml:space="preserve">
+    <value>Prigušeni video zvuk</value>
+  </data>
 </root>

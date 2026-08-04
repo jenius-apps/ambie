@@ -1504,6 +1504,10 @@
           <source>Turn focus into progress</source>
           <target state="translated">Focus omzetten in vooruitgang</target>
         </trans-unit>
+        <trans-unit id="SettingsMuteChannelHeader" translate="yes" xml:space="preserve">
+          <source>Mute video sound</source>
+          <target state="translated">Demp videogeluid</target>
+        </trans-unit>
       </group>
     </body>
   </file>

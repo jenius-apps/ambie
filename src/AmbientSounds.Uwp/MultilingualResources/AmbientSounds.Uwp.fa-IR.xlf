@@ -1495,6 +1495,10 @@
           <source>Turn focus into progress</source>
           <target state="translated">تمرکز را به پیشرفت تبدیل کن</target>
         </trans-unit>
+        <trans-unit id="SettingsMuteChannelHeader" translate="yes" xml:space="preserve">
+          <source>Mute video sound</source>
+          <target state="translated">صدای ویدئویی بی صدا</target>
+        </trans-unit>
       </group>
     </body>
   </file>

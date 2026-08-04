@@ -1131,4 +1131,7 @@
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>將專注轉化為進步</value>
   </data>
+  <data name="SettingsMuteChannelHeader" xml:space="preserve">
+    <value>靜音視訊音效</value>
+  </data>
 </root>

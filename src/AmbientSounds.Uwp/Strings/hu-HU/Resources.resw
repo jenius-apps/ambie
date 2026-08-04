@@ -1119,4 +1119,7 @@
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>A fókuszt fejlődésre fordítani</value>
   </data>
+  <data name="SettingsMuteChannelHeader" xml:space="preserve">
+    <value>Némítsd el a videóhangot</value>
+  </data>
 </root>

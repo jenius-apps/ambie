@@ -1506,6 +1506,10 @@
           <source>Turn focus into progress</source>
           <target state="translated">A fókuszt fejlődésre fordítani</target>
         </trans-unit>
+        <trans-unit id="SettingsMuteChannelHeader" translate="yes" xml:space="preserve">
+          <source>Mute video sound</source>
+          <target state="translated">Némítsd el a videóhangot</target>
+        </trans-unit>
       </group>
     </body>
   </file>

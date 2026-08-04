@@ -1499,6 +1499,10 @@
           <source>Turn focus into progress</source>
           <target state="translated">집중을 진보로 바꾸세요</target>
         </trans-unit>
+        <trans-unit id="SettingsMuteChannelHeader" translate="yes" xml:space="preserve">
+          <source>Mute video sound</source>
+          <target state="translated">음소거 비디오 사운드</target>
+        </trans-unit>
       </group>
     </body>
   </file>

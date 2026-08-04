@@ -1131,4 +1131,7 @@
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>حول التركيز إلى تقدم</value>
   </data>
+  <data name="SettingsMuteChannelHeader" xml:space="preserve">
+    <value>صوت الفيديو الصامت</value>
+  </data>
 </root>

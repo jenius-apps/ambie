@@ -1125,4 +1125,7 @@
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>Odağı ilerlemeye dönüştürün</value>
   </data>
+  <data name="SettingsMuteChannelHeader" xml:space="preserve">
+    <value>Video sesini sustur</value>
+  </data>
 </root>

@@ -1131,4 +1131,7 @@
   <data name="MarkerpadHyperlinkTitle" xml:space="preserve">
     <value>집중을 진보로 바꾸세요</value>
   </data>
+  <data name="SettingsMuteChannelHeader" xml:space="preserve">
+    <value>음소거 비디오 사운드</value>
+  </data>
 </root>

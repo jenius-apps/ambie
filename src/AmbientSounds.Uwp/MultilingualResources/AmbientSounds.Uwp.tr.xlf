@@ -1509,6 +1509,10 @@
           <source>Turn focus into progress</source>
           <target state="translated">Odağı ilerlemeye dönüştürün</target>
         </trans-unit>
+        <trans-unit id="SettingsMuteChannelHeader" translate="yes" xml:space="preserve">
+          <source>Mute video sound</source>
+          <target state="translated">Video sesini sustur</target>
+        </trans-unit>
       </group>
     </body>
   </file>

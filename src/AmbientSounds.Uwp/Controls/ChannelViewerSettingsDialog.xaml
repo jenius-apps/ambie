@@ -103,8 +103,7 @@
 
         <ToggleSwitch
             Grid.Row="2"
-            Margin="0,0,0,0"
-            Header="Mute video volume"
+            Header="{x:Bind strings:Resources.SettingsMuteChannelHeader}"
             IsOn="{x:Bind ViewModel.IsChannelMuted, Mode=TwoWay}">
             <ToggleSwitch.OffContent>
                 <TextBlock x:Uid="OffTextBlock" />

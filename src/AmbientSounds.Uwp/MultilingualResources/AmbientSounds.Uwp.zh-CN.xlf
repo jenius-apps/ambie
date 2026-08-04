@@ -1498,6 +1498,10 @@
           <source>Turn focus into progress</source>
           <target state="translated">将专注转化为进步</target>
         </trans-unit>
+        <trans-unit id="SettingsMuteChannelHeader" translate="yes" xml:space="preserve">
+          <source>Mute video sound</source>
+          <target state="translated">静音视频声音</target>
+        </trans-unit>
       </group>
     </body>
   </file>
