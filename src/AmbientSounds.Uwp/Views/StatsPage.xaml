@@ -206,7 +206,6 @@
                                 From="0,12,0"
                                 To="0"
                                 Duration="0:0:0.3" />
-
                         </ani:Implicit.ShowAnimations>
 
                         <toolkit:UniformGrid

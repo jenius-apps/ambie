@@ -2,7 +2,7 @@
     x:Class="AmbientSounds.Views.FocusPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:ani="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:AmbientSounds.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -31,10 +31,6 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Grid x:Name="RootPanel" Margin="{StaticResource ContentColumnMarginSmall}">
-            <Grid.ChildrenTransitions>
-                <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
-            </Grid.ChildrenTransitions>
-
             <Grid.ColumnDefinitions>
                 <ColumnDefinition x:Name="LeftGutter" Width="auto" />
                 <ColumnDefinition x:Name="ContentColumn" Width="*" />
@@ -44,13 +40,37 @@
             <StackPanel Grid.Column="1">
 
                 <!--  Timer module  -->
-                <controls:FocusTimerModule x:Name="TimerModule" />
+                <controls:FocusTimerModule x:Name="TimerModule">
+                    <ani:Implicit.ShowAnimations>
+                        <ani:OpacityAnimation
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.3" />
+                        <ani:TranslationAnimation
+                            From="0,12,0"
+                            To="0"
+                            Duration="0:0:0.3" />
+                    </ani:Implicit.ShowAnimations>
+                </controls:FocusTimerModule>
 
                 <!--  Task module  -->
                 <controls:FocusTaskModule
                     x:Name="TaskModule"
                     Margin="0,8,0,0"
-                    Visibility="{x:Bind ViewModel.TaskModuleVisible, Mode=OneWay}" />
+                    Visibility="{x:Bind ViewModel.TaskModuleVisible, Mode=OneWay}">
+                    <ani:Implicit.ShowAnimations>
+                        <ani:OpacityAnimation
+                            Delay="0:0:0.05"
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.3" />
+                        <ani:TranslationAnimation
+                            Delay="0:0:0.05"
+                            From="0,12,0"
+                            To="0"
+                            Duration="0:0:0.3" />
+                    </ani:Implicit.ShowAnimations>
+                </controls:FocusTaskModule>
 
                 <!--  notepad module  -->
                 <Grid Margin="0,24,0,0">
@@ -58,6 +78,18 @@
                         <RowDefinition Height="auto" />
                         <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
+                    <ani:Implicit.ShowAnimations>
+                        <ani:OpacityAnimation
+                            Delay="0:0:0.1"
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.3" />
+                        <ani:TranslationAnimation
+                            Delay="0:0:0.1"
+                            From="0,12,0"
+                            To="0"
+                            Duration="0:0:0.3" />
+                    </ani:Implicit.ShowAnimations>
 
                     <TextBlock
                         Margin="0,0,0,8"
@@ -83,7 +115,20 @@
                         Unloaded="OnUnloaded" />
                 </Grid>
 
-                <controls:FocusHistoryModule x:Name="HistoryModule" Margin="0,24,0,0" />
+                <controls:FocusHistoryModule x:Name="HistoryModule" Margin="0,24,0,0">
+                    <ani:Implicit.ShowAnimations>
+                        <ani:OpacityAnimation
+                            Delay="0:0:0.15"
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.3" />
+                        <ani:TranslationAnimation
+                            Delay="0:0:0.15"
+                            From="0,12,0"
+                            To="0"
+                            Duration="0:0:0.3" />
+                    </ani:Implicit.ShowAnimations>
+                </controls:FocusHistoryModule>
 
                 <HyperlinkButton
                     Margin="0,24,0,0"
@@ -91,6 +136,19 @@
                     AutomationProperties.Name="{x:Bind strings:Resources.MarkerpadHyperlinkSubtitle}"
                     Command="{x:Bind ViewModel.MarkerpadDialogCommand}"
                     Visibility="{x:Bind MessageVisible, Mode=OneWay}">
+                    <ani:Implicit.ShowAnimations>
+                        <ani:OpacityAnimation
+                            Delay="0:0:0.2"
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.3" />
+                        <ani:TranslationAnimation
+                            Delay="0:0:0.2"
+                            From="0,12,0"
+                            To="0"
+                            Duration="0:0:0.3" />
+                    </ani:Implicit.ShowAnimations>
+
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto" />
