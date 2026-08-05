@@ -2,8 +2,7 @@
 using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Text.Json;
-using Windows.Services.Store;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -27,25 +26,7 @@ public sealed partial class MarkerpadDialog : ContentDialog
     private async void OnStoreLinkClicked(object sender, RoutedEventArgs e)
     {
         _telemetry.TrackEvent(TelemetryConstants.MarkerpadDownloadClicked, logLevel: LogLevel.Critical);
-
-        var storecontext = StoreContext.GetDefault();
-        if (storecontext is null)
-        {
-            return;
-        }
-
-        StoreInstallParameters parameters = new()
-        {
-            StoreAction = 1,
-            ProductId = "9nh0wpdrk28t",
-            AutoInstall = true,
-            AutoOpenOnInstallComplete = true
-        };
-
-        await StoreRequestHelper.SendRequestAsync(storecontext, 32, JsonSerializer.Serialize(parameters, new JsonSerializerOptions
-        {
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-        }));
+        await Launcher.LaunchUriAsync(new Uri("ms-windows-store://pdp?productId=9NH0WPDRK28T&cid=ambie"));
     }
 
     private void OnClosing(ContentDialog sender, ContentDialogClosingEventArgs args)
