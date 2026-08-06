@@ -268,6 +268,19 @@
                     <ImageBrush ImageSource="{x:Bind ViewModel.SelectedChannel.ImagePath, Mode=OneWay}" Stretch="UniformToFill" />
                 </Border.Background>
 
+                <MediaPlayerElement
+                    x:Name="PreviewVideoPlayer"
+                    AutoPlay="True"
+                    Stretch="UniformToFill"
+                    Visibility="Collapsed">
+                    <ani:Implicit.ShowAnimations>
+                        <ani:OpacityAnimation
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.6" />
+                    </ani:Implicit.ShowAnimations>
+                </MediaPlayerElement>
+
                 <ani:Explicit.Animations>
                     <ani:AnimationSet x:Name="ImageFadeIn">
                         <ani:OpacityAnimation
@@ -289,6 +302,36 @@
                         Offset="0,2" />
                 </ui:Effects.Shadow>
             </Border>
+
+            <Button
+                x:Name="PreviewButton"
+                Grid.Row="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                AutomationProperties.Name="{x:Bind strings:Resources.Preview}"
+                Click="OnPreviewButtonClicked"
+                Style="{StaticResource RoundButtonStyle}"
+                ToolTipService.ToolTip="{x:Bind strings:Resources.Preview}"
+                Visibility="Collapsed">
+                <ani:Implicit.ShowAnimations>
+                    <ani:OpacityAnimation
+                        From="0"
+                        To="1"
+                        Duration="0:0:0.6" />
+                    <ani:TranslationAnimation
+                        From="0,4,0"
+                        To="0"
+                        Duration="0:0:0.6" />
+                </ani:Implicit.ShowAnimations>
+
+                <FontIcon
+                    Margin="2,0,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    FontSize="14"
+                    Glyph="{StaticResource GlyphPlay}" />
+            </Button>
 
             <StackPanel
                 Grid.Row="2"
