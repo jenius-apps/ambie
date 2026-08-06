@@ -56,6 +56,11 @@ public class Channel : IAsset
     public string ImagePath { get; set; } = string.Empty;
 
     /// <summary>
+    /// URL to video preview.
+    /// </summary>
+    public string VideoPreviewUrl { get; set; } = string.Empty;
+
+    /// <summary>
     /// Colour that can be used to decorate the channel in the UI.
     /// </summary>
     public string ColourHex { get; set; } = string.Empty;

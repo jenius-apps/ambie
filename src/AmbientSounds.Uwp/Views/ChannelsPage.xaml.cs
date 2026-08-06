@@ -62,11 +62,11 @@ public sealed partial class ChannelsPage : Page
             PreviewVideoPlayer.Visibility = Visibility.Collapsed;
             PreviewButton.Visibility = Visibility.Collapsed;
             await ManualContentFadeIn.StartAsync();
-            TryPlayPreviewVideo("https://ambiecataloguestorage.blob.core.windows.net/videopreviews/hokkaidoCoast.mp4");
+            TryPlayPreviewVideo(ViewModel.SelectedChannel?.Channel.VideoPreviewUrl);
         }
     }
 
-    private void TryPlayPreviewVideo(string videoUrl)
+    private void TryPlayPreviewVideo(string? videoUrl)
     {
         PreviewVideoPlayer.MediaPlayer.Pause();
         if (videoUrl is { Length: > 0 } && Uri.TryCreate(videoUrl, UriKind.Absolute, out Uri uri))
