@@ -270,7 +270,6 @@
 
                 <MediaPlayerElement
                     x:Name="PreviewVideoPlayer"
-                    AutoPlay="True"
                     Stretch="UniformToFill"
                     Visibility="Collapsed">
                     <ani:Implicit.ShowAnimations>

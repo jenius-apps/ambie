@@ -60,23 +60,24 @@ public sealed partial class ChannelsPage : Page
         if (e.PropertyName == nameof(ViewModel.SelectedChannel) && ViewModel.SelectedChannel is { } channel)
         {
             PreviewVideoPlayer.Visibility = Visibility.Collapsed;
-            PreviewButton.Visibility = Visibility.Collapsed;
             await ManualContentFadeIn.StartAsync();
-            TryPlayPreviewVideo(ViewModel.SelectedChannel?.Channel.VideoPreviewUrl);
+
+            var success = TryLoadVideoPreview(ViewModel.SelectedChannel?.Channel.VideoPreviewUrl);
+            PreviewButton.Visibility = success ? Visibility.Visible : Visibility.Collapsed;
         }
     }
 
-    private void TryPlayPreviewVideo(string? videoUrl)
+    private bool TryLoadVideoPreview(string? videoUrl)
     {
-        PreviewVideoPlayer.MediaPlayer.Pause();
         if (videoUrl is { Length: > 0 } && Uri.TryCreate(videoUrl, UriKind.Absolute, out Uri uri))
         {
             PreviewVideoPlayer.Source = MediaSource.CreateFromUri(uri);
             PreviewVideoPlayer.MediaPlayer.MediaEnded -= OnMediaEnded;
             PreviewVideoPlayer.MediaPlayer.MediaEnded += OnMediaEnded;
-            PreviewVideoPlayer.MediaPlayer.Play();
-            PreviewVideoPlayer.Visibility = Visibility.Visible;
+            return true;
         }
+
+        return false;
     }
 
     private void OnMediaEnded(MediaPlayer sender, object args)
@@ -103,6 +104,7 @@ public sealed partial class ChannelsPage : Page
         if (PreviewVideoPlayer.MediaPlayer.PlaybackSession.PlaybackState is MediaPlaybackState.Paused)
         {
             PreviewButton.Visibility = Visibility.Collapsed;
+            PreviewVideoPlayer.Visibility = Visibility.Visible;
             PreviewVideoPlayer.MediaPlayer.Play();
         }
     }
