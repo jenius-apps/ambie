@@ -11,5 +11,10 @@
         /// </summary>
         /// <param name="onlineUrl">The web url for the preview sound file.</param>
         void Play(string onlineUrl);
+
+        /// <summary>
+        /// Stops the current playback.
+        /// </summary>
+        void Stop();
     }
 }

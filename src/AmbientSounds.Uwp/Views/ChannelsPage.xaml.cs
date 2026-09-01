@@ -50,6 +50,8 @@ public sealed partial class ChannelsPage : Page
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)
     {
+        PreviewVideoPlayer.MediaPlayer?.Pause();
+
         ViewModel.PropertyChanged -= OnPropertyChanged;
         _cts?.Cancel();
         _cts = null;
@@ -91,6 +93,7 @@ public sealed partial class ChannelsPage : Page
         App.Services.GetRequiredService<IDispatcherQueue>().TryEnqueue(() =>
         {
             PreviewButton.Visibility = Visibility.Visible;
+            ViewModel.StopPreviewPlaybackCommand.Execute(null);
         });
     }
 
@@ -117,6 +120,7 @@ public sealed partial class ChannelsPage : Page
             PreviewButton.Visibility = Visibility.Collapsed;
             PreviewVideoPlayer.Visibility = Visibility.Visible;
             PreviewVideoPlayer.MediaPlayer.Play();
+            ViewModel.PreviewSelectedChannelCommand.Execute(null);
         }
     }
 }

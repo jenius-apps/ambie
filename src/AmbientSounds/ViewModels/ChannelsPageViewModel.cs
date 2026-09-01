@@ -27,6 +27,8 @@ public partial class ChannelsPageViewModel : ObservableObject
     private readonly ICategoryVmFactory _categoryVmFactory;
     private readonly IChannelVmFactory _channelVmFactory;
     private readonly IRuntimeMemoryStore _runtimeMemoryStore;
+    private readonly IPreviewService _previewService;
+    private readonly ICatalogueService _catalogueService;
     private readonly SemaphoreSlim _filteredChannelsLock = new(1, 1);
 
     public EventHandler<ChannelViewModel>? GridVideoPlayed;
@@ -39,7 +41,9 @@ public partial class ChannelsPageViewModel : ObservableObject
         ICategoryService categoryService,
         ICategoryVmFactory categoryVmFactory,
         IChannelVmFactory channelVmFactory,
-        IRuntimeMemoryStore runtimeMemoryStore)
+        IRuntimeMemoryStore runtimeMemoryStore,
+        IPreviewService previewService,
+        ICatalogueService catalogueService)
     {
         _channelService = channelService;
         _telemetry = telemetry;
@@ -49,6 +53,8 @@ public partial class ChannelsPageViewModel : ObservableObject
         _categoryVmFactory = categoryVmFactory;
         _channelVmFactory = channelVmFactory;
         _runtimeMemoryStore = runtimeMemoryStore;
+        _previewService = previewService;
+        _catalogueService = catalogueService;
     }
 
     [ObservableProperty]
@@ -117,6 +123,7 @@ public partial class ChannelsPageViewModel : ObservableObject
 
     public void Uninitialize()
     {
+        StopPreviewPlayback();
         foreach (ChannelRowViewModel row in Rows)
         {
             row.Uninitialize();
@@ -166,11 +173,13 @@ public partial class ChannelsPageViewModel : ObservableObject
         });
 
         SelectedChannel = null;
+        StopPreviewPlayback();
     }
 
     partial void OnSelectedChannelChanged(ChannelViewModel? value)
     {
         _channelService.MostRecentChannelDetailsViewed = value?.Id;
+        StopPreviewPlayback();
     }
 
     async partial void OnSelectedFilterChanged(CategoryViewModel? oldValue, CategoryViewModel? newValue)
@@ -230,5 +239,26 @@ public partial class ChannelsPageViewModel : ObservableObject
         SelectedFilter = null;
         _runtimeMemoryStore.Set<string?>(LastUsedChannelFilterThisSession, null);
         _telemetry.TrackEvent(TelemetryConstants.ChannelFilterCleared);
+    }
+
+    [RelayCommand]
+    private async Task PreviewSelectedChannelAsync()
+    {
+        if (SelectedChannel?.Channel.SoundIds.FirstOrDefault() is not { Length: > 0 } soundId)
+        {
+            return;
+        }
+
+        IReadOnlyList<Sound> sounds = await _catalogueService.GetSoundsAsync([soundId]);
+        if (sounds is [Sound sound, ..] && sound.PreviewFilePath is { Length: > 0 })
+        {
+            _previewService.Play(sound.PreviewFilePath);
+        }
+    }
+
+    [RelayCommand]
+    private void StopPreviewPlayback()
+    {
+        _previewService.Stop();
     }
 }
