@@ -1,10 +1,15 @@
-﻿using AmbientSounds.ViewModels;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.ViewModels;
 using JeniusApps.Common.Telemetry;
+using JeniusApps.Common.Tools;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Toolkit.Uwp.UI;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading;
+using Windows.Media.Core;
+using Windows.Media.Playback;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -28,7 +33,6 @@ public sealed partial class ChannelsPage : Page
     {
         App.Services.GetRequiredService<ITelemetry>().TrackPageView(nameof(ChannelsPage));
         ViewModel.PropertyChanged += OnPropertyChanged;
-        ViewModel.GridVideoPlayed += OnVideoPlayed;
 
         _cts ??= new();
 
@@ -46,8 +50,9 @@ public sealed partial class ChannelsPage : Page
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)
     {
+        PreviewVideoPlayer.MediaPlayer?.Pause();
+
         ViewModel.PropertyChanged -= OnPropertyChanged;
-        ViewModel.GridVideoPlayed -= OnVideoPlayed;
         _cts?.Cancel();
         _cts = null;
         ViewModel.Uninitialize();
@@ -55,33 +60,67 @@ public sealed partial class ChannelsPage : Page
 
     private async void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
     {
-        if (e.PropertyName == nameof(ViewModel.SelectedChannel) && ViewModel.SelectedChannel is not null)
+        if (e.PropertyName == nameof(ViewModel.SelectedChannel) && ViewModel.SelectedChannel is { } channel)
         {
+            PreviewVideoPlayer.Visibility = Visibility.Collapsed;
             await ManualContentFadeIn.StartAsync();
+
+            var success = TryLoadVideoPreview(ViewModel.SelectedChannel?.Channel.VideoPreviewUrl);
+            PreviewButton.Visibility = success ? Visibility.Visible : Visibility.Collapsed;
         }
     }
 
-    private void OnGridViewLoaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+    private bool TryLoadVideoPreview(string? videoUrl)
     {
-        if (sender is GridView gridView)
+        if (!App.Services.GetRequiredService<IExperimentationService>().IsEnabled(ExperimentConstants.ChannelPreview))
         {
-            ScrollViewer? s = gridView.FindDescendant<ScrollViewer>();
-            if (s is not null)
-            {
-                s.CanContentRenderOutsideBounds = true;
-            }
+            return false;
         }
+
+        if (videoUrl is { Length: > 0 } && Uri.TryCreate(videoUrl, UriKind.Absolute, out Uri uri))
+        {
+            PreviewVideoPlayer.Source = MediaSource.CreateFromUri(uri);
+            PreviewVideoPlayer.MediaPlayer.MediaEnded -= OnMediaEnded;
+            PreviewVideoPlayer.MediaPlayer.MediaEnded += OnMediaEnded;
+            return true;
+        }
+
+        return false;
     }
 
-    private void OnVideoPlayed(object sender, ChannelViewModel vm)
+    private void OnMediaEnded(MediaPlayer sender, object args)
     {
-        //var animation = ChannelsGrid.PrepareConnectedAnimation("channelVideoClicked", vm, "ImageRect");
-        //animation.Configuration = new BasicConnectedAnimationConfiguration();
+        App.Services.GetRequiredService<IDispatcherQueue>().TryEnqueue(() =>
+        {
+            PreviewButton.Visibility = Visibility.Visible;
+            ViewModel.StopPreviewPlaybackCommand.Execute(null);
+        });
     }
 
-    private async void OnClosePaneClicked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+    private async void OnClosePaneClicked(object sender, RoutedEventArgs e)
     {
+        PreviewVideoPlayer.MediaPlayer.Pause();
+        PreviewVideoPlayer.MediaPlayer.MediaEnded -= OnMediaEnded;
+
         await PaneFadeOut.StartAsync();
         ViewModel.CloseDetailsCommand.Execute(null);
+        PreviewVideoPlayer.Visibility = Visibility.Collapsed;
+        PreviewButton.Visibility = Visibility.Collapsed;
+    }
+
+    private void OnPreviewButtonClicked(object sender, RoutedEventArgs e)
+    {
+        if (PreviewVideoPlayer.MediaPlayer.PlaybackSession.PlaybackState is MediaPlaybackState.Paused)
+        {
+            App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.ChannelPreviewClicked, new Dictionary<string, string>
+            {
+                { "name", ViewModel.SelectedChannel?.Name ?? "" }
+            },
+            logLevel: LogLevel.Critical);
+            PreviewButton.Visibility = Visibility.Collapsed;
+            PreviewVideoPlayer.Visibility = Visibility.Visible;
+            PreviewVideoPlayer.MediaPlayer.Play();
+            ViewModel.PreviewSelectedChannelCommand.Execute(null);
+        }
     }
 }
