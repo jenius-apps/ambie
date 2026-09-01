@@ -16,8 +16,8 @@ public class ExperimentConstants
     public static IReadOnlyList<string> AllKeys { get; } =
     [
         // add experiment constants here
-        //CataloguePageFilter,
+        ChannelPreview,
     ];
 
-    //public const string CataloguePageFilter = nameof(CataloguePageFilter);
+    public const string ChannelPreview = nameof(ChannelPreview);
 }

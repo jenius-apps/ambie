@@ -1,9 +1,10 @@
-﻿using AmbientSounds.ViewModels;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.ViewModels;
 using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Toolkit.Uwp.UI;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading;
 using Windows.Media.Core;
@@ -69,6 +70,11 @@ public sealed partial class ChannelsPage : Page
 
     private bool TryLoadVideoPreview(string? videoUrl)
     {
+        if (!App.Services.GetRequiredService<IExperimentationService>().IsEnabled(ExperimentConstants.ChannelPreview))
+        {
+            return false;
+        }
+
         if (videoUrl is { Length: > 0 } && Uri.TryCreate(videoUrl, UriKind.Absolute, out Uri uri))
         {
             PreviewVideoPlayer.Source = MediaSource.CreateFromUri(uri);
@@ -103,6 +109,11 @@ public sealed partial class ChannelsPage : Page
     {
         if (PreviewVideoPlayer.MediaPlayer.PlaybackSession.PlaybackState is MediaPlaybackState.Paused)
         {
+            App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.ChannelPreviewClicked, new Dictionary<string, string>
+            {
+                { "name", ViewModel.SelectedChannel?.Name ?? "" }
+            },
+            logLevel: LogLevel.Critical);
             PreviewButton.Visibility = Visibility.Collapsed;
             PreviewVideoPlayer.Visibility = Visibility.Visible;
             PreviewVideoPlayer.MediaPlayer.Play();
