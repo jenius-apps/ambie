@@ -248,11 +248,11 @@
                     <Border x:Name="ShadowTarget" />
 
                     <Grid
-                        Margin="12"
-                        Background="{ThemeResource SolidBackgroundFillColorQuarternaryBrush}"
-                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                        Margin="8"
+                        Background="{ThemeResource DefaultPageBackgroundBrush}"
+                        BorderBrush="{ThemeResource SurfaceStrokeColorInverseBrush}"
                         BorderThickness="1"
-                        CornerRadius="16">
+                        CornerRadius="20">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto" />
                             <RowDefinition Height="*" />
@@ -262,17 +262,17 @@
                         <!--  opacity 0.2 for light, 0.3 or 0.5 for dark  -->
                         <ui:Effects.Shadow>
                             <ui:AttachedDropShadow
-                                BlurRadius="80"
+                                BlurRadius="30"
                                 CastTo="{x:Bind ShadowTarget}"
-                                CornerRadius="16"
-                                Opacity="0.2"
-                                Offset="0,12" />
+                                CornerRadius="8"
+                                Opacity="0.1"
+                                Offset="-4,4" />
                         </ui:Effects.Shadow>
 
                         <Grid Margin="0,48,0,0">
                             <AutoSuggestBox
                                 x:Name="SearchBox"
-                                Margin="8,0,8,0"
+                                Margin="12,0"
                                 VerticalContentAlignment="Center"
                                 DisplayMemberPath="Name"
                                 FontSize="12"
