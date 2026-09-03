@@ -80,8 +80,12 @@ public sealed partial class ChannelsPage : Page
         if (videoUrl is { Length: > 0 } && Uri.TryCreate(videoUrl, UriKind.Absolute, out Uri uri))
         {
             PreviewVideoPlayer.Source = MediaSource.CreateFromUri(uri);
-            PreviewVideoPlayer.MediaPlayer.MediaEnded -= OnMediaEnded;
-            PreviewVideoPlayer.MediaPlayer.MediaEnded += OnMediaEnded;
+
+            if (PreviewVideoPlayer.MediaPlayer is { } player)
+            {
+                player.MediaEnded -= OnMediaEnded;
+                player.MediaEnded += OnMediaEnded;
+            }
             return true;
         }
 
@@ -99,8 +103,11 @@ public sealed partial class ChannelsPage : Page
 
     private async void OnClosePaneClicked(object sender, RoutedEventArgs e)
     {
-        PreviewVideoPlayer.MediaPlayer.Pause();
-        PreviewVideoPlayer.MediaPlayer.MediaEnded -= OnMediaEnded;
+        if (PreviewVideoPlayer.MediaPlayer is { } player)
+        {
+            player.Pause();
+            player.MediaEnded -= OnMediaEnded;
+        }
 
         await PaneFadeOut.StartAsync();
         ViewModel.CloseDetailsCommand.Execute(null);
@@ -110,7 +117,7 @@ public sealed partial class ChannelsPage : Page
 
     private void OnPreviewButtonClicked(object sender, RoutedEventArgs e)
     {
-        if (PreviewVideoPlayer.MediaPlayer.PlaybackSession.PlaybackState is MediaPlaybackState.Paused)
+        if (PreviewVideoPlayer.MediaPlayer?.PlaybackSession.PlaybackState is MediaPlaybackState.Paused)
         {
             App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.ChannelPreviewClicked, new Dictionary<string, string>
             {
