@@ -26,7 +26,7 @@
                         <AdaptiveTrigger MinWindowWidth="{StaticResource PageBreakpoint1920}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="RootSplitView.OpenPaneLength" Value="332" />
+                        <Setter Target="SidebarColumn.Width" Value="332" />
                         <Setter Target="PlayerPanelGrid.Margin" Value="332,0,0,0" />
                     </VisualState.Setters>
                 </VisualState>
@@ -35,7 +35,7 @@
                         <AdaptiveTrigger MinWindowWidth="{StaticResource PageBreakpoint1260}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="RootSplitView.OpenPaneLength" Value="244" />
+                        <Setter Target="SidebarColumn.Width" Value="244" />
                         <Setter Target="PlayerPanelGrid.Margin" Value="244,0,0,0" />
                     </VisualState.Setters>
                 </VisualState>
@@ -44,7 +44,7 @@
                         <AdaptiveTrigger MinWindowWidth="{StaticResource PageBreakpoint920}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="RootSplitView.OpenPaneLength" Value="200" />
+                        <Setter Target="SidebarColumn.Width" Value="200" />
                         <Setter Target="PlayerPanelGrid.Margin" Value="200,0,0,0" />
                     </VisualState.Setters>
                 </VisualState>
@@ -74,7 +74,7 @@
                         <StateTrigger IsActive="{x:Bind ViewModel.SidePanelMica, Mode=OneWay}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="RootSplitView.PaneBackground" Value="Transparent" />
+                        <!--<Setter Target="RootSplitView.PaneBackground" Value="Transparent" />-->
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -242,302 +242,301 @@
             </StackPanel>
         </Grid>
 
-        <controls:SplitView x:Name="RootSplitView" OpenPaneLength="72">
-            <controls:SplitView.Pane>
-                <Grid>
-                    <Border x:Name="ShadowTarget" />
+        <Grid x:Name="RootSplitView">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="SidebarColumn" Width="72" />
+                <ColumnDefinition x:Name="MainContentColumn" Width="*" />
+            </Grid.ColumnDefinitions>
 
-                    <Grid
-                        Margin="8"
-                        Background="{ThemeResource DefaultPageBackgroundBrush}"
-                        BorderBrush="{ThemeResource SurfaceStrokeColorInverseBrush}"
-                        BorderThickness="1"
-                        CornerRadius="20">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="auto" />
-                        </Grid.RowDefinitions>
+            <Border x:Name="ShadowTarget" Grid.ColumnSpan="2" />
 
-                        <!--  opacity 0.2 for light, 0.3 or 0.5 for dark  -->
-                        <ui:Effects.Shadow>
-                            <ui:AttachedDropShadow
-                                BlurRadius="30"
-                                CastTo="{x:Bind ShadowTarget}"
-                                CornerRadius="8"
-                                Opacity="0.1"
-                                Offset="-4,4" />
-                        </ui:Effects.Shadow>
+            <Grid
+                Margin="8"
+                Background="{ThemeResource DefaultPageBackgroundBrush}"
+                BorderBrush="{ThemeResource SurfaceStrokeColorInverseBrush}"
+                BorderThickness="1"
+                CornerRadius="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
 
-                        <Grid Margin="0,48,0,0">
-                            <AutoSuggestBox
-                                x:Name="SearchBox"
-                                Margin="12,0"
-                                VerticalContentAlignment="Center"
-                                DisplayMemberPath="Name"
-                                FontSize="12"
-                                ItemsSource="{x:Bind ViewModel.SearchAutosuggestItems, Mode=OneWay}"
-                                PlaceholderText="{x:Bind strings:Resources.SearchText}"
-                                QueryIcon="Find"
-                                QuerySubmitted="OnQuerySubmitted"
-                                TextChanged="OnTextChanged" />
+                <!--  opacity 0.2 for light, 0.3 or 0.5 for dark  -->
+                <ui:Effects.Shadow>
+                    <ui:AttachedDropShadow
+                        BlurRadius="30"
+                        CastTo="{x:Bind ShadowTarget}"
+                        CornerRadius="8"
+                        Opacity="0.1"
+                        Offset="0,4" />
+                </ui:Effects.Shadow>
 
-                            <Button
-                                x:Name="SearchButton"
-                                Height="32"
-                                Margin="8,0,8,0"
-                                HorizontalAlignment="Stretch"
-                                Background="Transparent"
-                                BorderBrush="Transparent"
+                <Grid Margin="0,48,0,0">
+                    <AutoSuggestBox
+                        x:Name="SearchBox"
+                        Margin="12,0"
+                        VerticalContentAlignment="Center"
+                        DisplayMemberPath="Name"
+                        FontSize="12"
+                        ItemsSource="{x:Bind ViewModel.SearchAutosuggestItems, Mode=OneWay}"
+                        PlaceholderText="{x:Bind strings:Resources.SearchText}"
+                        QueryIcon="Find"
+                        QuerySubmitted="OnQuerySubmitted"
+                        TextChanged="OnTextChanged" />
+
+                    <Button
+                        x:Name="SearchButton"
+                        Height="32"
+                        Margin="8,0,8,0"
+                        HorizontalAlignment="Stretch"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Visibility="Collapsed">
+                        <FontIcon
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            FontSize="16"
+                            Glyph="{StaticResource GlyphFind}" />
+                        <Button.Flyout>
+                            <Flyout x:Name="SearchFlyout" Placement="Right">
+                                <AutoSuggestBox
+                                    Width="200"
+                                    VerticalContentAlignment="Center"
+                                    FontSize="12"
+                                    PlaceholderText="{x:Bind strings:Resources.SearchText}"
+                                    QueryIcon="Find"
+                                    QuerySubmitted="OnQuerySubmitted" />
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
+                </Grid>
+
+                <ItemsControl
+                    Grid.Row="1"
+                    Margin="0,8,0,0"
+                    ItemsSource="{x:Bind ViewModel.MenuItems}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="models:MenuItem">
+                            <controls:MenuItemControl
+                                Command="{x:Bind ActionCommand}"
+                                CommandParameter="{x:Bind}"
+                                Glyph="{x:Bind Glyph}"
+                                IsSelected="{x:Bind IsSelected, Mode=OneWay}"
+                                Text="{x:Bind Text}"
+                                ToolTipSubtitle="{x:Bind ToolTipSubtitle}"
+                                ToolTipText="{x:Bind ToolTipText}" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <StackPanel Grid.Row="2" Margin="0,8">
+                    <HyperlinkButton
+                        x:Name="InAppShareButton"
+                        Margin="12,0"
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Left"
+                        AutomationProperties.Name="{x:Bind strings:Resources.ShareText}"
+                        Click="InAppShareOpened"
+                        Visibility="{x:Bind ViewModel.ShareLinkVisible, Mode=OneWay}">
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon
+                                x:Name="InAppShareIcon"
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                Glyph="{StaticResource GlyphInAppShare}"
                                 Visibility="Collapsed">
-                                <FontIcon
-                                    FontFamily="{StaticResource FluentUIGlyphs}"
-                                    FontSize="16"
-                                    Glyph="{StaticResource GlyphFind}" />
-                                <Button.Flyout>
-                                    <Flyout x:Name="SearchFlyout" Placement="Right">
-                                        <AutoSuggestBox
-                                            Width="200"
+                                <animations:Implicit.ShowAnimations>
+                                    <animations:OpacityAnimation
+                                        From="0"
+                                        To="1"
+                                        Duration="0:0:0.6" />
+                                </animations:Implicit.ShowAnimations>
+                            </FontIcon>
+                            <TextBlock
+                                x:Name="InAppShareText"
+                                VerticalAlignment="Center"
+                                Text="{x:Bind strings:Resources.ShareText}">
+                                <animations:Implicit.ShowAnimations>
+                                    <animations:OpacityAnimation
+                                        From="0"
+                                        To="1"
+                                        Duration="0:0:0.6" />
+                                </animations:Implicit.ShowAnimations>
+                            </TextBlock>
+                        </StackPanel>
+
+                        <FlyoutBase.AttachedFlyout>
+                            <Flyout Placement="TopEdgeAlignedLeft">
+                                <Flyout.FlyoutPresenterStyle>
+                                    <Style BasedOn="{StaticResource DefaultFlyoutPresenterStyle}" TargetType="FlyoutPresenter">
+                                        <Setter Property="Padding" Value="12" />
+                                    </Style>
+                                </Flyout.FlyoutPresenterStyle>
+                                <StackPanel Width="300">
+                                    <TextBlock
+                                        Margin="2,0,0,0"
+                                        FontSize="12"
+                                        Text="{x:Bind strings:Resources.InAppShareTitle}" />
+                                    <TextBlock
+                                        Margin="2,4,0,0"
+                                        FontSize="12"
+                                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                        Text="{x:Bind strings:Resources.InAppShareDescription}"
+                                        TextWrapping="WrapWholeWords" />
+                                    <Grid Margin="0,8,0,0" ColumnSpacing="4">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBox
                                             VerticalContentAlignment="Center"
                                             FontSize="12"
-                                            PlaceholderText="{x:Bind strings:Resources.SearchText}"
-                                            QueryIcon="Find"
-                                            QuerySubmitted="OnQuerySubmitted" />
-                                    </Flyout>
-                                </Button.Flyout>
-                            </Button>
-                        </Grid>
+                                            IsReadOnly="True"
+                                            Text="{x:Bind constants:AppConstants.InAppShareUrl}" />
+                                        <Button
+                                            Grid.Column="1"
+                                            AutomationProperties.Name="{x:Bind strings:Resources.CopyText}"
+                                            Click="InAppShareCopyClicked"
+                                            Command="{x:Bind ViewModel.InAppShareCopyCommand}"
+                                            Style="{StaticResource SmallSubtleIconButton}"
+                                            ToolTipService.ToolTip="{x:Bind strings:Resources.CopyText}">
+                                            <Grid>
+                                                <FontIcon
+                                                    x:Name="InAppShareCopySucceededIcon"
+                                                    FontFamily="{StaticResource FluentUIGlyphs}"
+                                                    FontSize="{StaticResource SmallIconSize}"
+                                                    Glyph="{StaticResource GlyphCheckMark}"
+                                                    Visibility="Collapsed">
+                                                    <animations:Implicit.ShowAnimations>
+                                                        <animations:OpacityAnimation
+                                                            From="0"
+                                                            To="1"
+                                                            Duration="0:0:0.6" />
+                                                        <animations:TranslationAnimation
+                                                            From="0,4,0"
+                                                            To="0"
+                                                            Duration="0:0:0.6" />
+                                                    </animations:Implicit.ShowAnimations>
+                                                </FontIcon>
 
-                        <ItemsControl
-                            Grid.Row="1"
-                            Margin="0,8,0,0"
-                            ItemsSource="{x:Bind ViewModel.MenuItems}">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate x:DataType="models:MenuItem">
-                                    <controls:MenuItemControl
-                                        Command="{x:Bind ActionCommand}"
-                                        CommandParameter="{x:Bind}"
-                                        Glyph="{x:Bind Glyph}"
-                                        IsSelected="{x:Bind IsSelected, Mode=OneWay}"
-                                        Text="{x:Bind Text}"
-                                        ToolTipSubtitle="{x:Bind ToolTipSubtitle}"
-                                        ToolTipText="{x:Bind ToolTipText}" />
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-
-                        <StackPanel Grid.Row="2" Margin="0,8">
-                            <HyperlinkButton
-                                x:Name="InAppShareButton"
-                                Margin="12,0"
-                                HorizontalAlignment="Stretch"
-                                HorizontalContentAlignment="Left"
-                                AutomationProperties.Name="{x:Bind strings:Resources.ShareText}"
-                                Click="InAppShareOpened"
-                                Visibility="{x:Bind ViewModel.ShareLinkVisible, Mode=OneWay}">
-                                <StackPanel Orientation="Horizontal">
-                                    <FontIcon
-                                        x:Name="InAppShareIcon"
-                                        FontFamily="{StaticResource FluentUIGlyphs}"
-                                        Glyph="{StaticResource GlyphInAppShare}"
-                                        Visibility="Collapsed">
-                                        <animations:Implicit.ShowAnimations>
-                                            <animations:OpacityAnimation
-                                                From="0"
-                                                To="1"
-                                                Duration="0:0:0.6" />
-                                        </animations:Implicit.ShowAnimations>
-                                    </FontIcon>
-                                    <TextBlock
-                                        x:Name="InAppShareText"
-                                        VerticalAlignment="Center"
-                                        Text="{x:Bind strings:Resources.ShareText}">
-                                        <animations:Implicit.ShowAnimations>
-                                            <animations:OpacityAnimation
-                                                From="0"
-                                                To="1"
-                                                Duration="0:0:0.6" />
-                                        </animations:Implicit.ShowAnimations>
-                                    </TextBlock>
-                                </StackPanel>
-
-                                <FlyoutBase.AttachedFlyout>
-                                    <Flyout Placement="TopEdgeAlignedLeft">
-                                        <Flyout.FlyoutPresenterStyle>
-                                            <Style BasedOn="{StaticResource DefaultFlyoutPresenterStyle}" TargetType="FlyoutPresenter">
-                                                <Setter Property="Padding" Value="12" />
-                                            </Style>
-                                        </Flyout.FlyoutPresenterStyle>
-                                        <StackPanel Width="300">
-                                            <TextBlock
-                                                Margin="2,0,0,0"
-                                                FontSize="12"
-                                                Text="{x:Bind strings:Resources.InAppShareTitle}" />
-                                            <TextBlock
-                                                Margin="2,4,0,0"
-                                                FontSize="12"
-                                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                                Text="{x:Bind strings:Resources.InAppShareDescription}"
-                                                TextWrapping="WrapWholeWords" />
-                                            <Grid Margin="0,8,0,0" ColumnSpacing="4">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="*" />
-                                                    <ColumnDefinition Width="auto" />
-                                                </Grid.ColumnDefinitions>
-                                                <TextBox
-                                                    VerticalContentAlignment="Center"
-                                                    FontSize="12"
-                                                    IsReadOnly="True"
-                                                    Text="{x:Bind constants:AppConstants.InAppShareUrl}" />
-                                                <Button
-                                                    Grid.Column="1"
-                                                    AutomationProperties.Name="{x:Bind strings:Resources.CopyText}"
-                                                    Click="InAppShareCopyClicked"
-                                                    Command="{x:Bind ViewModel.InAppShareCopyCommand}"
-                                                    Style="{StaticResource SmallSubtleIconButton}"
-                                                    ToolTipService.ToolTip="{x:Bind strings:Resources.CopyText}">
-                                                    <Grid>
-                                                        <FontIcon
-                                                            x:Name="InAppShareCopySucceededIcon"
-                                                            FontFamily="{StaticResource FluentUIGlyphs}"
-                                                            FontSize="{StaticResource SmallIconSize}"
-                                                            Glyph="{StaticResource GlyphCheckMark}"
-                                                            Visibility="Collapsed">
-                                                            <animations:Implicit.ShowAnimations>
-                                                                <animations:OpacityAnimation
-                                                                    From="0"
-                                                                    To="1"
-                                                                    Duration="0:0:0.6" />
-                                                                <animations:TranslationAnimation
-                                                                    From="0,4,0"
-                                                                    To="0"
-                                                                    Duration="0:0:0.6" />
-                                                            </animations:Implicit.ShowAnimations>
-                                                        </FontIcon>
-
-                                                        <FontIcon
-                                                            x:Name="InAppShareCopyIcon"
-                                                            FontFamily="{StaticResource FluentUIGlyphs}"
-                                                            FontSize="{StaticResource SmallIconSize}"
-                                                            Glyph="{StaticResource GlyphCopy}">
-                                                            <animations:Implicit.ShowAnimations>
-                                                                <animations:OpacityAnimation
-                                                                    From="0"
-                                                                    To="1"
-                                                                    Duration="0:0:0.3" />
-                                                            </animations:Implicit.ShowAnimations>
-                                                        </FontIcon>
-                                                    </Grid>
-                                                </Button>
+                                                <FontIcon
+                                                    x:Name="InAppShareCopyIcon"
+                                                    FontFamily="{StaticResource FluentUIGlyphs}"
+                                                    FontSize="{StaticResource SmallIconSize}"
+                                                    Glyph="{StaticResource GlyphCopy}">
+                                                    <animations:Implicit.ShowAnimations>
+                                                        <animations:OpacityAnimation
+                                                            From="0"
+                                                            To="1"
+                                                            Duration="0:0:0.3" />
+                                                    </animations:Implicit.ShowAnimations>
+                                                </FontIcon>
                                             </Grid>
-                                        </StackPanel>
-                                    </Flyout>
-                                </FlyoutBase.AttachedFlyout>
-                            </HyperlinkButton>
-
-                            <HyperlinkButton
-                                x:Name="PremiumButton"
-                                Margin="12,0,12,4"
-                                HorizontalAlignment="Stretch"
-                                HorizontalContentAlignment="Left"
-                                AutomationProperties.Name="{x:Bind strings:Resources.GetAmbiePlus}"
-                                Command="{x:Bind ViewModel.OpenPremiumCommand}"
-                                ToolTipService.ToolTip="{x:Bind strings:Resources.GetAmbiePlus}"
-                                Visibility="{x:Bind ViewModel.PremiumButtonVisible, Mode=OneWay}">
-                                <StackPanel Orientation="Horizontal">
-                                    <FontIcon
-                                        x:Name="PremiumIcon"
-                                        FontFamily="{StaticResource FluentUIGlyphsCustom}"
-                                        Glyph="{StaticResource GlyphCustomPremium}"
-                                        Visibility="Collapsed">
-                                        <animations:Implicit.ShowAnimations>
-                                            <animations:OpacityAnimation
-                                                From="0"
-                                                To="1"
-                                                Duration="0:0:0.6" />
-                                        </animations:Implicit.ShowAnimations>
-                                    </FontIcon>
-                                    <StackPanel
-                                        x:Name="PremiumText"
-                                        Orientation="Horizontal"
-                                        Visibility="Visible">
-                                        <animations:Implicit.ShowAnimations>
-                                            <animations:OpacityAnimation
-                                                From="0"
-                                                To="1"
-                                                Duration="0:0:0.6" />
-                                        </animations:Implicit.ShowAnimations>
-                                        <TextBlock VerticalAlignment="Center" Text="{x:Bind strings:Resources.GetAmbiePlus}" />
-                                        <Border
-                                            Margin="4,0,0,0"
-                                            VerticalAlignment="Center"
-                                            Background="Gold"
-                                            CornerRadius="4"
-                                            Visibility="{x:Bind ViewModel.IsSaleTagVisible, Mode=OneWay}">
-                                            <TextBlock
-                                                Margin="4,2"
-                                                VerticalAlignment="Center"
-                                                FontSize="10"
-                                                FontWeight="Bold"
-                                                Foreground="Black"
-                                                Text="{x:Bind strings:Resources.SaleText.ToUpper()}" />
-                                        </Border>
-
-                                    </StackPanel>
+                                        </Button>
+                                    </Grid>
                                 </StackPanel>
-                            </HyperlinkButton>
+                            </Flyout>
+                        </FlyoutBase.AttachedFlyout>
+                    </HyperlinkButton>
 
-                            <ItemsControl ItemsSource="{x:Bind ViewModel.FooterItems}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate x:DataType="models:MenuItem">
-                                        <controls:MenuItemControl
-                                            Command="{x:Bind ActionCommand}"
-                                            CommandParameter="{x:Bind}"
-                                            Glyph="{x:Bind Glyph}"
-                                            IsSelected="{x:Bind IsSelected, Mode=OneWay}"
-                                            Text="{x:Bind Text}"
-                                            ToolTipSubtitle="{x:Bind ToolTipSubtitle}"
-                                            ToolTipText="{x:Bind ToolTipText}" />
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
+                    <HyperlinkButton
+                        x:Name="PremiumButton"
+                        Margin="12,0,12,4"
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Left"
+                        AutomationProperties.Name="{x:Bind strings:Resources.GetAmbiePlus}"
+                        Command="{x:Bind ViewModel.OpenPremiumCommand}"
+                        ToolTipService.ToolTip="{x:Bind strings:Resources.GetAmbiePlus}"
+                        Visibility="{x:Bind ViewModel.PremiumButtonVisible, Mode=OneWay}">
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon
+                                x:Name="PremiumIcon"
+                                FontFamily="{StaticResource FluentUIGlyphsCustom}"
+                                Glyph="{StaticResource GlyphCustomPremium}"
+                                Visibility="Collapsed">
+                                <animations:Implicit.ShowAnimations>
+                                    <animations:OpacityAnimation
+                                        From="0"
+                                        To="1"
+                                        Duration="0:0:0.6" />
+                                </animations:Implicit.ShowAnimations>
+                            </FontIcon>
+                            <StackPanel
+                                x:Name="PremiumText"
+                                Orientation="Horizontal"
+                                Visibility="Visible">
+                                <animations:Implicit.ShowAnimations>
+                                    <animations:OpacityAnimation
+                                        From="0"
+                                        To="1"
+                                        Duration="0:0:0.6" />
+                                </animations:Implicit.ShowAnimations>
+                                <TextBlock VerticalAlignment="Center" Text="{x:Bind strings:Resources.GetAmbiePlus}" />
+                                <Border
+                                    Margin="4,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Background="Gold"
+                                    CornerRadius="4"
+                                    Visibility="{x:Bind ViewModel.IsSaleTagVisible, Mode=OneWay}">
+                                    <TextBlock
+                                        Margin="4,2"
+                                        VerticalAlignment="Center"
+                                        FontSize="10"
+                                        FontWeight="Bold"
+                                        Foreground="Black"
+                                        Text="{x:Bind strings:Resources.SaleText.ToUpper()}" />
+                                </Border>
+
+                            </StackPanel>
                         </StackPanel>
-                    </Grid>
+                    </HyperlinkButton>
+
+                    <ItemsControl ItemsSource="{x:Bind ViewModel.FooterItems}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="models:MenuItem">
+                                <controls:MenuItemControl
+                                    Command="{x:Bind ActionCommand}"
+                                    CommandParameter="{x:Bind}"
+                                    Glyph="{x:Bind Glyph}"
+                                    IsSelected="{x:Bind IsSelected, Mode=OneWay}"
+                                    Text="{x:Bind Text}"
+                                    ToolTipSubtitle="{x:Bind ToolTipSubtitle}"
+                                    ToolTipText="{x:Bind ToolTipText}" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <toolkit:ImageEx
+                    x:Name="BackgroundImage"
+                    x:Load="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}"
+                    IsCacheEnabled="True"
+                    Source="{x:Bind ViewModel.BackgroundImagePath, Mode=OneWay}"
+                    Stretch="UniformToFill" />
+                <Rectangle
+                    x:Name="AcrylicLayer"
+                    x:Load="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}"
+                    Stretch="Fill">
+                    <Rectangle.Fill>
+                        <AcrylicBrush
+                            FallbackColor="{ThemeResource DefaultPageBackgroundColor}"
+                            TintColor="{ThemeResource DefaultPageBackgroundColor}"
+                            TintOpacity="0.8" />
+                    </Rectangle.Fill>
+                </Rectangle>
+
+                <Grid
+                    Height="{StaticResource TopPlayerPanelHeight}"
+                    VerticalAlignment="Top"
+                    Background="{ThemeResource SystemControlAcrylicElementBrush}"
+                    Canvas.ZIndex="1">
+                    <Rectangle VerticalAlignment="Bottom" Style="{StaticResource ModuleDividerRectStyle}" />
                 </Grid>
-            </controls:SplitView.Pane>
 
-            <controls:SplitView.MainContent>
-                <Grid x:Name="MainFrameBorder">
-                    <toolkit:ImageEx
-                        x:Name="BackgroundImage"
-                        x:Load="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}"
-                        IsCacheEnabled="True"
-                        Source="{x:Bind ViewModel.BackgroundImagePath, Mode=OneWay}"
-                        Stretch="UniformToFill" />
-                    <Rectangle
-                        x:Name="AcrylicLayer"
-                        x:Load="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}"
-                        Stretch="Fill">
-                        <Rectangle.Fill>
-                            <AcrylicBrush
-                                FallbackColor="{ThemeResource DefaultPageBackgroundColor}"
-                                TintColor="{ThemeResource DefaultPageBackgroundColor}"
-                                TintOpacity="0.8" />
-                        </Rectangle.Fill>
-                    </Rectangle>
-
-                    <Grid
-                        Height="{StaticResource TopPlayerPanelHeight}"
-                        VerticalAlignment="Top"
-                        Background="{ThemeResource SystemControlAcrylicElementBrush}"
-                        Canvas.ZIndex="1">
-                        <Rectangle VerticalAlignment="Bottom" Style="{StaticResource ModuleDividerRectStyle}" />
-                    </Grid>
-
-                    <Frame x:Name="MainFrame" Margin="{StaticResource TopPlayerPageMargin}" />
-                </Grid>
-            </controls:SplitView.MainContent>
-        </controls:SplitView>
+                <Frame x:Name="MainFrame" Margin="{StaticResource TopPlayerPageMargin}" />
+            </Grid>
+        </Grid>
 
         <winui:TeachingTip
             Title="{x:Bind strings:Resources.HelloAgain}"
