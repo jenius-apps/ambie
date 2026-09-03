@@ -20,6 +20,11 @@
                         <GradientStop Offset="0.5" Color="#00FFFFFF" />
                     </LinearGradientBrush>
 
+                    <LinearGradientBrush x:Key="WindowEdgeGradientBrush" StartPoint="0.5,1" EndPoint="0.5,0">
+                        <GradientStop Offset="0" Color="#00F0F4F9" />
+                        <GradientStop Offset="0.99" Color="#FFF0F4F9" />
+                    </LinearGradientBrush>
+
                     <Color x:Key="DefaultPageBackgroundColor">#f8f8f8</Color>
                     <SolidColorBrush x:Key="DefaultPageBackgroundBrush" Color="#f8f8f8" />
 
@@ -43,6 +48,11 @@
                         <GradientStop Offset="0.5" Color="#002B2B2B" />
                     </LinearGradientBrush>
 
+                    <LinearGradientBrush x:Key="WindowEdgeGradientBrush" StartPoint="0.5,1" EndPoint="0.5,0">
+                        <GradientStop Offset="0" Color="#00202020" />
+                        <GradientStop Offset="0.99" Color="#FF202020" />
+                    </LinearGradientBrush>
+
                     <Color x:Key="DefaultPageBackgroundColor">#121212</Color>
                     <SolidColorBrush x:Key="DefaultPageBackgroundBrush" Color="#121212" />
 
@@ -62,6 +72,7 @@
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="HighContrast">
                     <StaticResource x:Key="ContentDialogBackdropGradientBrush" ResourceKey="SystemColorWindowColor" />
+                    <StaticResource x:Key="WindowEdgeGradientBrush" ResourceKey="SystemColorWindowColor" />
                     <StaticResource x:Key="DefaultPageBackgroundColor" ResourceKey="SystemColorWindowColor" />
                     <StaticResource x:Key="DefaultPageBackgroundBrush" ResourceKey="SystemColorWindowColor" />
                     <SolidColorBrush x:Key="FallbackBackgroundBrush" Color="{StaticResource SystemColorWindowColor}" />
