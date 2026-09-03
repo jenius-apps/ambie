@@ -312,6 +312,12 @@
                 Style="{StaticResource RoundButtonStyle}"
                 ToolTipService.ToolTip="{x:Bind strings:Resources.Preview}"
                 Visibility="Collapsed">
+                <Button.Resources>
+                    <StaticResource x:Key="ButtonBackground" ResourceKey="ControlOnImageFillColorDefaultBrush" />
+                    <StaticResource x:Key="ButtonBackgroundPointerOver" ResourceKey="ControlOnImageFillColorSecondaryBrush" />
+                    <StaticResource x:Key="ButtonBackgroundPressed" ResourceKey="ControlOnImageFillColorTertiaryBrush" />
+                </Button.Resources>
+
                 <ani:Implicit.ShowAnimations>
                     <ani:OpacityAnimation
                         From="0"
