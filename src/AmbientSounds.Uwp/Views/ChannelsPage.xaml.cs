@@ -72,11 +72,6 @@ public sealed partial class ChannelsPage : Page
 
     private bool TryLoadVideoPreview(string? videoUrl)
     {
-        if (!App.Services.GetRequiredService<IExperimentationService>().IsEnabled(ExperimentConstants.ChannelPreview))
-        {
-            return false;
-        }
-
         if (videoUrl is { Length: > 0 } && Uri.TryCreate(videoUrl, UriKind.Absolute, out Uri uri))
         {
             PreviewVideoPlayer.Source = MediaSource.CreateFromUri(uri);
