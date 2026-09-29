@@ -259,7 +259,7 @@
             <Grid
                 Margin="8"
                 Background="{ThemeResource DefaultPageBackgroundBrush}"
-                BorderBrush="{ThemeResource SurfaceStrokeColorInverseBrush}"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                 BorderThickness="1"
                 CornerRadius="20">
                 <Grid.RowDefinitions>
@@ -274,7 +274,7 @@
                         BlurRadius="20"
                         CastTo="{x:Bind ShadowTarget}"
                         CornerRadius="8"
-                        Opacity="0.1"
+                        Opacity="0"
                         Offset="0,4" />
                 </ui:Effects.Shadow>
 
