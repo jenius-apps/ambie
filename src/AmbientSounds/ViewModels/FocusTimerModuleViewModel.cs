@@ -556,6 +556,19 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         return true;
     }
 
+    public async Task<bool> EditTaskAsync(string task, int index)
+    {
+        FocusTaskViewModel? taskToEdit = FocusTasks.ElementAtOrDefault(index);
+        if (taskToEdit is null)
+        {
+            return false;
+        }
+
+        taskToEdit.Text = task;
+        await _taskService.UpdateTextAsync(taskToEdit.Task.Id, task);
+        return true;
+    }
+
     private void UpdatePlayEnabled()
     {
         PlayEnabled = _focusService.CanStartSession(FocusLength, RestLength);
