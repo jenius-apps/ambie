@@ -26,7 +26,7 @@
                     </LinearGradientBrush>
 
                     <Color x:Key="DefaultPageBackgroundColor">#f8f8f8</Color>
-                    <SolidColorBrush x:Key="DefaultPageBackgroundBrush" Color="{StaticResource ControlStrongStrokeColorDefault}" />
+                    <SolidColorBrush x:Key="DefaultPageBackgroundBrush" Color="#C9EBEBEB" />
 
                     <SolidColorBrush x:Key="ProgressRingGhostForeground" Color="#32000000" />
                     <SolidColorBrush x:Key="FallbackBackgroundBrush" Color="#e9e9e9" />
