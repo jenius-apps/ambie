@@ -301,7 +301,7 @@
                 </Border>
 
                 <local:TaskTicker
-                    AddNewTaskRequested="OnNewTaskRequested"
+                    ChangeRequested="OnTaskChangeRequested"
                     ItemsSource="{x:Bind ViewModel.FocusTasks}"
                     SelectedIndex="{x:Bind ViewModel.SelectedTaskIndex, Mode=TwoWay}" />
             </Grid>

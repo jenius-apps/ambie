@@ -28,21 +28,36 @@ public sealed partial class CompactFocusTimerModule : UserControl
         ViewModel.Uninitialize();
     }
 
-    private async void OnNewTaskRequested(object sender, string newTaskText)
+    private async void OnTaskChangeRequested(object sender, Events.TaskTickerChangeRequested e)
     {
-        if (string.IsNullOrEmpty(newTaskText))
+        if (string.IsNullOrEmpty(e.NewText))
         {
             return;
         }
 
-        bool success = await ViewModel.AddTaskAsync(newTaskText);
-
-        if (success)
+        if (e.ChangeType is Events.TaskTickerChangeType.Add)
         {
-            App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.TaskAdded, new Dictionary<string, string>
+
+            bool success = await ViewModel.AddTaskAsync(e.NewText);
+
+            if (success)
             {
-                { "location", "ambieMini" }
-            });
+                App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.TaskAdded, new Dictionary<string, string>
+                {
+                    { "location", "ambieMini" }
+                });
+            }
+        }
+        else if (e.ChangeType is Events.TaskTickerChangeType.Edit && e.Index is int index)
+        {
+            bool success = await ViewModel.EditTaskAsync(e.NewText, index);
+            if (success)
+            {
+                App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.TaskEdited, new Dictionary<string, string>
+                {
+                    { "location", "ambieMini" }
+                });
+            }
         }
     }
 }

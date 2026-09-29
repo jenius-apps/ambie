@@ -1,4 +1,5 @@
-﻿using AmbientSounds.ViewModels;
+﻿using AmbientSounds.Events;
+using AmbientSounds.ViewModels;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -12,7 +13,9 @@ namespace AmbientSounds.Controls;
 
 public sealed partial class TaskTicker : ObservableUserControl
 {
-    public event EventHandler<string>? AddNewTaskRequested;
+    private bool _editing;
+
+    public event EventHandler<TaskTickerChangeRequested>? ChangeRequested;
 
     public static readonly DependencyProperty ItemsSourceProperty = DependencyProperty.Register(
         nameof(ItemsSource),
@@ -154,6 +157,20 @@ public sealed partial class TaskTicker : ObservableUserControl
         RealCheckBox.IsChecked = CurrentTaskCompleted;
     }
 
+    private void Edit(object sender, RoutedEventArgs e)
+    {
+        if (ItemsSource is not { Count: > 0} items)
+        {
+            return;
+        }
+
+        _editing = true;
+        InputTextBox.Text = items[SelectedIndex].Text;
+        NewTaskPanelVisible = true;
+        InputTextBox.Focus(FocusState.Programmatic);
+        InputTextBox.SelectAll();
+    }
+
     private async void Next(object sender, RoutedEventArgs e)
     {
         if (NewTaskButtonVisible)
@@ -255,8 +272,14 @@ public sealed partial class TaskTicker : ObservableUserControl
         if (!string.IsNullOrWhiteSpace(NewTaskInput))
         {
             NewTaskPanelVisible = false;
-            AddNewTaskRequested?.Invoke(this, NewTaskInput);
+            ChangeRequested?.Invoke(this, new TaskTickerChangeRequested(_editing ? TaskTickerChangeType.Edit : TaskTickerChangeType.Add, NewTaskInput, _editing ? SelectedIndex : null));
+            if (_editing)
+            {
+                CurrentTaskText = NewTaskInput;
+            }
+
             NewTaskInput = string.Empty;
+            _editing = false;
         }
     }
 
@@ -264,6 +287,7 @@ public sealed partial class TaskTicker : ObservableUserControl
     {
         NewTaskPanelVisible = false;
         NewTaskInput = string.Empty;
+        _editing = false;
     }
 
     private void OnInputKeyDown(object sender, KeyRoutedEventArgs e)

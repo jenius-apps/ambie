@@ -114,6 +114,8 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         IsHelpMessageVisible = !userSettings.Get<bool>(UserSettingsConstants.HasClosedFocusHelpMessageKey);
         UpdateButtonStates();
         InterruptionCommand = new AsyncRelayCommand(LogInterruptionAsync);
+
+        RecentSettings.CollectionChanged += (s, e) => OnPropertyChanged(nameof(IsRecentVisible));
     }
 
     [ObservableProperty]
@@ -296,7 +298,6 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
         IReadOnlyList<FocusInterruption> interruptions = await recentInterruptionTask;
         InsightsVisible = interruptions.Count > 0;
-        OnPropertyChanged(nameof(IsRecentVisible));
 
         UpdateButtonStates();
     }
@@ -552,6 +553,19 @@ public partial class FocusTimerModuleViewModel : ObservableObject
             displayTitle: _localizer.GetString("TaskTitle", index.ToString())));
 
         SelectedTaskIndex = FocusTasks.Count - 1;
+        return true;
+    }
+
+    public async Task<bool> EditTaskAsync(string task, int index)
+    {
+        FocusTaskViewModel? taskToEdit = FocusTasks.ElementAtOrDefault(index);
+        if (taskToEdit is null)
+        {
+            return false;
+        }
+
+        taskToEdit.Text = task;
+        await _taskService.UpdateTextAsync(taskToEdit.Task.Id, task);
         return true;
     }
 
