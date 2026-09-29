@@ -27,7 +27,7 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="SidebarColumn.Width" Value="332" />
-                        <Setter Target="PlayerPanelGrid.Margin" Value="332,0,0,0" />
+                        <Setter Target="PlayerPanelGrid.Margin" Value="328,8,0,0" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState>
@@ -36,7 +36,7 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="SidebarColumn.Width" Value="244" />
-                        <Setter Target="PlayerPanelGrid.Margin" Value="244,0,0,0" />
+                        <Setter Target="PlayerPanelGrid.Margin" Value="240,8,0,0" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState>
@@ -45,7 +45,7 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="SidebarColumn.Width" Value="200" />
-                        <Setter Target="PlayerPanelGrid.Margin" Value="200,0,0,0" />
+                        <Setter Target="PlayerPanelGrid.Margin" Value="200,8,0,0" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState>
@@ -173,17 +173,23 @@
         <Grid
             x:Name="PlayerPanelGrid"
             Height="{StaticResource TopPlayerPanelHeight}"
-            Margin="72,0,0,0"
+            Margin="68,8,0,0"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Top"
             Canvas.ZIndex="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="180" />
+                <ColumnDefinition Width="200" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="auto" MinWidth="180" />
             </Grid.ColumnDefinitions>
 
-            <controls:PlayerControl Margin="8,0,0,0" />
+            <Grid
+                Background="{ThemeResource AcrylicInAppFillColorDefaultBrush}"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="20">
+                <controls:PlayerControl Margin="8,0,24,0" HorizontalAlignment="Stretch" />
+            </Grid>
 
             <controls:ActiveTrackList
                 x:Name="TrackList"
@@ -194,7 +200,7 @@
 
             <StackPanel
                 Grid.Column="2"
-                Margin="0,0,8,4"
+                Margin="0,0,8,12"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom"
                 Orientation="Horizontal"
