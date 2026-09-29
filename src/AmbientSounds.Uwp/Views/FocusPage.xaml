@@ -56,7 +56,7 @@
                 <!--  Task module  -->
                 <controls:FocusTaskModule
                     x:Name="TaskModule"
-                    Margin="0,8,0,0"
+                    Margin="0,4,0,0"
                     Visibility="{x:Bind ViewModel.TaskModuleVisible, Mode=OneWay}">
                     <ani:Implicit.ShowAnimations>
                         <ani:OpacityAnimation
@@ -73,7 +73,10 @@
                 </controls:FocusTaskModule>
 
                 <!--  notepad module  -->
-                <Grid Margin="0,24,0,0">
+                <Grid
+                    Margin="0,4,0,0"
+                    Padding="24,16,24,24"
+                    Style="{StaticResource CardStyle}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
                         <RowDefinition Height="auto" />
@@ -115,7 +118,7 @@
                         Unloaded="OnUnloaded" />
                 </Grid>
 
-                <controls:FocusHistoryModule x:Name="HistoryModule" Margin="0,24,0,0">
+                <controls:FocusHistoryModule x:Name="HistoryModule" Margin="0,4,0,0">
                     <ani:Implicit.ShowAnimations>
                         <ani:OpacityAnimation
                             Delay="0:0:0.15"

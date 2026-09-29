@@ -54,7 +54,7 @@
         -->
         <Grid
             x:Name="TaskTickerPanel"
-            Padding="12,0,0,0"
+            Padding="-2,0,0,0"
             Background="Transparent"
             PointerWheelChanged="OnPointerWheelChanged">
             <Grid.ColumnDefinitions>
@@ -73,8 +73,7 @@
                     Duration="0:0:0.3" />
             </animations:Implicit.ShowAnimations>
 
-
-            <Grid Margin="0,1,0,0">
+            <Grid>
                 <animations:Explicit.Animations>
                     <animations:AnimationSet x:Name="TaskEntraceFromRight">
                         <animations:TranslationAnimation
@@ -99,7 +98,19 @@
                 </animations:Explicit.Animations>
 
                 <StackPanel Orientation="Horizontal" Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(PlaceHolderVisible), Mode=OneWay}">
-                    <Viewbox Width="24" Height="24">
+                    <Button Click="Edit" Style="{StaticResource TaskArrowButtonStyle}">
+                        <FontIcon
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            FontSize="10"
+                            FontWeight="Bold"
+                            Glyph="{StaticResource GlyphEditMirrored}" />
+                    </Button>
+
+                    <Viewbox
+                        Width="24"
+                        Height="24"
+                        Margin="1,1,0,0"
+                        Canvas.ZIndex="1">
                         <CheckBox
                             x:Name="RealCheckBox"
                             Margin="0,0,-92,0"
@@ -108,6 +119,7 @@
                     </Viewbox>
 
                     <TextBlock
+                        Margin="0,1,0,0"
                         VerticalAlignment="Center"
                         FontSize="12"
                         Foreground="{ThemeResource TextFillColorSecondaryBrush}"
