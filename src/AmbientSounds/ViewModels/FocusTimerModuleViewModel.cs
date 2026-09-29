@@ -114,6 +114,8 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         IsHelpMessageVisible = !userSettings.Get<bool>(UserSettingsConstants.HasClosedFocusHelpMessageKey);
         UpdateButtonStates();
         InterruptionCommand = new AsyncRelayCommand(LogInterruptionAsync);
+
+        RecentSettings.CollectionChanged += (s, e) => OnPropertyChanged(nameof(IsRecentVisible));
     }
 
     [ObservableProperty]
@@ -296,7 +298,6 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
         IReadOnlyList<FocusInterruption> interruptions = await recentInterruptionTask;
         InsightsVisible = interruptions.Count > 0;
-        OnPropertyChanged(nameof(IsRecentVisible));
 
         UpdateButtonStates();
     }
