@@ -35,7 +35,7 @@
                             <BitmapImage
                                 DecodePixelType="Logical"
                                 DecodePixelWidth="200"
-                                UriSource="ms-appx:///Assets/Backgrounds/sand.png" />
+                                UriSource="ms-appx:///Assets/sand300.png" />
                         </ImageBrush.ImageSource>
                     </ImageBrush>
                 </Border.Background>

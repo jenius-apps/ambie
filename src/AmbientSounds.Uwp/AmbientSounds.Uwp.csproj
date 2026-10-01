@@ -420,6 +420,7 @@
     <Content Include="Assets\LargeTile.scale-400.png" />
     <Content Include="Assets\markerpadHero.png" />
     <Content Include="Assets\markerpadPlatedIcon.png" />
+    <Content Include="Assets\sand300.png" />
     <Content Include="Assets\SmallTile.scale-100.png" />
     <Content Include="Assets\SmallTile.scale-125.png" />
     <Content Include="Assets\SmallTile.scale-150.png" />
