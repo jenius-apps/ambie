@@ -1,7 +1,6 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
-using AmbientSounds.Tools;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using JeniusApps.Common.PushNotifications;
@@ -11,17 +10,12 @@ using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using IAssetsReader = AmbientSounds.Tools.IAssetsReader;
 
 namespace AmbientSounds.ViewModels;
 
 public partial class SettingsViewModel : ObservableObject
 {
-    private const string NoneImageName = "znone.png";
-    private readonly IImagePicker _imagePicker;
-    private readonly IAssetsReader _assetsReader;
     private readonly IUserSettings _userSettings;
     private readonly IPushNotificationService _notifications; // used in release mode, don't remove
     private readonly ITelemetry _telemetry;
@@ -39,12 +33,9 @@ public partial class SettingsViewModel : ObservableObject
         IUserSettings userSettings,
         IPushNotificationService notifications,
         ITelemetry telemetry,
-        IAssetsReader assetsReader,
-        IImagePicker imagePicker,
         IQuickResumeService quickResumeService,
         IBackgroundTaskService backgroundTaskService,
         ISystemInfoProvider systemInfoProvider,
-        ILocalizer localizer,
         IIapService iapService,
         IUriLauncher uriLauncher,
         IAppStoreUpdater appStoreUpdater,
@@ -54,8 +45,6 @@ public partial class SettingsViewModel : ObservableObject
         _userSettings = userSettings;
         _notifications = notifications;
         _telemetry = telemetry;
-        _assetsReader = assetsReader;
-        _imagePicker = imagePicker;
         _quickResumeService = quickResumeService;
         _backgroundTaskService = backgroundTaskService;
         _iapService = iapService;
@@ -64,11 +53,6 @@ public partial class SettingsViewModel : ObservableObject
         _systemInfoProvider = systemInfoProvider;
         _dialogService = dialogService;
         _channelService = channelService;
-
-        if (systemInfoProvider.IsOnBatterySaver())
-        {
-            BackgroundImageDescription = "🥰 " + localizer.GetString("SettingsBackgroundDescription");
-        }
 
         _xboxDisplayModeSelectedIndex = (int)GetEnum(UserSettingsConstants.XboxSlideshowModeKey, SlideshowMode.Images);
         _channelTimerModeIndex = (int)GetEnum(UserSettingsConstants.ChannelTimerModeKey, ChannelTimerMode.None);
@@ -86,9 +70,6 @@ public partial class SettingsViewModel : ObservableObject
     private bool _manageSubscriptionVisible;
 
     [ObservableProperty]
-    private string _backgroundImageDescription = string.Empty;
-
-    [ObservableProperty]
     private int _xboxDisplayModeSelectedIndex;
 
     [ObservableProperty]
@@ -101,11 +82,6 @@ public partial class SettingsViewModel : ObservableObject
     [NotifyPropertyChangedFor(nameof(ChannelCountdownEnabled))]
     [NotifyPropertyChangedFor(nameof(ChannelFocusEnabled))]
     private int _channelTimerModeIndex;
-
-    /// <summary>
-    /// Paths to available background images.
-    /// </summary>
-    public ObservableCollection<string> ImagePaths { get; } = [];
 
     /// <summary>
     /// The current theme.
@@ -361,44 +337,6 @@ public partial class SettingsViewModel : ObservableObject
         {
             CurrentTheme = newTheme;
         }
-    }
-
-    [RelayCommand]
-    private async Task LoadImagesAsync()
-    {
-        if (ImagePaths.Count > 0)
-        {
-            return;
-        }
-
-        var paths = await _assetsReader.GetBackgroundsAsync();
-        foreach (var p in paths)
-        {
-            ImagePaths.Add(p);
-        }
-    }
-
-    [RelayCommand]
-    private async Task BrowseAsync()
-    {
-        string? imagePath = await _imagePicker.BrowseAsync();
-        if (imagePath == null)
-        {
-            return;
-        }
-
-        SelectImage(imagePath);
-    }
-
-    [RelayCommand]
-    private void SelectImage(string? imagePath)
-    {
-        if (imagePath?.Contains(NoneImageName) == true)
-        {
-            imagePath = string.Empty;
-        }
-
-        _userSettings.Set(UserSettingsConstants.BackgroundImage, imagePath);
     }
 
     [RelayCommand]

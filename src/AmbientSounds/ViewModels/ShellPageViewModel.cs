@@ -159,10 +159,6 @@ public partial class ShellPageViewModel : BaseShellPageViewModel
 
     public bool CanSaveMix => _soundMixService.CanSaveCurrentMix();
 
-    public string BackgroundImagePath => _userSettings.Get<string>(UserSettingsConstants.BackgroundImage) ?? string.Empty;
-
-    public bool ShowBackgroundImage => !string.IsNullOrEmpty(BackgroundImagePath);
-
     public void UpdateCanSave()
     {
         OnPropertyChanged(nameof(CanSaveMix));
@@ -342,13 +338,7 @@ public partial class ShellPageViewModel : BaseShellPageViewModel
     {
         _dispatcherQueue.TryEnqueue(() =>
         {
-            if (settingsKey == UserSettingsConstants.BackgroundImage)
-            {
-                OnPropertyChanged(nameof(ShowBackgroundImage));
-                OnPropertyChanged(nameof(BackgroundImagePath));
-                OnPropertyChanged(nameof(SidePanelMica));
-            }
-            else if (settingsKey == UserSettingsConstants.ShareLinkHidden)
+            if (settingsKey == UserSettingsConstants.ShareLinkHidden)
             {
                 OnPropertyChanged(nameof(ShareLinkVisible));
             }

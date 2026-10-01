@@ -15,10 +15,10 @@
     mc:Ignorable="d">
 
     <StackPanel>
-        <StackPanel.ChildrenTransitions>
+        <!--<StackPanel.ChildrenTransitions>
             <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
             <RepositionThemeTransition IsStaggeringEnabled="False" />
-        </StackPanel.ChildrenTransitions>
+        </StackPanel.ChildrenTransitions>-->
 
         <TextBlock
             Margin="1,0,0,5"
@@ -40,7 +40,7 @@
             </ComboBox>
         </labs:SettingsCard>
 
-        <labs:SettingsExpander
+        <!--<labs:SettingsExpander
             Margin="0,3,0,0"
             Description="{x:Bind ViewModel.BackgroundImageDescription, Mode=OneWay}"
             Header="{x:Bind strings:Resources.BackgroundImage}">
@@ -90,7 +90,7 @@
                 </labs:SettingsCard>
 
             </labs:SettingsExpander.Items>
-        </labs:SettingsExpander>
+        </labs:SettingsExpander>-->
 
         <TextBlock
             Margin="1,32,0,5"
