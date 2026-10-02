@@ -15,10 +15,10 @@
     mc:Ignorable="d">
 
     <StackPanel>
-        <!--<StackPanel.ChildrenTransitions>
+        <StackPanel.ChildrenTransitions>
             <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
             <RepositionThemeTransition IsStaggeringEnabled="False" />
-        </StackPanel.ChildrenTransitions>-->
+        </StackPanel.ChildrenTransitions>
 
         <TextBlock
             Margin="1,0,0,5"
