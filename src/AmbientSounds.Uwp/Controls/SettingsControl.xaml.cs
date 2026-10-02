@@ -28,14 +28,6 @@ public sealed partial class SettingsControl : UserControl
 
     public void Uninitialize() => ViewModel.Uninitialize();
 
-    private void OnImageClicked(object sender, ItemClickEventArgs e)
-    {
-        if (e.ClickedItem is string imagePath)
-        {
-            ViewModel.SelectImageCommand.Execute(imagePath);
-        }
-    }
-
     private void OnThemeSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         if (e.AddedItems is [ComboBoxItem c, ..] && c.Tag is string s)

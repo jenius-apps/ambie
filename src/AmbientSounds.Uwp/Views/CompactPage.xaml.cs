@@ -1,5 +1,4 @@
-﻿using AmbientSounds.Constants;
-using AmbientSounds.Services;
+﻿using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using JeniusApps.Common.Settings;
 using JeniusApps.Common.Telemetry;
@@ -36,8 +35,6 @@ public sealed partial class CompactPage : Page
 
     public CompactPageViewModel ViewModel => (CompactPageViewModel)this.DataContext;
 
-    private string BackgroundImagePath => _userSettings.Get<string>(UserSettingsConstants.BackgroundImage) ?? "http://localhost";
-
     protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
         App.Services.GetRequiredService<ICompactNavigator>().ContentFrame = CompactContentFrame;
@@ -55,8 +52,6 @@ public sealed partial class CompactPage : Page
         {
             await ViewModel.InitializeAsync(requestedViewMode);
         }
-
-        UpdateBackgroundState();
     }
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -77,15 +72,6 @@ public sealed partial class CompactPage : Page
         // This is required to avoid bugs with flipview index being changed
         // while the flipview is being populated.
         CompactContentFrame.Navigate(typeof(BlankPage));
-    }
-
-    private void UpdateBackgroundState()
-    {
-        bool backgroundImageActive = !string.IsNullOrEmpty(BackgroundImagePath);
-        if (backgroundImageActive)
-        {
-            //FindName(nameof(BackgroundImage));
-        }
     }
 
     private void TitleBarLayoutMetricsChanged(CoreApplicationViewTitleBar sender, object args)

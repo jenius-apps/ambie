@@ -492,24 +492,6 @@
 
             <controls:SplitView.MainContent>
                 <Grid x:Name="MainFrameBorder" Background="{ThemeResource DefaultPageBackgroundBrush}">
-                    <toolkit:ImageEx
-                        x:Name="BackgroundImage"
-                        x:Load="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}"
-                        IsCacheEnabled="True"
-                        Source="{x:Bind ViewModel.BackgroundImagePath, Mode=OneWay}"
-                        Stretch="UniformToFill" />
-                    <Rectangle
-                        x:Name="AcrylicLayer"
-                        x:Load="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}"
-                        Stretch="Fill">
-                        <Rectangle.Fill>
-                            <AcrylicBrush
-                                FallbackColor="{ThemeResource DefaultPageBackgroundColor}"
-                                TintColor="{ThemeResource DefaultPageBackgroundColor}"
-                                TintOpacity="0.8" />
-                        </Rectangle.Fill>
-                    </Rectangle>
-
                     <Grid
                         Height="{StaticResource TopPlayerPanelHeight}"
                         VerticalAlignment="Top"

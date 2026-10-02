@@ -4,6 +4,7 @@ using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -78,7 +79,9 @@ public partial class ChannelRowViewModel : ObservableObject
                 }
             }
 
-            IEnumerable<ChannelViewModel> sortedVmList = vmList.OrderBy(x => x.Name);
+            IEnumerable<ChannelViewModel> sortedVmList = _row.Id.Equals("new", StringComparison.OrdinalIgnoreCase)
+                ? vmList
+                : vmList.OrderBy(x => x.Name);
 
             foreach (ChannelViewModel vm in sortedVmList)
             {

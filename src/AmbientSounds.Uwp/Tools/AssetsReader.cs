@@ -28,16 +28,6 @@ public class AssetsReader : IAssetsReader
     }
 
     /// <inheritdoc/>
-    public async Task<IReadOnlyList<string>> GetBackgroundsAsync()
-    {
-        StorageFolder appInstalledFolder = Package.Current.InstalledLocation;
-        StorageFolder assets = await appInstalledFolder.GetFolderAsync("Assets");
-        StorageFolder backgrounds = await assets.GetFolderAsync("Backgrounds");
-        var images = await backgrounds.GetFilesAsync();
-        return images.Select(static x => $"ms-appx:///Assets/Backgrounds/{x.Name}").ToArray();
-    }
-
-    /// <inheritdoc/>
     public async Task<IReadOnlyList<string>> GetSoundEffectsAsync()
     {
         StorageFolder appInstalledFolder = Package.Current.InstalledLocation;

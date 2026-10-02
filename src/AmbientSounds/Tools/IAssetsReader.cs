@@ -11,11 +11,6 @@ namespace AmbientSounds.Tools;
 public interface IAssetsReader
 {
     /// <summary>
-    /// Retrieves list of paths for background images in Assets folder.
-    /// </summary>
-    Task<IReadOnlyList<string>> GetBackgroundsAsync();
-
-    /// <summary>
     /// Retrieves list of paths for sound effects in Assets folder.
     /// </summary>
     Task<IReadOnlyList<string>> GetSoundEffectsAsync();

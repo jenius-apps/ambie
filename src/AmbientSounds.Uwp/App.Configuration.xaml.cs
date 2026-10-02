@@ -173,7 +173,6 @@ partial class App
     [Singleton(typeof(ProtocolLaunchController))]
     [Transient(typeof(PushNotificationService), typeof(IPushNotificationService))]
     [Transient(typeof(WindowsPushNotificationSource), typeof(IPushNotificationSource))]
-    [Transient(typeof(ImagePicker), typeof(IImagePicker))]
     [Singleton(typeof(WindowsClipboard), typeof(IClipboard))]
     [Singleton(typeof(MicrosoftStoreRatings), typeof(IAppStoreRatings))]
     [Transient(typeof(TimerService), typeof(ITimerService))] // Must be transient because this is basically a timer factory

@@ -37,11 +37,6 @@ public static class UserSettingsConstants
     public const string RatingDismissed = "RatingDismissed";
 
     /// <summary>
-    /// Key to remember the user's background image.
-    /// </summary>
-    public const string BackgroundImage = "BackgroundImagePath";
-
-    /// <summary>
     /// Volume settings key.
     /// </summary>
     public const string Volume = "LastUsedVolume";
@@ -245,7 +240,6 @@ public static class UserSettingsConstants
         { CurrentUserId, string.Empty },
         { CurrentUserProviderId, string.Empty },
         { Theme, "default" },
-        { BackgroundImage, string.Empty },
         { HasRated, false },
         { RatingDismissed, DateTime.MinValue },
         { ResumeOnLaunchKey, false },
