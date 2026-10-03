@@ -136,6 +136,9 @@
     <Compile Include="Controls\ActiveTrackItem.xaml.cs">
       <DependentUpon>ActiveTrackItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ActiveTrackItemPlaceholder.xaml.cs">
+      <DependentUpon>ActiveTrackItemPlaceholder.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ActiveTrackList.xaml.cs">
       <DependentUpon>ActiveTrackList.xaml</DependentUpon>
     </Compile>
@@ -501,6 +504,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ActiveTrackItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ActiveTrackItemPlaceholder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -15,6 +15,7 @@
 
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="CustomAccentForegroundBrush" Color="#FFD67606" />
                     <LinearGradientBrush x:Key="ContentDialogBackdropGradientBrush" StartPoint="0.5,1" EndPoint="0.5,0">
                         <GradientStop Offset="0.0" Color="#FFFFFFFF" />
                         <GradientStop Offset="0.5" Color="#00FFFFFF" />
@@ -38,6 +39,7 @@
                         TintOpacity="0.8" />
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="Dark">
+                    <SolidColorBrush x:Key="CustomAccentForegroundBrush" Color="#FFFCC94E" />
                     <LinearGradientBrush x:Key="ContentDialogBackdropGradientBrush" StartPoint="0.5,1" EndPoint="0.5,0">
                         <GradientStop Offset="0" Color="#FF2B2B2B" />
                         <GradientStop Offset="0.5" Color="#002B2B2B" />
@@ -61,6 +63,7 @@
                         TintOpacity="0.8" />
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="HighContrast">
+                    <StaticResource x:Key="CustomAccentForegroundBrush" ResourceKey="SystemColorWindowTextColor" />
                     <StaticResource x:Key="ContentDialogBackdropGradientBrush" ResourceKey="SystemColorWindowColor" />
                     <StaticResource x:Key="DefaultPageBackgroundColor" ResourceKey="SystemColorWindowColor" />
                     <StaticResource x:Key="DefaultPageBackgroundBrush" ResourceKey="SystemColorWindowColor" />

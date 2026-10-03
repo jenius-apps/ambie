@@ -6,21 +6,13 @@
     xmlns:ex="using:JeniusApps.Common.UI.Uwp"
     Loaded="UserControl_Loaded"
     Unloaded="UserControl_Unloaded">
-
-    <UserControl.Resources>
-        <LinearGradientBrush x:Key="Gradient" StartPoint="0.5,1" EndPoint="0.5,0">
-            <GradientStop Offset="1" Color="#FFFCC94E" />
-            <GradientStop Offset="0" Color="#FFD67606" />
-        </LinearGradientBrush>
-    </UserControl.Resources>
-
     <StackPanel Orientation="Horizontal">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState>
                     <VisualState.Setters>
                         <Setter Target="DisplayTextBlock.Foreground" Value="{ThemeResource TextFillColorPrimaryBrush}" />
-                        <Setter Target="PlusDisplayTextBlock.Foreground" Value="{StaticResource Gradient}" />
+                        <Setter Target="PlusDisplayTextBlock.Foreground" Value="{ThemeResource CustomAccentForegroundBrush}" />
                     </VisualState.Setters>
                     <VisualState.StateTriggers>
                         <StateTrigger IsActive="{x:Bind IsWindowFocused, Mode=OneWay}" />
