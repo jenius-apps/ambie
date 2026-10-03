@@ -6,6 +6,7 @@ using System;
 using System.Windows.Input;
 using Windows.UI;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Media;
 
 #nullable enable
 
@@ -118,6 +119,15 @@ public sealed partial class ActiveTrackItem : ObservableUserControl
         }
 
         return Colors.Transparent;
+    }
+
+    private SolidColorBrush GetForeground(string theme)
+    {
+        var color = theme.Equals("light", StringComparison.OrdinalIgnoreCase)
+            ? UIHelper.ToDarkerColour(ColourHex, 0.1)
+            : UIHelper.ToLighterColour(ColourHex, 0.3);
+
+        return new SolidColorBrush(color);
     }
 
     public string CurrentTheme

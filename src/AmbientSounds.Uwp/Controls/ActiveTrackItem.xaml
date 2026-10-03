@@ -51,7 +51,7 @@
         <TextBlock
             Margin="12,8,0,0"
             FontSize="10"
-            Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+            Foreground="{x:Bind GetForeground(CurrentTheme), Mode=OneWay}"
             Text="{x:Bind SoundName, Mode=OneWay}"
             TextTrimming="CharacterEllipsis"
             ToolTipService.ToolTip="{x:Bind SoundName, Mode=OneWay}" />
@@ -74,6 +74,7 @@
             <FontIcon
                 FontFamily="{StaticResource FluentUIGlyphs}"
                 FontSize="12"
+                Foreground="{x:Bind GetForeground(CurrentTheme), Mode=OneWay}"
                 Glyph="{StaticResource GlyphCancel}" />
         </Button>
     </Grid>
