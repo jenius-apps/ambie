@@ -11,6 +11,7 @@
 
     <Grid
         Width="135"
+        Margin="0,1"
         VerticalAlignment="Stretch"
         BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}"
         BorderThickness="1"
