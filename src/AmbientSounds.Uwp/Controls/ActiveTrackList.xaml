@@ -30,44 +30,134 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Grid Visibility="{x:Bind ShowList, Mode=OneWay}">
-            <ListView
-                x:Uid="ActiveTrackListView"
-                Margin="12,0,0,0"
-                HorizontalAlignment="Center"
-                ItemsSource="{x:Bind ViewModel.ActiveTracks, Mode=OneWay}"
-                Loaded="OnListLoaded"
-                ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                ScrollViewer.HorizontalScrollMode="Auto"
-                ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                ScrollViewer.VerticalScrollMode="Disabled"
-                SelectionMode="None"
-                TabFocusNavigation="Local">
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Setter Property="Padding" Value="0,0,8,0" />
-                        <Setter Property="Margin" Value="0" />
-                        <Setter Property="VerticalContentAlignment" Value="Stretch" />
-                    </Style>
-                </ListView.ItemContainerStyle>
-                <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <VirtualizingStackPanel Orientation="Horizontal" />
-                    </ItemsPanelTemplate>
-                </ListView.ItemsPanel>
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="viewmodels:ActiveTrackViewModel">
-                        <local:ActiveTrackItem
-                            CloseCommand="{x:Bind RemoveCommand}"
-                            CloseCommandParameter="{x:Bind Sound}"
-                            ColourHex="{x:Bind ColourHex}"
-                            SoundName="{x:Bind Name}"
-                            Volume="{x:Bind Volume, Mode=TwoWay}" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <Grid HorizontalAlignment="Center" Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.IsPlaceholderVisible), Mode=OneWay}">
+                <StackPanel
+                    Margin="0,0,12,0"
+                    Orientation="Horizontal"
+                    Spacing="6">
+                    <local:ActiveTrackItemPlaceholder>
+                        <ani:Implicit.ShowAnimations>
+                            <ani:TranslationAnimation
+                                From="0,4,0"
+                                To="0"
+                                Duration="0:0:0.3" />
+                            <ani:ScaleAnimation
+                                From="0.98"
+                                To="1"
+                                Duration="0:0:0.3" />
+                            <ani:OpacityAnimation
+                                From="0"
+                                To="1"
+                                Duration="0:0:0.3" />
+                        </ani:Implicit.ShowAnimations>
+                    </local:ActiveTrackItemPlaceholder>
+                    <local:ActiveTrackItemPlaceholder>
+                        <ani:Implicit.ShowAnimations>
+                            <ani:TranslationAnimation
+                                Delay="0:0:0.05"
+                                From="0,4,0"
+                                To="0"
+                                Duration="0:0:0.3" />
+                            <ani:ScaleAnimation
+                                Delay="0:0:0.05"
+                                From="0.98"
+                                To="1"
+                                Duration="0:0:0.3" />
+                            <ani:OpacityAnimation
+                                Delay="0:0:0.05"
+                                From="0"
+                                To="1"
+                                Duration="0:0:0.3" />
+                        </ani:Implicit.ShowAnimations>
+                    </local:ActiveTrackItemPlaceholder>
+                    <local:ActiveTrackItemPlaceholder>
+                        <ani:Implicit.ShowAnimations>
+                            <ani:TranslationAnimation
+                                Delay="0:0:0.1"
+                                From="0,4,0"
+                                To="0"
+                                Duration="0:0:0.3" />
+                            <ani:ScaleAnimation
+                                Delay="0:0:0.1"
+                                From="0.98"
+                                To="1"
+                                Duration="0:0:0.3" />
+                            <ani:OpacityAnimation
+                                Delay="0:0:0.1"
+                                From="0"
+                                To="1"
+                                Duration="0:0:0.3" />
+                        </ani:Implicit.ShowAnimations>
+                    </local:ActiveTrackItemPlaceholder>
+                    <local:ActiveTrackItemPlaceholder Visibility="{x:Bind ViewModel.PremiumSlotsVisible, Mode=OneWay}">
+                        <ani:Implicit.ShowAnimations>
+                            <ani:TranslationAnimation
+                                Delay="0:0:0.15"
+                                From="0,4,0"
+                                To="0"
+                                Duration="0:0:0.3" />
+                            <ani:ScaleAnimation
+                                Delay="0:0:0.15"
+                                From="0.98"
+                                To="1"
+                                Duration="0:0:0.3" />
+                            <ani:OpacityAnimation
+                                Delay="0:0:0.15"
+                                From="0"
+                                To="1"
+                                Duration="0:0:0.3" />
+                        </ani:Implicit.ShowAnimations>
+                    </local:ActiveTrackItemPlaceholder>
+                    <local:ActiveTrackItemPlaceholder Visibility="{x:Bind ViewModel.PremiumSlotsVisible, Mode=OneWay}">
+                        <ani:Implicit.ShowAnimations>
+                            <ani:TranslationAnimation
+                                Delay="0:0:0.2"
+                                From="0,4,0"
+                                To="0"
+                                Duration="0:0:0.3" />
+                            <ani:ScaleAnimation
+                                Delay="0:0:0.2"
+                                From="0.98"
+                                To="1"
+                                Duration="0:0:0.3" />
+                            <ani:OpacityAnimation
+                                Delay="0:0:0.2"
+                                From="0"
+                                To="1"
+                                Duration="0:0:0.3" />
+                        </ani:Implicit.ShowAnimations>
+                    </local:ActiveTrackItemPlaceholder>
+                </StackPanel>
+
+                <ItemsControl
+                    x:Uid="ActiveTrackListView"
+                    ItemsSource="{x:Bind ViewModel.ActiveTracks, Mode=OneWay}"
+                    Loaded="OnListLoaded"
+                    TabFocusNavigation="Local">
+                    <ItemsControl.ItemContainerTransitions>
+                        <TransitionCollection>
+                            <RepositionThemeTransition />
+                        </TransitionCollection>
+                    </ItemsControl.ItemContainerTransitions>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" Spacing="4" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="viewmodels:ActiveTrackViewModel">
+                            <local:ActiveTrackItem
+                                CloseCommand="{x:Bind RemoveCommand}"
+                                CloseCommandParameter="{x:Bind Sound}"
+                                ColourHex="{x:Bind ColourHex}"
+                                SoundName="{x:Bind Name}"
+                                Volume="{x:Bind Volume, Mode=TwoWay}" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
 
             <StackPanel
-                Grid.Row="1"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"

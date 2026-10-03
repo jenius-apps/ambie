@@ -61,6 +61,9 @@ public partial class ActiveTrackListViewModel : ObservableObject
     [ObservableProperty]
     private string _selectSoundsPlaceholderText = string.Empty;
 
+    [ObservableProperty]
+    private bool _premiumSlotsVisible;
+
     /// <summary>
     /// List of active sounds being played.
     /// </summary>
@@ -95,7 +98,7 @@ public partial class ActiveTrackListViewModel : ObservableObject
         ActiveTracks.CollectionChanged += ActiveTracks_CollectionChanged;
         _iapService.ProductPurchased += OnProductPurchased;
 
-        await UpdateSoundsPlaceholderAsync();
+        await UpdatePremiumElementsAsync();
 
         if (ActiveTracks.Count > 0 || !_loadPreviousState)
         {
@@ -122,11 +125,15 @@ public partial class ActiveTrackListViewModel : ObservableObject
         OnPropertyChanged(nameof(IsPlaceholderVisible));
     }
 
-    private async Task UpdateSoundsPlaceholderAsync()
+    private async Task UpdatePremiumElementsAsync()
     {
-        SelectSoundsPlaceholderText = await _iapService.CanShowPremiumButtonsAsync()
+        bool isFreeTier = await _iapService.CanShowPremiumButtonsAsync();
+
+        SelectSoundsPlaceholderText = isFreeTier
             ? _localizer.GetString("SelectSoundsPlaceholder")
             : _localizer.GetString("SelectMoreSoundsPlaceholder");
+
+        PremiumSlotsVisible = !isFreeTier;
     }
 
     [RelayCommand]
@@ -235,7 +242,7 @@ public partial class ActiveTrackListViewModel : ObservableObject
     {
         _dispatcherQueue.TryEnqueue(async () =>
         {
-            await UpdateSoundsPlaceholderAsync();
+            await UpdatePremiumElementsAsync();
         });
     }
 }
