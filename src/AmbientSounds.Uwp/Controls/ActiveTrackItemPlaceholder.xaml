@@ -10,10 +10,13 @@
     mc:Ignorable="d">
 
     <Grid
-        Width="135"
-        Margin="0,1"
         VerticalAlignment="Stretch"
         BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}"
         BorderThickness="1"
-        CornerRadius="4" />
+        CornerRadius="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="36" />
+        </Grid.ColumnDefinitions>
+    </Grid>
 </UserControl>

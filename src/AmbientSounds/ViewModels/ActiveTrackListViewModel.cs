@@ -67,7 +67,9 @@ public partial class ActiveTrackListViewModel : ObservableObject
     /// <summary>
     /// List of active sounds being played.
     /// </summary>
-    public ObservableCollection<ActiveTrackViewModel> ActiveTracks { get; } = new();
+    public ObservableCollection<ActiveTrackViewModel> ActiveTracks { get; } = [];
+
+    public ObservableCollection<object> PlaceholderTracks { get; } = [];
 
     /// <summary>
     /// Determines if the clear button is visible.
@@ -134,6 +136,12 @@ public partial class ActiveTrackListViewModel : ObservableObject
             : _localizer.GetString("SelectMoreSoundsPlaceholder");
 
         PremiumSlotsVisible = !isFreeTier;
+
+        PlaceholderTracks.Clear();
+        foreach (int _ in Enumerable.Range(0, isFreeTier ? AppConstants.MaxFreeSoundCount : AppConstants.MaxPremiumSoundCount))
+        {
+            PlaceholderTracks.Add(new object());
+        }
     }
 
     [RelayCommand]
