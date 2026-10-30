@@ -33,7 +33,7 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="36" />
         </Grid.ColumnDefinitions>
 
         <Rectangle

@@ -17,8 +17,6 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     public const double EffectiveMuteVolume = 0.000001d;
     private const double DefaultFadeInDurationMs = 1000;
     private const double DefaultFadeOutDurationMs = 300;
-    private const int MaxFreeSoundCount = 3;
-    private const int MaxPremiumSoundCount = 5;
     private readonly Dictionary<string, IMediaPlayer> _activePlayers = [];
     private readonly Dictionary<string, string> _soundNames = [];
     private readonly Dictionary<string, DateTimeOffset> _activeSoundDateTimes = [];
@@ -333,7 +331,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
             soundIdRemoved = _activeSoundDateTimes.FirstOrDefault(x => x.Value == oldestTime).Key;
             RemoveSound(soundIdRemoved, raiseSoundRemoved: false);
 
-            if (maxcount == MaxFreeSoundCount)
+            if (maxcount == AppConstants.MaxFreeSoundCount)
             {
                 MaxFreeSoundsHit?.Invoke(this, EventArgs.Empty);
             }
@@ -608,6 +606,6 @@ public class MixMediaPlayerService : IMixMediaPlayerService
 
     private async Task<int> GetMaxActiveAsync()
     {
-        return await _iapService.CanShowPremiumButtonsAsync() ? MaxFreeSoundCount : MaxPremiumSoundCount;
+        return await _iapService.CanShowPremiumButtonsAsync() ? AppConstants.MaxFreeSoundCount : AppConstants.MaxPremiumSoundCount;
     }
 }
