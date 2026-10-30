@@ -31,11 +31,11 @@
         </VisualStateManager.VisualStateGroups>
         <Grid Visibility="{x:Bind ShowList, Mode=OneWay}">
             <ScrollViewer
-                Margin="0,-8"
+                Margin="0,0,0,-8"
                 HorizontalScrollBarVisibility="Auto"
                 VerticalScrollMode="Disabled"
                 Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.IsPlaceholderVisible), Mode=OneWay}">
-                <Grid Margin="0,8" HorizontalAlignment="Center">
+                <Grid Margin="0,0,0,8" HorizontalAlignment="Center">
                     <ItemsControl ItemsSource="{x:Bind ViewModel.PlaceholderTracks}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
