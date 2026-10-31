@@ -20,4 +20,10 @@ public class CatalogueRow : IAsset
 
     /// <inheritdoc/>
     public IReadOnlyList<string>? CategoryIds { get; init; } = [];
+
+    /// <summary>
+    /// Unused property. This CatalogueRow class will eventually be deleted and replaced,
+    /// but this property was added for temporary backwards compatibility for the IAsset interface.
+    /// </summary>
+    public string Id { get; set; } = string.Empty;
 }

@@ -6,6 +6,11 @@
 public interface IAsset : IHasLocalizations, IHasCategories
 {
     /// <summary>
+    /// A unique ID representing the asset.
+    /// </summary>
+    string Id { get; set; }
+
+    /// <summary>
     /// Name of asset.
     /// </summary>
     string Name { get; set; }
