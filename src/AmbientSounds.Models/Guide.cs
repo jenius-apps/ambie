@@ -112,6 +112,9 @@ public class Guide : IVersionedAsset, IEquatable<Guide>
     /// </summary>
     public string Extension { get; set; } = string.Empty;
 
+    /// <inheritdoc/>
+    public long PublishDateUtcTicks { get; init; }
+
     public override string ToString() => Name;
 
     public override bool Equals(object obj)

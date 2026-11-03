@@ -19,4 +19,10 @@ public interface IAsset : IHasLocalizations, IHasCategories
     /// Description of asset.
     /// </summary>
     string Description { get; set; }
+
+    /// <summary>
+    /// The UTC datetime when the asset was published,
+    /// represented in ticks.
+    /// </summary>
+    long PublishDateUtcTicks { get; init; }
 }
