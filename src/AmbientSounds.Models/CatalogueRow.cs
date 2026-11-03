@@ -26,4 +26,7 @@ public class CatalogueRow : IAsset
     /// but this property was added for temporary backwards compatibility for the IAsset interface.
     /// </summary>
     public string Id { get; set; } = string.Empty;
+
+    /// <inheritdoc/>
+    public long PublishDateUtcTicks { get; init; }
 }

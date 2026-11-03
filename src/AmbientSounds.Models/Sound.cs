@@ -151,6 +151,9 @@ public class Sound : IVersionedAsset
     public IReadOnlyList<string>? CategoryIds { get; init; } = [];
 
     /// <inheritdoc/>
+    public long PublishDateUtcTicks { get; init; }
+
+    /// <inheritdoc/>
     public override string ToString()
     {
         return Name;
