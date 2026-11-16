@@ -87,7 +87,7 @@ public class Channel : IAsset
     public IReadOnlyList<string>? CategoryIds { get; init; } = [];
 
     /// <inheritdoc/>
-    public long PublishDateUtcTicks { get; init; }
+    public long PublishDateUtcTicks { get; set; }
 }
 
 /// <summary>

@@ -24,5 +24,5 @@ public interface IAsset : IHasLocalizations, IHasCategories
     /// The UTC datetime when the asset was published,
     /// represented in ticks.
     /// </summary>
-    long PublishDateUtcTicks { get; init; }
+    long PublishDateUtcTicks { get; set; }
 }

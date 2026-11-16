@@ -113,7 +113,7 @@ public class Guide : IVersionedAsset, IEquatable<Guide>
     public string Extension { get; set; } = string.Empty;
 
     /// <inheritdoc/>
-    public long PublishDateUtcTicks { get; init; }
+    public long PublishDateUtcTicks { get; set; }
 
     public override string ToString() => Name;
 
