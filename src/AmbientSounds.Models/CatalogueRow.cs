@@ -28,5 +28,5 @@ public class CatalogueRow : IAsset
     public string Id { get; set; } = string.Empty;
 
     /// <inheritdoc/>
-    public long PublishDateUtcTicks { get; init; }
+    public long PublishDateUtcTicks { get; set; }
 }
